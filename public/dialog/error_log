@@ -1,0 +1,141 @@
+[15-May-2014 15:57:10 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[15-May-2014 15:57:10 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:30:21 Asia/Bangkok] PHP Warning:  move_uploaded_file(/IMG_6474.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:30:21 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpZFfHcJ' to '/IMG_6474.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:30:21 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:30:21 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:31:28 Asia/Bangkok] PHP Warning:  move_uploaded_file(/IMG_6474.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:31:28 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpcTxfId' to '/IMG_6474.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:31:28 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:31:28 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:43:57 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[16-May-2014 14:43:58 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:43:58 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:44:08 Asia/Bangkok] PHP Warning:  move_uploaded_file(/IMG_6474.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:44:08 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php8UzkcP' to '/IMG_6474.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:44:08 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:44:08 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:44:10 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[16-May-2014 14:44:10 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:44:10 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:56:21 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:56:21 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:56:34 Asia/Bangkok] PHP Warning:  move_uploaded_file(/66 copy.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:56:34 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php1dsNh1' to '/66 copy.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:56:34 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:56:34 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:56:38 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[16-May-2014 14:56:38 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:56:38 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 14:58:53 Asia/Bangkok] PHP Warning:  move_uploaded_file(/Deawoo.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:58:53 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phphzEGYU' to '/Deawoo.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 14:58:53 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 14:58:53 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 15:01:40 Asia/Bangkok] PHP Warning:  move_uploaded_file(/Deawoo.jpg.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:01:40 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpPOVUoQ' to '/Deawoo.jpg.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:01:40 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 15:01:40 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 15:03:13 Asia/Bangkok] PHP Warning:  move_uploaded_file(/deawo.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:03:13 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpIucuOh' to '/deawo.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:03:13 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 15:03:13 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 15:09:33 Asia/Bangkok] PHP Warning:  move_uploaded_file(/81.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:09:33 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpU1XuQS' to '/81.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:09:33 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 15:09:33 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[16-May-2014 15:12:12 Asia/Bangkok] PHP Warning:  move_uploaded_file(/42.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:12:12 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php6CNoLb' to '/42.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[16-May-2014 15:12:12 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[16-May-2014 15:12:12 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[17-May-2014 11:12:16 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[17-May-2014 11:12:16 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[17-May-2014 11:20:50 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[17-May-2014 11:20:50 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[17-May-2014 11:20:50 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[17-May-2014 11:40:04 Asia/Bangkok] PHP Warning:  move_uploaded_file(/bk 007.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 11:40:04 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php4NaVCT' to '/bk 007.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 11:40:04 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[17-May-2014 11:40:04 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[17-May-2014 11:52:52 Asia/Bangkok] PHP Warning:  move_uploaded_file(/bk 007.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 11:52:52 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php5t8Ht1' to '/bk 007.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 11:52:52 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[17-May-2014 11:52:52 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[17-May-2014 14:53:07 Asia/Bangkok] PHP Warning:  move_uploaded_file(/ck 007.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 14:53:07 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpKTyb6b' to '/ck 007.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[17-May-2014 14:53:07 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[17-May-2014 14:53:07 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[19-May-2014 14:41:30 Asia/Bangkok] PHP Warning:  move_uploaded_file(/mickey-and-minnie.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[19-May-2014 14:41:30 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpVvdnBR' to '/mickey-and-minnie.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[19-May-2014 14:41:30 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[19-May-2014 14:41:30 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 10:23:05 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV _ Ảnh Giới Thiệu 1.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 10:23:05 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpJ4TUh3' to '/SNV _ Ảnh Giới Thiệu 1.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 10:23:05 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 10:23:05 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 10:27:23 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[20-May-2014 11:19:53 Asia/Bangkok] PHP Warning:  move_uploaded_file(/chan dung 3.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 11:19:53 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php83udKZ' to '/chan dung 3.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 11:19:53 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 11:19:53 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 11:19:57 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[20-May-2014 11:19:57 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 11:19:57 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 14:04:46 Asia/Bangkok] PHP Warning:  move_uploaded_file(/nguoi nan to he new.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 14:04:46 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpDfO5AO' to '/nguoi nan to he new.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 14:04:46 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 14:04:46 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 14:47:25 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[20-May-2014 14:47:25 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 14:47:25 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 14:47:55 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[20-May-2014 14:47:55 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 14:47:55 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 15:22:43 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV- Thú Mascot.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 15:22:43 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpa7QxjF' to '/SNV- Thú Mascot.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 15:22:44 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 15:22:44 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[20-May-2014 15:23:58 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV- Thú Mascot 1.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 15:23:58 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php22o0te' to '/SNV- Thú Mascot 1.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[20-May-2014 15:23:58 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[20-May-2014 15:23:58 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[21-May-2014 11:06:37 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[21-May-2014 11:06:43 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[21-May-2014 14:54:43 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV_ Tím Hồng.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[21-May-2014 14:54:43 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpHu9wNr' to '/SNV_ Tím Hồng.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[21-May-2014 14:54:43 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[21-May-2014 14:54:43 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[22-May-2014 10:30:44 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[22-May-2014 17:04:34 Asia/Bangkok] PHP Warning:  move_uploaded_file(/ck 022.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[22-May-2014 17:04:34 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpCQrlQr' to '/ck 022.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[22-May-2014 17:04:34 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[22-May-2014 17:04:34 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[23-May-2014 11:56:49 Asia/Bangkok] PHP Warning:  move_uploaded_file(/chụp hình tại nhà 2.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 11:56:49 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpO3X5gs' to '/chụp hình tại nhà 2.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 11:56:49 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[23-May-2014 11:56:49 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[23-May-2014 14:56:30 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[23-May-2014 14:56:30 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[23-May-2014 14:56:30 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[23-May-2014 14:57:11 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV_Xiếc thú.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 14:57:11 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpg1QIc8' to '/SNV_Xiếc thú.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 14:57:11 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[23-May-2014 14:57:11 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[23-May-2014 15:00:46 Asia/Bangkok] PHP Warning:  strstr(): Empty needle in /home/ho4c02/public_html/dialog/action.php on line 20
+[23-May-2014 15:00:46 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[23-May-2014 15:00:46 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[23-May-2014 15:00:58 Asia/Bangkok] PHP Warning:  move_uploaded_file(/SNV_Xiếc thú.JPG): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 15:00:58 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php7uJ7SS' to '/SNV_Xiếc thú.JPG' in /home/ho4c02/public_html/dialog/action.php on line 35
+[23-May-2014 15:00:58 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[23-May-2014 15:00:58 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[24-May-2014 16:32:55 Asia/Bangkok] PHP Warning:  move_uploaded_file(/49.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[24-May-2014 16:32:55 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpY1hu8e' to '/49.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[24-May-2014 16:32:55 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[24-May-2014 16:32:55 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[29-May-2014 11:25:25 Asia/Bangkok] PHP Warning:  move_uploaded_file(/cay thong fotoshop.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[29-May-2014 11:25:25 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpL4pkEn' to '/cay thong fotoshop.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[29-May-2014 11:25:25 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[29-May-2014 11:25:25 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
+[29-May-2014 14:26:30 Asia/Bangkok] PHP Warning:  move_uploaded_file(/mua giang sinh.jpg): failed to open stream: Permission denied in /home/ho4c02/public_html/dialog/action.php on line 35
+[29-May-2014 14:26:30 Asia/Bangkok] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpSQkFLj' to '/mua giang sinh.jpg' in /home/ho4c02/public_html/dialog/action.php on line 35
+[29-May-2014 14:26:30 Asia/Bangkok] PHP Warning:  scandir(): Directory name cannot be empty in /home/ho4c02/public_html/dialog/lib.php on line 30
+[29-May-2014 14:26:30 Asia/Bangkok] PHP Warning:  Invalid argument supplied for foreach() in /home/ho4c02/public_html/dialog/lib.php on line 31
