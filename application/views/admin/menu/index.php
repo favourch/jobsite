@@ -32,28 +32,31 @@
 					<div class="box-content">
 					<div class="thanh-xuly">
 				<a href="<?php echo admin_url('menu/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
-				<a class="btn btn-small btn-danger"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 					</div>
+					<form name="theForm" id="theForm" action="<?php echo admin_url('menu/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-							  	  <th><input type="checkbox" name="checkall" value=""></th>
+						<th style="width: 5%;"><input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" value=""></th>
 								  <th>Tiêu đề menu</th>
-								  <th>Trỏ đến danh mục tin</th>
-								  <th>Trỏ đến danh mục sản phẩm</th>
-								  <th>Thứ tự</th>
-								  <th>Status</th>
+								  <th style="width: 10%;">Thứ tự</th>
+								  <th style="width: 10%;">Status</th>
+								  <th style="width: 10%;">Tùy chọn</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 						  <?php foreach($list as $row) : ?>
 							<tr>
-								<td><input type="checkbox" name="id[]" value="<?php echo $row->id ?>"></td>
+								<td><input type="checkbox" name="id[]" value="<?php echo $row->id; ?>"></td>
 								<td><?php echo $row->name; ?></td>
-								<td class="center"><?php echo $row->link; ?></td>
 								<td class="center"><?php echo $row->is_order; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<?php if($row->is_online==1): ?>
+									<span class="label label-success">Actived</span>
+								<?php else: ?>
+									<span class="label label-important">Offline</span>
+								<?php endif; ?>
 								</td>
 								<td class="center">
 					<a class="btn btn-small btn-info" href="<?php echo admin_url('menu/edit/'.$row->id); ?>">
@@ -67,7 +70,13 @@
 							</tr>
 						<?php endforeach; ?>
 						  </tbody>
-					  </table>            
+					  </table>  
+					  </form>
+					    <div class="span12 center">
+					  <div class="pagination">
+					  <?php echo $this->pagination->create_links(); ?>
+					  </div>
+					 </div>           
 					</div>
 				</div><!--/span-->
 			

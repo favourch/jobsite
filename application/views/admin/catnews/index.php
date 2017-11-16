@@ -29,26 +29,7 @@
 </div>
 </div>
 </div>
-<div style="float: left; padding-right: 15px;">
-<div class="control-group">
-<div class="controls">
-<select data-placeholder="Lọc theo danh mục" name="category_id" id="selectError2" data-rel="chosen">
-<option value=""></option>
-<?php foreach ($category as $row): ?>
-<?php if(count($row->subs) > 0 ): ?>
-<optgroup label="<?php echo $row->name; ?>">
-<?php foreach($row->subs as $sub): ?>
-<option value="<?php echo $sub->id; ?>" <?php echo ($this->input->get('category_id') == $sub->id) ? "selected" : "" ?> ><?php echo $sub->name; ?></option>
-<?php endforeach; ?>
-</optgroup>
-<?php else: ?>
-<option value="<?php echo $row->id; ?>" <?php echo ($this->input->get('category_id') == $row->id) ? "selected" : "" ?> ><?php echo $row->name; ?></option>
-<?php endif; ?>
-<?php endforeach; ?>
-</select>
-</div>
-</div>
-</div>
+
 <script type="text/javascript">
 	function resetall(){
 		window.location.href= <?php echo admin_url('catnews'); ?>
@@ -78,14 +59,17 @@
 				<a href="<?php echo admin_url('catnews/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
 				
 				<span class="list_action" id="list_action">
-				<a class="btn btn-small btn-danger" url="<?php echo admin_url('catnews/delete_all')?>" id="submit" href="#submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();" id="submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 				</span>
 
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('catnews/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead class="filter">
 							  <tr>
-							  	  <th><input type="checkbox" name="titleCheck" id="titleCheck" ></th>
+							  	  <th>
+							  	  <input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" >
+							  	  </th>
 								  <th>Tên danh mục</th>
 								  <th>Cat-name</th>
 								  <th>Thứ tự</th>
@@ -120,6 +104,7 @@
 						<?php endforeach; ?>
 						  </tbody>
 					  </table>  
+					  </form>
 					  <div class="span12 center">
 					  <div class="pagination">
 					  <?php echo $this->pagination->create_links(); ?>

@@ -115,5 +115,32 @@ Class City extends MY_Controller{
 		redirect(admin_url('city'));
 	}
 
+	function delete_all()
+    {
+        $ids = $this->input->post('id[]');
+        foreach ($ids as $id)
+        {
+            $this->_del($id);
+        }
+        $this->session->set_flashdata('message','Xóa tùy chọn thành công');
+        redirect(admin_url('city'));
+    }
+    
+    /*
+     *Xoa san pham
+     */
+    private function _del($id)
+    {
+        $city = $this->city_model->get_info($id);
+        if(!$city)
+        {
+            //tạo ra nội dung thông báo
+            $this->session->set_flashdata('message', 'không tồn tại sản phẩm này');
+            redirect(admin_url('city'));
+        }
+        //thuc hien xoa san pham
+        $this->city_model->deleteOne($id);
+    }
+
 
 }//end class

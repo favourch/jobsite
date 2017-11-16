@@ -31,12 +31,14 @@
 					</div>
 					<div class="box-content">
 					<div class="thanh-xuly">
-				<a class="btn btn-small btn-danger"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('contact/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-							  	  <th><input type="checkbox" name="checkall" value=""></th>
+							  	  <th>
+							  	  <input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" value=""></th>
 								  <th>Ngày gửi</th>
 								  <th>Người gửi</th>
 								  <th>Tiêu đề</th>
@@ -45,7 +47,7 @@
 							  </tr>
 						  </thead>   
 						  <tbody>
-						  <?php foreach($contact as $row) : ?>
+						  <?php foreach($list as $row) : ?>
 							<tr>
 								<td><input type="checkbox" name="id[]" value="<?php echo $row->id ?>"></td>
 								<td><?php echo int_to_date($row->created); ?></td>
@@ -71,7 +73,13 @@
 							</tr>
 						<?php endforeach; ?>
 						  </tbody>
-					  </table>            
+					  </table>   
+					  </form>
+					  <div class="span12 center">
+					  <div class="pagination">
+					  <?php echo $this->pagination->create_links(); ?>
+					  </div>
+					 </div>               
 					</div>
 				</div><!--/span-->
 			

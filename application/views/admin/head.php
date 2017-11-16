@@ -32,3 +32,34 @@
 			<style type="text/css">
 			body { background: url(<?php echo public_url();?>/admin/img/bg-login.jpg) !important; }
 		</style>
+<script type="text/javascript">
+		function check_all() {
+	 var fmobj = document.theForm;
+	 for (var i=0;i<fmobj.elements.length;i++) {
+		 var e = fmobj.elements[i];
+		 if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+			 e.checked = fmobj.allbox.checked;
+		 }
+	 }
+	 return true;
+	}
+
+	 function xacnhanDelete(){
+	var total = 0;
+	var fmobj = document.theForm;
+	for (var i=0;i<fmobj.elements.length;i++) {
+	 var e = fmobj.elements[i];
+	 if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+		 if (e.checked) total++;
+	 }
+	}
+	if (total==0){ 
+		alert('Chưa có đối tượng nào được chọn!');
+		return false;
+	}
+   if (confirm("Bạn có thực sự muốn xóa [OK]:Yes [Cancel]:No?")) {
+		document.theForm.submit();
+		return true;
+	}
+   }
+</script>

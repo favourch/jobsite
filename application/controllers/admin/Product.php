@@ -259,5 +259,32 @@ Class Product extends MY_Controller{
 		redirect(admin_url('product'));
 	}
 
+	function delete_all()
+    {
+        $ids = $this->input->post('id[]');
+        foreach ($ids as $id)
+        {
+            $this->_del($id);
+        }
+        $this->session->set_flashdata('message','Xóa tùy chọn thành công');
+        redirect(admin_url('product'));
+    }
+   
+    /*
+     *Xoa san pham
+     */
+    private function _del($id)
+    {
+        $product = $this->product_model->get_info($id);
+        if(!$product)
+        {
+            //tạo ra nội dung thông báo
+            $this->session->set_flashdata('message', 'không tồn tại sản phẩm này');
+            redirect(admin_url('product'));
+        }
+        //thuc hien xoa san pham
+        $this->product_model->deleteOne($id);
+    }
+
 
 }//end class

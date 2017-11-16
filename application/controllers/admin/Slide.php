@@ -134,7 +134,34 @@ Class Slide extends MY_Controller{
 		}
 		$this->slide_model->deleteOne($id);
 		$this->session->set_flashdata('message','Xóa dữ liệu thành công');
-		redirect(admin_url('news'));
+		redirect(admin_url('slide'));
 	}
+
+	function delete_all()
+    {
+        $ids = $this->input->post('id[]');
+        foreach ($ids as $id)
+        {
+            $this->_del($id);
+        }
+        $this->session->set_flashdata('message','Xóa tùy chọn thành công');
+        redirect(admin_url('slide'));
+    }
+    
+    /*
+     *Xoa san pham
+     */
+    private function _del($id)
+    {
+        $slide = $this->slide_model->get_info($id);
+        if(!$slide)
+        {
+            //tạo ra nội dung thông báo
+            $this->session->set_flashdata('message', 'không tồn tại sản phẩm này');
+            redirect(admin_url('slide'));
+        }
+        //thuc hien xoa san pham
+        $this->slide_model->deleteOne($id);
+    }
 
 }//end class

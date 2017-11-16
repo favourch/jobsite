@@ -1,3 +1,11 @@
+<script type="text/javascript">
+	function check_del(){
+		if (confirm("Bạn có thực sự muốn xóa [OK]:Yes [Cancel]:No?")) {
+        return true;
+    	}
+    	else{ return false;}
+		}
+</script>
 <div id="content" class="span10">
 <ul class="breadcrumb">
 				<li>
@@ -24,12 +32,14 @@
 					<div class="box-content">
 					<div class="thanh-xuly">
 				<a href="<?php echo admin_url('admin/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
-				<a class="btn btn-small btn-danger"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('admin/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-							  	  <th><input type="checkbox" name="checkall" value=""></th>
+							  	  <th>
+							  	  <input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" value=""></th>
 								  <th>Tên người dùng</th>
 								  <th>Tên tài khoản</th>
 								  <th>Địa chỉ</th>
@@ -51,7 +61,7 @@
 					<a class="btn btn-small btn-info" href="<?php echo admin_url('admin/edit/'.$row->id); ?>">
 					<i class="halflings-icon white edit"></i>  
 					</a>
-					<a class="btn btn-small btn-danger" href="<?php echo admin_url('admin/del/'.$row->id); ?>">
+					<a class="btn btn-small btn-danger" href="<?php echo admin_url('admin/del/'.$row->id); ?>" onclick="return check_del();">
 					<i class="halflings-icon white trash"></i>  
 					</a>
 									
@@ -59,7 +69,13 @@
 							</tr>
 						<?php endforeach; ?>
 						  </tbody>
-					  </table>            
+					  </table> 
+					  </form>
+					  <div class="span12 center">
+					  <div class="pagination">
+					  <?php echo $this->pagination->create_links(); ?>
+					  </div>
+					 </div>                   
 					</div>
 				</div><!--/span-->
 			

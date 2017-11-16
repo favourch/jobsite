@@ -5,52 +5,6 @@
     	}
     	else{ return false;}
 		}
-
-	(function($)
-	{
-	$(document).ready(function()
-	{
-		//xoa nhieu du lieu
-		var $list_action 	= $('.list_action');//tim toi the co class = list_action
-		$list_action.find('#submit').click(function(){ //tim toi the co id = submit,su kien click
-			if(!confirm('Bạn chắc chắn muốn xóa tất cả dữ liệu ?'))
-			{
-				return false;
-			}
-			
-			var ids = new Array();
-			$('[name="id[]"]:checked').each(function()
-			{
-				ids.push($(this).val());
-			});
-			
-			if (!ids.length) return false;
-			
-			//link xoa du lieu
-		    var url  = $(this).attr('url');
-		   
-			//ajax để xóa
-			$.ajax({
-				url: url,
-				type: 'POST',
-				data : {'ids': ids},
-				success: function()
-				{
-					$(ids).each(function(id, val)
-					{
-						//xoa cac the <tr> chua danh muc tung ung
-						$('tr.row_'+val).fadeOut();			
-					});
-				}
-				
-			})
-			return false;
-		});
-		
-		
-
-	});
-	});
 </script>
 
 <div id="content" class="span10">
@@ -124,16 +78,17 @@
 				<a href="<?php echo admin_url('news/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
 				
 				<span class="list_action" id="list_action">
-				<a class="btn btn-small btn-danger" url="<?php echo admin_url('news/delete_all')?>" id="submit" href="#submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();" id="submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 				</span>
 
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('news/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead class="filter">
 							  <tr>
-							  	  <th><input type="checkbox" name="titleCheck" id="titleCheck" ></th>
+							  	  <th>
+							  	  <input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" ></th>
 								  <th>Tiêu đề</th>
-								  <th>Thuộc danh mục</th>
 								  <th>Hình ảnh</th>
 								  <th>Status</th>
 								  <th>Ngày tạo</th>
@@ -143,11 +98,8 @@
 						  <tbody class="list_item">
 						 <?php foreach($list as $row) : ?>
 							<tr class="row_<?php echo $row->id; ?>">
-								<td><input type="checkbox" id="filter_id" name="id[]" value="<?php echo $row->id ?>"></td>
+								<td><input type="checkbox" id="" name="id[]" value="<?php echo $row->id ?>"></td>
 								<td><?php echo $row->title ?></td>
-								<td>
-								ssaf
-								</td>
 								<td class="center"><img src="<?php echo base_url('uploads/news/'.$row->image) ?>" width="70"></td>
 								<td class="center">
 									<?php if($row->status==1): ?>
@@ -170,6 +122,7 @@
 						<?php endforeach; ?>
 						  </tbody>
 					  </table>  
+					  </form>
 					  <div class="span12 center">
 					  <div class="pagination">
 					  <?php echo $this->pagination->create_links(); ?>

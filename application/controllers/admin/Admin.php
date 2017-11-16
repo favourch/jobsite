@@ -7,13 +7,35 @@ Class Admin extends MY_Controller{
 	}
 	// page home admin
 	function index(){
+		$this->load->library('pagination');
+		$total_row = $this->admin_model->get_total();
+		$this->data['total_row'] = $total_row;
+		$config = array();
+		$config['base_url']    = admin_url('admin/index');
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 10;
+		$config['uri_segment'] = 4;
+		$config['next_link']   = "Next page";
+		$config['prev_link']   = "Prev page";
+		$this->pagination->initialize($config);
+		$segment = $this->uri->segment(4);
+		$segment = intval($segment);
+
 		$input = array();
+		$input["limit"] = array($config['per_page'], $segment);
+		$input['where'] = array();
+		$name = $this->input->get('name');
+		if($name){
+			$input['like'] = array('name', $name);
+		}
+
 		$list = $this->admin_model->get_list($input);
 		$this->data['list'] = $list;
-
-		// lấy ra nội dung biến message
+		
+		//thông báo dữ liệu
 		$message = $this->session->flashdata('message');
 		$this->data['message'] = $message;
+
 		$this->data['temp'] = 'admin/admin/index';
 		$this->load->view('admin/main', $this->data);
 	}
@@ -158,35 +180,45 @@ Class Admin extends MY_Controller{
 
 		$admin_id = $this->uri->rsegment('3');
 		$admin_id = intval($admin_id);
-		$cond = "admin_id = '$admin_id'";
-
 		//lấy thông tin quản trị viên
-		$info = $this->admin_model->get_info($cond);
+		$info = $this->admin_model->get_info($admin_id);
 		if(!$info){
 			$this->session->set_flashdata('message', 'Không tồn tại tài khoản này !');
 			redirect(admin_url('admin'));
 		}
-		$this->data['info'] = $info;
-		
-		if($this->input->post()){
 
-			if($this->admin_model->deleteOne($cond)){
+				$this->admin_model->deleteOne($admin_id);
 				$this->session->set_flashdata('message', 'Xóa dữ liệu thành công !');
-			}
-			else{
-					$this->session->set_flashdata('message', 'Xóa dữ liệu thành công !');
-				}
-			//chuyển sang trang danh sách admin
 				redirect(admin_url('admin'));
-
 		}
 
 
-
-		$this->data['temp'] = 'admin/admin/del';
-		$this->load->view('admin/main', $this->data);
-		}
-
+		function delete_all()
+    {
+        $ids = $this->input->post('id[]');
+        foreach ($ids as $id)
+        {
+            $this->_del($id);
+        }
+        $this->session->set_flashdata('message','Xóa tùy chọn thành công');
+        redirect(admin_url('admin'));
+    }
+    
+    /*
+     *Xoa san pham
+     */
+    private function _del($id)
+    {
+        $admin = $this->admin_model->get_info($id);
+        if(!$admin)
+        {
+            //tạo ra nội dung thông báo
+            $this->session->set_flashdata('message', 'không tồn tại sản phẩm này');
+            redirect(admin_url('admin'));
+        }
+        //thuc hien xoa san pham
+        $this->admin_model->deleteOne($id);
+    }
 	
 	
 }//  end class

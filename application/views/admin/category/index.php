@@ -4,7 +4,8 @@
         return true;
     	}
     	else{ return false;}
-		}
+	}
+
 </script>
 
 <div id="content" class="span10">
@@ -14,7 +15,7 @@
 					<a href="index.html">Home Panel</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="#">Quản lý danh mục sản phẩm</a></li>
+				<li><a href="#">Quản lý danh mục giáo viên</a></li>
 			</ul>
 
 			<?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?>
@@ -33,12 +34,13 @@
 					<div class="box-content">
 					<div class="thanh-xuly">
 				<a href="<?php echo admin_url('category/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
-				<a class="btn btn-small btn-danger"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('category/delete_all')?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-							  	  <th><input type="checkbox" name="checkall" value=""></th>
+							  	  <th><input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" value=""></th>
 								  <th>Tiêu đề danh mục</th>
 								  <th>Cat_name</th>
 								  <th>Thứ tự</th>
@@ -48,12 +50,16 @@
 						  <tbody>
 						 <?php foreach($list as $row) : ?>
 							<tr>
-								<td><input type="checkbox" name="admin_id[]" value="<?php echo $row->id ?>"></td>
+								<td><input type="checkbox" name="id[]" value="<?php echo $row->id ?>"></td>
 								<td><?php echo $row->name ?></td>
-								<td class="center"><?php echo $row->cat_name ?></td>
-								<td class="center"><?php echo $row->is_order ?></td>
+								<td class="center"><?php echo $row->cat_name; ?></td>
+								<td class="center"><?php echo $row->is_order; ?></td>
 								<td class="center">
-									<span class="label label-success">Active</span>
+									<?php if($row->is_online==1): ?>
+									<span class="label label-success">Actived</span>
+								<?php else: ?>
+									<span class="label label-important">Offline</span>
+								<?php endif; ?>
 								</td>
 								<td class="center">
 					<a class="btn btn-small btn-info" href="<?php echo admin_url('category/edit/'.$row->id); ?>">
@@ -63,11 +69,18 @@
 					<i class="halflings-icon white trash"></i>  
 					</a>
 									
-								</td>
-							</tr>
-						<?php endforeach; ?>
+					</td>
+					</tr>
+					<?php endforeach; ?>
+
 						  </tbody>
-					  </table>            
+					  </table>  
+					  </form> 
+					  <div class="span12 center">
+					  <div class="pagination">
+					  <?php echo $this->pagination->create_links(); ?>
+					  </div>
+					 </div>       
 					</div>
 				</div><!--/span-->
 			

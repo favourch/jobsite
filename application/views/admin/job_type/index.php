@@ -6,6 +6,36 @@
     	else{ return false;}
 		}
 
+function check_all() {
+	 var fmobj = document.theForm;
+	 for (var i=0;i<fmobj.elements.length;i++) {
+		 var e = fmobj.elements[i];
+		 if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+			 e.checked = fmobj.allbox.checked;
+		 }
+	 }
+	 return true;
+	}
+
+	 function xacnhanDelete(){
+	var total = 0;
+	var fmobj = document.theForm;
+	for (var i=0;i<fmobj.elements.length;i++) {
+	 var e = fmobj.elements[i];
+	 if ((e.name != 'allbox') && (e.type=='checkbox') && (!e.disabled)) {
+		 if (e.checked) total++;
+	 }
+	}
+	if (total==0){ 
+		alert('Chưa có đối tượng nào được chọn!');
+		return false;
+	}
+   if (confirm("Bạn có thực sự muốn xóa [OK]:Yes [Cancel]:No?")) {
+		document.theForm.submit();
+		return true;
+	}
+   }
+
 </script>
 
 <div id="content" class="span10">
@@ -21,7 +51,7 @@
 			<?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?>
 
 <div class="thanhtimkiem">
-<form method="GET" action="<?php echo admin_url('slide'); ?>">
+<form method="GET" action="<?php echo admin_url('job_type'); ?>">
 <div class="span12">
 <div style="float: left; padding-right: 15px;">
 <div class="control-group">
@@ -59,23 +89,25 @@
 				<a href="<?php echo admin_url('job_type/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
 				
 				<span class="list_action" id="list_action">
-				<a class="btn btn-small btn-danger" url="<?php echo admin_url('job_type/delete_all')?>" id="submit" href="#submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 				</span>
-
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('job_type/delete_all')?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead class="filter">
 							  <tr>
-							  	  <th><input type="checkbox" name="titleCheck" id="titleCheck" ></th>
+							  	  <th style="width: 5%">
+							  	  <input type="checkbox" name="allbox" id="allbox" onClick="return check_all();" >
+							  	  </th>
 								  <th>Tiêu đề</th>
-								  <th>Status</th>
-								  <th>Cấu hình</th>
+								  <th style="width: 10%">Trạng thái</th>
+								  <th style="width: 15%;">Tùy chọn</th>
 							  </tr>
 						  </thead>   
 						  <tbody class="list_item">
 						 <?php foreach($list as $row) : ?>
 							<tr class="row_<?php echo $row->id; ?>">
-								<td><input type="checkbox" id="filter_id" name="id[]" value="<?php echo $row->id ?>"></td>
+								<td><input type="checkbox" id="" name="id[]" value="<?php echo $row->id; ?>"></td>
 								<td><?php echo $row->name ?></td>
 								<td class="center">
 									<?php if($row->status==1): ?>
@@ -97,6 +129,7 @@
 						<?php endforeach; ?>
 						  </tbody>
 					  </table>  
+					  </form>
 					  <div class="span12 center">
 					  <div class="pagination">
 					  <?php echo $this->pagination->create_links(); ?>

@@ -82,9 +82,9 @@ var editor = CKEDITOR.replace( 'editor4',
 	<script src="<?php echo public_url(); ?>admin/js/jquery.flot.stack.js"></script>
 	<script src="<?php echo public_url(); ?>admin/js/jquery.flot.resize.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.chosen.min.js"></script>	
-
+		<!--
 		<script src="<?php echo public_url(); ?>admin/js/jquery.uniform.min.js"></script>	
-			
+			-->
 		<script src="<?php echo public_url(); ?>admin/js/jquery.cleditor.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.noty.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.elfinder.min.js"></script>	

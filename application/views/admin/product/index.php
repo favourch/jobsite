@@ -78,14 +78,15 @@
 				<a href="<?php echo admin_url('product/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
 				
 				<span class="list_action" id="list_action">
-				<a class="btn btn-small btn-danger" url="<?php echo admin_url('product/delete_all')?>" id="submit" href="#submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
+				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();" id="submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 				</span>
-
 					</div>
+				<form name="theForm" id="theForm" action="<?php echo admin_url('product/delete_all'); ?>" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead class="filter">
 							  <tr>
-							  	  <th><input type="checkbox" name="titleCheck" id="titleCheck" ></th>
+							  	  <th>
+							  	  <input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" ></th>
 								  <th>Tên sản phẩm</th>
 								  <th>Hình ảnh</th>
 								  <th>Giá</th>
@@ -121,7 +122,8 @@
 							</tr>
 						<?php endforeach; ?>
 						  </tbody>
-					  </table>  
+					  </table> 
+					  </form> 
 					  <div class="span12 center">
 					  <div class="pagination">
 					  <?php echo $this->pagination->create_links(); ?>
