@@ -32,7 +32,8 @@
 						<li><a href="<?php echo admin_url('slide'); ?>"><i class="icon-picture"></i><span class="hidden-tablet"> Slide</span></a></li>
 						<li><a href="<?php echo admin_url('contact'); ?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Liên hệ</span> <span class="label label-important"> <?php echo $total_contact; ?> </span></a> </li>
 
-						<li><a href="<?php echo admin_url('setting'); ?>"><i class="icon-star"></i><span class="hidden-tablet"> Cấu hình</span></a></li>
+						<li><a href="<?php echo admin_url('setting'); ?>"><i class="icon-cog"></i><span class="hidden-tablet"> Cấu hình</span></a></li>
+						<li><a href="<?php echo admin_url('tags'); ?>"><i class="icon-tags"></i><span class="hidden-tablet"> Tags cloude</span></a></li>
 						<li><a href="<?php echo admin_url('admin'); ?>"><i class="icon-lock"></i><span class="hidden-tablet"> Tài khoản quản trị</span></a></li>
 					</ul>
 				</div>

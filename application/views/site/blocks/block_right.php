@@ -36,15 +36,10 @@
 							<div class="blog-tags-widget blog-widget">
 								<h6>Tags</h6>
 								<ul class="blog-tags flex no-column list-unstyled">
-									<li><a href="#0" class="button button-xs grey">Jobpress</a></li>
-									<li><a href="#0" class="button button-xs grey">Recruiter</a></li>
-									<li><a href="#0" class="button button-xs grey">Interview</a></li>
-									<li><a href="#0" class="button button-xs grey">Employee</a></li>
-									<li><a href="#0" class="button button-xs grey">Labor</a></li>
-									<li><a href="#0" class="button button-xs grey">HR</a></li>
-									<li><a href="#0" class="button button-xs grey">Freelancer</a></li>
-									<li><a href="#0" class="button button-xs grey">Slaray</a></li>
-									<li><a href="#0" class="button button-xs grey">Employer</a></li>
+									<?php foreach($tagscloud as $row) : ?>
+									<li><a href="<?php echo $row->link ?>" class="button button-xs grey"><?php echo $row->name; ?></a></li>
+									<?php endforeach; ?>
+									
 								</ul>
 							</div> <!-- end .blog-tags-widget -->
 

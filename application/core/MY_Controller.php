@@ -59,6 +59,11 @@ Class MY_Controller extends CI_Controller{
 					$input['limit'] = array(5,0);
 					$relatenews = $this->news_model->get_list($input);
 					$this->data['relatenews'] = $relatenews; 
+
+					$this->load->model('tags_model');
+					$input['where'] = array('status'=>1);
+					$tagscloud = $this->tags_model->get_list($input);
+					$this->data['tagscloud'] = $tagscloud;
 					
 					//kiểm tra thành viên đăng nhập
 					$user_id_login = $this->session->userdata('user_id_login');
