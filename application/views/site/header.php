@@ -7,7 +7,7 @@
                         <div class="navigation">
                             <nav class="main-nav">
                                 <ul class="list-unstyled">
-                                    <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
+                                    <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>                                   
                                     <?php foreach($menu_list as $row): ?>
                                     <?php if(!empty($row->subs)) : ?>
                                     <li class="menu-item-has-children">
@@ -21,11 +21,15 @@
                                         </ul>                                   
                                     </li>
                                 <?php else: ?>
-                            <li><a href="<?php echo base_url('news/catnews/'.$row->cat_id); ?>" >
-                            <?php echo $row->name; ?></a></li>
+                            <li>
+                                <a href="<?php echo base_url('news/catnews/'.$row->cat_id); ?>" >
+                            <?php echo $row->name; ?></a>
+                        </li>
                                 <?php endif; ?>
                                 <?php endforeach; ?>
-                              
+                              <li>
+                              <a href="<?php echo base_url('contact'); ?>">Liên hệ</a></li>   
+                              </li>
                                   
                                 </ul>
                             </nav> <!-- end .main-nav -->
