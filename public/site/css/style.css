@@ -1998,6 +1998,9 @@ select::-ms-expand {
     border-radius: 3px;
     border: none;	
 }
+.login-signup-modal .modal-header{
+	background: #1650e3;
+}
 .login-signup-modal .modal-body {
     padding: 20px 15px;	
 }
@@ -6394,4 +6397,63 @@ h2.job-post-success {
 		-ms-flex-preferred-size: auto;
 		flex-basis: auto;
 	}
+}
+/* ==========================================================================
+  	Candidate
+   ========================================================================== */
+.r-dropdown {
+    position: relative;
+	display: inline-block;
+	height: 35px;
+}
+
+.dropdown-content {
+    display: none;
+	position: absolute;
+	background: #222329;	
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+	z-index: 1;
+	top: 35px;
+}
+
+.r-dropdown:hover .dropdown-content {
+    display: block;
+}
+.r-dropdown.first .button {
+    border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+    border-right: 1px solid #0c44d1;
+}
+.r-dropdown.last .button {
+    border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 50px;
+    border-bottom-right-radius:50px;
+    border-left: 1px solid #215bee;
+}
+.r-dropdown > .dropdown-content a{
+	font-size: 12px;
+	background: none;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #627199;
+    background: #222329;
+    min-width: 220px;
+	display: block;
+	border-bottom: 1px solid #2f3036;
+	padding: 0 20px;
+	-webkit-transition: .3s;
+	-o-transition: .3s;
+	transition: .3s;
+	text-transform: capitalize;
+}
+.r-dropdown >.dropdown-content a:hover{
+	background: #1b1b21;
+	color: #fff;
 }
