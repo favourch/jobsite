@@ -6457,3 +6457,30 @@ h2.job-post-success {
 	background: #1b1b21;
 	color: #fff;
 }
+
+
+.candidate-register-wrapper{
+	background-color: #ffffff;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.candidate-register-wrapper button[type='submit']{
+	color: #fff;
+	background-color: #1650e3;    
+	font-weight: 700;
+	line-height: 14px;
+	border: none;
+	border-radius: 3px;
+    padding: 13px 21px;
+    font-size: 14px;
+}
+.candidate-register-wrapper button[type='submit']:hover{
+	background: #003cd4;
+}
+.candidate-register-wrapper select{
+	border: 1px solid #ccc;    
+}
+.candidate-register-wrapper label{
+	color: #627199;
+}
