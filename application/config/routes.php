@@ -57,7 +57,7 @@ $route['dang-ky'] = 'user/register';
 $route['dang-nhap'] = 'user/login';
 //rewrite danh muc san pham
 // $2 chinh laf bien :num (category_id)
-$route['(:any)-c(:num)'] = 'product/category/$2';
+$route['(:any)-d(:num)'] = 'product/category/$2';
 $route['(:any)-p(:num)'] = 'product/detail/$2';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';

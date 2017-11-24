@@ -81,6 +81,7 @@
         <script src="<?php echo public_url(); ?>/site/js/jquery-3.1.1.min.js" ></script>
         <!-- Bootstrap -->
         <script src="<?php echo public_url(); ?>/site/js/bootstrap.min.js" ></script>
+        <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>
         <!-- google maps -->
         <script src="../../maps.googleapis.com/maps/api/js-key=AIzaSyAy-PboZ3O_A25CcJ9eoiSrKokTnWyAmt8.js"></script>
         <!-- Owl Carousel -->

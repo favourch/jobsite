@@ -294,67 +294,23 @@
                 <div class="container">
                     <h1 class="light">Browse Categories</h1>
                     <div class="category-grid">                 
-                        <div class="category-row flex no-wrap space-between items-center">
+                        <div class="category-row space-between items-center">
+                            <?php foreach($category_home as $row) : ?>
+                            <?php $catname = $row->cat_name; ?>
                             <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon01.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon01.png" alt="category-icon" class="img-responsive">
-                                <h4>Finance</h4>
+                               <a href="<?php echo base_url($catname.'-d'.$row->id); ?>"> <img src="<?php echo public_url(); ?>/site/images/category-icon09.png" alt="" class="img-responsive"></a>
+                                <h4><?php echo $row->name; ?></h4>
                                 <p class="light">4286 Jobs</p>
                             </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon02.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon02.png" alt="category-icon" class="img-responsive">
-                                <h4>Construction</h4>
-                                <p class="light">452 Jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon03.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon03.png" alt="category-icon" class="img-responsive">
-                                <h4>Logistics</h4>
-                                <p class="light">1867 Jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon04.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon04.png" alt="category-icon" class="img-responsive">
-                                <h4>Art/Design</h4>
-                                <p class="light">3094 jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon05.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon05.png" alt="category-icon" class="img-responsive">
-                                <h4>Sales/Marketing</h4>
-                                <p class="light">2955 jobs</p>
-                            </div> <!-- end .item -->
+                        <?php endforeach; ?>
+                         
                         </div> <!-- end .category-row -->
 
-                        <div class="category-row flex no-wrap space-between items-center">
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon06.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon06.png" alt="category-icon" class="img-responsive">
-                                <h4>Science</h4>
-                                <p class="light">470 Jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon07.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon07.png" alt="category-icon" class="img-responsive">
-                                <h4>Technologies</h4>
-                                <p class="light">4536 Jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon08.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon08.png" alt="category-icon" class="img-responsive">
-                                <h4>Healthcare</h4>
-                                <p class="light">2619 Jobs</p>
-                            </div> <!-- end .item -->   
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon09.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon09.png" alt="category-icon" class="img-responsive">
-                                <h4>Education/Training</h4>
-                                <p class="light">1132 jobs</p>
-                            </div> <!-- end .item -->
-                            <div class="item">
-                                <img src="<?php echo public_url(); ?>/site/images/category-icon10.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/category-icon10.png" alt="category-icon" class="img-responsive">
-                                <h4>Food Services</h4>
-                                <p class="light">757 jobs</p>
-                            </div> <!-- end .item -->
-                        </div> <!-- end .category-row -->
+                     
                     </div>  <!-- end .category-grid -->         
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->
-            <div class="background-text">
-                <h1>Categories</h1>
-            </div> <!-- end .background-text -->    
+ 
         </div> <!-- end .section -->
 
         <!-- Latest Jobs Section -->
@@ -601,50 +557,28 @@
             <div class="inner">
                 <div class="container">
                     <div class="section-top-content flex items-center">
-                        <h1>Latest News</h1>
-                        <a href="blog-list.html" tppabs="http://jobpress.wecookcode.com/demo/blog-list.html">View all news<i class="ion-ios-arrow-thin-right"></i></a>
+                        <h1>Tin tức nổi bật</h1>
+                        <a href="blog-list.html">Xem tất cả<i class="ion-ios-arrow-thin-right"></i></a>
                     </div> <!-- end .section-top-content -->
                     <div class="news-grid">
                         <div class="news-grid-row flex space-between">
+                            
+                        <?php foreach($newshome_list as $row): ?>
+                            <?php $newsname = $row->news_name; ?>
                             <div class="news-item">
-                                <img src="<?php echo public_url(); ?>/site/images/news-grid01.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/news-grid01.jpg" alt="news-thumbnail" class="img-responsive">
+                                <img src="<?php echo base_url('uploads/news/'.$row->image); ?>" alt="" class="img-responsive">
                                 <div class="news-content">
                                     <div class="news-meta flex no-column">
-                                        <h6><a href="#0" class="news-author">Nancy watson</a></h6>
-                                        <h6 class="publish-date">20.02.2017</h6>
-                                        <h6><a href="#0" class="comment-count">5 comments</a></h6>
+                                        <h6 class="publish-date"><?php echo int_to_date($row->created); ?></h6>
+                                        <h6><a href="#0" class="comment-count"><?php echo $row->view; ?> Lượt xem</a></h6>
                                     </div> <!-- end .news-meta -->
-                                    <h3 class="news-title">Tips to write an impressive resume online for beginner</h3>
-                                    <p class="news-excerpt">Morbi ac eros feugiat, lacinia elit ut, elementum turpis. Curabitur justo sapien tempus.</p>
-                                    <a href="blog-single-fullwidth-image.html" tppabs="http://jobpress.wecookcode.com/demo/blog-single-fullwidth-image.html" class="button">Read More</a>
+                                    <h3 class="news-title"><?php echo $row->title; ?></h3>
+                                    <p class="news-excerpt"><?php echo $row->description; ?></p>
+                                    <a href="<?php echo base_url($newsname.'-'.$row->id.'.html'); ?>" class="button">Đọc tiếp</a>
                                 </div> <!-- end .news-content -->
                             </div> <!-- end .news-item -->
-                            <div class="news-item">
-                                <img src="<?php echo public_url(); ?>/site/images/news-grid02.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/news-grid02.jpg" alt="news-thumbnail" class="img-responsive">
-                                <div class="news-content">
-                                    <div class="news-meta flex no-column">
-                                        <h6><a href="#0" class="news-author">Nancy watson</a></h6>
-                                        <h6 class="publish-date">20.02.2017</h6>
-                                        <h6><a href="#0" class="comment-count">5 comments</a></h6>
-                                    </div> <!-- end .news-meta -->
-                                    <h3 class="news-title">Let's explore 5 cool new features in JobPress theme</h3>
-                                    <p class="news-excerpt">Morbi ac eros feugiat, lacinia elit ut, elementum turpis. Curabitur justo sapien tempus.</p>
-                                    <a href="blog-single-fullwidth-image.html" tppabs="http://jobpress.wecookcode.com/demo/blog-single-fullwidth-image.html" class="button">Read More</a>
-                                </div> <!-- end .news-content -->
-                            </div> <!-- end .news-item -->
-                            <div class="news-item">
-                                <img src="<?php echo public_url(); ?>/site/images/news-grid03.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/news-grid03.jpg" alt="news-thumbnail" class="img-responsive">
-                                <div class="news-content">
-                                    <div class="news-meta flex no-column">
-                                        <h6><a href="#0" class="news-author">Nancy watson</a></h6>
-                                        <h6 class="publish-date">20.02.2017</h6>
-                                        <h6><a href="#0" class="comment-count">5 comments</a></h6>
-                                    </div> <!-- end .news-meta -->
-                                    <h3 class="news-title">How to convince recuiters and get your dream job</h3>
-                                    <p class="news-excerpt">Morbi ac eros feugiat, lacinia elit ut, elementum turpis. Curabitur justo sapien tempus.</p>
-                                    <a href="blog-single-fullwidth-image.html" tppabs="http://jobpress.wecookcode.com/demo/blog-single-fullwidth-image.html" class="button">Read More</a>
-                                </div> <!-- end .news-content -->
-                            </div> <!-- end .news-item -->
+                        <?php endforeach; ?>
+
                         </div>  <!-- end .news-grid-row -->                     
                     </div> <!-- end .news-grid -->
                 </div> <!-- end .container -->  
@@ -655,27 +589,15 @@
         <div class="section clients-section solid-grey-bg">
             <div class="inner">
                 <div class="container">
-                    <h1 class="section-title">Clients & Partners</h1>
+                    <h1 class="section-title">Đối tác & Khách hàng</h1>
                     <div class="logo-grid">
                         <div class="logo-grid-row flex space-between">
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo01.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo01.png" alt="client-company-logo" class="img-responsive self-center">
+                           <?php foreach($partners as $row): ?>
+                            <div class="logo-item">
+                               <a href="<?php echo $row->link; ?>" target="_blank"> <img src="<?php echo base_url('uploads/partner/'.$row->image); ?>"  alt="" class="img-responsive self-center">
                             </div> <!-- end .logo-item -->
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo02.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo02.png" alt="client-company-logo" class="img-responsive self-center">
-                            </div> <!-- end .logo-item -->
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo03.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo03.png" alt="client-company-logo" class="img-responsive self-center">
-                            </div> <!-- end .logo-item -->                          
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo04.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo04.png" alt="client-company-logo" class="img-responsive self-center">
-                            </div> <!-- end .logo-item -->
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo05.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo05.png" alt="client-company-logo" class="img-responsive self-center">
-                            </div> <!-- end .logo-item -->                          
-                            <div class="logo-item flex">
-                                <img src="<?php echo public_url(); ?>/site/images/client-logo06.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/client-logo06.png" alt="client-company-logo" class="img-responsive self-center">
-                            </div> <!-- end .logo-item -->
+                        <?php endforeach; ?>
+                           
                         </div> <!-- end .logo-grid-row -->
                     </div> <!-- end .logo-grid -->
                 </div> <!-- end .container -->

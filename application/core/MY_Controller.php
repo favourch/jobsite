@@ -65,13 +65,15 @@ Class MY_Controller extends CI_Controller{
 					$tagscloud = $this->tags_model->get_list($input);
 					$this->data['tagscloud'] = $tagscloud;
 					
-					//kiểm tra thành viên đăng nhập
-					$user_id_login = $this->session->userdata('user_id_login');
-					$this->data['user_id_login'] = $user_id_login;
+
+
+					//kiểm tra thành viên candidate đăng nhập
+					$user_id = $this->session->userdata('candidate_id_login');
+					$this->data['user_id'] = $user_id;
 					//nếu đăng nhập thành công thì lấy thông tin thành viên
-					if($user_id_login){
-						$this->load->model('user_model');
-						$user_info = $this->user_model->get_info($user_id_login);
+					if($user_id){
+						$this->load->model('member_candidate_model');
+						$user_info = $this->member_candidate_model->get_info($user_id);
 						$this->data['user_info'] = $user_info;
 					}
 

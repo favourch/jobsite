@@ -48,8 +48,8 @@
 
 /* ============== Typography ============== */
 
-@import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css")/*tpa=https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700*/;
-@import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css")/*tpa=https://fonts.googleapis.com/css?family=Lato:100,300,400,500*/;
+@import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
+@import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css");
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
@@ -61,9 +61,19 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-overflow-scrolling:touch;
 }
+.profile-experience{
+	border-bottom: 1px dotted #ccc;
+	margin-bottom: 15px;
+}
+.txtarea{
+	height: 100px;
+	resize: none;
+	color: #000;
+}
+
 a {
-	color: #a0a7ba;
-	font-weight: 700;
+	
+	
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
@@ -436,13 +446,14 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	display: block;
 	width: 100%;
 	line-height: 50px;
-	height: 50px;
+	height: 40px;
 	font-size: 16px;
 	color: #000000;
 	font-weight: 500;
 	padding: 0 16px;
 	outline: none !important;
 	font-family: 'Lato', sans-serif;
+	border: 1px solid #cfcfcf;
 }
 ::-webkit-input-placeholder {
 	color: #627199;
@@ -457,7 +468,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	color: #627199;
 }
 textarea {
-	height: auto !important;
+
 }
 .checkbox {
   padding-left: 20px;
@@ -1455,10 +1466,10 @@ select::-ms-expand {
 	text-align: center;
 	-webkit-box-flex: 0;
 	-ms-flex: 0 20%;
-	flex: 0 20%;
+	float: left;;
 	padding: 30px 10px;
-	position: relative;
-	max-width: 20%;
+	
+	width: 20%;
 	cursor: pointer;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
@@ -1489,10 +1500,7 @@ select::-ms-expand {
 	top: -200px;
 	left: -2px;
 	bottom: 0;
-	border: 1px solid rgba(46, 98, 230, 0);
-	height: 100vh;
-	-webkit-box-shadow: 1px 0px 0px #2e62e6;
-	box-shadow: 1px 0px 0px #2e62e6;
+
 }
 .category-grid .category-row .item:last-of-type:after {
 	right: 0;
@@ -3338,9 +3346,10 @@ select::-ms-expand {
 	left: 0;
 }
 .profile-section .profile-title {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	padding: 0;
 	line-height: 20px;
+	color: #c00;
 }
 .profile-section .profile-title>span {
      padding-left: 15px;

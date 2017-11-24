@@ -10,7 +10,7 @@ Class member_register extends MY_Controller{
 	function check_email(){
 		$email = $this->input->post('email');
 		$where = array('email'=> $email);
-		if($this->member_company_model->check_exits($where)){
+		if($this->member_candidate_model->check_exits($where)){
 			//trả về thông báo lỗi
 			$this->form_validation->set_message(__FUNCTION__,'Email đã tồn tại !');
 			return false;
@@ -21,31 +21,43 @@ Class member_register extends MY_Controller{
 	}
 
 	function register(){
-
+		$this->load->model('city_model');
+		$input = array();
+		$thanhpho = $this->city_model->get_list($input);
+		$this->data['thanhpho'] = $thanhpho;
+		
 		if($this->input->post()){
+			$this->form_validation->set_rules('name','Tên đầy đủ','required|min_length[6]');
 			$this->form_validation->set_rules('email','Địa chỉ email','required|valid_email|callback_check_email');
+			$this->form_validation->set_rules('phone','Số điện thoại','required|min_length[6]|numeric');
+			$this->form_validation->set_rules('address','Địa chỉ','required|min_length[6]');
+			$this->form_validation->set_rules('city','Địa điểm','required');
 			$this->form_validation->set_rules('password','Mật khẩu','required|min_length[6]');
 			$this->form_validation->set_rules('repassword','Nhập lại mật khẩu','matches[password]');
 			if($this->form_validation->run()){
+				$name = $this->input->post('name');
 				$email = $this->input->post('email');
 				$password = $this->input->post('password');
 				$password = md5($password);
-				$member_name = $this->input->post('member_name');
+				$phone = $this->input->post('phone');
+				$address = $this->input->post('address');
+				$city = $this->input->post('city');
+				$sex = $this->input->post('sex');
+				$birthday = $this->input->post('birthday');
 				$data = array(
+					'name'=>$name,
 					'email'=>$email,
 					'password'=>$password,
+					'phone'=>$phone,
+					'address'=>$address,
+					'city'=>$city,
+					'sex' => $sex,
+					'birthday' => $birthday,
 					'created' =>now()
 					);
-			if($member_name=='tuyendung'){
-			$this->member_company_model->create($data);
-			redirect(base_url());
-
-			}
-			elseif($member_name=='ungvien') {
+		
 			$this->member_candidate_model->create($data);
-			redirect(base_url('candidate/login'));
-			}
-			
+			redirect(base_url());			
 		}
 	}
 

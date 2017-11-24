@@ -13,13 +13,21 @@
 								<li><a class="submenu" href="<?php echo admin_url('level'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Cấp bậc</span></a></li>
 							</ul>	
 						</li>
+						<li><a href="<?php echo admin_url('candidate'); ?>"><i class="icon-user"></i><span class="hidden-tablet"> Ứng viên</span></a></li>
 						<li><a href="<?php echo admin_url('menu'); ?>"><i class="icon-tasks"></i><span class="hidden-tablet"> Menu</span></a></li>
 						<!--
 						
 						<li><a href="<?php echo admin_url('product'); ?>"><i class="icon-dashboard"></i><span class="hidden-tablet"> Sản phẩm</span></a></li>
 						-->
-						<li><a href="<?php echo admin_url('catnews'); ?>"><i class="icon-align-justify"></i><span class="hidden-tablet"> Danh mục tin tức</span></a></li>
-						<li><a href="<?php echo admin_url('news'); ?>"><i class="icon-list-alt"></i><span class="hidden-tablet"> Tin tức</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Quản lý tin tức</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo admin_url('catnews'); ?>"><i class="icon-align-justify"></i><span class="hidden-tablet"> Danh mục tin </span></a></li>
+								<li><a class="submenu" href="<?php echo admin_url('news'); ?>"><i class="icon-list-alt"></i><span class="hidden-tablet"> Bài viết</span></a></li>
+							</ul>	
+						</li>
+
+						
 						<!--
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Đơn hàng</span></a>
@@ -30,6 +38,7 @@
 						</li>
 						-->
 						<li><a href="<?php echo admin_url('slide'); ?>"><i class="icon-picture"></i><span class="hidden-tablet"> Slide</span></a></li>
+						<li><a href="<?php echo admin_url('partners'); ?>"><i class="icon-question-sign"></i><span class="hidden-tablet"> Đối tác & khách hàng</span></a></li>
 						<li><a href="<?php echo admin_url('contact'); ?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Liên hệ</span> <span class="label label-important"> <?php echo $total_contact; ?> </span></a> </li>
 
 						<li><a href="<?php echo admin_url('setting'); ?>"><i class="icon-cog"></i><span class="hidden-tablet"> Cấu hình</span></a></li>

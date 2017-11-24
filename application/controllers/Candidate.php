@@ -55,10 +55,68 @@ Class Candidate extends MY_Controller{
 		$this->data['user'] = $user;
 		$message = $this->session->flashdata('message');
 		$this->data['message'] = $message;
+		//Sửa mô tả bản thân
+		$mota= $this->input->post('mt');
+		if($mota == 'ok'){
+			$this->form_validation->set_rules('description','Mô tả','required');
+			if($this->form_validation->run()){
+				$description = $this->input->post('description');
+				$data = array(
+					'description' =>$description
+				);
+				$this->member_candidate_model->update($user_id,$data);
+	
+				redirect(base_url('candidate/view'));
+			}
+		}
+
+			//Thêm kinh nghiệm làm việc
+			$kinhnghiem = $this->input->post('kn');
+			$this->load->model('work_experience_model');
+			if($kinhnghiem == 'ok'){
+			$this->form_validation->set_rules('company_name','Tên công ty','required');
+			if($this->form_validation->run()){
+				
+				$desc = $this->input->post('desc');
+				$company_name = $this->input->post('company_name');
+				$position = $this->input->post('position');
+				$from_date = $this->input->post('from_date');
+				$to_date = $this->input->post('to_date');
+				$data2 = array(
+					'company_name' => $company_name,
+					'position' => $position,
+					'from_date' => $from_date,
+					'to_date' => $to_date,
+					'candidate_id'=>$user_id,
+					'description' => $desc
+					);
+				$this->work_experience_model->create($data2);
+			}
+
+			}
+			$input = array();
+			$input['where'] = array('candidate_id'=>$user->id);
+			$knlamviec = $this->work_experience_model->get_list($input);
+			$this->data['knlamviec'] = $knlamviec;
 
 
 		$this->data['temp'] = 'site/candidate/view';
 		$this->load->view('site/layout',$this->data);
 	}
 
+	function del_kn(){
+		$this->load->model('work_experience_model');
+		$id = $this->uri->rsegment(3);
+		$id = intval($id);
+		$this->work_experience_model->deleteOne($id);
+		redirect(base_url('candidate/view'));
+
+	}
+
+	function logout(){
+		if($this->session->userdata('candidate_id_login')){
+				$this->session->unset_userdata('candidate_id_login');
+				redirect(base_url('candidate/login'));
+			}
+	}
 }
