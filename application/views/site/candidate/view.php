@@ -21,10 +21,10 @@
 
 						<div class="left-sidebar-menu">							
 							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">Quản lý tài khoản</li>
+								<li class="heading">Quản lý tài khoản d</li>
 
 							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
-							    <li><a data-toggle="pill" href="#bookmarked-jobs">Cập nhật tài khoản</a></li>
+							    <li><a data-toggle="pill" href="#my-candidate">Cập nhật tài khoản</a></li>
 							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
 							    <li class="nav-divider"></li>
