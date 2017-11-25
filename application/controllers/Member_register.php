@@ -45,7 +45,7 @@ Class member_register extends MY_Controller{
 				$gender = $this->input->post('gender');
 				$birthday = $this->input->post('birthday');
 				$data = array(
-					'name'=>$name,
+					'full_name'=>$name,
 					'email'=>$email,
 					'password'=>$password,
 					'phone'=>$phone,
