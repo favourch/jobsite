@@ -42,7 +42,7 @@ Class member_register extends MY_Controller{
 				$phone = $this->input->post('phone');
 				$address = $this->input->post('address');
 				$city = $this->input->post('city');
-				$sex = $this->input->post('sex');
+				$gender = $this->input->post('gender');
 				$birthday = $this->input->post('birthday');
 				$data = array(
 					'name'=>$name,
@@ -51,7 +51,7 @@ Class member_register extends MY_Controller{
 					'phone'=>$phone,
 					'address'=>$address,
 					'city'=>$city,
-					'sex' => $sex,
+					'gender' => $gender,
 					'birthday' => $birthday,
 					'created' =>now()
 					);
