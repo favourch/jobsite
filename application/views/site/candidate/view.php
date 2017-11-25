@@ -5,7 +5,7 @@
 					<div class="breadcrumb-menu flex items-center no-column">
 						
 						<div class="breadcrumb-info-dashboard">
-							<h2><?php echo $user_info->name; ?></h2>
+							<h2><?php echo $user_info->full_name; ?></h2>
 							<h4><?php echo $user_info->email; ?></h4>
 						</div> <!-- end .candidate-info -->
 					</div> <!-- end .breadcrumb-menu -->
@@ -231,7 +231,7 @@
 												<img src="images/candidate-big01.jpg" alt="candidate-picture" class="img-responsive">
 											</div> <!-- end .user-picture -->
 											<div class="profile-meta">
-												<h4 class="dark"><?php echo $user_info->name; ?></h4>
+												<h4 class="dark"><?php echo $user_info->full_name; ?></h4>
 												<p>UI/UX Designer</p>
 												<div class="profile-contact flex items-center no-wrap no-column">
 													<h6 class="contact-location">Manhattan,<span>NYC, USA</span></h6>

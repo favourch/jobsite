@@ -34,7 +34,7 @@
                         <?php if(!isset($user_info)): ?>
                         <div class="button-group-merged flex no-column">
                                 <div class="r-dropdown first">
-                                        <a href="post-job-form.html" tppabs="http://jobpress.wecookcode.com/demo/post-job-form.html" class="button">Nhà tuyển dụng</a>
+                                        <a href="post-job-form.html" class="button">Nhà tuyển dụng</a>
                                         <div class="dropdown-content">
                                         <a href="#register" data-toggle="modal" data-target="#login-signup-popup-2">Đăng nhập</a>
                                         <a href="#">Đăng ký</a>
@@ -51,7 +51,7 @@
                         </div> <!-- end .button-group-merged -->
                     <?php else: ?>
                         <div class="button-group-merged flex no-column">
-                            <a href="<?php echo base_url('candidate/view'); ?>" class="button"><?php echo $user_info->name; ?></a>
+                            <a href="<?php echo base_url('candidate/view'); ?>" class="button"><?php echo $user_info->full_name; ?></a>
                             <a href="<?php echo base_url('candidate/logout'); ?>" class="button">Đăng xuất</a>
                         </div> <!-- end .button-group-merged -->
                     <?php endif; ?>

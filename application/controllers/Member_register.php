@@ -50,10 +50,10 @@ Class member_register extends MY_Controller{
 					'password'=>$password,
 					'phone'=>$phone,
 					'address'=>$address,
-					'city'=>$city,
+					'city_id'=>$city,
 					'gender' => $gender,
 					'birthday' => $birthday,
-					'created' =>now()
+					'created_date' =>now()
 					);
 		
 			$this->member_candidate_model->create($data);
