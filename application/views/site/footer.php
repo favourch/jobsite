@@ -104,4 +104,9 @@
         <!-- Magnific-Popup -->
         <script src="<?php echo public_url(); ?>/site/js/jquery.magnific-popup.js"></script>
         <!-- Scripts.js -->
-        <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script>
+        <!-- <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script> -->
+<script>
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'    
+});
+</script>
