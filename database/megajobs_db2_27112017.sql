@@ -455,10 +455,10 @@ INSERT INTO `literacy` (`id`, `name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map_cadidate_recruitment`
+-- Table structure for table `map_candidate_recruitment`
 --
 
-CREATE TABLE `map_cadidate_recruitment` (
+CREATE TABLE `map_candidate_recruitment` (
   `id` int(11) NOT NULL,
   `candidate_id` int(11) NOT NULL COMMENT 'id ứng viên',
   `recruitment_id` int(11) NOT NULL COMMENT 'id tin tuyển dụng',
