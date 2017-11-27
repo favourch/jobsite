@@ -23,7 +23,7 @@
 									<div class="form-group">
 										<p class="label">Your Email*</p>
 										<input type="email" name="email" placeholder="Enter your email"  value="">
-										<?php echo form_error('email'); ?>
+										<span style="color: #c00; font-size: 12px;"><?php echo form_error('email'); ?></span>
 									</div> <!-- end .form-group -->
 								
 								</div> <!-- end .form-group-wrapper -->
@@ -31,7 +31,7 @@
 									<div class="form-group">
 										<p class="label">Your Password*</p>
 										<input type="password" name="password" placeholder="Enter your password" >
-										<?php echo form_error('password'); ?>
+										<span style="color: #c00; font-size: 12px;"><?php echo form_error('password'); ?></span>
 									</div> <!-- end .form-group -->
 								</div>
 								<div class="form-group-wrapper flex space-between items-center">
