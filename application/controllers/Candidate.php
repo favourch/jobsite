@@ -113,6 +113,16 @@ Class Candidate extends MY_Controller{
 		redirect(base_url('candidate/view'));
 
 	}
+	function update_cv(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		$info = $this->member_candidate_model->get_info($user_id);
+
+		$this->load->model('level_model');
+		$currentlv = $this->level_model->get_list();
+		$this->data['currentlv'] = $currentlv;
+		$this->data['temp'] = 'site/candidate/update_cv';
+		$this->load->view('site/layout',$this->data);
+	}
 
 	function edit_account(){
 		$user_id = $this->session->userdata('candidate_id_login');

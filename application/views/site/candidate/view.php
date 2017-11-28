@@ -23,6 +23,7 @@
 								<li class="heading">Quản lý tài khoản</li>
 
 							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
+							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật hồ sơ</a></li>
 							   <li><a href="<?php echo base_url('candidate/edit_account'); ?>">Cập nhật tài khoản</a></li>
 							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>

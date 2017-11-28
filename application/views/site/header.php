@@ -36,8 +36,8 @@
                                 <div class="r-dropdown first">
                                         <a href="post-job-form.html" class="button">Nhà tuyển dụng</a>
                                         <div class="dropdown-content">
-                                        <a href="#" data-toggle="modal" data-target="#login-signup-popup-2">Đăng nhập</a>
-                                        <a href="#">Đăng ký</a>
+                                        <a href="<?php echo base_url('companies/login'); ?>">Đăng nhập</a>
+                                        <a href="<?php echo base_url('companies/register'); ?>">Đăng ký</a>
                                         </div>
                                       </div>
                                       <div class="r-dropdown last">
