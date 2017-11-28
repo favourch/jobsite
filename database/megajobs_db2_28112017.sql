@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2017 at 10:27 AM
+-- Generation Time: Nov 28, 2017 at 08:47 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -35,17 +35,21 @@ CREATE TABLE `admin` (
   `username` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` tinyint(2) NOT NULL DEFAULT '1',
-  `permission` text COLLATE utf8_unicode_ci
+  `permission` text COLLATE utf8_unicode_ci,
+  `created_date` datetime DEFAULT NULL,
+  `modified_date` datetime DEFAULT NULL,
+  `last_access_date` datetime DEFAULT NULL,
+  `login_failed` tinyint(255) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `address`, `phone`, `created`, `username`, `password`, `status`, `permission`) VALUES
-(2, 'Hà Hồng Hoa', 'Thanh Hóa, Yên Định', '0985548325', 0, 'hahonghoa53', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL),
-(6, 'Nguyễn Thành An', 'HH4C Linh Dam, Hoang Mai, Ha Noi', '0979823452', 0, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL),
-(7, 'Tran Tuan Tu', 'HH4C Linh Dam, Hoang Mai, Ha Noi', '0979823452', 0, 'module123', 'e10adc3949ba59abbe56e057f20f883e', 1, '{\"category\":[\"index\"],\"product\":[\"index\",\"add\",\"edit\",\"del\"]}');
+INSERT INTO `admin` (`id`, `name`, `address`, `phone`, `created`, `username`, `password`, `status`, `permission`, `created_date`, `modified_date`, `last_access_date`, `login_failed`) VALUES
+(2, 'Hà Hồng Hoa', 'Thanh Hóa, Yên Định', '0985548325', 0, 'hahonghoa53', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, NULL, NULL, NULL, 0),
+(6, 'Nguyễn Thành An', 'HH4C Linh Dam, Hoang Mai, Ha Noi', '0979823452', 0, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, NULL, NULL, NULL, 0),
+(7, 'Tran Tuan Tu', 'HH4C Linh Dam, Hoang Mai, Ha Noi', '0979823452', 0, 'module123', 'e10adc3949ba59abbe56e057f20f883e', 1, '{\"category\":[\"index\"],\"product\":[\"index\",\"add\",\"edit\",\"del\"]}', NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -469,10 +473,10 @@ CREATE TABLE `map_candidate_recruitment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `map_cadidate_skill`
+-- Table structure for table `map_candidate_skill`
 --
 
-CREATE TABLE `map_cadidate_skill` (
+CREATE TABLE `map_candidate_skill` (
   `id` int(11) NOT NULL,
   `candidate_id` int(11) NOT NULL COMMENT 'mã ứng viên',
   `skill_id` int(11) NOT NULL COMMENT 'mã kĩ năng',
@@ -1011,15 +1015,15 @@ ALTER TABLE `literacy`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `map_cadidate_recruitment`
+-- Indexes for table `map_candidate_recruitment`
 --
-ALTER TABLE `map_cadidate_recruitment`
+ALTER TABLE `map_candidate_recruitment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `map_cadidate_skill`
+-- Indexes for table `map_candidate_skill`
 --
-ALTER TABLE `map_cadidate_skill`
+ALTER TABLE `map_candidate_skill`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1180,16 +1184,16 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT for table `literacy`
 --
 ALTER TABLE `literacy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `map_cadidate_recruitment`
+-- AUTO_INCREMENT for table `map_candidate_recruitment`
 --
-ALTER TABLE `map_cadidate_recruitment`
+ALTER TABLE `map_candidate_recruitment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `map_cadidate_skill`
+-- AUTO_INCREMENT for table `map_candidate_skill`
 --
-ALTER TABLE `map_cadidate_skill`
+ALTER TABLE `map_candidate_skill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `map_recruitment_careers`
