@@ -99,7 +99,7 @@
 						 <?php foreach($list as $row) : ?>
 							<tr class="row_<?php echo $row->id; ?>">
 								<td><input type="checkbox" name="id[]" value="<?php echo $row->id ?>"></td>
-								<td><?php echo $row->name ?></td>
+								<td><?php echo $row->full_name ?></td>
 								<td class="center"><img src="<?php echo base_url('uploads/candidate/'.$row->image) ?>" width="70"></td>
 								<td class="center"><?php echo $row->phone; ?> </td>
 								<td class="center"><?php echo $row->email; ?> </td>
