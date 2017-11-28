@@ -17,6 +17,8 @@
         <!--Tagsinput CSS -->
         <link href="<?php echo public_url(); ?>/site/css/tagsinput.css" rel="stylesheet">     
         <!-- Style.css -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat"  rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato"  rel="stylesheet"> -->
         <link href="<?php echo public_url(); ?>/site/css/style.css" rel="stylesheet">
         <link href="<?php echo public_url(); ?>/site/css/datepicker.css" rel="stylesheet">
 

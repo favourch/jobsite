@@ -48,8 +48,8 @@
 
 /* ============== Typography ============== */
 
-@import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
-@import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css");
+/* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
+@import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
