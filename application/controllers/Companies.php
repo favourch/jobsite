@@ -95,4 +95,45 @@ Class Companies extends MY_Controller{
 	$this->data['temp'] = 'site/companies/register';
 	$this->load->view('site/layout',$this->data);
 	}
-}
+
+		//đăng nhập
+		function check_login(){
+		$user = $this->_get_userinfo();
+		if($user){
+			return true;
+		}
+		else{
+			$this->form_validation->set_message(__FUNCTION__,'Email hoặc mật khẩu không đúng !');
+			return false;
+		}
+	}
+
+	function login(){
+		if($this->input->post()){
+		$this->form_validation->set_rules('email','Địa chỉ email','required');
+		$this->form_validation->set_rules('password','Mật khẩu','required');
+		$this->form_validation->set_rules('login','Login','callback_check_login');
+		if($this->form_validation->run()){
+				//lấy ra thông tin thành viên
+				$user = $this->_get_userinfo();
+				$this->session->set_userdata('company_id_login', $user->id);
+				redirect(base_url());
+			}
+		}
+
+		$this->data['temp'] = 'site/companies/login';
+		$this->load->view('site/layout',$this->data);
+	}
+
+		//lấy ra thông tin thành viên
+	private function _get_userinfo(){
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$password = md5($password);
+		$where = array('email'=>$email, 'password'=>$password);
+		$user = $this->member_company_model->get_info_rule($where);
+		return $user;
+	}
+
+
+}//end class
