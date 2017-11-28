@@ -101,10 +101,7 @@ h1,h2,h3,h4,h5,h6,p {
 	hyphens: auto;
 }
 p {
-	color: #627199;
-	font-size: 14px;
-	line-height: 23px;
-	font-family: 'Lato', sans-serif;
+
 }
 p.light {
 	color: #86a7fa;
@@ -3425,6 +3422,7 @@ label>sup, .label>sup {
     line-height: 30px;
     padding: 0 8px;
     -webkit-appearance: none;
+    font-size: 13px;
 }
 .password-button-wrapper {
     text-align: center;

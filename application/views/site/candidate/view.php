@@ -23,7 +23,7 @@
 								<li class="heading">Quản lý tài khoản</li>
 
 							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
-							    <li><a data-toggle="pill" href="#candidate-cv">Cập nhật tài khoản</a></li>
+							   <li><a href="<?php echo base_url('candidate/edit_account'); ?>">Cập nhật tài khoản</a></li>
 							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
 							    <li class="nav-divider"></li>
@@ -228,20 +228,19 @@
 							        <input type="hidden" name="mt">
 										<div class="profile-info profile-section flex no-column no-wrap">
 											<div class="profile-picture">
-												<img src="images/candidate-big01.jpg" alt="candidate-picture" class="img-responsive">
+												<img src="<?php echo base_url('uploads/candidate/'.$user_info->image); ?>" alt="candidate-picture" class="img-responsive">
 											</div> <!-- end .user-picture -->
 											<div class="profile-meta">
 												<h4 class="dark"><?php echo $user_info->full_name; ?></h4>
 												<p>UI/UX Designer</p>
 												<div class="profile-contact flex items-center no-wrap no-column">
-													<h6 class="contact-location">Manhattan,<span>NYC, USA</span></h6>
+													<h6 class="contact-location"><?php echo $user_info->address; ?></span></h6>
 													<h6 class="contact-phone"><?php echo $user_info->phone; ?></h6>
 													<h6 class="contact-email"><?php echo $user_info->email; ?></h6>
 												</div> <!-- end .profile-contact -->
-												<ul class="list-unstyled social-icons flex no-column">
-													<li><a href="#0"><i class="ion-social-twitter"></i></a></li>
-													<li><a href="#0"><i class="ion-social-facebook"></i></a></li>
-													<li><a href="#0"><i class="ion-social-instagram"></i></a></li>
+												<ul class="list-unstyled flex no-column">
+													<li><a href="#" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><i class="ion-clipboard"></i>Tải hồ sơ</a></li>
+													
 												</ul> <!-- end .social-icons -->
 											</div> <!-- end .profile-meta -->
 										</div> <!-- end .profile-info -->

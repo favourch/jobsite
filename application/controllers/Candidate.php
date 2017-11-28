@@ -113,6 +113,56 @@ Class Candidate extends MY_Controller{
 
 	}
 
+	function edit_account(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		$info = $this->member_candidate_model->get_info($user_id);
+		//lấy ra thành phố
+		$this->load->model('city_model');
+		$input = array();
+		//$input['where'] = array('id'=>$info->city_id);
+		$city = $this->city_model->get_list($input);
+		$this->data['city'] = $city;
+		$this->data['info'] = $info;
+
+		if($this->input->post()){
+			$this->form_validation->set_rules('full_name','Tên đầy đủ','required');
+			if($this->form_validation->run()){
+				
+				$full_name = $this->input->post('full_name');
+				$gender = $this->input->post('gender');
+				$city_id = $this->input->post('city_id');
+				$phone = $this->input->post('phone');
+				$address = $this->input->post('address');
+				//lấy tên file ảnh, upload ảnh đại diện
+				$this->load->library('upload_library');
+				$upload_path = './uploads/candidate';
+				$upload_data = $this->upload_library->upload($upload_path, 'image');
+				if(isset($upload_data['file_name'])){
+					$image_link = $upload_data['file_name'];
+				}
+
+				$data = array(
+					'full_name' => $full_name,
+					'gender' => $gender,
+					'city_id' => $city_id,
+					'phone' =>$phone,
+					'address' =>$address
+					);
+				
+				if($image_link!=''){
+					$data['image'] = $image_link;
+				}
+
+				$this->member_candidate_model->update($user_id,$data);
+			}
+			redirect(base_url('candidate/edit_account'));
+
+		}
+
+		$this->data['temp'] = 'site/candidate/edit_account';
+		$this->load->view('site/layout',$this->data);
+	}
+
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){
 				$this->session->unset_userdata('candidate_id_login');
