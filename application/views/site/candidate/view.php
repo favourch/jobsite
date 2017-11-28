@@ -293,11 +293,11 @@
 									<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
 										<p class="label">Từ tháng*</p>
-										<input type="text" id="" name="from_date" placeholder="" required="">
+										<input type="text" class="datepicker" name="from_date" placeholder="" required="">
 									</div> <!-- end .form-group -->
 									<div class="form-group">
 										<p class="label">Đến tháng*</p>
-										<input type="text" id="" name="to_date" placeholder="" required="">
+										<input type="text" class="datepicker" name="to_date" placeholder="" required="">
 									</div> <!-- end .form-group -->
 								</div> <!-- end .form-group-wrapper -->
 

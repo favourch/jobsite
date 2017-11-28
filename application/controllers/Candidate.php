@@ -81,6 +81,7 @@ Class Candidate extends MY_Controller{
 				$company_name = $this->input->post('company_name');
 				$position = $this->input->post('position');
 				$from_date = $this->input->post('from_date');
+				
 				$to_date = $this->input->post('to_date');
 				$data2 = array(
 					'company_name' => $company_name,
