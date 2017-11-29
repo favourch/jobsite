@@ -135,5 +135,18 @@ Class Companies extends MY_Controller{
 		return $user;
 	}
 
+	function view(){
+
+		$this->data['temp'] = 'site/companies/view';
+		$this->load->view('site/layout',$this->data);
+	}
+
+	function logout(){
+		if($this->session->userdata('company_id_login')){
+				$this->session->unset_userdata('company_id_login');
+				redirect(base_url('companies/login'));
+			}
+	}
+
 
 }//end class

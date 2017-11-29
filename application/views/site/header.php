@@ -31,7 +31,7 @@
                             </nav> <!-- end .main-nav -->
                             <a href="" class="responsive-menu-open"><i class="ion-navicon"></i></a>
                         </div> <!-- end .navigation -->
-                        <?php if(!isset($user_info)): ?>
+                        <?php if(!isset($user_info) && !isset($company_info)): ?>
                         <div class="button-group-merged flex no-column">
                                 <div class="r-dropdown first">
                                         <a href="post-job-form.html" class="button">Nhà tuyển dụng</a>
@@ -49,12 +49,20 @@
                                           </div>    
                            
                         </div> <!-- end .button-group-merged -->
-                    <?php else: ?>
-                        <div class="button-group-merged flex no-column">
-                            <a href="<?php echo base_url('candidate/view'); ?>" class="button"><?php echo $user_info->full_name; ?></a>
-                            <a href="<?php echo base_url('candidate/logout'); ?>" class="button">Đăng xuất</a>
-                        </div> <!-- end .button-group-merged -->
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    <?php if(isset($user_info)): ?>
+                        <div class="account-info-top flex items-center no-column">
+                            <a href="#0" class="notification-icon"><i class="ion-android-notifications"></i></a>
+                            <a href="<?php echo base_url('candidate/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $user_info->full_name; ?> <img src="<?php echo base_url('uploads/candidate/'.$user_info->image) ?>" alt="avatar" class="img-responsive"></a>
+                        </div>
+                 <?php endif; ?>
+                 <?php if(isset($company_info)): ?>
+                        <div class="account-info-top flex items-center no-column">
+                            <a href="#0" class="notification-icon"><i class="ion-android-notifications"></i></a>
+                            <a href="<?php echo base_url('companies/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $company_info->company_contact; ?> <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" alt="avatar" class="img-responsive"></a>
+                        </div>
+                 <?php endif; ?>
+                    
                     </div> <!-- end .right -->
                 </div> <!-- end .header-inner -->
             </div> <!-- end .container -->

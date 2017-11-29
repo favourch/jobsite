@@ -3299,7 +3299,7 @@ select::-ms-expand {
 	margin-right: 20px;
 }
 .profile-info .profile-picture img {
-	min-width: 75px;
+	max-width: 100px;
 	min-height: 75px;
 }
 .profile-meta h4 {

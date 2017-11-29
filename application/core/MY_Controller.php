@@ -76,6 +76,14 @@ Class MY_Controller extends CI_Controller{
 						$user_info = $this->member_candidate_model->get_info($user_id);
 						$this->data['user_info'] = $user_info;
 					}
+					//kiểm tra thành viên là nhà tuyển dụng
+					$company_id = $this->session->userdata('company_id_login');
+					$this->data['company_id'] = $company_id;
+					if($company_id){
+						$this->load->model('member_company_model');
+						$company_info = $this->member_company_model->get_info($company_id);
+						$this->data['company_info'] = $company_info;
+					}
 
 
 
