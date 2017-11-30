@@ -17,26 +17,34 @@
 		<div class="section employer-dashboard-content solid-light-grey-bg">
 			<div class="inner">
 				<div class="container">
+				<!-- Thông báo dữ liệu -->
+				<div class="thongbao-tc"><?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?></div>
+				<!-- End thông báo dữ liệu -->
 					<div class="employer-dashboard-wrapper flex space-between no-wrap">
 
 						<div class="left-sidebar-menu">							
 							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">Manage account</li>
-							    <li class="active"><a data-toggle="pill" href="#profile">My Profile</a></li>
-							    <li ><a data-toggle="pill" href="#favorite-candidates">Favorite Candidates</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Notifications</a> <span class="notification-count">2</span></li>
-							    <li><a data-toggle="pill" href="#packages">Packages</a></li>
+								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
+							    <li class="active"><a data-toggle="pill" href="#profile">Thông tin tài khoản</a></li>
+							    <li ><a data-toggle="pill" href="#favorite-candidates">Cập nhật thông tin</a></li>
+							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
+
 							    <li class="nav-divider"></li>
-							   	<li class="heading">Manage job</li>
-								<li><a data-toggle="pill" href="#manage-jobs">Manage Jobs</a></li>
-							    <li><a data-toggle="pill" href="#manage-applications-employer">Manage Applications</a></li>
+							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
+								<li><a data-toggle="pill" href="#manage-jobs">Đăng tin tuyển dụng</a></li>
+							   <li><a data-toggle="pill" href="#manage-applications-employer">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
-							    <li><a data-toggle="pill" href="#change-password-employer">Change Password</a></li>
+							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
+								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
+							   <li><a data-toggle="pill" href="#manage-applications-employer">Tìm ứng viên</a></li>
+							    <li class="nav-divider"></li>
+							    <li><a data-toggle="pill" href="#change-password-employer">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
 							</ul>
 						</div> <!-- end .left-sidebar-menu -->
 						
 						<div class="right-side-content">
+
 							<div class="tab-content employer-dashboard">
 
 							    <div id="favorite-candidates" class="tab-pane fade in">
@@ -990,49 +998,67 @@
 											</div> <!-- end .user-picture -->
 											<div class="profile-meta">
 												<h4 class="dark"><?php echo $company_info->company_name; ?></h4>
-												<p><?php echo $company_info->company_address; ?></p>
-												<div class="profile-contact flex items-center no-wrap no-column">													
-											<h6 class="contact-phone"><?php echo $company_info->company_phone; ?></h6>
-											<h6 class="contact-email"><?php echo $company_info->email; ?></h6>
+												<p><i class="ion-location"></i></a> <?php echo $company_info->company_address; ?></p>
+												<div class="items-center no-wrap no-column">													
+											<span class="contact-phone"><i class="ion-iphone"></i> <?php echo $company_info->company_phone; ?></span> -
+											<span class="contact-email"><i class="ion-email"></i> <?php echo $company_info->email; ?></span>
+											
 												</div> <!-- end .profile-contact -->
-												<ul class="list-unstyled social-icons flex no-column">
-													<li><a href="#0"><i class="ion-social-twitter"></i></a></li>
-													<li><a href="#0"><i class="ion-social-facebook"></i></a></li>
-													<li><a href="#0"><i class="ion-social-instagram"></i></a></li>
-												</ul> <!-- end .social-icons -->
+												<div class="items-center no-wrap no-column">	
+												<p><i class="ion-android-globe"></i> Website : <?php echo $company_info->website; ?></p>
+												</div>
+												<div class="" style="padding-top: 5px; color: #999;">
+												<p><?php echo $company_info->description; ?></p>
+												</div>
 											</div> <!-- end .profile-meta -->
 										</div> <!-- end .profile-info -->
 
 										<div class="divider"></div>
 
 										<div class="profile-about profile-section">
-											<h3 class="dark profile-title">Sơ lược về công ty<span><i class="ion-edit"></i></span></h3>
-											<?php echo $company_info->description; ?>					
+											<h3 class="dark profile-title">THÔNG TIN NHÀ TUYỂN DỤNG<span>
+											<a href="<?php echo base_url('companies/edit'); ?>"><i class="ion-edit"></i></a></span></h3>
+											<ul class="profile-ul">
+												<li class="reg1"><p>Tên công ty</p></li>
+												<li class="reg2"><p><?php echo $company_info->company_name; ?></p></li>
+												<li class="reg1"><p>Địa chỉ</p></li>
+										<li class="reg2"><p><?php echo $company_info->company_address; ?></p></li>
+												<li class="reg1"><p>Tỉnh / thành phố</p></li>
+												<li class="reg2"><p><?php echo $citycompany->name; ?></p></li>
+												<li class="reg1"><p>Quy mô công ty</p></li>
+											<li class="reg2"><p><?php echo $companysize->name; ?></p></li>
+											<li class="reg1"><p>Giới thiệu</p></li>
+											<li class="reg2"><p><?php echo $company_info->description; ?></p></li>
+											<li class="reg1"><p>Logo công ty</p></li>
+											<li class="reg2"><p><img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" width="100"></p></li>
+											<li class="reg1"><p>Website</p></li>
+											<li class="reg2"><p style="color: #1790D4"><?php echo $company_info->website; ?></p></li>
+											<li class="reg1"><p>Số điện thoại</p></li>
+											<li class="reg2"><p style="color: #1790D4"><?php echo $company_info->company_phone; ?></p></li>
+											<li class="reg1"><p>Fax</p></li>
+											<li class="reg2"><p style="color: #1790D4"><?php echo $company_info->company_fax; ?></p></li>
+											</ul>					
 											</p>
 										</div> <!-- end .profile-about -->
 
 										<div class="divider"></div>
 
 										<div class="profile-experience-wrapper profile-section">
-											<h3 class="dark profile-title">Awards<span><i class="ion-edit"></i></span></h3>
-											<div class="profile-experience flex space-between no-wrap no-column">
-												<div class="profile-experience-left">
-													<h5 class="profile-designation dark">AWWWARDS</h5>
-													<h5 class="profile-company dark">Site of the month</h5>
-													<p class="small ultra-light">Aug 2016</p>
-													<p>Nulla molestie sed lorem non suscipit. Morbi imperdiet ex sit amet tortor faucibus ultricies. Fusce tincidunt elementum imperdiet.</p>
-													<h6 class="projects-count">http://banana.com</h6>
-												</div> <!-- end .profile-experience-left -->
-											</div> <!-- end .profile-experience -->
+											<h3 class="dark profile-title">THÔNG TIN LIÊN HỆ<span>
+											<a href="<?php echo base_url('companies/edit'); ?>"><i class="ion-edit"></i></a></span></h3>
+										<ul class="profile-ul">
+										<li class="reg1"><p>Người liên hệ</p></li>
+										<li class="reg2"><p><?php echo $company_info->company_contact; ?></p></li>
+										<li class="reg1"><p>Chức vụ</p></li>
+										<li class="reg2"><p><?php echo $company_info->contact_title; ?></p></li>
+										<li class="reg1"><p>Số điện thoại</p></li>
+										<li class="reg2"><p><?php echo $company_info->contact_phone; ?></p></li>
+										<li class="reg1"><p>Email liên hệ</p></li>
+										<li class="reg2"><p><?php echo $company_info->contact_email; ?></p></li>
+										</ul>
 											<div class="spacer-md"></div>
 											<div class="profile-experience flex space-between no-wrap no-column">
-												<div class="profile-experience-left">
-													<h5 class="profile-designation dark">Best css award</h5>
-													<h5 class="profile-company dark">Site of the day</h5>
-													<p class="small ultra-light">Aug 16th, 2016</p>
-													<p>Nulla molestie sed lorem non suscipit. Morbi imperdiet ex sit amet tortor faucibus ultricies. Fusce tincidunt elementum imperdiet.</p>
-													<h6 class="projects-count">http://banana.com</h6>
-												</div> <!-- end .profile-experience-left -->
+											
 											</div> <!-- end .profile-experience -->
 										</div> <!-- end .profile-experience-wrapper -->
 

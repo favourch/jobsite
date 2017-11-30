@@ -68,7 +68,7 @@ body {
 .txtarea{
 	height: 100px;
 	resize: none;
-	color: #000;
+	color: #999;
 }
 
 a {
@@ -3180,7 +3180,7 @@ select::-ms-expand {
 	border: none;
 }
 .left-sidebar-menu .nav-pills>li {
-	padding: 0 30px;
+	padding: 0 25px;
 }
 .left-sidebar-menu .nav-pills .heading {
     color: #a0a7ba;
@@ -3344,9 +3344,35 @@ select::-ms-expand {
 }
 .profile-section .profile-title {
 	margin-bottom: 15px;
+	font-size: 15px;
 	padding: 0;
 	line-height: 20px;
 	color: #c00;
+}
+.profile-ul li{
+	list-style: none;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10px;
+}
+.profile-ul li.reg1{
+min-width: 19%;
+}
+.profile-ul li.reg1 p{
+	line-height: 30px;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 30px;
+    padding-left: 5px;
+    font-size: 14px;
+    color: #666;
+}
+.profile-ul li.reg2{
+	width: 80%;
+}
+.profile-ul li.reg2 p{
+	padding: 5px 0;
+    color: #666666;
 }
 .profile-section .profile-title>span {
      padding-left: 15px;
@@ -6003,6 +6029,7 @@ label>sup, .label>sup {
     -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-appearance: none;	
+    color: #999;
 }
 .multisteps-form select.form-control:focus {
 	border: 1px solid #ededed;
