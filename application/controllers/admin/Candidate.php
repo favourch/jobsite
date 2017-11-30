@@ -2,7 +2,10 @@
 Class Candidate extends MY_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('member_candidate_model');
+		$this->load->model('city_model');
+		$this->load->model('level_model');
+		$this->load->model('literacy_model');
+		$this->load->model('member_candidate_model');		
 	}
 	function index(){
 		//Tạo thông báo 
@@ -61,4 +64,22 @@ Class Candidate extends MY_Controller{
 		$this->load->view("admin/main", $this->data);
 	}
 
+	function add(){
+
+	}
+	function edit($id){
+		//lấy danh sách city
+		$lst_city =  $this->city_model->get_list(array('status'=>'1'));
+		//lấy danh sách cấp bậc
+		$lst_level =  $this->level_model->get_list(array('status'=>'1'));
+		//lấy danh sách trình độ học vấn
+		$lst_literacy =  $this->literacy_model->get_list(array('status'=>'1'));
+		//lấy thông tin chung của ứng viên
+		$info = $this->member_candidate_model->get_info($id);
+
+		$this->data['lst_city']=$lst_city;
+		$this->data['info']= $info;
+		$this->data['temp'] = 'admin/candidate/edit';	
+		$this->load->view('admin/main', $this->data);	
+	}
 }//end class

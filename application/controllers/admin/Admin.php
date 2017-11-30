@@ -172,7 +172,7 @@ Class Admin extends MY_Controller{
 		$config_permission = $this->config->item('permission');
 		$this->data['config_permission'] = $config_permission;
 		//load view
-		$this->data['temp'] = 'admin/admin/edit';
+		$this->data['temp'] = 'admin/admin/edit';	
 		$this->load->view('admin/main', $this->data);
 	}
 
