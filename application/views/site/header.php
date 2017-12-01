@@ -34,7 +34,7 @@
                         <?php if(!isset($user_info) && !isset($company_info)): ?>
                         <div class="button-group-merged flex no-column">
                                 <div class="r-dropdown first">
-                                        <a href="post-job-form.html" class="button">Nhà tuyển dụng</a>
+                                        <a href="#" class="button">Nhà tuyển dụng</a>
                                         <div class="dropdown-content">
                                         <a href="<?php echo base_url('companies/login'); ?>">Đăng nhập</a>
                                         <a href="<?php echo base_url('companies/register'); ?>">Đăng ký</a>
