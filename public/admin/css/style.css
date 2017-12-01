@@ -2990,3 +2990,6 @@ ul.messagesList li span.date {
 	color: #c00;
 	margin-right: 10px;
 }
+input[type='radio']{
+	margin: 0px 10px 2px 0px;
+}
