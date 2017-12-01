@@ -32,7 +32,7 @@
 							    <li class="nav-divider"></li>
 							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
 						<li><a href="<?php echo base_url('companies/postjobs'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li><a data-toggle="pill" href="#manage-jobs">Tuyển dụng đã đăng</a></li>
+							   <li><a href="<?php echo base_url('managejob'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
 								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>

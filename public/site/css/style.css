@@ -5063,6 +5063,7 @@ label>sup, .label>sup {
     font-size: 12px;
     line-height: 13px;
     -webkit-appearance: none;
+    color: #999;
 }
 .comment-form textarea.form-control {
 	font-size: 12px;
