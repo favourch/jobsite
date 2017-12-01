@@ -97,10 +97,15 @@
 										</div> <!-- end .form-group -->
 
 									</div>
-									<div class="form-group-wrapper space-between items-center">
-										<div class="form-group">
-											<p class="label">Logo công ty</p>
-											<input type="file" name="logo_url">
+								
+									<div class="form-group-wrapper">
+										<div class="form-group upload-company-logo">
+											<p class="label">Logo công ty<span>(Kích thước tối đa: 1MB)</span></p>
+									    	<label for="company-logo-upload" class="flex space-between items-center no-column no-wrap">
+									    	<span>Tải lên logo</span>
+									    	<span><i class="ion-ios-folder-outline"></i>Chọn tệp</span>								    	
+									    	</label>
+										    <input type="file" name="logo_url" id="company-logo-upload">
 										</div> <!-- end .form-group -->
 									</div>
 									<div class="form-group-wrapper space-between items-center">

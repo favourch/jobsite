@@ -239,6 +239,99 @@ Class Companies extends MY_Controller{
 		$this->load->view('site/layout',$this->data);
 	}
 
+	function postjobs(){
+
+		//cap bac
+		$this->load->model('level_model');
+		$level = $this->level_model->get_list();
+		$this->data['level'] = $level;
+		//loai công việc
+		$this->load->model('job_type_model');
+		$jobtype = $this->job_type_model->get_list();
+		$this->data['jobtype'] = $jobtype;
+		//mức lương
+		$this->load->model('salary_model');
+		$salary = $this->salary_model->get_list();
+		$this->data['salary'] = $salary;
+		//Kinh nghiệm
+		$this->load->model('require_experience_model');
+		$experience = $this->require_experience_model->get_list();
+		$this->data['experience'] = $experience;
+		//Bằng cấp
+		$this->load->model('literacy_model');
+		$literacy = $this->literacy_model->get_list();
+		$this->data['literacy'] = $literacy;
+		//Danh mục nghành nghề
+		$this->load->model('career_model');
+		$career = $this->career_model->get_list();
+		$this->data['career'] = $career;
+		//địa điểm làm việc
+		$this->load->model('city_model');
+		$city = $this->city_model->get_list();
+		$this->data['city'] = $city;
+
+		//thực hiện lưu dữ liệu
+		if($this->input->post()){
+			$this->form_validation->set_rules('title','Chức danh','required|min_length[6]');
+			$this->form_validation->set_rules('amount','Số lượng','required|numeric');
+			$this->form_validation->set_rules('level_id','Cấp bậc','required');
+			$this->form_validation->set_rules('type_id','Loại hình công việc','required');
+			$this->form_validation->set_rules('salary_id','Mức lương tháng','required');
+			$this->form_validation->set_rules('require_experience_id','Kinh nghiệm làm việc','required');
+			$this->form_validation->set_rules('literacy_id','Bằng cấp','required');
+			$this->form_validation->set_rules('career_id','Lĩnh vực cần tuyển','required');
+			if($this->form_validation->run()){
+				$title = $this->input->post('title');
+				$amount = $this->input->post('amount');
+				$level_id = $this->input->post('level_id');
+				$salary_id = $this->input->post('salary_id');
+				$type_id = $this->input->post('type_id');
+				$require_experience_id = $this->input->post('require_experience_id');
+				$literacy_id = $this->input->post('literacy_id');
+				$career_id = $this->input->post('career_id');
+				$gender = $this->input->post('gender');
+				$city_id = $this->input->post('city_id');
+				$content = $this->input->post('content');
+				$benefit = $this->input->post('benefit');
+				$job_requirement = $this->input->post('job_requirement');
+				$profile = $this->input->post('profile');
+				$end_date = $this->input->post('end_date');
+				$end_date = date('d-m-Y h:i:s', $end_date);
+				$language = $this->input->post('language');
+				$company_id = $this->session->userdata('company_id_login');
+
+				$data = array(
+					'title' => $title,
+					'amount' => $amount,
+					'level_id' => $level_id,
+					'salary_id' => $salary_id,
+					'require_experience_id' => $require_experience_id,
+					'literacy_id' => $literacy_id,
+					'career_id' => $career_id,
+					'type_id' => $type_id,
+					'gender' => $gender,
+					'city_id' => $city_id,
+					'content' => $content,
+					'benefit' => $benefit,
+					'job_requirement' => $job_requirement,
+					'profile' => $profile,
+					'end_date' => $end_date,
+					'language' => $language,
+					'company_id' => $company_id,
+					'start_date' => now()
+					);
+				$this->load->model('recruitment_model');
+				$this->recruitment_model->create($data);
+				$this->session->set_flashdata('message', 'Đăng tin tuyển dụng thành công, bạn có thể xem tin đăng tại menu quản trị !');
+				redirect(base_url('companies/view'));
+			}
+		}
+
+		$this->data['temp'] = 'site/companies/postjobs';
+		$this->load->view('site/layout',$this->data);
+	}
+
+
 	function logout(){
 		if($this->session->userdata('company_id_login')){
 				$this->session->unset_userdata('company_id_login');
