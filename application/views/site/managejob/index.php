@@ -70,7 +70,7 @@
 														<div class="cell-text">
 															<h4><?php echo $row->title; ?></h4>
 										<p><i class="ion-person-stalker"></i>Số lượng : <?php echo $row->amount; ?></p>
-										<p><i class="ion-clock"></i>Ngày cập nhật : <?php echo $row->start_date; ?></p>
+										<p><i class="ion-clock"></i>Ngày cập nhật : <?php echo int_to_date($row->start_date); ?></p>
 														</div> <!-- end .cell-text -->
 													</div> <!-- end .candidate-cell-inner -->
 												</div> <!-- end .candidate-name-cell -->

@@ -5,7 +5,7 @@ Class MY_Controller extends CI_Controller{
 	function __construct(){
 		//kế thừa ci controller
 		parent::__construct();
-
+		date_default_timezone_set('Asia/Ho_Chi_Minh');
 		$controller = $this->uri->segment(1);
 
 		switch ($controller) {

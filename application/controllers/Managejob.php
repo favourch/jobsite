@@ -109,8 +109,7 @@ Class Managejob extends MY_Controller{
 				$job_requirement = $this->input->post('job_requirement');
 				$profile = $this->input->post('profile');
 				$end_date = $this->input->post('end_date');
-				$end_date = strtotime($end_date);
-				$date_end = date('Y-m-d',$end_date);
+				$end_date = date_to_int($end_date);
 				$language = $this->input->post('language');
 				$company_id = $this->session->userdata('company_id_login');
 
@@ -129,7 +128,7 @@ Class Managejob extends MY_Controller{
 					'benefit' => $benefit,
 					'job_requirement' => $job_requirement,
 					'profile' => $profile,
-					'end_date' => $date_end,
+					'end_date' => $end_date,
 					'language' => $language,
 					'company_id' => $company_id,
 
