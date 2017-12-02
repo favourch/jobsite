@@ -3,8 +3,9 @@ Class Home extends MY_Controller{
 	function index(){
 		$this->load->model('slide_model');
 		$this->load->model('news_model');
-		$this->load->model('category_model');
+		$this->load->model('career_model');
 		$this->load->model('partners_model');
+		$this->load->model('recruitment_model');
 		//slide
 		$slide_list = $this->slide_model->get_list();
 		$this->data['slide_list'] = $slide_list;
@@ -24,7 +25,7 @@ Class Home extends MY_Controller{
 		$this->data['producthome_list'] = $producthome_list;
 		//category home
 		$input = array('is_online'=>1);
-		$category_home = $this->category_model->get_list($input);
+		$category_home = $this->career_model->get_list($input);
 		$this->data['category_home'] = $category_home;
 
 		//partner home

@@ -297,7 +297,7 @@ Class Companies extends MY_Controller{
 				$profile = $this->input->post('profile');
 				$end_date = $this->input->post('end_date');
 				$end_date = strtotime($end_date);
-				$date_end = date('Y-m-d h:i:s',$end_date);
+				$date_end = date('Y-m-d',$end_date);
 				$language = $this->input->post('language');
 				$company_id = $this->session->userdata('company_id_login');
 				$start_date = date("Y-m-d h:i:s", strtotime("now"));

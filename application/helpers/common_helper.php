@@ -10,3 +10,6 @@ function pre($param=''){
 	print_r($param);
 	echo "</pre>";
 }
+function format_date($date=''){
+	return date_format(new DateTime($date),'d/m/Y');
+}

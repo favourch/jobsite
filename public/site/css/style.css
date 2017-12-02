@@ -276,6 +276,15 @@ ul {
 		padding-left: 30px;
 		padding-right: 30px;
 	}
+	.job-company-icon{
+		width: 20%;
+	}
+	.job-company-icon img{
+		width: 100%;
+	}
+	.bookmarked-job-info{
+		width: 80%;
+	}
 }
 @media all and (max-width: 768px) {
 	.flex {
@@ -3558,7 +3567,7 @@ label>sup, .label>sup {
 }
 .bookmarked-job-info h4 .button {
     margin-left: 12px;
-    font-size: 7px;
+    font-size: 10px;
     padding: 3px 16px 0;
 }
 .bookmarked-job-info h5 {
@@ -3570,7 +3579,7 @@ label>sup, .label>sup {
     padding-bottom: 18px;
 }
 .bookmarked-job-info-bottom {
-    padding-top: 18px;	
+    padding-top: 2px;	
 }
 .bookmarked-job-meta>ul {
     margin-right: 10px;	
@@ -5319,6 +5328,7 @@ label>sup, .label>sup {
 		flex: 0 70%;
 		max-width: 70%;
 	}
+
 }
 @media all and (max-width: 768px) {
 	.jobs-listing-wrapper .center-content-wrapper {

@@ -55,9 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 //$route['([a-zA-Z0-9]+[a-zA-Z\_0-9\.-]*)\/$']
 $route['dang-ky'] = 'user/register';
 $route['dang-nhap'] = 'user/login';
-//rewrite danh muc san pham
+//rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
-$route['(:any)-d(:num)'] = 'product/category/$2';
+$route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';
 $route['(:any)-p(:num)'] = 'product/detail/$2';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';

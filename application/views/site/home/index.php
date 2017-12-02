@@ -292,15 +292,17 @@
         <div class="section category-section solid-blue-bg">
             <div class="inner">
                 <div class="container">
-                    <h1 class="light">Browse Categories</h1>
+                    <h1 class="light">Việc làm theo danh mục</h1>
                     <div class="category-grid">                 
                         <div class="category-row space-between items-center">
                             <?php foreach($category_home as $row) : ?>
+                            <?php $input['where'] = array('career_id'=>$row->id); ?>
+                            <?php $total_career = $this->recruitment_model->get_total($input); ?>
                             <?php $catname = $row->cat_name; ?>
                             <div class="item">
-                               <a href="<?php echo base_url($catname.'-d'.$row->id); ?>"> <img src="<?php echo public_url(); ?>/site/images/category-icon09.png" alt="" class="img-responsive"></a>
+                               <a href="<?php echo base_url('viec-lam/'.$catname.'-d'.$row->id); ?>"> <img src="<?php echo public_url(); ?>/site/images/category-icon09.png" alt="" class="img-responsive"></a>
                                 <h4><?php echo $row->name; ?></h4>
-                                <p class="light">4286 Jobs</p>
+                                <p class="light">( <?php echo $total_career; ?> ) Việc làm</p>
                             </div> <!-- end .item -->
                         <?php endforeach; ?>
                          
