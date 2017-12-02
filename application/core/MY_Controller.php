@@ -85,6 +85,15 @@ Class MY_Controller extends CI_Controller{
 						$this->data['company_info'] = $company_info;
 					}
 
+					//công việc mới nhất
+
+					$this->load->model('recruitment_model');
+					$this->load->model('city_model');
+					$input = array();
+					$input['limit'] = array(5,0);
+					$lastestjob = $this->recruitment_model->get_list($input);
+					$this->data['lastestjob'] = $lastestjob;
+
 
 
 					//load thư viện giỏ hàng tất cả các trang
