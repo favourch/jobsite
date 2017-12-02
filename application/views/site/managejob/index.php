@@ -114,15 +114,7 @@
 						        	</div> <!-- end .posted-jobs-list-wrapper -->
 
 						        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
-										<a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-										<ul class="list-unstyled flex no-column items-center">
-											<li><a href="#0">1</a></li>
-											<li><a href="#0">2</a></li>
-											<li><a href="#0">3</a></li>
-											<li><a href="#0">4</a></li>
-											<li><a href="#0">5</a></li>									
-										</ul>
-										<a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
+										<?php echo $this->pagination->create_links(); ?>
 									</div> <!-- end .jobpress-custom-pager -->							        
 							    </div> <!-- end #manage-applications-tab -->
 

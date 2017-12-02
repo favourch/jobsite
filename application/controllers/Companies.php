@@ -300,7 +300,7 @@ Class Companies extends MY_Controller{
 				$date_end = date('Y-m-d h:i:s',$end_date);
 				$language = $this->input->post('language');
 				$company_id = $this->session->userdata('company_id_login');
-
+				$start_date = date("Y-m-d h:i:s", strtotime("now"));
 				$data = array(
 					'title' => $title,
 					'amount' => $amount,
@@ -319,7 +319,7 @@ Class Companies extends MY_Controller{
 					'end_date' => $date_end,
 					'language' => $language,
 					'company_id' => $company_id,
-					'start_date' => now()
+					'start_date' => $start_date
 					);
 				$this->load->model('recruitment_model');
 				$this->recruitment_model->create($data);

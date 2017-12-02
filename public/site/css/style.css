@@ -910,7 +910,12 @@ select::-ms-expand {
 /* ==========================================================================
    06. Sections
    ========================================================================== */
-
+li.active{
+	color: #c00;
+}
+.linkcss a{
+	color: #fff;
+}
 .section {
 	position: relative;
 	padding: 0;
@@ -922,7 +927,7 @@ select::-ms-expand {
 	background-attachment: fixed;
 }
 .section>.inner {
-	padding: 80px 0;
+	padding: 40px 0;
 	background: #fff;
 	position: relative;
 }
@@ -1405,7 +1410,7 @@ select::-ms-expand {
 	margin: 0;
 }
 .jobpress-custom-pager li a {
-	color: #627199;
+	color: #fff;
 	padding: 0 7px;
 	font-size: 12px;
 	-webkit-transition: .3s;
@@ -1421,7 +1426,7 @@ select::-ms-expand {
 	padding: 9px 16px;
 }
 .jobpress-custom-pager .button:first-of-type {
-	margin-right: 15px;
+	margin-right: 10px;
 }
 .jobpress-custom-pager .button:last-of-type {
 	margin-left: 15px;
