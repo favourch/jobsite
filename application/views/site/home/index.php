@@ -60,214 +60,63 @@
             <div class="inner">
                 <div class="container">
                     <div class="section-top-content flex items-center">
-                        <h1>Featured Jobs</h1>
-                        <a href="#0">View all jobs<i class="ion-ios-arrow-thin-right"></i></a>
+                        <h1>Việc làm nổi bật</h1>
+                        <a href="#0">Tất cả việc làm<i class="ion-ios-arrow-thin-right"></i></a>
                     </div> <!-- end .section-top-content -->
                     <div class="jobs-table">
                         <div class="table-header">
                             <div class="table-cells flex">
-                                <div class="job-title-cell"><h6>Job title / Company name</h6></div>
-                                <div class="job-type-cell"><h6>Type</h6></div>
-                                <div class="location-cell"><h6>Location</h6></div>
-                                <div class="expired-date-cell"><h6>Expired Date</h6></div>
-                                <div class="salary-cell"><h6>Salary</h6></div>                  
+                                <div class="job-title-cell"><h6>Việc làm / Công ty</h6></div>
+                                <div class="job-type-cell"><h6>Loại việc làm</h6></div>
+                                <div class="location-cell"><h6>Địa điểm làm việc</h6></div>
+                                <div class="expired-date-cell"><h6>Hạn nộp hồ sơ</h6></div>
+                                <div class="salary-cell"><h6>Mức lương</h6></div>                  
                             </div> <!-- end .table-cells -->
                         </div> <!-- end .table-header -->
-
+                        <?php foreach($hotjob as $row): ?>
+                        <?php $company_info = $this->member_company_model->get_info($row->company_id); ?>
+                        <?php $city_info = $this->city_model->get_info($row->city_id); ?>
+                        <?php $salary_info = $this->salary_model->get_info($row->salary_id); ?>
                         <div class="table-row">
                             <div class="table-cells flex no-wrap">
                                 <div class="cell job-title-cell flex no-column no-wrap">
                                     <div class="cell-mobile-label">
-                                        <h6>Company name</h6>
+                                        <h6>Công ty</h6>
                                     </div> <!-- end .cell-label -->
-                                    <img src="<?php echo public_url(); ?>/site/images/company-logo01.jpg.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/company-logo01.jpg" alt="company-logo" class="img-responsive">
+                                    <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" alt="" class="img-responsive">
                                     <div class="content">
-                                        <h4><a href="job-details.html" tppabs="http://jobpress.wecookcode.com/demo/job-details.html">Web Designer needed</a></h4>
-                                        <p class="small">Quick studio</p>
+                                        <h4><a href="job-details.html"><?php echo $row->title; ?></a></h4>
+                                        <p class="small"><?php echo $company_info->company_name; ?></p>
                                     </div> <!-- end .content -->
                                 </div> <!-- end .job-title-cell -->
                                 <div class="cell job-type-cell flex no-column">
                                     <div class="cell-mobile-label">
-                                        <h6>Type</h6>
+                                        <h6>Loại công việc</h6>
                                     </div> <!-- end .cell-label -->                                 
-                                    <button type="button" class="button full-time">Full time</button>
+                                    <button type="button" class="button freelancer">Hot</button>
                                 </div> <!-- end .job-type-cell -->
                                 <div class="cell location-cell flex no-column no-wrap">
                                     <div class="cell-mobile-label">
-                                        <h6>Location</h6>
+                                        <h6>Địa điểm làm việc</h6>
                                     </div> <!-- end .cell-label -->
-                                    <p>Cupertino<span>, CA, USA</span></p>
+                                    <p><?php echo $city_info->name; ?></p>
                                 </div> <!-- end .location-cell -->
                                 <div class="cell expired-date-cell flex no-column no-wrap">
                                     <div class="cell-mobile-label">
-                                        <h6>Expired Date</h6>
+                                        <h6>Hạn nộp hồ sưo</h6>
                                     </div> <!-- end .cell-label -->
-                                    <p>Nov 14th<sup>th</sup><span>, 2017</span></p>
+                                    <p><span><?php echo int_to_date($row->end_date); ?></span></p>
                                 </div> <!-- end .expire-date-cell -->
                                 <div class="cell salary-cell flex no-column no-wrap">
                                     <div class="cell-mobile-label">
-                                        <h6>Salary</h6>
+                                        <h6>Mức lương</h6>
                                     </div> <!-- end .cell-label -->
-                                    <p><sup>$</sup>60<span>/hour</span></p>
+                                    <p><?php echo $salary_info->name; ?></p>
                                 </div> <!-- end .salray-cell -->
                             </div> <!-- end .table-cells -->
                         </div> <!-- end .table-row -->
+                    <?php endforeach; ?>
                         
-                        <div class="table-row">
-                            <div class="table-cells flex no-wrap">
-                                <div class="cell job-title-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Company name</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <img src="<?php echo public_url(); ?>/site/images/company-logo02.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/company-logo02.jpg" alt="company-logo" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="job-details.html" tppabs="http://jobpress.wecookcode.com/demo/job-details.html">We're hiring a fullstack developer</a></h4>
-                                        <p class="small">Archive inc.</p>
-                                    </div> <!-- end .content -->
-                                </div> <!-- end .job-title-cell -->
-                                <div class="cell job-type-cell flex no-column">
-                                    <div class="cell-mobile-label">
-                                        <h6>Type</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <button type="button" class="button part-time">Part time</button>
-                                </div>
-                                <div class="cell location-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Location</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Cupertino<span>, CA, USA</span></p>
-                                </div>
-                                <div class="cell expired-date-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Expired date</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Nov 14th<sup>th</sup><span>, 2017</span></p>
-                                </div>
-                                <div class="cell salary-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Salary</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p><sup>$</sup>60<span>/hour</span></p>
-                                </div>
-                            </div> <!-- end .table-cells -->
-                        </div> <!-- end .table-row -->
-
-                        <div class="table-row">
-                            <div class="table-cells flex no-wrap">
-                                <div class="cell job-title-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Company name</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <img src="<?php echo public_url(); ?>/site/images/company-logo03.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/company-logo03.jpg" alt="company-logo" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="job-details.html" tppabs="http://jobpress.wecookcode.com/demo/job-details.html">Looking for a project leader</a></h4>
-                                        <p class="small">Comply agency</p>
-                                    </div> <!-- end .content -->
-                                </div> <!-- end .job-title-cell -->
-                                <div class="cell job-type-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Type</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <button type="button" class="button full-time">Full time</button>
-                                </div>
-                                <div class="cell location-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Location</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Cupertino<span>, CA, USA</span></p>
-                                </div>
-                                <div class="cell expired-date-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Expired Date</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Nov 14th<sup>th</sup><span>, 2017</span></p>
-                                </div>
-                                <div class="cell salary-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Salary</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p><sup>$</sup>60<span>/hour</span></p>
-                                </div>
-                            </div> <!-- end .table-cells -->
-                        </div> <!-- end .table-row -->
-
-                        <div class="table-row">
-                            <div class="table-cells flex no-wrap">
-                                <div class="cell job-title-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Company name</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <img src="<?php echo public_url(); ?>/site/images/company-logo04.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/company-logo04.jpg" alt="company-logo" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="job-details.html" tppabs="http://jobpress.wecookcode.com/demo/job-details.html">Front-end developer needed</a></h4>
-                                        <p class="small">Folder cooperation</p>
-                                    </div> <!-- end .content -->
-                                </div> <!-- end .job-title-cell -->
-                                <div class="cell job-type-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Type</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <button type="button" class="button freelancer">freelancer</button>
-                                </div>
-                                <div class="cell location-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Location</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Cupertino<span>, CA, USA</span></p>
-                                </div>
-                                <div class="cell expired-date-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Expired date</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Nov 14th<sup>th</sup><span>, 2017</span></p>
-                                </div>
-                                <div class="cell salary-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Salary</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p><sup>$</sup>60<span>/hour</span></p>
-                                </div>
-                            </div> <!-- end .table-cells -->
-                        </div> <!-- end .table-row -->
-
-                        <div class="table-row">
-                            <div class="table-cells flex no-wrap">
-                                <div class="cell job-title-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Company name</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <img src="<?php echo public_url(); ?>/site/images/company-logo05.jpg" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/company-logo05.jpg" alt="company-logo" class="img-responsive">
-                                    <div class="content">
-                                        <h4><a href="job-details.html" tppabs="http://jobpress.wecookcode.com/demo/job-details.html">Software Engineer</a></h4>
-                                        <p class="small">Bookcover publisher</p>
-                                    </div> <!-- end .content -->
-                                </div> <!-- end .job-title-cell -->
-                                <div class="cell job-type-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Type</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <button type="button" class="button full-time">Full time</button>
-                                </div>
-                                <div class="cell location-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Location</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Cupertino<span>, CA, USA</span></p>
-                                </div>
-                                <div class="cell expired-date-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Expired date</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p>Nov 14th<sup>th</sup><span>, 2017</span></p>
-                                </div>
-                                <div class="cell salary-cell flex no-column no-wrap">
-                                    <div class="cell-mobile-label">
-                                        <h6>Salary</h6>
-                                    </div> <!-- end .cell-label -->
-                                    <p><sup>$</sup>60<span>/hour</span></p>
-                                </div>
-                            </div> <!-- end .table-cells -->
-                        </div> <!-- end .table-row -->
 
                         <div class="table-footer flex space-between items-center">
                             <h6>Showing<span>1-5</span>of 23 jobs</h6>

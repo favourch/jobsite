@@ -184,20 +184,23 @@
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
 											<p class="label">Hạn nộp hồ sơ (*)</p>
-						<input type="text" id="end_date" name="end_date" class="datepicker" value="<?php echo $job_info->end_date; ?>" required="">
+						<input type="text" id="end_date" name="end_date" class="datepicker" value="<?php echo int_to_date($job_info->end_date); ?>" required="">
 						<span style="font-size: 12px; color: #c00"><?php echo form_error('end_date'); ?></span>
 										</div> <!-- end .form-group -->
 										<div class="form-group">
 											<p class="label">Ngôn ngữ hồ sơ (*)</p>
 											<select class="form-control" id="language" name="language" required="">
                                         <option value="">-- Vui lòng chọn --</option>
-                                        <option value="1">Tiếng Việt</option>
+                                        <?php if($job_info->language==1): ?>
+                                        <option value="1" selected="">Tiếng Việt</option>
                                         <option value="2">Tiếng Anh</option>
-                                        <option value="3">Tiếng Pháp</option>
-                                        <option value="4">Tiếng Nhật</option>
-                                        <option value="5">Tiếng Trung Quốc</option>
-                                        <option value="6">Tiếng Hàn Quốc</option>
-                                        <option value="20">Bất kỳ</option>
+                                        <?php elseif($job_info->gender==2) : ?>
+                                        <option value="1">Tiếng Việt</option>
+                                        <option value="2" selected="">Tiếng Anh</option>
+                                        <?php else: ?>
+                                        <option value="1">Tiếng Việt</option>
+                                        <option value="2" selected="">Tiếng Anh</option>
+                                    <?php endif; ?>
 											</select>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->

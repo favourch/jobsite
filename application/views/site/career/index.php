@@ -62,7 +62,7 @@
 					        				<div class="bookmarked-job-meta flex items-center no-wrap no-column">
 						        		
 												<h6 class="bookmarked-job-category"><?php echo $city->name; ?></h6>
-					      <h6 class="candidate-location">Hạn nộp hồ sơ : <?php echo format_date($row->end_date); ?></h6>
+					      <h6 class="candidate-location">Hạn nộp hồ sơ : <?php echo int_to_date($row->end_date); ?></h6>
 												
 					        				</div> <!-- end .bookmarked-job-meta -->
 					        			<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">

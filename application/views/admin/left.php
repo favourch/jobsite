@@ -14,6 +14,13 @@
 								<li><a class="submenu" href="<?php echo admin_url('level'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Cấp bậc</span></a></li>
 							</ul>	
 						</li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Quản lý việc làm</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo admin_url('recruitment'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Danh sách việc làm </span></a></li>
+								<li><a class="submenu" href="<?php echo admin_url('level'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Thống kê</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="<?php echo admin_url('candidate'); ?>"><i class="icon-user"></i><span class="hidden-tablet"> Ứng viên</span></a></li>
 						<li><a href="<?php echo admin_url('menu'); ?>"><i class="icon-tasks"></i><span class="hidden-tablet"> Menu</span></a></li>
 						<!--

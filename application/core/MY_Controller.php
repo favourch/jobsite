@@ -86,7 +86,7 @@ Class MY_Controller extends CI_Controller{
 					}
 
 					//công việc mới nhất
-
+					$this->load->model('member_company_model');
 					$this->load->model('recruitment_model');
 					$this->load->model('city_model');
 					$this->load->model('salary_model');
@@ -94,6 +94,13 @@ Class MY_Controller extends CI_Controller{
 					$input['limit'] = array(5,0);
 					$lastestjob = $this->recruitment_model->get_list($input);
 					$this->data['lastestjob'] = $lastestjob;
+
+					//công việc nổi bật
+					$input = array();
+					$input['limit'] = array(5,0);
+					$input['where'] = array('is_hot'=>1);
+					$hotjob = $this->recruitment_model->get_list($input);
+					$this->data['hotjob'] = $hotjob;
 
 
 
