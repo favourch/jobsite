@@ -32,6 +32,7 @@ Class member_register extends MY_Controller{
 			$this->form_validation->set_rules('phone','Số điện thoại','required|min_length[6]|numeric');
 			$this->form_validation->set_rules('address','Địa chỉ','required|min_length[6]');
 			$this->form_validation->set_rules('city','Địa điểm','required');
+			$this->form_validation->set_rules('birthday','Ngày sinh','required');
 			$this->form_validation->set_rules('password','Mật khẩu','required|min_length[6]');
 			$this->form_validation->set_rules('repassword','Nhập lại mật khẩu','matches[password]');
 			if($this->form_validation->run()){
@@ -52,8 +53,8 @@ Class member_register extends MY_Controller{
 					'address'=>$address,
 					'city_id'=>$city,
 					'gender' => $gender,
-					'birthday' => $birthday,
-					'created_date' =>now()
+					'birthday' => date("Y-m-d 00:00:00", strtotime($birthday)),
+					'created_date' =>date('Y-m-d H:i:s')
 					);
 		
 			$this->member_candidate_model->create($data);
