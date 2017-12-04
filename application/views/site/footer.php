@@ -16,19 +16,13 @@
                         <h6>Về English center work</h6>
                         <ul class="list-unstyled">
                             <?php foreach($pagefooter as $row): ?>
-                            <li><a href="<?php echo base_url($row->cat_name.'-pv'); ?>"><?php echo $row->title; ?></a></li>
+                            <li><a href="<?php echo base_url($row->cat_name.'-pv'.$row->id); ?>"><?php echo $row->title; ?></a></li>
                         <?php endforeach; ?>
-                            <li><a href="#0">Our Partners</a></li>
-                            <li><a href="#0">Blog</a></li>
-                            <li><a href="#0">FAQ</a></li>
-                            <li><a href="#0">Pricing</a></li>
-                            <li><a href="#0">Help Center</a></li>
-                            <li><a href="#0">Team</a></li>
-                            <li><a href="#0">Contact Us</a></li>
+                            <li><a href="#0">Liên hệ</a></li>
                         </ul>
                     </div> <!-- end .widget -->
                     <div class="widget">
-                        <h6>For candidates</h6>
+                        <h6>Công cụ</h6>
                         <ul class="list-unstyled">
                             <li><a href="#0">Browse Jobs</a></li>
                             <li><a href="#0">Browse categories</a></li>
@@ -48,7 +42,7 @@
                         </ul>
                     </div> <!-- end .widget -->
                     <div class="widget">
-                        <h6>Follow us</h6>
+                        <h6>Kết nối với English center work</h6>
                         <ul class="list-unstyled social-icons flex no-column">
                             <li><a href="#0"><i class="ion-social-twitter"></i></a></li>
                             <li><a href="#0"><i class="ion-social-facebook"></i></a></li>

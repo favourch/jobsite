@@ -147,7 +147,6 @@ h2 {
 	font-size: 24px;
 	line-height: 38px;
 	font-weight: 700;
-	color: #ffffff;
 	margin-bottom: 13px;
 }
 h3 {
@@ -267,10 +266,17 @@ ul {
   padding-right: 0;
   padding-left: 0;
 }
+.job-search-form h2{
+	color: #fff;
+}
 @media (min-width: 1200px) {
 	.container {
 		padding-left: 0;
 		padding-right: 0;
+	}
+	.container-page{
+		width: 1050px;
+		margin: 0 auto;
 	}
 	.container-fluid {
 		padding-left: 30px;
@@ -1561,6 +1567,7 @@ li.active{
 .cta-section h2 {
 	text-transform: uppercase;
 	margin-bottom: 4px;
+	color: #fff;
 }
 .cta-section p {
 	color: #a0a7ba;
