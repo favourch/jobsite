@@ -2588,7 +2588,7 @@ li.active{
    ========================================================================== */
 
 .section.breadcrumb-bar>.inner {
-	padding: 45px 0;
+	padding: 10px 0;
 }
 .breadcrumb-bar .breadcrumb-menu i {
 	font-size: 16px;
