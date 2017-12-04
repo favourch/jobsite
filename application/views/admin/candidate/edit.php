@@ -24,16 +24,16 @@
 						<form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
 						  <fieldset>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Họ và tên </label>
+							  <label class="control-label" for="typeahead">Họ và tên <sup>*</sup></label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" name="full_name" value="<?php echo $info->full_name; ?>" >
 								<div class="help-block"><?php echo form_error('full_name'); ?></div>
 							  </div>
 
 								<div class="control-group">
-							  <label class="control-label" for="typeahead">Ngày sinh </label>
+							  <label class="control-label" for="typeahead">Ngày sinh <sup>*</sup></label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead" name="birthday" value="<?php echo date_format(new DateTime($info->birthday),'d/m-Y'); ?>" >
+								<input type="text" class="span6 typeahead" name="birthday" value="<?php echo date_format(new DateTime($info->birthday),'d/m/Y'); ?>" >
 								<div class="help-block"><?php echo form_error('birthday'); ?></div>
 							  </div>
 
@@ -45,7 +45,7 @@
 							  </div>
 							</div>  
 							<div class="control-group">
-							  <label class="control-label">Giới tính</label>
+							  <label class="control-label">Giới tính<sup>*</sup></label>
 							  <div class="controls">
 								<label class=" control-label">
 									<input type="radio" name="gender" value="0" <?php if ($info->gender==0) echo "checked";?>>Nữ									
@@ -59,7 +59,7 @@
 							  </div>
 							</div>
 							<div class="control-group">
-							<label class="control-label">Thành phố</label>
+							<label class="control-label">Thành phố<sup>*</sup></label>
 							<div class="controls">
 							<select name="city">											
 												<?php foreach($lst_city as $row): ?>
@@ -69,14 +69,14 @@
 							</div>
 							</div>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Địa chỉ</label>
+							  <label class="control-label" for="typeahead">Địa chỉ<sup>*</sup></label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" name="address" value="<?php echo $info->address; ?>" >
 							  </div>
 							</div>
 
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Số điện thoại</label>
+							  <label class="control-label" for="typeahead">Số điện thoại<sup>*</sup></label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" name="phone" value="<?php echo $info->phone; ?>" >
 							  </div>
@@ -90,13 +90,13 @@
 							<div class="control-group">
 							  <label class="control-label" for="date01">Ngày sửa</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" id="date01" value="<?php echo $info->modified_date; ?>" readonly="true">
+								<input type="text" class="input-xlarge" id="date01" value="<?php echo date_format(new DateTime($info->modified_date),'d/m/Y'); ?>" readonly="true">
 							  </div>
 							</div>
 							<div class="control-group">
 							  <label class="control-label" for="date01">Ngày tạo</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge" id="date01" value="<?php echo $info->created_date; ?>" readonly="true">
+								<input type="text" class="input-xlarge" id="date01" value="<?php echo date_format(new DateTime($info->created_date),'d/m/Y'); ?>" readonly="true">
 							  </div>
 							</div>
 							<div class="form-actions">

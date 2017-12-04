@@ -25,7 +25,7 @@ $config['root_admin'] = 6;
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/megajobs/';
+$config['base_url'] = 'http://localhost:8080/jobsite/';
 
 /*
 |--------------------------------------------------------------------------
