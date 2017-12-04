@@ -34,7 +34,11 @@
 								<?php $city = $this->city_model->get_info($row->city_id); ?>
 								<div class="featured-job flex items-center no-column no-wrap">
 									<div class="left-side-inner">
+									 <?php if($company->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+                                    <?php else: ?>     
 										<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+									<?php endif; ?>
 									</div> <!-- end .left-side -->
 									<div class="right-side-inner">
 										<h5 class="dark"><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h5>
@@ -58,7 +62,11 @@
 								<?php $city = $this->city_model->get_info($row->city_id); ?>
 							<div class="latest-update flex no-column no-wrap">
 								<div class="left-side-inner">
+								 <?php if($company->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+                                    <?php else: ?>     
 									<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+								<?php endif; ?>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
 							<h5><span><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" style="color: #000; font-weight: bold;"><?php echo $row->title; ?></a></span></h5>

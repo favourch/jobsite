@@ -59,7 +59,9 @@
                  <?php if(isset($company_info)): ?>
                         <div class="account-info-top flex items-center no-column">
                             <a href="#0" class="notification-icon"><i class="ion-android-notifications"></i></a>
-                            <a href="<?php echo base_url('companies/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $company_info->company_contact; ?> <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" alt="avatar" class="img-responsive"></a>
+                            <a href="<?php echo base_url('companies/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $company_info->company_contact; ?> 
+
+                            <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" alt="avatar" class="img-responsive"></a>
                         </div>
                  <?php endif; ?>
                     

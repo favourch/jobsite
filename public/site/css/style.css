@@ -2655,6 +2655,7 @@ li.active{
 }
 .breadcrumb-info-dashboard h2, .breadcrumb-info-dashboard h4 {
     margin: 0;
+    color: #fff;
 }
 @media all and (max-width: 480px) {
 	.breadcrumb-menu .breadcrumb-info-dashboard {
@@ -4366,7 +4367,7 @@ label>sup, .label>sup {
 .posted-job-title-cell {
     -webkit-box-flex: 0;
     -ms-flex: 0 45%;
-    flex: 0 45%;
+    flex: 0 35%;
     width: 100%;
 }
 .posted-job-type-cell {

@@ -26,7 +26,11 @@
 								<div class="job-post-wrapper">
 									<div class="job-post-top flex no-column no-wrap">
 										<div class="job-post-top-left">
+											 <?php if($company->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+                                    <?php else: ?>     
 											<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+									<?php endif; ?>
 										</div> <!-- end .left-side-inner -->
 										<div class="job-post-top-right">
 											<h4 class="dark"><?php echo $info->title; ?></h4>

@@ -3,7 +3,11 @@
 			<div class="inner">
 				<div class="container">
 					<div class="breadcrumb-menu flex items-center no-column">
+						<?php if($company_info->logo_url==''): ?>
+						<img src="<?php echo public_url('site/images/buildingwhite.png'); ?>" class="img-responsive">
+						<?php else: ?>
 						<img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" class="img-responsive">
+					<?php endif; ?>
 						<div class="breadcrumb-info-dashboard">
 							<h2><?php echo $company_info->company_name; ?></h2>
 							<h4><?php echo $company_info->company_address; ?></h4>
@@ -26,7 +30,7 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
 							    <li class="active"><a data-toggle="pill" href="#profile">Thông tin tài khoản</a></li>
-							    <li ><a data-toggle="pill" href="#favorite-candidates">Cập nhật thông tin</a></li>
+							    <li><a href="<?php echo base_url('companies/edit'); ?>">Cập nhật thông tin</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
 
 							    <li class="nav-divider"></li>
@@ -994,10 +998,16 @@
 
 										<div class="profile-info profile-section flex no-column no-wrap">
 											<div class="profile-picture">
+												<?php if($company_info->logo_url==''): ?>
+												<img src="<?php echo public_url('site/images/building.png'); ?>" alt="logo công ty" class="img-responsive">
+											<?php else: ?>
 												<img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" alt="logo công ty" class="img-responsive">
+											<?php endif; ?>
+
 											</div> <!-- end .user-picture -->
 											<div class="profile-meta">
 												<h4 class="dark"><?php echo $company_info->company_name; ?></h4>
+
 												<p><i class="ion-location"></i></a> <?php echo $company_info->company_address; ?></p>
 												<div class="items-center no-wrap no-column">													
 											<span class="contact-phone"><i class="ion-iphone"></i> <?php echo $company_info->company_phone; ?></span> -
@@ -1007,9 +1017,7 @@
 												<div class="items-center no-wrap no-column">	
 												<p><i class="ion-android-globe"></i> Website : <?php echo $company_info->website; ?></p>
 												</div>
-												<div class="" style="padding-top: 5px; color: #999;">
-												<p><?php echo $company_info->description; ?></p>
-												</div>
+												
 											</div> <!-- end .profile-meta -->
 										</div> <!-- end .profile-info -->
 
@@ -1023,10 +1031,19 @@
 												<li class="reg2"><p><?php echo $company_info->company_name; ?></p></li>
 												<li class="reg1"><p>Địa chỉ</p></li>
 										<li class="reg2"><p><?php echo $company_info->company_address; ?></p></li>
+												
 												<li class="reg1"><p>Tỉnh / thành phố</p></li>
+												<?php if($company_info->city_id==0): ?>
+												<li class="reg2"><p>Chưa cập nhật...</p></li>
+											<?php else: ?>
 												<li class="reg2"><p><?php echo $citycompany->name; ?></p></li>
+											<?php endif; ?>
 												<li class="reg1"><p>Quy mô công ty</p></li>
+											<?php if($company_info->company_size_id==0): ?>
+												<li class="reg2"><p>Chưa cập nhật...</p></li>
+												<?php else: ?>
 											<li class="reg2"><p><?php echo $companysize->name; ?></p></li>
+											<?php endif; ?>
 											<li class="reg1"><p>Giới thiệu</p></li>
 											<li class="reg2"><p><?php echo $company_info->description; ?></p></li>
 											<li class="reg1"><p>Logo công ty</p></li>

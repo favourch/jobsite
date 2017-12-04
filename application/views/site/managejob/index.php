@@ -3,7 +3,13 @@
 			<div class="inner">
 				<div class="container">
 					<div class="breadcrumb-menu flex items-center no-column">
-						<img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" class="img-responsive">
+						
+						<?php if($company_info->logo_url==''): ?>
+						<img src="<?php echo public_url('site/images/buildingwhite.png'); ?>" alt="logo công ty" class="img-responsive">
+						<?php else: ?>
+						<img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" alt="logo công ty" class="img-responsive">
+						<?php endif; ?>
+
 						<div class="breadcrumb-info-dashboard">
 							<h2><?php echo $company_info->company_name; ?></h2>
 							<h4><?php echo $company_info->company_address; ?></h4>
@@ -25,14 +31,14 @@
 						<div class="left-sidebar-menu">							
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-							    <li><a data-toggle="pill" href="#profile">Thông tin tài khoản</a></li>
-							    <li ><a data-toggle="pill" href="#favorite-candidates">Cập nhật thông tin</a></li>
+							    <li><a href="<?php echo base_url('companies/view'); ?>">Thông tin tài khoản</a></li>
+							    <li><a href="<?php echo base_url('companies/edit'); ?>">Cập nhật thông tin</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
 
 							    <li class="nav-divider"></li>
 							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
 						<li><a href="<?php echo base_url('companies/postjobs'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li class="active"><a data-toggle="pill" href="#manage-jobs">Tuyển dụng đã đăng</a></li>
+							   <li class="active"><a href="#manage-jobs">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
 								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
@@ -79,15 +85,15 @@
 													<div class="cell-mobile-label">
 														<h6>Lượt xem</h6>
 													</div> <!-- end .cell-label -->
-													<div class="posted-job-cell-inner flex no-column no-wrap">
-									        			5
+													<div class="posted-job-cell-inner flex no-column no-wrap" style="padding-left: 20px;">
+									        			<?php echo $row->view; ?>
 								        			</div> <!-- end .posted-job-cell-inner -->
 								        		</div> <!-- end .posted-job-type-cell -->
 
 								        		<div class="posted-job-candidates-cell posted-job-cell flex no-column no-wrap">
 													<div class="cell-mobile-label">
 														<h6>Lượt ứng tuyển</h6>
-													</div> <!-- end .cell-label -->												<span>3</span>	
+													</div> <!-- end .cell-label -->												<span style="padding-left: 20px;">3</span>	
 																				        			
 								        		</div> <!-- end .posted-job-candidates-cell -->
 
@@ -96,12 +102,12 @@
 														<span>Làm mới</span>
 													</div> <!-- end .cell-label -->													
 													<div class="posted-job-cell-inner flex no-wrap no-column">
-													<span>3</span>	
+													<span style="padding-left: 20px;">3</span>	
 						        					</div> <!-- end .posted-job-cell-inner -->								        			
 								        		</div> <!-- end .posted-job-candidates-cell -->						        		
 
 								        		<div class="posted-job-edit-cell posted-job-cell flex items-center no-wrap no-column no-wrap">
-								        			<a href="<?php echo base_url('mangejob/view/'.$row->id); ?>" class="button button-sm full-time" title="Xem"><i class="ion-information-circled" style="font-size: 15px"></i></a>
+								        			<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button button-sm full-time" title="Xem"><i class="ion-information-circled" style="font-size: 15px"></i></a>
 								        			<a href="<?php echo base_url('managejob/edit/'.$row->id); ?>" class="button button-sm part-time" title="Sửa"><i class="ion-compose" style="font-size: 15px"></i></a>
 								        			<a href="#" class="button button-sm freelancer" title="Khóa tin" ><i class="ion-locked" style="font-size: 15px"></i></a>					        		
 												</div> <!-- end .posted-job-edit-cell -->

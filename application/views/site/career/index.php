@@ -53,7 +53,11 @@
 				        	<div class="bookmarked-job-wrapper">
 				        		<div class="bookmarked-job flex no-wrap no-column ">
 					        		<div class="job-company-icon">
+					        		<?php if($company->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+                                    <?php else: ?>     
 					        			<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+					        		<?php endif; ?>
 					        		</div> <!-- end .job-icon -->
 					        		<div class="bookmarked-job-info">
 					        			<h4 class="dark flex no-column"><?php echo $row->title; ?><a href="#0" class="button full-time"><?php echo $salary->name; ?></a></h4>

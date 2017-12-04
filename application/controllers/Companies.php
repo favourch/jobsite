@@ -303,6 +303,7 @@ Class Companies extends MY_Controller{
 				$start_date = strtotime('now');
 				$data = array(
 					'title' => $title,
+					'cat_name' => $cat_name,
 					'amount' => $amount,
 					'level_id' => $level_id,
 					'salary_id' => $salary_id,

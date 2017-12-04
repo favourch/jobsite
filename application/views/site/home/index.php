@@ -83,7 +83,11 @@
                                     <div class="cell-mobile-label">
                                         <h6>Công ty</h6>
                                     </div> <!-- end .cell-label -->
+                                    <?php if($company_info->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive" width="50">
+                                    <?php else: ?>     
                                     <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" alt="" class="img-responsive">
+                                <?php endif; ?>
                                     <div class="content">
                                         <h4><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h4>
                                         <p class="small"><?php echo $company_info->company_name; ?></p>
@@ -182,7 +186,11 @@
                                     <div class="cell-mobile-label">
                                         <h6>Công ty</h6>
                                     </div> <!-- end .cell-label -->
+                                     <?php if($company->logo_url==''): ?>
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive" width="50">
+                                    <?php else: ?>     
                                     <img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive" width="50">
+                                <?php endif; ?>
                                     <div class="content">
                                         <h4><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h4>
                                         <p class="small"><?php echo $company->company_name; ?></p>
