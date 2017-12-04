@@ -8,7 +8,7 @@
 				</li>
 				<li>
 					<i class="icon-edit"></i>
-					<a href="#">Thêm tin tức</a>
+					<a href="#">Sửa trang tin tức</a>
 				</li>
 			</ul>
 
@@ -25,70 +25,34 @@
 					<div class="box-content">
 						<form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
 						  <fieldset>
-						  <div class="control-group">
-							  <label class="control-label" for="">Danh mục tin</label>
-							  <div class="controls">
-								<select name="cat_id" class="span6">
-								<option value="0">---Chọn danh mục---</option>
-								<?php foreach ($list as $row): ?>
-								<?php if(count($row->subs) > 0 ): ?>
-								<optgroup label="<?php echo $row->name; ?>">
-								<?php foreach($row->subs as $sub): ?>
-								<option value="<?php echo $sub->id; ?>" ><?php echo $sub->name; ?></option>
-								<?php endforeach; ?>
-								</optgroup>
-								<?php else: ?>
-								<option value="<?php echo $row->id; ?>" ><?php echo $row->name; ?></option>
-								<?php endif; ?>
-								<?php endforeach; ?>
-								
-								</select>
-								<div class="help-block"><?php echo form_error('cat_id'); ?></div>
-							  </div>
-							</div>
-					
+		
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Tiêu đề </label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead" name="title" value="<?php echo set_value('title'); ?>" >
+								<input type="text" class="span6 typeahead" name="title" value="<?php echo $info->title; ?>" >
 								<div class="help-block"><?php echo form_error('title'); ?></div>
 							  </div>
 							</div>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">News-name</label>
+							  <label class="control-label" for="typeahead">Cat-name</label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead" disabled="disabled" name="news_name" value="<?php echo set_value('news_name'); ?>">
+								<input type="text" class="span6 typeahead" disabled="disabled" name="cat_name" value="<?php echo $info->cat_name; ?>">
 							  </div>
 							</div>
 
 							<div class="control-group">
-							  <label class="control-label" for="">Mô tả ngắn </label>
-							  <div class="controls">
-								<textarea class="span6" name="description"><?php echo set_value('description'); ?></textarea>
-								<div class="help-block"><?php echo form_error('description'); ?></div>
-							  </div>
-							</div>
-							<div class="control-group">
 							  <label class="control-label" for="">Chi tiết tin</label>
 							  <div class="controls">
-								<textarea class="span6" id="editor1" name="content"><?php echo set_value('content'); ?></textarea>
+								<textarea class="span6" id="editor1" name="content"><?php echo $info->content; ?></textarea>
 								<div class="help-block"><?php echo form_error('content'); ?></div>
 							  </div>
 							</div>
 
 							<div class="control-group">
-							  <label class="control-label" for="">Ảnh đại diện</label>
-							  <div class="controls">
-						<input class="" id="image" type="file" name="image" value="<?php echo set_value('image'); ?>">
-							  </div>
-							</div>
-				
-
-							<div class="control-group">
 							  <label class="control-label" for="">Trạng thái</label>
 							  <div class="controls">
 								<select name="status">
-									<?php echo yes_no(1,0); ?>
+									<?php echo yes_no(1,$info->status); ?>
 								</select>
 								
 							  </div>

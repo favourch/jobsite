@@ -35,7 +35,7 @@
 							</ul>	
 						</li>
 
-						
+						<li><a href="<?php echo admin_url('page'); ?>"><i class="icon-book"></i><span class="hidden-tablet"> Trang tin</span></a></li>
 						<!--
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Đơn hàng</span></a>

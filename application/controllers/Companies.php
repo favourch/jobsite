@@ -282,6 +282,7 @@ Class Companies extends MY_Controller{
 			$this->form_validation->set_rules('career_id','Lĩnh vực cần tuyển','required');
 			if($this->form_validation->run()){
 				$title = $this->input->post('title');
+				$cat_name = slug($title);
 				$amount = $this->input->post('amount');
 				$level_id = $this->input->post('level_id');
 				$salary_id = $this->input->post('salary_id');

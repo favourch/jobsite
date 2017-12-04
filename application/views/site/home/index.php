@@ -3,22 +3,22 @@
             <div class="inner">
                 <div class="container">
                     <div class="job-search-form">
-                        <h2>Over<span>100,000<sup>+</sup></span>jobs are waiting for you</h2>
+                        <h2>Hơn <span>100,000<sup>+</sup></span>việc làm đang chờ bạn</h2>
                         <form class="form-inline flex">
                             <div class="form-group">
                                 <div class="form-group-inner">
-                                    <input type="text" class="form-control" id="input-field-1" placeholder="job title / Keywords / company name">
+                                    <input type="text" class="form-control" id="input-field-1" placeholder="Chức danh / Từ khóa / Tên công ty">
                                     <i class="ion-ios-briefcase-outline"></i>
                                 </div>
                             </div>
                             <div class="form-group">                            
-                                <input type="text" class="form-control" id="input-field-2" placeholder="city / province / zip code">
+                            <input type="text" class="form-control" id="input-field-2" placeholder="Địa điểm làm việc">
                                 <i class="ion-ios-location-outline"></i>
                             </div>
                             <button type="submit" class="button"><i class="ion-ios-search-strong"></i></button>
                         </form>
                         <div class="keywords flex">
-                            <h4 class="self-center">Popular Keywords:</h4>
+                            <h4 class="self-center">Từ khóa phổ biến :</h4>
                             <a href="#0" class="button item-center">web design</a>
                             <a href="#0" class="button item-center">accountant</a>
                             <a href="#0" class="button item-center">car dealer</a>
@@ -228,10 +228,10 @@
         <div class="section cta-section parallax text-center" style="background-image: url('<?php echo public_url(); ?>/site/images/background02.jpg')/*tpa=http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/background02.jpg*/;">
             <div class="inner">
                 <div class="container">
-                    <h2>Looking for a job</h2>
-                    <p class="large light">Join thousand of emplyers and earn what you deserve</p>
+                    <h2>Bạn đang tìm kiếm việc làm</h2>
+                    <p class="large light">Tham gia ứng tuyển với hàng ngàn doanh nghiệp và kiếm được việc làm tốt nhất dành cho bạn</p>
                     <div class="cta-button">
-                        <a href="post-resume-form.html" class="button">Get started now</a>
+                        <a href="<?php echo base_url('member_register/register'); ?>" class="button">Đăng ký ngay</a>
                     </div> <!-- end .cta-button -->
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->

@@ -92,6 +92,12 @@ Class Career extends MY_Controller{
 		$data['view'] = $info->view + 1;
 		$this->recruitment_model->update($info->id,$data);
 
+		//việc làm cùng công ty
+		$input = array();
+		$input['where'] = array('company_id'=>$info->company_id);
+		$similarjob = $this->recruitment_model->get_list($input);
+		$this->data['similarjob'] = $similarjob;
+
 		$this->data['temp'] = "site/career/view";
 		$this->load->view("site/layout", $this->data);
 	}

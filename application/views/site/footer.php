@@ -13,9 +13,11 @@
                 </div> <!-- end .top -->
                 <div class="footer-widgets flex no-column space-between">                   
                     <div class="widget">
-                        <h6>About</h6>
+                        <h6>Về English center work</h6>
                         <ul class="list-unstyled">
-                            <li><a href="#0">Company</a></li>
+                            <?php foreach($pagefooter as $row): ?>
+                            <li><a href="<?php echo base_url($row->cat_name.'-pv'); ?>"><?php echo $row->title; ?></a></li>
+                        <?php endforeach; ?>
                             <li><a href="#0">Our Partners</a></li>
                             <li><a href="#0">Blog</a></li>
                             <li><a href="#0">FAQ</a></li>

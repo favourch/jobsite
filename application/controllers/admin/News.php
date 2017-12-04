@@ -67,7 +67,7 @@ Class News extends MY_Controller{
 				$title = $this->input->post('title');
 				$cat_id = $this->input->post('cat_id');
 				$news_name = $this->input->post('news_name');
-				$news_name = $this->news_model->slug($title);
+				$news_name = slug($title);
 				$description = $this->input->post('description');
 				$content = $this->input->post('content');
 				$status = $this->input->post('status');
@@ -124,7 +124,7 @@ Class News extends MY_Controller{
 				$cat_id = $this->input->post('cat_id');
 				$title = $this->input->post('title');
 				$news_name = $this->input->post('news_name');
-				$news_name = $this->news_model->slug($title);
+				$news_name = slug($title);
 				$description = $this->input->post('description');
 				$content = $this->input->post('content');
 				$updated = now();

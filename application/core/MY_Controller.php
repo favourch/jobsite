@@ -102,7 +102,10 @@ Class MY_Controller extends CI_Controller{
 					$hotjob = $this->recruitment_model->get_list($input);
 					$this->data['hotjob'] = $hotjob;
 
-
+					//trang tin chân trang
+					$this->load->model('page_model');
+					$pagefooter = $this->page_model->get_list();
+					$this->data['pagefooter'] = $pagefooter;
 
 					//load thư viện giỏ hàng tất cả các trang
 					$this->load->library('cart');

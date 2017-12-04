@@ -48,7 +48,7 @@ Class Recruitment extends MY_Controller{
 				$title = $this->input->post('title');
 				$is_hot = $this->input->post('is_hot');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->recruitment_model->slug($name);
+				$cat_name = slug($title);
 				$data = array(
 					'title'=> $title,
 					'cat_name' => $cat_name,
@@ -88,7 +88,7 @@ Class Recruitment extends MY_Controller{
 				$title = $this->input->post('title');
 				$is_hot = $this->input->post('is_hot');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->recruitment_model->slug($title);
+				$cat_name = slug($title);
 				$data = array(
 					'title'=> $title,
 					'cat_name' => $cat_name,

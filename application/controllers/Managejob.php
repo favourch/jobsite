@@ -95,6 +95,7 @@ Class Managejob extends MY_Controller{
 			$this->form_validation->set_rules('career_id','Lĩnh vực cần tuyển','required');
 			if($this->form_validation->run()){
 				$title = $this->input->post('title');
+				$cat_name = slug($title);
 				$amount = $this->input->post('amount');
 				$level_id = $this->input->post('level_id');
 				$salary_id = $this->input->post('salary_id');
@@ -115,6 +116,7 @@ Class Managejob extends MY_Controller{
 
 				$data = array(
 					'title' => $title,
+					'cat_name'=>$cat_name,
 					'amount' => $amount,
 					'level_id' => $level_id,
 					'salary_id' => $salary_id,
