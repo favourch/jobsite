@@ -55,7 +55,17 @@ $route['translate_uri_dashes'] = FALSE;
 //$route['([a-zA-Z0-9]+[a-zA-Z\_0-9\.-]*)\/$']
 $route['dang-ky'] = 'user/register';
 $route['dang-nhap'] = 'user/login';
+$route['nha-tuyen-dung/dang-nhap'] = 'companies/login';
+$route['nha-tuyen-dung/dang-ky'] = 'companies/register';
+$route['nha-tuyen-dung'] = 'companies/view';
+$route['nha-tuyen-dung/cap-nhat-thong-tin'] = 'companies/edit';
+$route['nha-tuyen-dung/dang-tin'] = 'companies/postjobs';
+$route['nha-tuyen-dung/danh-sach-tin-dang'] = 'managejob';
+$route['nha-tuyen-dung/cap-nhat-tin-dang-(:num)'] = 'managejob/edit/$1';
 
+$route['ung-vien/dang-nhap'] = 'candidate/login';
+$route['ung-vien/dang-ky'] = 'member_register/register';
+$route['ung-vien'] = 'candidate/view';
 //rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
 $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';

@@ -5,8 +5,8 @@
 					<!-- multistep form -->
 					<form action="<?php echo base_url('companies/postjobs'); ?>" method="post" id="job-post-form" class="job-post-form multisteps-form">
 					  	<fieldset>
-						  	<h2 class="form-title text-center dark">Post a Job</h2>
-						    <h3 class="step-title text-center dark">Step 3: Job Detail</h2>
+						  	<h2 class="form-title text-center dark">Đăng tin tuyển dụng</h2>
+						    <h3 class="step-title text-center dark">Hãy điền đầy đủ chi tiết những thông tin dưới đây để ứng viên có thể hiểu rõ hơn về yêu cầu của công ty bạn với vị trí này.</h2>
 
 					    	<div class="form-inner">
 								<div class="form-fields-wrapper">

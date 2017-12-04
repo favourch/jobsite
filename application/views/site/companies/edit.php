@@ -22,9 +22,9 @@
 							<ul class="nav nav-pills nav-stacked">
 
 								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-								<li><a href="<?php echo base_url('companies/view'); ?>">Trang quản lý</a></li>
-							    <li><a href="#">Đăng tuyển dụng mới</a></li>
-							    <li><a href="#">Tuyển dụng đã đăng</a></li>
+								<li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Trang quản lý</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tuyển dụng mới</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li><a href="#">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>

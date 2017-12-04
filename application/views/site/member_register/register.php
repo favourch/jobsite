@@ -91,11 +91,19 @@
 										</div> <!-- end .form-group -->
 
 									</div> <!-- end .form-group-wrapper -->
+									<div class="form-group-wrapper space-between items-center">
+										<div class="form-group">
+											<span >Tôi đồng ý với các <a href="#">điều khoản</a> tại English center work</span>
+								<input type="checkbox" id="" name="accept">
+								<span style="color: #c00; font-size: 12px;"><?php echo form_error('accept'); ?></span>
+										</div> <!-- end .form-group -->
+
+									</div> <!-- end .form-group-wrapper -->
 
 								</div> <!-- end .form-fields-wrapper -->
 
 					    		<div class="button-wrapper text-center">
-					    			<input type="submit" name="" class="btnsumit" value="Đăng ký ứng viên">
+					    			<input type="submit" name="" class="button" value="Đăng ký ứng viên">
 					    		</div> <!-- end .button-wrapper -->
 
 					    	</div> <!-- end .form-inner -->

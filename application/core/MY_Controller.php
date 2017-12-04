@@ -40,6 +40,7 @@ Class MY_Controller extends CI_Controller{
 					$this->data['category_list'] = $category_list;
 					//load menu trang chủ
 					$this->load->model('menu_model');
+					$this->load->model('catnews_model');
 					$input = array();
 					$input['where'] = array('parent'=>0);
 					$input['order'] = array('is_order','desc');

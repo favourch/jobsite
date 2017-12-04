@@ -22,9 +22,9 @@
 							<ul class="nav nav-pills nav-stacked">
 
 								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-								<li><a href="<?php echo base_url('companies/view'); ?>">Trang quản lý</a></li>
-							    <li><a href="<?php echo base_url('companies/postjobs'); ?>">Đăng tuyển dụng mới</a></li>
-							    <li><a href="<?php echo base_url('managejob/index'); ?>">Tuyển dụng đã đăng</a></li>
+								<li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Trang quản lý</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tuyển dụng mới</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li><a href="#">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
@@ -40,7 +40,7 @@
 						<div class="right-side-content">
 							<div class="tab-content candidate-dashboard">
 
-				<form action="<?php echo base_url('managejob/edit/'.$job_info->id); ?>" method="post" id="job-post-form" class="job-post-form multisteps-form">
+				<form action="#" method="post" id="job-post-form" class="job-post-form multisteps-form">
 					  	<fieldset>
 						  	<h2 class="form-title text-center dark">CẬP NHẬT THÔNG TIN TUYỂN DỤNG</h2>
 					    	<div class="form-inner">
@@ -210,7 +210,7 @@
 								<div class="divider"></div>
 
 					    		<div class="button-wrapper text-center">
-					    			<input type="submit" class="button" value="ĐĂNG TIN TUYỂN DỤNG">
+					    			<input type="submit" class="button" value="XÁC NHẬN THÔNG TIN">
 					    		</div> <!-- end .button-wrapper -->			    		
 
 					    	</div> <!-- end .form-inner -->							

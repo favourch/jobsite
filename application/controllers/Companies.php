@@ -230,7 +230,7 @@ Class Companies extends MY_Controller{
 				}
 			$this->member_company_model->update($company_id,$data);
 			$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
-			redirect(base_url('companies/view'));			
+			redirect(base_url('nha-tuyen-dung'));			
 		}
 	}
 
@@ -324,8 +324,8 @@ Class Companies extends MY_Controller{
 					);
 				$this->load->model('recruitment_model');
 				$this->recruitment_model->create($data);
-				$this->session->set_flashdata('message', 'Đăng tin tuyển dụng thành công, bạn có thể xem tin đăng tại menu quản trị !');
-				redirect(base_url('companies/view'));
+				$this->session->set_flashdata('message', 'Đăng tin tuyển dụng thành công !');
+				redirect(base_url('nha-tuyen-dung/danh-sach-tin-dang'));
 			}
 		}
 

@@ -31,14 +31,14 @@
 						<div class="left-sidebar-menu">							
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-							    <li><a href="<?php echo base_url('companies/view'); ?>">Thông tin tài khoản</a></li>
-							    <li><a href="<?php echo base_url('companies/edit'); ?>">Cập nhật thông tin</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Thông tin tài khoản</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
 
 							    <li class="nav-divider"></li>
 							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
-						<li><a href="<?php echo base_url('companies/postjobs'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li class="active"><a href="#manage-jobs">Tuyển dụng đã đăng</a></li>
+						<li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tin tuyển dụng mới</a></li>
+							   <li class="active"><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
 								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
@@ -108,7 +108,7 @@
 
 								        		<div class="posted-job-edit-cell posted-job-cell flex items-center no-wrap no-column no-wrap">
 								        			<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button button-sm full-time" title="Xem"><i class="ion-information-circled" style="font-size: 15px"></i></a>
-								        			<a href="<?php echo base_url('managejob/edit/'.$row->id); ?>" class="button button-sm part-time" title="Sửa"><i class="ion-compose" style="font-size: 15px"></i></a>
+								        			<a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-tin-dang-'.$row->id); ?>" class="button button-sm part-time" title="Sửa"><i class="ion-compose" style="font-size: 15px"></i></a>
 								        			<a href="#" class="button button-sm freelancer" title="Khóa tin" ><i class="ion-locked" style="font-size: 15px"></i></a>					        		
 												</div> <!-- end .posted-job-edit-cell -->
 							        		</div> <!-- end .posted-job -->

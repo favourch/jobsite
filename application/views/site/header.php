@@ -36,15 +36,15 @@
                                 <div class="r-dropdown first">
                                         <a href="#" class="button">Nhà tuyển dụng</a>
                                         <div class="dropdown-content">
-                                        <a href="<?php echo base_url('companies/login'); ?>">Đăng nhập</a>
-                                        <a href="<?php echo base_url('companies/register'); ?>">Đăng ký</a>
+                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-nhap'); ?>">Đăng nhập</a>
+                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-ky'); ?>">Đăng ký</a>
                                         </div>
                                       </div>
                                       <div class="r-dropdown last">
                                             <a href="#" class="button">Ứng viên</a>
                                             <div class="dropdown-content">
-                                            <a href="<?php echo base_url('candidate/login'); ?>">Đăng nhập</a>
-                                             <a href="<?php echo base_url('member_register/register'); ?>">Đăng ký</a>
+                                            <a href="<?php echo base_url('ung-vien/dang-nhap'); ?>">Đăng nhập</a>
+                                             <a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký</a>
                                             </div>
                                           </div>    
                            
@@ -53,13 +53,13 @@
                     <?php if(isset($user_info)): ?>
                         <div class="account-info-top flex items-center no-column">
                             <a href="#0" class="notification-icon"><i class="ion-android-notifications"></i></a>
-                            <a href="<?php echo base_url('candidate/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $user_info->full_name; ?> <img src="<?php echo base_url('uploads/candidate/'.$user_info->image) ?>" alt="avatar" class="img-responsive"></a>
+                            <a href="<?php echo base_url('ung-vien'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $user_info->full_name; ?> <img src="<?php echo base_url('uploads/candidate/'.$user_info->image) ?>" alt="avatar" class="img-responsive"></a>
                         </div>
                  <?php endif; ?>
                  <?php if(isset($company_info)): ?>
                         <div class="account-info-top flex items-center no-column">
                             <a href="#0" class="notification-icon"><i class="ion-android-notifications"></i></a>
-                            <a href="<?php echo base_url('companies/view'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $company_info->company_contact; ?> 
+                            <a href="<?php echo base_url('nha-tuyen-dung'); ?>" class="profile-button flex space-between items-center no-column no-wrap"><span>Xin chào!</span><?php echo $company_info->company_contact; ?> 
 
                             <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url) ?>" alt="avatar" class="img-responsive"></a>
                         </div>
@@ -73,85 +73,3 @@
             <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
             <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
         </div> <!-- end .responsive-menu -->
-
-
-    <!-- Login/Signup Popup -->
-        <div class="modal fade bs-modal-sm" aria-hidden="true" aria-labelledby="myTabContent"  id="login-signup-popup" role="dialog" tabindex="-1">
-            <div class="modal-dialog modal-sm login-signup-modal">
-                <div class="modal-content">
-                        <div class="modal-header text-center">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Ứng viên</h4>
-                              </div>
-                    <div class="modal-body">
-                        <form class="login-form" name="logincandidate" method="post" action="<?php echo base_url('candidate/login'); ?>">
-                                    <div class="form-group">
-                                        <label for="InputEmail1">Email *</label>
-                                        <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="InputPassword1">Mật khẩu *</label>
-                                        <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
-                                    </div>
-
-                                    <div class="checkbox flex space-between">
-                                        <div>
-                                            <input id="sigin-checkbox" type="checkbox">
-                                            <label for="sigin-checkbox">Remember me</label>
-                                        </div>
-                                        <a href="#0">Quên mật khẩu ?</a>
-                                    </div> <!-- end .checkbox -->
-
-                                    <button type="button" class="button" data-dismiss="modal">Đăng nhập</button>
-                                    
-                                    <p class="text-center divider-text small"><span>or login using</span></p>
-                                    
-                                    <div class="social-buttons">
-                                        <ul class="list-unstyled flex space-between">
-                                            <li class="twitter-btn"><a href="#0"><i class="ion-social-twitter"></i></a></li>
-                                            <li class="fb-btn"><a href="#0"><i class="ion-social-facebook"></i></a></li>
-                                            <li class="g-plus-btn"><a href="#0"><i class="ion-social-googleplus"></i></a></li>
-                                        </ul>
-                                    </div> <!-- end .social-buttons -->
-
-                                </form> <!-- end .login-form -->    
-                    </div> <!-- end .modal-body -->
-                </div> <!-- end .modal-content -->
-            </div> <!-- end .modal-dialog -->
-        </div> <!-- end .modal -->
-
-<!-- Login/Signup Popup -->
-<div class="modal fade bs-modal-sm" aria-hidden="true" aria-labelledby="myTabContent"  id="login-signup-popup-2" role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-sm login-signup-modal">
-            <div class="modal-content">
-                    <div class="modal-header text-center">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Nhà tuyển dụng</h4>
-                          </div>
-                <div class="modal-body">
-                    <form class="login-form">
-                                <div class="form-group">
-                                    <label for="InputEmail1">Your Email *</label>
-                                    <input type="email" class="form-control" id="InputEmail1" placeholder="Enter your email">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="InputPassword1">Password *</label>
-                                    <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
-                                </div>
-
-                                <div class="checkbox flex space-between">
-                                    <div>
-                                        <input id="sigin-checkbox" type="checkbox">
-                                        <label for="sigin-checkbox">Remember me</label>
-                                    </div>
-                                    <a href="#0">Lost password?</a>
-                                </div> <!-- end .checkbox -->
-
-                                <button type="button" class="button" data-dismiss="modal">Login</button>
-                            </form> <!-- end .login-form -->    
-                </div> <!-- end .modal-body -->
-            </div> <!-- end .modal-content -->
-        </div> <!-- end .modal-dialog -->
-    </div> <!-- end .modal -->

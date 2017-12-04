@@ -137,7 +137,7 @@ Class Managejob extends MY_Controller{
 					);
 				$this->recruitment_model->update($id,$data);
 				$this->session->set_flashdata('message', 'Sửa thông tin tuyển dụng thành công !');
-				redirect(base_url('managejob/index'));
+				redirect(base_url('nha-tuyen-dung/danh-sach-tin-dang'));
 			}
 		}
 
