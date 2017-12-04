@@ -67,7 +67,7 @@
 					        				</div> <!-- end .bookmarked-job-meta -->
 					        			<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
 					        					<i class="ion-ios-heart wishlist-icon"></i>
-					        					<a href="#0" class="button">Xem việc làm</a>
+					        					<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button">Xem việc làm</a>
 					        				</div> <!-- end .right-side-bookmarked-job-meta -->
 					        			</div> <!-- end .bookmarked-job-info-bottom -->
 					        		</div> <!-- end .bookmarked-job-info -->

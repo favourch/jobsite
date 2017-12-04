@@ -1588,6 +1588,7 @@ li.active{
 	-ms-flex: 0 31.62%;
 	flex: 0 31.62%;
 	width: 100%;
+	padding-bottom: 25px;
 }
 .news-grid-row .news-item img {
 	width: 100%;
