@@ -42,20 +42,22 @@
 
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
-											<p class="label">Giới tính</p>
-											<select name="sex" style="width: 100%">
-												<option value="">---Chọn giới tính---</option>
-												<option value="Nam">Nam</option>
-												<option value="Nữ">Nữ</option>
+											<p class="label">Giới tính<sup>*</sup></p>
+											<select name="gender" style="width: 100%">
+												<option value="" <?php echo set_select('gender','',true); ?>>--- Chọn giới tính ---</option>
+												<option value="0" <?php echo set_select('gender','0'); ?>>Nam</option>
+												<option value="1"<?php echo set_select('gender','1')?> >Nữ</option>
 											</select>
 										</div> <!-- end .form-group -->
 
 										<div class="form-group">
-											<p class="label">Ngày sinh</p>
-											<!-- <input type="date" id="" name="birthday" placeholder=""> -->
-											<input type="text" class="datepicker" placeholder="mm/dd/yyyy" id="" name="birthday" >
+											<p class="label">Ngày sinh<sup>*</sup></p>									
+											<input type="text" class="datepicker" placeholder="mm/dd/yyyy" id="birthday" name="birthday" value="<?php echo set_value('birthday'); ?>" >							
+											<span style="color: #c00; font-size: 12px;">
+											<?php echo form_error('birthday'); ?>
+											</span>											
 										</div> <!-- end .form-group -->
-
+										
 									</div> <!-- end .form-group-wrapper -->
 
 								</div> <!-- end .form-fields-wrapper -->
@@ -69,7 +71,7 @@
 											<select name="city" style="width: 100%;">
 												<option value="">---Chọn tỉnh/thành phố---</option>
 												<?php foreach($thanhpho as $row): ?>
-												<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+												<option value="<?php echo $row->id; ?>" <?php echo set_select('city', $row->id, false);?>><?php echo $row->name; ?></option>
 												<?php endforeach; ?>
 											</select>
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('city'); ?></span>
