@@ -58,7 +58,7 @@ $route['dang-nhap'] = 'user/login';
 //rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
 $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';
-$route['(:any)-p(:num)'] = 'product/detail/$2';
+$route['(:any)-(:num)-jv'] = 'career/view/$2';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';
 $route['(:any)-(:num).html'] = 'news/detail/$2';

@@ -29,36 +29,20 @@
 						<div class="featured-jobs-widget-wrapper jobs-widget">
 							<h6>Việc làm nổi bật</h6>
 							<div class="featured-jobs-widget">
-
+							<?php foreach($hotjob as $row): ?>
+								<?php $company = $this->member_company_model->get_info($row->company_id); ?>
+								<?php $city = $this->city_model->get_info($row->city_id); ?>
 								<div class="featured-job flex items-center no-column no-wrap">
 									<div class="left-side-inner">
-										<img src="images/company-logo16.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo16.jpg" alt="company-logo" class="img-responsive">
+										<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
 									</div> <!-- end .left-side -->
 									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
+										<h5 class="dark"><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h5>
+										<h5><?php echo $company->company_name; ?> | <span style="color: #999;"> <?php echo $city->name; ?></span></h5>
 									</div> <!-- end .right-side -->
 								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo15.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo15.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo17.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo17.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
+							<?php endforeach; ?>
+						
 
 							</div> <!-- end .featured-jobs-widget -->
 
@@ -77,8 +61,8 @@
 									<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-							<h5><span><a href="#" style="color: #000; font-weight: bold;"><?php echo $row->title; ?></a></span></h5>
-							<h5><a href="#"><?php echo $company->company_name; ?></a> | <?php echo $city->name; ?></h5>
+							<h5><span><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" style="color: #000; font-weight: bold;"><?php echo $row->title; ?></a></span></h5>
+							<h5><?php echo $company->company_name; ?> | <?php echo $city->name; ?></h5>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .latest-update -->
 						<?php endforeach; ?>

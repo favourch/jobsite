@@ -60,20 +60,39 @@ Class Career extends MY_Controller{
 		$this->load->view('site/layout',$this->data);
 	}
 
-	function detail(){
+	function view(){
 		$id = $this->uri->rsegment(3);
 		$id = intval($id);
-		$info = $this->product_model->get_info($id);
+		$info = $this->recruitment_model->get_info($id);
 		$this->data['info'] = $info;
 
 		$image_list = @json_decode($info->image_list);
 		$this->data['image_list'] = $image_list;
-		//cập nhật lượt xem sản phẩm
+		$this->load->model('member_company_model');
+		$company = $this->member_company_model->get_info($info->company_id);
+		$this->data['company'] = $company;
+
+		$this->load->model('city_model');
+		$city = $this->city_model->get_info($info->city_id);
+		$this->data['city'] = $city;
+
+		$this->load->model('salary_model');
+		$salary = $this->salary_model->get_info($info->salary_id);
+		$this->data['salary'] = $salary;
+
+		$this->load->model('level_model');
+		$level = $this->level_model->get_info($info->level_id);
+		$this->data['level'] = $level;
+
+		$career = $this->career_model->get_info($info->career_id);
+		$this->data['career'] = $career;
+
+		//cập nhật lượt xem việc làm
 		$data = array();
 		$data['view'] = $info->view + 1;
-		$this->product_model->update($info->id,$data);
+		$this->recruitment_model->update($info->id,$data);
 
-		$this->data['temp'] = "site/product/detail";
+		$this->data['temp'] = "site/career/view";
 		$this->load->view("site/layout", $this->data);
 	}
 	//tìm kiếm theo tên sản phẩm

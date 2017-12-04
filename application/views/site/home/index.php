@@ -85,7 +85,7 @@
                                     </div> <!-- end .cell-label -->
                                     <img src="<?php echo base_url('uploads/company/'.$company_info->logo_url); ?>" alt="" class="img-responsive">
                                     <div class="content">
-                                        <h4><a href="job-details.html"><?php echo $row->title; ?></a></h4>
+                                        <h4><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h4>
                                         <p class="small"><?php echo $company_info->company_name; ?></p>
                                     </div> <!-- end .content -->
                                 </div> <!-- end .job-title-cell -->
@@ -120,17 +120,7 @@
 
                         <div class="table-footer flex space-between items-center">
                             <h6>Showing<span>1-5</span>of 23 jobs</h6>
-                            <div class="jobpress-custom-pager list-unstyled flex space-between no-column items-center">
-                                <a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-                                <ul class="list-unstyled flex no-column items-center">
-                                    <li><a href="#0">1</a></li>
-                                    <li><a href="#0">2</a></li>
-                                    <li><a href="#0">3</a></li>
-                                    <li><a href="#0">4</a></li>
-                                    <li><a href="#0">5</a></li>                                 
-                                </ul>
-                                <a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-                            </div> <!-- end .jobpress-custom-pager -->
+                       
                         </div>
                     </div> <!-- end .jobs-table -->
                 </div> <!-- end .container -->
@@ -194,7 +184,7 @@
                                     </div> <!-- end .cell-label -->
                                     <img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive" width="50">
                                     <div class="content">
-                                        <h4><a href="job-details.html"><?php echo $row->title; ?></a></h4>
+                                        <h4><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a></h4>
                                         <p class="small"><?php echo $company->company_name; ?></p>
                                     </div> <!-- end .content -->
                                 </div> <!-- end .job-title-cell -->
@@ -228,17 +218,7 @@
 
                         <div class="table-footer flex space-between items-center">
                             <h6>Showing<span>1-5</span>of 23 jobs</h6>
-                            <div class="jobpress-custom-pager list-unstyled flex space-between no-column items-center">
-                                <a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-                                <ul class="list-unstyled flex no-column items-center">
-                                    <li><a href="#0">1</a></li>
-                                    <li><a href="#0">2</a></li>
-                                    <li><a href="#0">3</a></li>
-                                    <li><a href="#0">4</a></li>
-                                    <li><a href="#0">5</a></li>                                 
-                                </ul>
-                                <a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-                            </div> <!-- end .jobpress-custom-pager -->
+                  
                         </div>
                     </div> <!-- end .jobs-table -->
                 </div> <!-- end .container -->
@@ -251,7 +231,7 @@
                     <h2>Looking for a job</h2>
                     <p class="large light">Join thousand of emplyers and earn what you deserve</p>
                     <div class="cta-button">
-                        <a href="post-resume-form.html" tppabs="http://jobpress.wecookcode.com/demo/post-resume-form.html" class="button">Get started now</a>
+                        <a href="post-resume-form.html" class="button">Get started now</a>
                     </div> <!-- end .cta-button -->
                 </div> <!-- end .container -->
             </div> <!-- end .inner -->
