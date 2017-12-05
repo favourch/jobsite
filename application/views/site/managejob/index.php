@@ -44,7 +44,7 @@
 								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
 							   <li><a data-toggle="pill" href="#manage-applications-employer">Tìm ứng viên</a></li>
 							    <li class="nav-divider"></li>
-							    <li><a data-toggle="pill" href="#change-password-employer">Đổi mật khẩu</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
 							</ul>
 						</div> <!-- end .left-sidebar-menu -->

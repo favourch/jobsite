@@ -26,7 +26,7 @@
 							    <li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tuyển dụng mới</a></li>
 							    <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
-							    <li><a href="#">Đổi mật khẩu</a></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
 							    <li class="nav-divider"></li>
 								<li class="heading">HOTLINE HỖ TRỢ NHÀ TUYỂN DỤNG</li>
