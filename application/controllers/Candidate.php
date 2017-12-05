@@ -81,7 +81,6 @@ Class Candidate extends MY_Controller{
 				$company_name = $this->input->post('company_name');
 				$position = $this->input->post('position');
 				$from_date = $this->input->post('from_date');
-				
 				$to_date = $this->input->post('to_date');
 				$data2 = array(
 					'company_name' => $company_name,
@@ -104,6 +103,48 @@ Class Candidate extends MY_Controller{
 		$this->data['temp'] = 'site/candidate/view';
 		$this->load->view('site/layout',$this->data);
 	}
+	function add(){
+				$user_id = $this->session->userdata('candidate_id_login');
+				$desc = $this->input->post('desc');
+				$company_name = $this->input->post('company_name');
+				$position = $this->input->post('position');
+				$from_date = $this->input->post('from_date');
+				$to_date = $this->input->post('to_date');
+				$data = array(
+					'company_name' => $company_name,
+					'position' => $position,
+					'from_date' => date("Y-m-d 00:00:00", strtotime($from_date)),
+					'to_date' => date("Y-m-d 00:00:00", strtotime($to_date)),
+					'candidate_id'=>$user_id,
+					'description' => $desc
+					);
+				$this->load->model('work_experience_model');
+				$this->work_experience_model->create($data);
+	}
+	function del($id){
+            $id = $this->uri->rsegment(3);
+			$id = intval($id);
+            $this->load->model('work_experience_model');
+            $this->work_experience_model->deleteOne($id);
+        }
+     function edit(){
+     		if($this->input->post('id'))
+     			$id = $this->input->post('id');
+				$desc = $this->input->post('desc');
+				$company_name = $this->input->post('company_name');
+				$position = $this->input->post('position');
+				$from_date = $this->input->post('fromdaten');
+				$to_date = $this->input->post('todaten');
+				$data = array(
+					'company_name' => $company_name,
+					'position' => $position,
+					'from_date' => date("Y-m-d 00:00:00", strtotime($from_date)),
+					'to_date' => date("Y-m-d 00:00:00", strtotime($to_date)),
+					'description' => $desc
+					);
+     			$this->load->model('work_experience_model');
+           		 $this->work_experience_model->update($id,$data);
+     }                 
 
 	function del_kn(){
 		$this->load->model('work_experience_model');

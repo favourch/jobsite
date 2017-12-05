@@ -105,4 +105,7 @@
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy'    
 });
+    $('.datepicker1').datepicker({
+        format: 'dd/mm/yyyy'    
+});
 </script>

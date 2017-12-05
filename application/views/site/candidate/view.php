@@ -22,7 +22,7 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">Quản lý tài khoản</li>
 
-							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
+							    <li><a data-toggle="pill" class="active" href="#">Hồ sơ của tôi</a></li>
 							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật hồ sơ</a></li>
 							   <li><a href="<?php echo base_url('candidate/edit_account'); ?>">Cập nhật tài khoản</a></li>
 							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
@@ -258,8 +258,8 @@
 										<div id="demo" class="collapse" style="padding-top: 15px;">
 										<textarea name="description" class="txtarea"><?php echo $user_info->description; ?></textarea>
 										<div class="btnluu" style="padding-top: 15px; text-align: right;">
-										<a data-toggle="collapse" data-target="#demo" value="Hủy" style="cursor: pointer; padding: 6px; background: #c00; color: #fff">Hủy</a>
-										<input type="submit" value="Lưu" onclick="return check_mt();">
+										<button data-toggle="collapse" class="button" data-target="#demo" value="Hủy">Hủy</button>
+										<input type="submit" class="button" value="Lưu" onclick="return check_mt();">
 										</div>
 										</div>
 										
@@ -274,17 +274,112 @@
   												document.frmkn.submit();
 											}
 										</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$("#FormSubmit").click(function (e) {
+		e.preventDefault();
+		if($("#contentText").val()==='')
+			{
+				alert("Bạn chưa điền nội dung");
+				return false;
+			}			
+		$("#FormSubmit").hide(); //hide submit button
+		$("#LoadingImage").show(); //show loading image			
+	 	var content = 'desc='+ $("#contentText").val(); //build a post data structure
+	 	var company = 'company_name='+ $("#companyname").val();
+	 	var posi = 'position='+ $("#position").val();
+	 	var fdate = 'from_date='+ $("#fromdate").val();
+	 	var tdate = 'to_date='+ $("#todate").val();
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/add", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:company+"&"+posi+"&"+fdate+"&"+tdate+"&"+content, //Form variables
+		success:function($response){
+			$("#responds").append($response);
+			$("#contentText").val(''); //empty text field on successful
+			$("#FormSubmit").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			$("#demo1").hide(); 
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#FormSubmit").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
 
-										
-										<form method="post" name="frmkn" id="frmkn" action="<?php echo base_url('candidate/view'); ?>">
-										<input type="hidden" name="kn" value="ok">
+//edit dữ liệu
+$(".edit_tr").click(function () {		
+
+		$("#LoadingImage").show(); //show loading image	
+		var ID=$(this).attr('id');	
+	 	var compan=$("#company_"+ID).val();
+        var descr =$("#desc_"+ID).val();
+        var posit =$("#position_"+ID).val();
+        var frdate=$("#fromdate_"+ID).val();
+        var todate=$("#todate_"+ID).val();
+
+		jQuery.ajax({
+		cache: false,
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/edit", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"id="+ID+"&company_name="+compan+"&position="+posit+"&desc="+descr+"&fromdaten="+frdate+"&todaten="+todate, //Form variables
+		success:function(response){
+			$("#responds").append(response);
+			$("#FormEdit").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image; 
+			$('#demo_'+ID).fadeOut();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#FormEdit").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+//del dữ liệu
+$(".content_wrapper").on("click", "#responds .del_button", function(e) {
+	 e.preventDefault();
+	 var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
+	 var DbNumberID = clickedID[1]; //and get number from array
+	 var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
+	$('#item_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+	$(this).hide(); //hide currently clicked delete button
+	 
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/del/"+DbNumberID, //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:myData, //Form variables
+		success:function(response){
+			//on success, hide  element user wants to delete.
+			$('#item_'+DbNumberID).fadeOut();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			//On error, we alert user
+			alert(thrownError);
+		}
+		});
+ });
+});
+</script> 
+
 										<div class="profile-experience-wrapper profile-section">
+										<div class="content_wrapper">
 											<h3 class="dark profile-title">Kinh nghiệm làm việc<span><a data-toggle="collapse" data-target="#demo1" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
 											<div id="demo1" class="collapse">
 										<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
 										<p class="label">Tên công ty*</p>
-										<input type="text" id="" name="company_name" placeholder="Nhập tên công ty" required="">
+										<input type="text" id="companyname" name="company_name" required="">
 									</div> <!-- end .form-group -->
 									<div class="form-group">
 										<p class="label">Chức danh*</p>
@@ -294,45 +389,85 @@
 									<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
 										<p class="label">Từ tháng*</p>
-										<input type="text" class="datepicker" name="from_date" placeholder="" required="">
+										<input type="text" class="datepicker" id="fromdate" name="from_date" placeholder="" required="">
 									</div> <!-- end .form-group -->
 									<div class="form-group">
 										<p class="label">Đến tháng*</p>
-										<input type="text" class="datepicker" name="to_date" placeholder="" required="">
+										<input type="text" class="datepicker1" name="to_date" id="todate" required="">
 									</div> <!-- end .form-group -->
 								</div> <!-- end .form-group-wrapper -->
 
 									<div class="form-group textarea">
 										<p class="label">Mô tả công việc*</p>
-										<textarea name="desc" id="" required="" rows="6" placeholder="Nhập mô tả công việc của bạn" class="txtarea"></textarea>
+										<textarea name="desc" id="contentText" rows="6" placeholder="Nhập mô tả công việc của bạn" class="txtarea"></textarea>
 									</div> <!-- end .form-group -->
-									<input type="submit" class="button" data-text="Submit" value="Lưu lại">
-									<button type="button" class="button" data-toggle="collapse" data-target="#demo1">Hủy</button>						
-								
+									<p style="text-align: right;">
+						<button type="submit" class="button" id="FormSubmit" >Lưu lại</button>
+						<button type="button" class="button" data-toggle="collapse" data-target="#demo1">Hủy</button>
+									</p>
+				<img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
 									</div>
 									
-										
+										<div id="responds" class="responds">
 											<?php foreach($knlamviec as $row): ?>
-											<div class="profile-experience flex space-between no-wrap no-column">
+				<div id="item_<?php echo $row->id;?>">
+				<div class="profile-experience flex space-between no-wrap no-column">
 												<div class="profile-experience-left">
 												<h5 class="profile-designation dark"><?php echo $row->position; ?></h5>
-												<h5 class="profile-company dark"><?php echo $row->company_name; ?></h5>
-													<p class="small ultra-light"><?php echo $row->from_date; ?> - <?php echo $row->to_date; ?></p>
+											<span class="profile-company dark"><?php echo $row->company_name; ?></span>
+													<p class="small ultra-light">Từ tháng <b><?php echo format_date($row->from_date); ?></b> đến tháng <b><?php echo format_date($row->to_date); ?></b></p>
 													<p><?php echo $row->description; ?></p>
 													
 												</div> <!-- end .profile-experience-left -->
 												<div class="profile-experience-right">
-													<span><a href="#" style="cursor: pointer;"><i class="ion-edit"></i></a></span>
-													<span><a href="<?php echo base_url('candidate/del_kn/'.$row->id); ?>" style="cursor: pointer;"><i class="ion-close-circled"></i></a></span>
+										<span><a data-toggle="collapse" data-target="#demo_<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-edit"></i></a></span>
+													<div class="del_wrapper">
+													<span><a class="del_button" id="del-<?php echo $row->id;?>" style="cursor: pointer;"><i class="ion-close-circled"></i></a></span>
+													</div>
 												</div> <!-- end .profile-experience-right -->
 											</div> <!-- end .profile-experience -->
+
+											<div id="demo_<?php echo $row->id ?>" class="collapse">
+										<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Tên công ty*</p>
+										<input type="text" id="company_<?php echo $row->id;?>" value="<?php echo $row->company_name; ?>" >
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Chức danh*</p>
+										<input type="text" id="position_<?php echo $row->id;?>" value="<?php echo $row->position; ?>">
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+									<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Từ tháng*</p>
+										<input type="text" class="datepicker" id="fromdate_<?php echo $row->id;?>" value="<?php echo format_date($row->from_date); ?>">
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Đến tháng*</p>
+										<input type="text" class="datepicker1" id="todate_<?php echo $row->id;?>" value="<?php echo format_date($row->to_date); ?>">
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+
+									<div class="form-group textarea">
+										<p class="label">Mô tả công việc*</p>
+										<textarea id="desc_<?php echo $row->id;?>" rows="6" class="txtarea"><?php echo $row->description; ?></textarea>
+									</div> <!-- end .form-group -->
+									<p style="text-align: right;">
+						<button type="submit" id="<?php echo $row->id; ?>" class="edit_tr">Lưu lại</button>
+						<button type="button" class="button" data-toggle="collapse" data-target="#demo_<?php echo $row->id; ?>">Hủy</button>
+									</p>
+				<img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
+									</div>
+
+											</div>
 										<?php endforeach; ?>
 											<div class="spacer-md"></div>
+									</div>
 
-
-											
+											</div>
 										</div> <!-- end .profile-experience-wrapper -->
-										</form>
+								
 
 
 										<div class="divider"></div>
