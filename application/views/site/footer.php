@@ -101,6 +101,15 @@
         <script src="<?php echo public_url(); ?>/site/js/jquery.magnific-popup.js"></script>
         <!-- Scripts.js -->
         <!-- <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script> -->
+        <script src="<?php echo public_url(); ?>/site/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript">
+	$(function() {				    				    
+        CKEDITOR.replace('profile');
+        CKEDITOR.replace('content');
+        CKEDITOR.replace('benefit');
+        CKEDITOR.replace('job_requirement');
+	})
+</script>
 <script>
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy'    
