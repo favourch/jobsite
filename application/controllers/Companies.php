@@ -334,6 +334,52 @@ Class Companies extends MY_Controller{
 	}
 
 
+	function check_password(){
+		$pass = $this->_get_passinfo();
+		if($pass){
+			return true;
+		}
+		else{
+			$this->form_validation->set_message(__FUNCTION__,'Mật khẩu cũ không đúng !');
+			return false;
+		}
+	}
+	private function _get_passinfo(){
+		$oldpassword = $this->input->post('oldpassword');
+		$oldpassword = md5($oldpassword);
+		$where = array('password'=>$oldpassword);
+		$pass = $this->member_company_model->get_info_rule($where);
+		return $pass;
+	}
+
+	function change_pass(){
+		$company_id = $this->session->userdata('company_id_login');
+		$info_company = $this->member_company_model->get_info($company_id);
+		if(!$info_company){
+			redirect(base_ur());
+		}
+		if($this->input->post()){
+		$this->form_validation->set_rules('oldpassword','Mật khẩu cũ','required|min_length[6]|callback_check_password');
+			$this->form_validation->set_rules('password','Mật khẩu mới','required|min_length[6]');
+			$this->form_validation->set_rules('repassword','Nhập lại mật khẩu mới','required|matches[password]');
+			if($this->form_validation->run()){
+				$oldpassword = $this->input->post('oldpassword');
+				$password = $this->input->post('password');
+				//$password = md5($password);
+				$repassword = $this->input->post('repassword');
+				$data = array(
+					'password'=>md5($password)
+					);
+				$this->member_company_model->update($company_id,$data);
+				$this->session->set_flashdata('message', 'Đổi mật khẩu thành công !');
+				redirect(base_url('nha-tuyen-dung'));
+			}
+		}
+
+		$this->data['temp'] = 'site/companies/change_pass';
+		$this->load->view('site/layout',$this->data);
+	}
+
 	function logout(){
 		if($this->session->userdata('company_id_login')){
 				$this->session->unset_userdata('company_id_login');

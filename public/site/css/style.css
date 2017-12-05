@@ -3479,10 +3479,10 @@ label>sup, .label>sup {
     font-size: 13px;
 }
 .password-button-wrapper {
-    text-align: center;
+    text-align: left;
     background: #f8f8f8;
     top: 30px;
-    margin-left: -50px;
+    margin-left: 0px;
     margin-right: -50px;
     padding: 39px 0;
     position: relative;

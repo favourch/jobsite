@@ -4,21 +4,21 @@
 							<h6>Thống kê tổng thể</h6>
 							<div class="statistics-widget flex no-column no-wrap">
 								<div class="left-side-inner">
-									<h2 class="dark">683,207</h2>
-									<h5>Hồ sơ ứng viên</h5>
+									<h2 class="dark"><?php echo $total_candidate; ?></h2>
+									<h5>Ứng viên</h5>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-									<button type="button" class="button button-sm grey">+583 this week</button>
+									<button type="button" class="button button-sm grey">+583 Tuần này</button>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .statisstics-widget -->
 
 							<div class="statistics-widget flex no-column no-wrap">
 								<div class="left-side-inner">
-										<h2 class="dark">129, 245</h2>
+										<h2 class="dark"><?php echo $total_recruitment; ?></h2>
 										<h5>Việc làm</h5>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-									<button type="button" class="button button-sm grey">+364 this week</button>
+									<button type="button" class="button button-sm grey">+364 Tuần này</button>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .statisstics-widget -->
 

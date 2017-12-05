@@ -103,6 +103,14 @@ Class MY_Controller extends CI_Controller{
 					$hotjob = $this->recruitment_model->get_list($input);
 					$this->data['hotjob'] = $hotjob;
 
+					//tổng số việc làm
+					$this->load->model('member_candidate_model');
+					$total_candidate = $this->member_candidate_model->get_total();
+					$this->data['total_candidate'] = $total_candidate;
+					//tổng số việc làm
+					$total_recruitment = $this->recruitment_model->get_total();
+					$this->data['total_recruitment'] = $total_recruitment;
+
 					//trang tin chân trang
 					$this->load->model('page_model');
 					$pagefooter = $this->page_model->get_list();
