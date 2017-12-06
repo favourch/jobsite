@@ -102,14 +102,17 @@
         <!-- Scripts.js -->
         <!-- <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script> -->
         <script src="<?php echo public_url(); ?>/site/ckeditor/ckeditor.js"></script>
-		<script type="text/javascript">
-	$(function() {				    				    
-        CKEDITOR.replace('profile');
-        CKEDITOR.replace('content');
-        CKEDITOR.replace('benefit');
-        CKEDITOR.replace('job_requirement');
-	})
-</script>
+
+		<?php if ($this->uri->uri_string == 'nha-tuyen-dung/dang-tin' ): ?>
+        <script type="text/javascript">
+            $(function() {				    				    
+                CKEDITOR.replace('profile');
+                CKEDITOR.replace('content');
+                CKEDITOR.replace('benefit');
+                CKEDITOR.replace('job_requirement');
+            })
+        </script>
+        <?php endif; ?>
 <script>
     $('.datepicker').datepicker({
         format: 'dd/mm/yyyy'    
