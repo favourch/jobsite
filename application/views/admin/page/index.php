@@ -29,15 +29,9 @@
 </div>
 </div>
 </div>
-
-<script type="text/javascript">
-	function resetall(){
-		window.location.href= <?php echo admin_url('page'); ?>
-	}
-</script>
 <div style="float: left;">
 <input type="submit" class="btn btn-small btn-inverse" value="Lọc tin tức">
-<a class="btn btn-small btn-inverse" href="javascript:void(0)" onclick="return resetall();">Reset</a>
+<a class="btn btn-small btn-inverse" href="javascript:void(0)" onclick="return location.reload();">Reset</a>
 </div>
 </div>
 </form>

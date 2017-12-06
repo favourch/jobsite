@@ -60,14 +60,10 @@ function check_all() {
 </div>
 </div>
 </div>
-<script type="text/javascript">
-	function resetall(){
-		window.location.href= <?php echo admin_url('job_type'); ?>
-	}
-</script>
+
 <div style="float: left;">
 <input type="submit" class="btn btn-small btn-inverse" value="Lọc ">
-<a class="btn btn-small btn-inverse" href="javascript:void(0)" onclick="return resetall();">Reset</a>
+<a class="btn btn-small btn-inverse" href="javascript:void(0)" onclick="return location.reload();">Reset</a>
 </div>
 </div>
 </form>
