@@ -6,7 +6,7 @@
 
 	</footer>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 			//<![CDATA[
  var nvcms_url = "<?php echo public_url('admin'); ?>"
 				// This call can be placed at any point after the
@@ -15,7 +15,7 @@
 
 				// Replace the <textarea id="editor"> with an CKEditor
 				// instance, using default configurations.
-				//CKEDITOR.config.height = 400;
+				//CKEDITOR.config.height = 400;		
 	var editor = CKEDITOR.replace( 'editor1', {
     height:400,
 	filebrowserBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html',
@@ -61,7 +61,7 @@ var editor = CKEDITOR.replace( 'editor4',
 				
 				CKFinder.setupCKEditor( editor, '../' );
 				
-</script>
+</script> -->
 	
 	<!-- start: JavaScript-->
 	
@@ -98,6 +98,6 @@ var editor = CKEDITOR.replace( 'editor4',
 		<script src="<?php echo public_url(); ?>admin/js/jquery.sparkline.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/counter.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/retina.js"></script>
-		<script src="<?php echo public_url(); ?>admin/js/custom.js"></script>
-		<script type="text/javascript" src="<?php echo public_url()?>admin/js/custom_admin.js"></script>
+		<!-- <script src="<?php echo public_url(); ?>admin/js/custom.js"></script> -->
+		<!-- <script type="text/javascript" src="<?php echo public_url()?>admin/js/custom_admin.js"></script> -->
 	<!-- end: JavaScript-->
