@@ -296,7 +296,7 @@ $(".edit_cv").on("change", function () {
 													<h6 class="contact-email"><?php echo $user_info->email; ?></h6>
 												</div> <!-- end .profile-contact -->
 												<ul class="list-unstyled flex no-column">
-													<li><a href="#" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><i class="ion-clipboard"></i>Tải hồ sơ</a></li>
+		<li><a href="<?php echo base_url('candidate/intallcv'); ?>" target="_blank" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><i class="ion-clipboard"></i>Tải hồ sơ</a></li>
 													
 												</ul> <!-- end .social-icons -->
 											</div> <!-- end .profile-meta -->

@@ -343,6 +343,46 @@ Class Candidate extends MY_Controller{
 		
 	}
 
+	function intallcv(){
+		ini_set('memory_limit', '256M');
+        // load library
+        $this->load->library('pdf');
+        $pdf = $this->pdf->load();
+        // retrieve data from model
+
+
+        // boost the memory limit if it's low ;)
+        //$html['temp'] = 'site/candidate/intallcv';
+        // render the view into HTML
+        $input = array();
+        $user_id = $this->session->userdata('candidate_id_login');
+
+        $data['candidate_info'] = $this->member_candidate_model->get_info($user_id);
+        $this->load->model('certificate_model');
+
+        $this->load->model('city_model');
+        $city_id = $data['candidate_info']->city_id;
+        $data['city'] = $this->city_model->get_info($city_id);
+
+        $input['where'] = array('candidate_id'=>$user_id);
+        $data['listcetifie'] = $this->certificate_model->get_list($input);
+
+
+
+        $this->load->model('work_experience_model');
+        $data['listexperience'] = $this->work_experience_model->get_list($input);
+
+        //$this->$data['temp'] = 'site/candidate/intallcv';
+       // $this->load->view('site/layout', $this->data);
+        $html = $this->load->view('site/printdi', $data,true);
+        $pdf->WriteHTML($html);
+        // write the HTML into the PDF
+        $output = 'itemreport' . date('Y_m_d_H_i_s') . '_.pdf';
+        $pdf->Output("$output", 'I');
+
+       
+	}
+
 
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){
