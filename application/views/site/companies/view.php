@@ -208,7 +208,7 @@
 									</div> <!-- end .jobpress-custom-pager -->							        
 							    </div> <!-- end #manage-applications-tab -->
 
-							    <div id="profile" class="tab-pane fade in active">
+							    <div id="" class="tab-pane fade in active">
 							    	<div class="profile-badge"><h6>Thông tin công ty</h6></div>
 							        <div class="profile-wrapper">
 

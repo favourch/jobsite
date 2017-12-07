@@ -303,6 +303,7 @@ $("#FormSubmit").click(function (e) {
 			$("#FormSubmit").show(); //show submit button
 			$("#LoadingImage").hide(); //hide loading image
 			$("#demo1").hide(); 
+			 window.location.reload();
 		},
 		error:function (xhr, ajaxOptions, thrownError){
 			$("#FormSubmit").show(); //show submit button
@@ -335,6 +336,7 @@ $(".edit_tr").click(function () {
 			$("#FormEdit").show(); //show submit button
 			$("#LoadingImage").hide(); //hide loading image; 
 			$('#demo_'+ID).fadeOut();
+			 window.location.reload();
 		},
 		error:function (xhr, ajaxOptions, thrownError){
 			$("#FormEdit").show(); //show submit button
@@ -462,74 +464,317 @@ $(".content_wrapper").on("click", "#responds .del_button", function(e) {
 
 											</div>
 										<?php endforeach; ?>
-											<div class="spacer-md"></div>
+											
 									</div>
 
 											</div>
 										</div> <!-- end .profile-experience-wrapper -->
-								
-
 
 										<div class="divider"></div>
 
+
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$("#FormCetifiel").click(function (e) {
+		e.preventDefault();
+		if($("#b_major").val()==='')
+			{
+				alert("Bạn chưa điền nội dung");
+				return false;
+			}			
+		$("#FormCetifiel").hide(); //hide submit button
+		$("#LoadingImage").show(); //show loading image			
+	 	var major = 'major='+ $("#b_major").val(); //build a post data structure
+	 	var names = 'name='+ $("#b_name").val();
+	 	var literacy = 'literacy='+ $("#b_literacy").val();
+	 	var fodate = 'from_date='+ $("#b_fromdate").val();
+	 	var tcdate = 'to_date='+ $("#b_todate").val();
+	 	var info = 'info='+ $("#b_info").val();
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/addmajor", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:major+"&"+names+"&"+literacy+"&"+fodate+"&"+tcdate+"&"+info, //Form variables
+		success:function($response){
+			//$("#responds").append($response);
+			$("#FormCetifiel").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			$("#demo2").hide(); 
+			 window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#FormCetifiel").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+//edit dữ liệu
+$(".edit_hocvan").click(function () {		
+
+		$("#LoadingImage").show(); //show loading image	
+		var ID=$(this).attr('id');	
+	 	var tname=$("#name_"+ID).val();
+        var major =$("#major_"+ID).val();
+        var literacy =$("#literacy_"+ID).val();
+        var fromdate=$("#fromdate_"+ID).val();
+        var todate=$("#todate_"+ID).val();
+        var info=$("#info_"+ID).val();
+        alert(literacy);
+		jQuery.ajax({
+		cache: false,
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/editmajor", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"id="+ID+"&name="+tname+"&major="+major+"&literacy="+literacy+"&fromdate="+fromdate+"&todate="+todate+"&info="+info, //Form variables
+		success:function(response){
+			$("#responds").append(response);
+			$("#LoadingImage").hide(); //hide loading image; 
+			$('#hocvan_'+ID).fadeOut();
+			 window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+//del dữ liệu
+$(".wrapper_hocvan").on("click", "#respondse .del_hocvan", function(e) {
+	 e.preventDefault();
+	 var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
+	 var DbNumberID = clickedID[1]; //and get number from array
+	 var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
+	$('#itema_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+	$(this).hide(); //hide currently clicked delete button
+	 
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/delmajor/"+DbNumberID, //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:myData, //Form variables
+		success:function(response){
+			//on success, hide  element user wants to delete.
+			$('#itema_'+DbNumberID).fadeOut();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			//On error, we alert user
+			alert(thrownError);
+		}
+		});
+ });
+});
+</script> 
+
 										<div class="profile-education-wrapper profile-section">
-											<h3 class="dark profile-title">Học vấn<span><i class="ion-edit"></i></span></h4>											
+										<div class="wrapper_hocvan">
+											<h3 class="dark profile-title">Học vấn và bằng cấp<span><a data-toggle="collapse" data-target="#demo2" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
+											<div id="demo2" class="collapse">
+								<div class="space-between items-center">
+									<div class="form-group">
+										<p class="label">Chuyên nghành*</p>
+										<input type="text" id="b_major" name="major" required="">
+									</div> <!-- end .form-group -->
+					
+								</div> <!-- end .form-group-wrapper -->
+										<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Trường*</p>
+										<input type="text" id="b_name" name="name" required="">
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Bằng cấp*</p>
+										
+										<select name="literacy" id="b_literacy" style="width: 100%;">
+											<option value="0">---Vui lòng chọn---</option>
+											<?php foreach($literacyname as $row): ?>
+											<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+										
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+									<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Từ tháng*</p>
+										<input type="text" class="datepicker" id="b_fromdate" name="from_date" required="">
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Đến tháng*</p>
+										<input type="text" class="datepicker1" name="to_date" id="b_todate" required="">
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+
+									<div class="form-group textarea">
+										<p class="label">Thành tựu học tập*</p>
+										<textarea name="info" id="b_info" rows="6" class="txtarea"></textarea>
+									</div> <!-- end .form-group -->
+									<p style="text-align: right;">
+						<button type="submit" class="button" id="FormCetifiel" >Lưu lại</button>
+						<button type="button" class="button" data-toggle="collapse" data-target="#demo2">Hủy</button>
+									</p>
+				<img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
+									</div>
+									<div id="respondse">
+											<?php foreach($hocvan as $row): ?>
+											<div id="itema_<?php echo $row->id; ?>">
 											<div class="profile-education">												
-												<h5 class="dark">Massachusetts Institute of Technology</h5>
-												<p>Bachelor of Computer Science</p>
-												<p class="ultra-light">2010-2014</p>
+												<h5 class="dark"><?php echo $row->name; ?></h5>
+												<p><?php echo $row->major; ?></p>
+												<p class="ultra-light"><?php echo int_to_date($row->from_date); ?> - <?php echo int_to_date($row->to_date); ?></p>
+												<p><?php echo $row->info; ?></p>
+											<a data-toggle="collapse" data-target="#hocvan_<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-edit"></i> Sửa</a>
+											<a class="del_hocvan" id="dele-<?php echo $row->id;?>" style="cursor: pointer;"><i class="ion-close-circled"></i> Xóa</a>
 											</div> <!-- end .profile-education -->
-											<div class="spacer-md"></div>											
-											<div class="profile-education">												
-												<h5 class="dark">School of Arts & Sciences of Stanford University</h5>
-												<p>Bachelor of Arts & Sciences</p>
-												<p class="ultra-light">2008-2012</p>
-											</div> <!-- end .profile-education -->
+											</div>
+											<div class="spacer-md"></div>
+
+								<div id="hocvan_<?php echo $row->id; ?>" class="collapse">
+								<div class="space-between items-center">
+									<div class="form-group">
+										<p class="label">Chuyên nghành*</p>
+										<input type="text" id="major_<?php echo $row->id; ?>" value="<?php echo $row->major; ?>">
+									</div> <!-- end .form-group -->
+					
+								</div> <!-- end .form-group-wrapper -->
+										<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Trường*</p>
+								<input type="text" id="name_<?php echo $row->id; ?>" value="<?php echo $row->name; ?>">
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Bằng cấp*</p>
+									<select id="literacy_<?php echo $row->id; ?>" style="width: 100%;">
+											<option value="0">---Vui lòng chọn---</option>
+											<?php foreach($literacyname as $lit): ?>
+											<option value="<?php echo $lit->id; ?>" <?php echo ($row->id==$lit->id) ? "selected" : ""; ?>><?php echo $lit->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+									<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+										<p class="label">Từ tháng*</p>
+										<input type="text" class="datepicker" id="fromdate_<?php echo $row->id; ?>"  value="<?php echo int_to_date($row->from_date); ?>">
+									</div> <!-- end .form-group -->
+									<div class="form-group">
+										<p class="label">Đến tháng*</p>
+										<input type="text" class="datepicker1" id="todate_<?php echo $row->id; ?>" value="<?php echo int_to_date($row->to_date); ?>">
+									</div> <!-- end .form-group -->
+								</div> <!-- end .form-group-wrapper -->
+
+									<div class="form-group textarea">
+										<p class="label">Thành tựu học tập*</p>
+										<textarea id="info_<?php echo $row->id; ?>" rows="6" class="txtarea"><?php echo $row->info; ?></textarea>
+									</div> <!-- end .form-group -->
+									<p style="text-align: right;">
+						<button type="submit" class="edit_hocvan" id="<?php echo $row->id; ?>" >Lưu lại</button>
+						<button type="button" class="button" data-toggle="collapse" data-target="#hocvan_<?php echo $row->id; ?>">Hủy</button>
+									</p>
+				<img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
+									</div>
+
+								<?php endforeach; ?>
+								</div>
+								</div>
 										</div> <!-- end .profile-education-wrapper -->
 
 										<div class="divider"></div>
 
-										<div class="profile-skills-wrapper profile-section">
-											<h3 class="dark profile-title">Summary skill<span><i class="ion-edit"></i></span></h3>
-											<div class="progress-wrapper flex space-between items-center no-wrap">
-												<h6 class="progress-skill">HTML</h6>											
-												<div class="progress">													
-													<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-													</div> <!-- end .progress-bar -->
-												</div> <!-- end .progress -->
-												<h6 class="percentage"><span class="countTo" data-from="0" data-to="90">90</span>%</h6>
-											</div> <!-- end .progress-wrapper -->
-											<div class="spacer-xs"></div>
-											<div class="progress-wrapper flex space-between items-center no-wrap">
-												<h6 class="progress-skill">WordPress</h6>											
-												<div class="progress">													
-													<div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-													</div> <!-- end .progress-bar -->
-												</div> <!-- end .progress -->
-												<h6 class="percentage"><span class="countTo" data-from="0" data-to="80">80</span>%</h6>
-											</div> <!-- end .progress-wrapper -->
-											<div class="spacer-xs"></div>
-											<div class="progress-wrapper flex space-between items-center no-wrap">
-												<h6 class="progress-skill">PS</h6>											
-												<div class="progress">													
-													<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-													</div> <!-- end .progress-bar -->
-												</div> <!-- end .progress -->
-												<h6 class="percentage"><span class="countTo" data-from="0" data-to="60">60</span>%</h6>
-											</div> <!-- end .progress-wrapper -->
-											<div class="spacer-xs"></div>
-											<div class="progress-wrapper flex space-between items-center no-wrap">
-												<h6 class="progress-skill">AI</h6>											
-												<div class="progress">													
-													<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-													</div> <!-- end .progress-bar -->
-												</div> <!-- end .progress -->
-												<h6 class="percentage"><span class="countTo" data-from="0" data-to="90">90</span>%</h6>
-											</div> <!-- end .progress-wrapper -->
-										</div> <!-- end .profile-skills-wrapper -->
-								
-							        </div> <!-- end .profile-wrapper -->						        
-							    </div> <!-- end #resume-tab -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$("#FormSkill").click(function (e) {
+		e.preventDefault();
+		if($("#c_skill").val()==='')
+			{
+				alert("Bạn chưa điền nội dung");
+				return false;
+			}			
+		$("#FormSkill").hide(); //hide submit button
+		$("#LoadingImage").show(); //show loading image			
+	 	var skills = 'skill='+ $("#c_skill").val(); //build a post data structure
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/addskill", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:skills, //Form variables
+		success:function($response){
+			$("#responds").append($response);
+			$("#FormSkill").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			$("#demo3").hide(); 
+			 window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#FormSkill").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+//del dữ liệu
+$(".wrapper_hocvan").on("click", "#respondse .del_hocvan", function(e) {
+	 e.preventDefault();
+	 var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
+	 var DbNumberID = clickedID[1]; //and get number from array
+	 var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
+	$('#itema_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+	$(this).hide(); //hide currently clicked delete button
+	 
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/delmajor/"+DbNumberID, //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:myData, //Form variables
+		success:function(response){
+			//on success, hide  element user wants to delete.
+			$('#itema_'+DbNumberID).fadeOut();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			//On error, we alert user
+			alert(thrownError);
+		}
+		});
+ });
+});
+</script> 
+
+
+
+	<div class="profile-skills-wrapper profile-section">
+	<h3 class="dark profile-title">Kỹ năng làm việc<span><a data-toggle="collapse" data-target="#demo3" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
+	<div id="demo3" class="collapse">
+	<div class="space-between items-center">
+	<div class="form-group">
+	<p class="label">Kỹ năng*</p>
+	<input type="text" id="c_skill" name="skill" >
+	</div> <!-- end .form-group -->		
+	<p style="padding-bottom: 20px;">
+	<button type="submit" class="button" id="FormSkill" >Lưu lại</button>
+	<button class="button" data-toggle="collapse" data-target="#demo3"> Hủy</button>
+	</p>
+	</div> <!-- end .form-group-wrapper -->
+	</div>
+	<?php foreach($cskill as $row): ?>
+	<div class="flex space-between items-center no-wrap">
+	<span class="button button-sm grey "><?php echo $row->name; ?> <a href=""><i class="ion-close-circled"></i></a></span>
+	</div> <!-- end .progress-wrapper -->
+	<div class="spacer-xs"></div>
+	<?php endforeach; ?>
+									
+							
+	</div> <!-- end .profile-skills-wrapper -->
+	</div> <!-- end .profile-wrapper -->						        
+	</div> <!-- end #resume-tab -->
 
 
 							    <div id="change-password" class="tab-pane fade in">							    	

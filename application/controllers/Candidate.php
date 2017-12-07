@@ -69,40 +69,30 @@ Class Candidate extends MY_Controller{
 				redirect(base_url('candidate/view'));
 			}
 		}
-
-			//Thêm kinh nghiệm làm việc
-			$kinhnghiem = $this->input->post('kn');
+				$this->load->model('literacy_model');
+     			$literacyname = $this->literacy_model->get_list();
+     			$this->data['literacyname'] = $literacyname;
+			//kinh nghiem lam viec
 			$this->load->model('work_experience_model');
-			if($kinhnghiem == 'ok'){
-			$this->form_validation->set_rules('company_name','Tên công ty','required');
-			if($this->form_validation->run()){
-				
-				$desc = $this->input->post('desc');
-				$company_name = $this->input->post('company_name');
-				$position = $this->input->post('position');
-				$from_date = $this->input->post('from_date');
-				$to_date = $this->input->post('to_date');
-				$data2 = array(
-					'company_name' => $company_name,
-					'position' => $position,
-					'from_date' => $from_date,
-					'to_date' => $to_date,
-					'candidate_id'=>$user_id,
-					'description' => $desc
-					);
-				$this->work_experience_model->create($data2);
-			}
-
-			}
 			$input = array();
 			$input['where'] = array('candidate_id'=>$user->id);
 			$knlamviec = $this->work_experience_model->get_list($input);
 			$this->data['knlamviec'] = $knlamviec;
+			//trinh do hoc van
+			$this->load->model('certificate_model');
+			$input['where'] = array('candidate_id'=>$user_id);
+			$hocvan = $this->certificate_model->get_list($input);
+			$this->data['hocvan'] = $hocvan;
+			//kỹ năng
+			$this->load->model('skill_model');
+			$cskill = $this->skill_model->get_list($input);
+			$this->data['cskill'] = $cskill;
 
 
 		$this->data['temp'] = 'site/candidate/view';
 		$this->load->view('site/layout',$this->data);
 	}
+	//Xử lý dữ liệu kinh nghiệm làm việc
 	function add(){
 				$user_id = $this->session->userdata('candidate_id_login');
 				$desc = $this->input->post('desc');
@@ -146,14 +136,72 @@ Class Candidate extends MY_Controller{
            		 $this->work_experience_model->update($id,$data);
      }                 
 
-	function del_kn(){
-		$this->load->model('work_experience_model');
-		$id = $this->uri->rsegment(3);
-		$id = intval($id);
-		$this->work_experience_model->deleteOne($id);
-		redirect(base_url('candidate/view'));
+     //xử lý dữ liệu học vấn
+     function addmajor(){
 
+				$user_id = $this->session->userdata('candidate_id_login');
+				$major = $this->input->post('major');
+				$name = $this->input->post('name');
+				$literacy = $this->input->post('literacy');
+				$from_date = $this->input->post('from_date');
+				$from_date = date_to_int($from_date);
+				$to_date = $this->input->post('to_date');
+				$to_date = date_to_int($to_date);
+				$info = $this->input->post('info');
+				$data = array(
+					'major' => $major,
+					'name' => $name,
+					'literacy_id'=>$literacy,
+					'from_date' => $from_date,
+					'to_date' => $to_date,
+					'candidate_id'=>$user_id,
+					'info' => $info
+					);
+				$this->load->model('certificate_model');
+				$this->certificate_model->create($data);
 	}
+
+	function editmajor(){
+     		if($this->input->post('id'))
+     			$id = $this->input->post('id');
+				$name = $this->input->post('name');
+				$major = $this->input->post('major');
+				$literacy = $this->input->post('literacy');
+				$from_date = $this->input->post('fromdate');
+				$from_date = date_to_int($from_date);
+				$to_date = $this->input->post('todate');
+				$to_date = date_to_int($to_date);
+				$info = $this->input->post('info');
+				$data = array(
+					'name' => $name,
+					'major' => $major,
+					'literacy_id'=>$literacy,
+					'from_date' => $from_date,
+					'to_date' => $to_date,
+					'info' => $info
+					);
+     			$this->load->model('certificate_model');
+           		$this->certificate_model->update($id,$data);
+     }
+     function delmajor($id){
+            $id = $this->uri->rsegment(3);
+			$id = intval($id);
+            $this->load->model('certificate_model');
+            $this->certificate_model->deleteOne($id);
+        }
+    function addskill(){
+    	$user_id = $this->session->userdata('candidate_id_login');
+		$skill = $this->input->post('skill');
+		$data = array(
+					'name' => $skill,
+					'candidate_id' => $user_id
+					);
+     			$this->load->model('skill_model');
+           		$this->skill_model->create($data);
+    }              
+
+
+
 	function update_cv(){
 		$user_id = $this->session->userdata('candidate_id_login');
 		$info = $this->member_candidate_model->get_info($user_id);
