@@ -49,14 +49,10 @@
 </div>
 </div>
 </div>
-<script type="text/javascript">
-	function resetall(){
-		window.location.href= <?php echo admin_url('product'); ?>
-	}
-</script>
+
 <div style="float: left;">
 <input type="submit" class="btn btn-small btn-inverse" value="Lọc sản phẩm">
-<a class="btn btn-small btn-inverse" onclick="return resetall();">Reset</a>
+<a class="btn btn-small btn-inverse" onclick="return location.reload();">Reset</a>
 </div>
 </div>
 </form>
