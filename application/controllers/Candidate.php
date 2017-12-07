@@ -55,6 +55,8 @@ Class Candidate extends MY_Controller{
 		$this->data['user'] = $user;
 		$message = $this->session->flashdata('message');
 		$this->data['message'] = $message;
+		$alert = $this->session->flashdata('alert');
+		$this->data['alert'] = $alert;
 		//Sửa mô tả bản thân
 		$mota= $this->input->post('mt');
 		if($mota == 'ok'){
@@ -189,6 +191,7 @@ Class Candidate extends MY_Controller{
             $this->load->model('certificate_model');
             $this->certificate_model->deleteOne($id);
         }
+     //xu ly du lieu ky nang
     function addskill(){
     	$user_id = $this->session->userdata('candidate_id_login');
 		$skill = $this->input->post('skill');
@@ -211,30 +214,27 @@ Class Candidate extends MY_Controller{
 	function update_cv(){
 		$user_id = $this->session->userdata('candidate_id_login');
 		$info = $this->member_candidate_model->get_info($user_id);
-
+		$this->data['info'] = $info;
 		$this->load->model('level_model');
 		$currentlv = $this->level_model->get_list();
 		$this->data['currentlv'] = $currentlv;
-		$this->data['temp'] = 'site/candidate/update_cv';
-		$this->load->view('site/layout',$this->data);
-	}
-
-	function edit_account(){
-		$user_id = $this->session->userdata('candidate_id_login');
-		$info = $this->member_candidate_model->get_info($user_id);
-		//lấy ra thành phố
+		$this->load->model('require_experience_model');
+		$experience = $this->require_experience_model->get_list();
+		$this->data['experience'] = $experience;
 		$this->load->model('city_model');
-		$input = array();
-		//$input['where'] = array('id'=>$info->city_id);
-		$city = $this->city_model->get_list($input);
+		$city = $this->city_model->get_list();
 		$this->data['city'] = $city;
-		$this->data['info'] = $info;
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('full_name','Tên đầy đủ','required');
 			if($this->form_validation->run()){
-				
 				$full_name = $this->input->post('full_name');
+				$title = $this->input->post('title');
+				$level_id = $this->input->post('level_id');
+				$experience_id = $this->input->post('experience_id');
+				$nationality = $this->input->post('nationality');
+				$birthday = $this->input->post('birthday');
+				$birthday = date_to_int($birthday);
 				$gender = $this->input->post('gender');
 				$city_id = $this->input->post('city_id');
 				$phone = $this->input->post('phone');
@@ -249,6 +249,11 @@ Class Candidate extends MY_Controller{
 
 				$data = array(
 					'full_name' => $full_name,
+					'title' => $title,
+					'level_id' => $level_id,
+					'experience_id' => $experience_id,
+					'nationality' => $nationality,
+					'birthday' => $birthday,
 					'gender' => $gender,
 					'city_id' => $city_id,
 					'phone' =>$phone,
@@ -260,14 +265,84 @@ Class Candidate extends MY_Controller{
 				}
 
 				$this->member_candidate_model->update($user_id,$data);
+				$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
 			}
-			redirect(base_url('candidate/edit_account'));
+			redirect(base_url('candidate/view'));
+			}
 
-		}
-
-		$this->data['temp'] = 'site/candidate/edit_account';
+		$this->data['temp'] = 'site/candidate/update_cv';
 		$this->load->view('site/layout',$this->data);
 	}
+
+
+
+	function check_pass(){
+		$pass = $this->_get_passinfo();
+		if($pass){
+			return true;
+		}
+		else{
+			$this->form_validation->set_message(__FUNCTION__,'Mật khẩu cũ không đúng !');
+			return false;
+		}
+	}
+
+
+	function changepass(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		if($this->input->post()){
+     			$this->form_validation->set_rules('oldpass','Mật khẩu cũ','required|min_length[6]|callback_check_pass');
+     			$this->form_validation->set_rules('newpass','Mật khẩu mới','required|min_length[6]');
+     			$this->form_validation->set_rules('repass','Nhập lại mật khẩu mới','required|matches[newpass]');
+     			if($this->form_validation->run()){
+     			$id = $this->input->post('id');
+				$oldpass = $this->input->post('oldpass');
+				$newpass = $this->input->post('newpass');
+				$repass = $this->input->post('repass');
+				$data = array(
+					'password'=> md5($newpass),
+					'modified_date' => now()
+					);
+				$this->member_candidate_model->update($user_id,$data);
+				$this->session->set_flashdata('message', 'Đổi mật khẩu thành công !');
+				redirect(base_url('candidate/view'));
+				}
+
+			}
+		$this->data['temp'] = 'site/candidate/changepass';
+		$this->load->view('site/layout',$this->data);
+	}
+
+		//lấy ra thông tin thành viên
+	private function _get_passinfo(){
+		$password = $this->input->post('oldpass');
+		$password = md5($password);
+		$where = array('password'=>$password);
+		$pass = $this->member_candidate_model->get_info_rule($where);
+		return $pass;
+	}
+
+	function uploadcv(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		//$cvname = $_FILES['file']['cacvupload'];
+
+        		$this->load->library('upload_library');
+				$upload_path = './uploads/candidatecv';
+				$upload_data = $this->upload_library->upload($upload_path, 'file');
+				if(isset($upload_data['file_name'])){
+					$image_link = $upload_data['file_name'];
+				}
+    
+				$data = array(
+				'cv_upload' => $_FILES['file']['name'],
+				'created' => now()
+				);
+
+			$this->member_candidate_model->update($user_id,$data);
+			$this->session->set_flashdata('alert', 'Cập nhật cv thành công !');
+		
+	}
+
 
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){

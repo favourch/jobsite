@@ -1,3 +1,4 @@
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<!-- Breadcrumb Bar -->
 		<div class="section breadcrumb-bar solid-blue-bg">
 			<div class="inner">
@@ -16,6 +17,7 @@
 		<div class="section candidate-dashboard-content solid-light-grey-bg">
 			<div class="inner">
 				<div class="container">
+				<div class="thongbao-tc"><?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?></div>
 					<div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
 						<div class="left-sidebar-menu">							
@@ -23,18 +25,72 @@
 								<li class="heading">Quản lý tài khoản</li>
 
 							    <li><a data-toggle="pill" class="active" href="#">Hồ sơ của tôi</a></li>
-							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật hồ sơ</a></li>
-							   <li><a href="<?php echo base_url('candidate/edit_account'); ?>">Cập nhật tài khoản</a></li>
-							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
+							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật thông tin</a></li>
 							    <li class="nav-divider"></li>
 							   	<li class="heading">Manage job</li>
-								<li><a data-toggle="pill" href="#manage-applications">Manage Applications</a></li>
+							   	<li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã lưu</a></li>
+							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
+								<li><a data-toggle="pill" href="#manage-applications">Nhà tuyển dụng xem hồ sơ</a></li>
 							    <li><a data-toggle="pill" href="#job-alerts">Job Alerts</a></li>
 							    <li class="nav-divider"></li>
-							    <li><a data-toggle="pill" href="#change-password">Change Password</a></li>
+							    <li><a href="<?php echo base_url('candidate/changepass'); ?>">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
 							</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+//edit dữ liệu
+$(".edit_cv").on("change", function () {		
+
+		$("#LoadingCV").show(); //show loading image	
+	 	//var filecv = 'cvupload='+ $("#cacvupload").val();
+	 	var file_data = $('#cacvupload').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+
+		jQuery.ajax({
+		cache: false,
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/uploadcv", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data : form_data,
+        async : false,
+        contentType : false,
+        processData : false,
+		success:function(response){
+			
+			$("#LoadingCV").hide(); //hide loading image; 
+			 window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#LoadingCV").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+});
+</script> 
+							<div class="cv_upload">
+								<h4>Hồ sơ đính kèm</h4>
+							<div class="bao_cv">
+								<span>Hồ sơ của bạn <i class="ion-edit"></i></span>
+								<form method="post" enctype="multipart/form-data" id="frmUpload" name="frmUpload">
+								<div class="form-group upload-company-logo">
+									    	<label for="cacvupload" class="flex space-between items-center no-column no-wrap" style="width: 100%;">
+									    	<span>Tải lên hồ sơ</span>
+									    	<span><i class="ion-ios-folder-outline"></i>Chọn tệp</span>
+									    	</label>
+										    <input type="file" name="file" id="cacvupload" class="edit_cv">
+										    <img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingCV" style="display:none" />
+										</div>
+								</form>
+								<span style="color: #5cb85c;"><?php if(isset($alert)) { $this->load->view('site/alert', $this->data); } ?></span>
+								<p><?php echo $user_info->cv_upload; ?></p>
+								<span> Được cập nhật lúc : <?php echo int_to_date($user_info->created); ?> </span>
+							</div>
+							</div>
+
 						</div> <!-- end .left-sidebar-menu -->
 						
 						<div class="right-side-content">
@@ -233,7 +289,7 @@
 											</div> <!-- end .user-picture -->
 											<div class="profile-meta">
 												<h4 class="dark"><?php echo $user_info->full_name; ?></h4>
-												<p>UI/UX Designer</p>
+												<p><?php echo $user_info->title; ?></p>
 												<div class="profile-contact flex items-center no-wrap no-column">
 													<h6 class="contact-location"><?php echo $user_info->address; ?></span></h6>
 													<h6 class="contact-phone"><?php echo $user_info->phone; ?></h6>
@@ -274,7 +330,7 @@
   												document.frmkn.submit();
 											}
 										</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 //add dữ liệu
@@ -523,7 +579,6 @@ $(".edit_hocvan").click(function () {
         var fromdate=$("#fromdate_"+ID).val();
         var todate=$("#todate_"+ID).val();
         var info=$("#info_"+ID).val();
-        alert(literacy);
 		jQuery.ajax({
 		cache: false,
 		type: "POST", // HTTP method POST or GET
@@ -782,30 +837,8 @@ $(".wrapper_skill").on("click", "#respondseo .del_skill", function(e) {
 	</div> <!-- end #resume-tab -->
 
 
-							    <div id="change-password" class="tab-pane fade in">							    	
-							        <div class="password-form-wrapper">	
-							        	<h3 class="dark">Change Password</h3>									
-			                            <form class="password-form">
-											<div class="form-group">
-											    <label for="InputEmail1">Old password<sup>*</sup></label>
-											    <input type="email" class="form-control" id="InputEmail1" placeholder="">
-											</div>
 
-											<div class="form-group">
-											    <label for="InputPassword1">New Password<sup>*</sup></label>
-											    <input type="password" class="form-control" id="InputPassword1" placeholder="">
-											</div>
 
-											<div class="form-group">
-											    <label for="InputPassword1">Confirm New Password<sup>*</sup></label>
-											    <input type="password" class="form-control" id="InputPassword1" placeholder="">
-											</div>											
-										</form> <!-- end .password-form -->
-										<div class="password-button-wrapper">
-												<button type="submit" class="button">Save change</button>
-										</div> <!-- end .password-button-wrapper -->
-							        </div> <!-- end .password-form-wrapper -->						        
-							    </div> <!-- end #change-password-tab -->
 
 							</div> <!-- end .candidate-dashboard -->
 						</div> <!-- end .right-side-content -->

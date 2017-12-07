@@ -78,7 +78,6 @@ body {
 
 a {
 	
-	
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
@@ -206,6 +205,30 @@ blockquote {
 }
 ul {
 	margin-bottom: 0;
+}
+.cv_upload{
+	padding: 10px 25px;
+}
+.cv_upload h4{
+	color: #999;
+}
+.bao_cv{
+	border: 1px dashed #ccc;
+	border-radius: 5px;
+	min-height: 50px;
+	padding: 7px;
+}
+.bao_cv:hover{
+	border: 1px solid #ccc;
+	box-shadow:inset 0px 1px 1px rgba(0,0,0,.05);
+}
+.bao_cv span{
+	color: #999;
+	font-size: 12px;
+}
+.bao_cv p{
+	color: #666;
+	font-size: 12px;
 }
 .flex {
 	display: -webkit-box;
