@@ -6,7 +6,7 @@
 
 	</footer>
 
-	<!-- <script type="text/javascript">
+ <script type="text/javascript">
 			//<![CDATA[
  var nvcms_url = "<?php echo public_url('admin'); ?>"
 				// This call can be placed at any point after the
@@ -61,7 +61,7 @@ var editor = CKEDITOR.replace( 'editor4',
 				
 				CKFinder.setupCKEditor( editor, '../' );
 				
-</script> -->
+</script> 
 	
 	<!-- start: JavaScript-->
 	

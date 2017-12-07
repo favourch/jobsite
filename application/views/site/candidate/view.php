@@ -722,22 +722,22 @@ $("#FormSkill").click(function (e) {
 });
 
 //del dữ liệu
-$(".wrapper_hocvan").on("click", "#respondse .del_hocvan", function(e) {
+$(".wrapper_skill").on("click", "#respondseo .del_skill", function(e) {
 	 e.preventDefault();
 	 var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
 	 var DbNumberID = clickedID[1]; //and get number from array
 	 var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
-	$('#itema_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+	$('#itemsk_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
 	$(this).hide(); //hide currently clicked delete button
 	 
 		jQuery.ajax({
 		type: "POST", // HTTP method POST or GET
-		url: "<?php echo base_url() ?>candidate/delmajor/"+DbNumberID, //Where to make Ajax calls
+		url: "<?php echo base_url() ?>candidate/delskill/"+DbNumberID, //Where to make Ajax calls
 		dataType:"text", // Data type, HTML, json etc.
 		data:myData, //Form variables
 		success:function(response){
 			//on success, hide  element user wants to delete.
-			$('#itema_'+DbNumberID).fadeOut();
+			$('#itemsk_'+DbNumberID).fadeOut();
 		},
 		error:function (xhr, ajaxOptions, thrownError){
 			//On error, we alert user
@@ -764,13 +764,18 @@ $(".wrapper_hocvan").on("click", "#respondse .del_hocvan", function(e) {
 	</p>
 	</div> <!-- end .form-group-wrapper -->
 	</div>
+	<div class="wrapper_skill">
+	<div id="respondseo">
 	<?php foreach($cskill as $row): ?>
+	<div id="itemsk_<?php echo $row->id; ?>">
 	<div class="flex space-between items-center no-wrap">
-	<span class="button button-sm grey "><?php echo $row->name; ?> <a href=""><i class="ion-close-circled"></i></a></span>
+	<span class="button button-sm grey "><?php echo $row->name; ?> <a class="del_skill" id="delete-<?php echo $row->id;?>" style="cursor: pointer; color: #fff;"> <i class="ion-close-circled"></i></a></span>
 	</div> <!-- end .progress-wrapper -->
 	<div class="spacer-xs"></div>
+	</div>
 	<?php endforeach; ?>
-									
+	</div>	
+	</div>				
 							
 	</div> <!-- end .profile-skills-wrapper -->
 	</div> <!-- end .profile-wrapper -->						        

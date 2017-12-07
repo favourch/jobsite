@@ -198,7 +198,13 @@ Class Candidate extends MY_Controller{
 					);
      			$this->load->model('skill_model');
            		$this->skill_model->create($data);
-    }              
+    }   
+    function delskill($id){
+            $id = $this->uri->rsegment(3);
+			$id = intval($id);
+            $this->load->model('skill_model');
+            $this->skill_model->deleteOne($id);
+        }           
 
 
 
