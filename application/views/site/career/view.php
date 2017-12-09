@@ -52,13 +52,13 @@
 										<h4 class="dark">Mô tả công việc</h4>
 										<p><?php echo $info->content; ?></p><br>	
 
-										<h4 class="dark">Các phúc lợi dành cho bạn</h4>
+										<h4 class="dark">Yêu cầu công việc</h4>
+										<p><?php echo $info->job_requirement; ?></p> 
+										<br>
+
+										<h4 class="dark">Lương và phúc lợi</h4>
 										<p><?php echo $info->benefit; ?></p><br>
 
-										<h4 class="dark">Yêu cầu công việc</h4>
-										<p><?php echo $info->job_requirement; ?></p>
-
-										<br>
 										
 										<div class="divider"></div>
 
@@ -105,17 +105,9 @@
 										</ul>
 									</div> <!-- end .job-post-company-info -->
 
-									<div class="apply-for-job">
-										<p class="divider-text text-center"><span>Apply for this job</span></p>
-										<div class="apply-btn-group flex space-center items-center no-column no-wrap">
-											<button type="button" class="button facebook-btn">Via Facebook</button>
-											<button type="button" class="button linkedln-btn">Via Linkedln</button>
-										</div> <!-- end .apply-btn-group -->
-									</div> <!-- end .apply-for-job -->
-
 									<div class="system-login text-center">
-										<h6>Or login using our system</h6>
-										<button type="submit" class="button">Submit your resume</button>
+										<p class="divider-text text-center"><span>Ứng tuyển việc làm</span></p>
+										<a href="<?php echo base_url('career/submitjob/'.$info->id); ?>" class="button">Nộp đơn ứng tuyển</a>
 									</div> <!-- end .system-login -->
 
 								</div> <!-- end .right-side-inner -->

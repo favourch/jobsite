@@ -62,7 +62,6 @@ body {
 	-webkit-overflow-scrolling:touch;
 }
 .profile-experience{
-	border-bottom: 1px dotted #ccc;
 	margin-bottom: 15px;
 }
 .txtarea{
@@ -205,6 +204,12 @@ blockquote {
 }
 ul {
 	margin-bottom: 0;
+}
+.upcv{
+	position: relative;
+	opacity: 0;
+	top:-23px;
+	left: 17px;
 }
 .cv_upload{
 	padding: 10px 25px;

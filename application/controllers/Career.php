@@ -101,6 +101,36 @@ Class Career extends MY_Controller{
 		$this->data['temp'] = "site/career/view";
 		$this->load->view("site/layout", $this->data);
 	}
+
+	function submitjob(){
+		$id = $this->uri->rsegment(3);
+		$id = intval($id);
+		$this->load->model('member_company_model');
+		$jobname = $this->recruitment_model->get_info($id);
+		$this->data['jobname'] = $jobname;
+		$user_id = $this->session->userdata('candidate_id_login');
+		$this->load->model('member_candidate_model');
+		$candidate = $this->member_candidate_model->get_info($user_id);
+		$this->data['candidate'] = $candidate;
+
+		if($this->input->post()){
+			$this->form_validation->set_rules('phone','Số điện thoại','required|min_length[6]');
+			if($this->form_validation->run()){
+				$phone = $this->input->post('phone');
+				$uploadcv = $this->input->post('cv_upload');
+				$data = array(
+					'recruitment_id'=> $id,
+					'candidate_id'=> $user_id,
+					'phone' => $phone,
+					'cv_upload' => $cv_uploads
+					);
+			}
+		}
+
+		$this->data['temp'] = "site/career/submitjob";
+		$this->load->view("site/layout", $this->data);
+	}	
+
 	//tìm kiếm theo tên sản phẩm
 	function search(){
 		$key = $this->input->get('key');

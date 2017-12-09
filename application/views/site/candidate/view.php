@@ -24,14 +24,13 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">Quản lý tài khoản</li>
 
-							    <li><a data-toggle="pill" class="active" href="#">Hồ sơ của tôi</a></li>
-							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật thông tin</a></li>
+							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
+							    <li><a href="<?php echo base_url('ung-vien/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
 							    <li class="nav-divider"></li>
-							   	<li class="heading">Manage job</li>
+							   	<li class="heading">Việc làm của tôi</li>
 							   	<li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã lưu</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
 								<li><a data-toggle="pill" href="#manage-applications">Nhà tuyển dụng xem hồ sơ</a></li>
-							    <li><a data-toggle="pill" href="#job-alerts">Job Alerts</a></li>
 							    <li class="nav-divider"></li>
 							    <li><a href="<?php echo base_url('candidate/changepass'); ?>">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
@@ -96,51 +95,78 @@ $(".edit_cv").on("change", function () {
 						<div class="right-side-content">
 							<div class="tab-content candidate-dashboard">
 
+<script type="text/javascript">
+$(document).ready(function() {
+
+//del dữ liệu
+$(".wrapper-bookmark").on("click", "#respondmark .del_bookmark", function(e) {
+	 e.preventDefault();
+	 var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
+	 var DbNumberID = clickedID[1]; //and get number from array
+	 var myData = 'recordToDelete='+ DbNumberID; //build a post data structure
+	$('#itemmk_'+DbNumberID).addClass( "sel" ); //change background of this element by adding class
+	$(this).hide(); //hide currently clicked delete button
+	 
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/delbookmark/"+DbNumberID, //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:myData, //Form variables
+		success:function(response){
+			//on success, hide  element user wants to delete.
+			$('#itemmk_'+DbNumberID).fadeOut();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			//On error, we alert user
+			alert(thrownError);
+		}
+		});
+ });
+});
+</script> 
 							    <div id="bookmarked-jobs" class="tab-pane fade in">
-							        <h3 class="tab-pane-title">Bookmarked jobs</h3>
+							    <div class="wrapper-bookmark">
+							        <h3 class="tab-pane-title">Danh sách việc làm đã lưu</h3>
+							        
 							        <div class="bookmarked-jobs-list-wrapper">
+							        <div id="respondmark">
+							        	<?php foreach($listsave as $row): ?>
+							        	<?php $job = $this->recruitment_model->get_info($row->recruitment_id); ?>
+							        	<?php $companysave = $this->member_company_model->get_info($job->company_id); ?>
+							        	<?php $citysave = $this->city_model->get_info($companysave->city_id); ?>
+							        	<?php $salarysave = $this->salary_model->get_info($job->salary_id); ?>
+							        	<div id="itemmk_<?php echo $row->id; ?>">
 							        	<div class="bookmarked-job-wrapper">
 							        		<div class="bookmarked-job flex no-wrap no-column ">
 								        		<div class="job-company-icon">
-								        			<img src="images/company-logo-big01.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo-big01.jpg" alt="company-icon" class="img-responsive">
+								        			<img src="<?php echo base_url('uploads/company/'.$companysave->logo_url); ?>" class="img-responsive">
 								        		</div> <!-- end .job-icon -->
 								        		<div class="bookmarked-job-info">
-								        			<h4 class="dark flex no-column">We need a web designer<a href="#0" class="button full-time">full time</a></h4>
-								        			<h5>Banana inc.</h5>
-								        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
+								        			<h4 class="dark flex no-column"><?php echo $job->title; ?></h4>
+								        			<h5><?php echo $companysave->company_name; ?></h5>
+								        			
 								        			<div class="bookmarked-job-info-bottom flex space-between items-center no-column no-wrap">
 								        				<div class="bookmarked-job-meta flex items-center no-wrap no-column">
-									        				<ul class="list-unstyled candidates-avatar flex items-center no-wrap no-column">
-								        						<li><img src="images/avatar02.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar02.jpg" alt="avatar" class="img-responsive"></li>
-								        						<li><img src="images/avatar03.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar03.jpg" alt="avatar" class="img-responsive"></li>
-								        						<li class="candidates-total-count"><img src="images/avatar04.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar04.jpg" alt="avatar" class="img-responsive"><span>54+</span></li>
-								        					</ul> <!-- end .candidates-avatar -->
-															<h6 class="bookmarked-job-category">Art/Design</h6>
-								        					<h6 class="candidate-location">Park ave,<span>nyc, usa</span></h6>
-															<h6 class="hourly-rate">$45<span>/Hour</span></h6>
+									        			
+															<h6 class="bookmarked-job-category">Hạn nộp hồ sơ : <?php echo int_to_date($job->end_date); ?></h6>
+								        					<h6 class="candidate-location"><?php echo $citysave->name; ?></span></h6>
+															<h6 class="hourly-rate"><?php echo $salarysave->name; ?></h6>
 								        				</div> <!-- end .bookmarked-job-meta -->
 								        				<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-								        					<i class="ion-ios-heart wishlist-icon"></i>
-								        					<a href="#0" class="button">more detail</a>
+								        					<a href="<?php echo base_url($job->cat_name.'-'.$job->id.'-jv'); ?>" class="button">Ứng tuyển</a>
+								        					<a href="javascript:void();" class="del_bookmark button" id="xoa-<?php echo $row->id; ?>">Xóa</a>
 								        				</div> <!-- end .right-side-bookmarked-job-meta -->
 								        			</div> <!-- end .bookmarked-job-info-bottom -->
 								        		</div> <!-- end .bookmarked-job-info -->
 							        		</div> <!-- end .bookmarked-job -->
 							        	</div> <!-- end .bookmarked-job-wrapper --> 
-
+							        	</div>
+							        	<?php endforeach; ?>
+							        	</div>
 						        	</div> <!-- end .bookmarked-jobs-list-wrapper -->
-						        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
-										<a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-										<ul class="list-unstyled flex no-column items-center">
-											<li><a href="#0">1</a></li>
-											<li><a href="#0">2</a></li>
-											<li><a href="#0">3</a></li>
-											<li><a href="#0">4</a></li>
-											<li><a href="#0">5</a></li>									
-										</ul>
-										<a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-									</div> <!-- end .jobpress-custom-pager -->							        
+						       	</div>		        
 							    </div> <!-- end #bookmarked-jobs-tab -->
+
 
 							    <div id="job-alerts" class="tab-pane fade in">
 							        <h3 class="tab-pane-title">Job alerts</h3>
@@ -303,7 +329,7 @@ $(".edit_cv").on("change", function () {
 										</div> <!-- end .profile-info -->
 
 										<div class="divider"></div>
-										
+
 										<div class="profile-about profile-section">
 											<h3 class="dark profile-title">Thông tin chung<span><a data-toggle="collapse" data-target="#demo" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
 											<?php if(empty($user_info->description)) : ?>
@@ -470,10 +496,11 @@ $(".content_wrapper").on("click", "#responds .del_button", function(e) {
 											<?php foreach($knlamviec as $row): ?>
 				<div id="item_<?php echo $row->id;?>">
 				<div class="profile-experience flex space-between no-wrap no-column">
-												<div class="profile-experience-left">
+												<div class="">
 												<h5 class="profile-designation dark"><?php echo $row->position; ?></h5>
 											<span class="profile-company dark"><?php echo $row->company_name; ?></span>
-													<p class="small ultra-light">Từ tháng <b><?php echo format_date($row->from_date); ?></b> đến tháng <b><?php echo format_date($row->to_date); ?></b></p>
+													<p class="small ultra-light">
+													Từ tháng <b><?php echo int_to_date($row->from_date); ?></b> đến tháng <b><?php echo int_to_date($row->to_date); ?></b></p>
 													<p><?php echo $row->description; ?></p>
 													
 												</div> <!-- end .profile-experience-left -->
@@ -499,11 +526,11 @@ $(".content_wrapper").on("click", "#responds .del_button", function(e) {
 									<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
 										<p class="label">Từ tháng*</p>
-										<input type="text" class="datepicker" id="fromdate_<?php echo $row->id;?>" value="<?php echo format_date($row->from_date); ?>">
+										<input type="text" class="datepicker" id="fromdate_<?php echo $row->id;?>" value="<?php echo int_to_date($row->from_date); ?>">
 									</div> <!-- end .form-group -->
 									<div class="form-group">
 										<p class="label">Đến tháng*</p>
-										<input type="text" class="datepicker1" id="todate_<?php echo $row->id;?>" value="<?php echo format_date($row->to_date); ?>">
+										<input type="text" class="datepicker1" id="todate_<?php echo $row->id;?>" value="<?php echo int_to_date($row->to_date); ?>">
 									</div> <!-- end .form-group -->
 								</div> <!-- end .form-group-wrapper -->
 

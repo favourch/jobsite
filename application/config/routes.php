@@ -67,6 +67,7 @@ $route['nha-tuyen-dung/doi-mat-khau'] = 'companies/change_pass';
 $route['ung-vien/dang-nhap'] = 'candidate/login';
 $route['ung-vien/dang-ky'] = 'member_register/register';
 $route['ung-vien'] = 'candidate/view';
+$route['ung-vien/cap-nhat-thong-tin'] = 'candidate/update_cv';
 //rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
 $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';

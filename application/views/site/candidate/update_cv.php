@@ -22,17 +22,11 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">Quản lý tài khoản</li>
 
-							    <li><a data-toggle="pill" class="active" href="#resume">Hồ sơ của tôi</a></li>
-							    <li><a data-toggle="pill" href="#candidate-cv">Cập nhật tài khoản</a></li>
-							    <li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã xem</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
+							    <li><a href="<?php echo base_url('ung-vien'); ?>">Hồ sơ của tôi</a></li>
+							    <li><a class="active" href="#">Cập nhật tài khoản</a></li>
 							    <li class="nav-divider"></li>
-							   	<li class="heading">Manage job</li>
-								<li><a data-toggle="pill" href="#manage-applications">Manage Applications</a></li>
-							    <li><a data-toggle="pill" href="#job-alerts">Job Alerts</a></li>
-							    <li class="nav-divider"></li>
-							    <li><a data-toggle="pill" href="#change-password">Change Password</a></li>
-							    <li><a data-toggle="pill" href="#signout">Sign Out</a></li>
+							    <li><a href="<?php echo base_url('candidate/changpass'); ?>">Đổi mật khẩu</a></li>
+							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
 							</ul>
 						</div> <!-- end .left-sidebar-menu -->
 						

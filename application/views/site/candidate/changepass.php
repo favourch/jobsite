@@ -26,11 +26,7 @@
 							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật thông tin</a></li>
 							    
 							    <li class="nav-divider"></li>
-							   	<li class="heading">Việc làm của tôi</li>
-							   	<li><a data-toggle="pill" href="#bookmarked-jobs">Việc làm đã lưu</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications">Việc làm đã ứng tuyển</a> <span class="notification-count">2</span></li>
-								<li><a data-toggle="pill" href="#manage-applications">Nhà tuyển dụng xem hồ sơ</a></li>
-							    <li class="nav-divider"></li>
+		
 							    <li><a class="active" href="#">Đổi mật khẩu</a></li>
 							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
 							</ul>

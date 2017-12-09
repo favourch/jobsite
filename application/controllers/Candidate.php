@@ -43,11 +43,44 @@ Class Candidate extends MY_Controller{
 		return $user;
 	}
 
+	//việc làm đã lưu
+	function savejobs(){
+
+			$user_id = $this->session->userdata('candidate_id_login');
+			$id = $this->input->post('cid');
+			//echo $id;
+			$data = array(
+			'recruitment_id'=>$id,
+			'candidate_id'=>$user_id
+			);
+			$this->load->model('map_recruitment_model');
+			$this->map_recruitment_model->create($data);
+					
+	}
+
+	function delbookmark(){
+			$id = $this->uri->rsegment(3);
+			$id = intval($id);
+            $this->load->model('map_recruitment_model');
+            $this->map_recruitment_model->deleteOne($id);
+	}
+
 	function view(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		$this->load->model('recruitment_model');
+		$this->load->model('map_recruitment_model');
+		$this->load->model('member_company_model');
+		$this->load->model('city_model');
+		$this->load->model('salary_model');
+		$input = array();
+		$input['where'] = array('candidate_id'=>$user_id);
+		$listsave = $this->map_recruitment_model->get_list();
+		$this->data['listsave'] = $listsave;
+
 		if(!$this->session->userdata('candidate_id_login')){
 			redirect();
 		}
-		$user_id = $this->session->userdata('candidate_id_login');
+		
 		$user = $this->member_candidate_model->get_info($user_id);
 		if(!$user){
 			redirect('candidate/login');
@@ -90,7 +123,6 @@ Class Candidate extends MY_Controller{
 			$cskill = $this->skill_model->get_list($input);
 			$this->data['cskill'] = $cskill;
 
-
 		$this->data['temp'] = 'site/candidate/view';
 		$this->load->view('site/layout',$this->data);
 	}
@@ -101,12 +133,14 @@ Class Candidate extends MY_Controller{
 				$company_name = $this->input->post('company_name');
 				$position = $this->input->post('position');
 				$from_date = $this->input->post('from_date');
+				$from_date = date_to_int($from_date);
 				$to_date = $this->input->post('to_date');
+				$to_date = date_to_int($to_date);
 				$data = array(
 					'company_name' => $company_name,
 					'position' => $position,
-					'from_date' => date("Y-m-d 00:00:00", strtotime($from_date)),
-					'to_date' => date("Y-m-d 00:00:00", strtotime($to_date)),
+					'from_date' => $from_date,
+					'to_date' => $to_date,
 					'candidate_id'=>$user_id,
 					'description' => $desc
 					);
@@ -126,12 +160,14 @@ Class Candidate extends MY_Controller{
 				$company_name = $this->input->post('company_name');
 				$position = $this->input->post('position');
 				$from_date = $this->input->post('fromdaten');
+				$from_date = date_to_int($from_date);
 				$to_date = $this->input->post('todaten');
+				$to_date = date_to_int($to_date);
 				$data = array(
 					'company_name' => $company_name,
 					'position' => $position,
-					'from_date' => date("Y-m-d 00:00:00", strtotime($from_date)),
-					'to_date' => date("Y-m-d 00:00:00", strtotime($to_date)),
+					'from_date' => $from_date,
+					'to_date' => $to_date,
 					'description' => $desc
 					);
      			$this->load->model('work_experience_model');
@@ -382,6 +418,8 @@ Class Candidate extends MY_Controller{
 
        
 	}
+
+	
 
 
 	function logout(){

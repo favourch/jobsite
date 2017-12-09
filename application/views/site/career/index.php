@@ -45,7 +45,41 @@
 							</div> <!-- end .right-side -->
 						</div> <!-- end .sort-by-wrapper -->
 						
-				        <div class="bookmarked-jobs-list-wrapper on-listing-page">				        
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$(".FormSubmit").click(function (e) {
+		e.preventDefault();
+			
+		$(".FormSubmit").hide(); //hide submit button
+		$("#LoadingImage").show(); //show loading image	
+		var ID=$(this).attr('id');		
+		alert(ID);
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/savejobs", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"cid="+ID, //Form variables
+		success:function(response){
+			//$("#"+ID).hide(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$(".FormSubmit").show(); //show submit button
+			$("#LoadingImage").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+});
+</script> 
+
+				        <div class="bookmarked-jobs-list-wrapper on-listing-page">	
+				        <form method="post">			        
 				        <?php foreach($list as $row): ?>
 				        	<?php $company = $this->member_company_model->get_info($row->company_id); ?>
 				        	<?php $city = $this->city_model->get_info($row->city_id); ?>
@@ -70,7 +104,7 @@
 												
 					        				</div> <!-- end .bookmarked-job-meta -->
 					        			<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-					        					<i class="ion-ios-heart wishlist-icon"></i>
+					        		<a class="FormSubmit" id="<?php echo $row->id; ?>"><i class="ion-ios-heart wishlist-icon"></i></a>
 					        					<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button">Xem việc làm</a>
 					        				</div> <!-- end .right-side-bookmarked-job-meta -->
 					        			</div> <!-- end .bookmarked-job-info-bottom -->
@@ -79,7 +113,7 @@
 				        	</div> <!-- end .bookmarked-job-wrapper --> 
 				        <?php endforeach; ?>
 
-
+				        </form>
 			        	</div> <!-- end .bookmarked-jobs-list-wrapper -->
 			        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
 							<?php echo $this->pagination->create_links(); ?>
