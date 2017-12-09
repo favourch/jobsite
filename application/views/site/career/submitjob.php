@@ -8,7 +8,7 @@
 					<div class="container">
 						<div class="blog-text-content">
 							<div class="no-column no-wrap">
-								<?php $company = $this->member_company_model->get_info($jobname->company_id); ?>
+								
 								<div class="right-side">
 									<h2 class="dark"><span style="font-size: 22px; color: #666;">Bạn đang ứng tuyển cho vị trí </span><?php echo $jobname->title; ?></h2>
 								
@@ -31,11 +31,12 @@
 									
 									<div class="form-group">
 								<input type="text" class="form-control" id="phone" name="phone" value="<?php echo $candidate->phone; ?>" placeholder="Số điện thoại liên hệ">
+								<span style="color: #c00; font-size: 12px"><?php echo form_error('phone'); ?></span>
 									</div> <!-- end .form-group -->
 
 									<div class="form-group">
 										<label>Hồ sơ đính kèm</label> <br>
-										<input type="radio" name="cv_upload" value="1"> <?php echo $candidate->cv_upload; ?> 
+									<input type="radio" name="cv_upload" value="1"> <?php echo $candidate->cv_upload; ?> 
 										<br>
 										<div class="input-cv">
 										<input type="radio" name="cv_upload" value="2"> <span>Chọn hồ sơ mới ( Click to uploads <i class="ion-ios-cloud-upload-outline"></i> )</span>
@@ -44,8 +45,8 @@
 									</div> <!-- end .form-group -->
 									<br>
 									
-									<input type="submit" class="button">Nộp hồ sơ</button>
-									<button type="submit" class="button">Trở về</button>
+									<input type="submit" class="button" value="Nộp hồ sơ">
+									<button type="button" class="button">Trở về</button>
 									
 								</form> <!-- end .comment-form -->
 

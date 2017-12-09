@@ -123,6 +123,12 @@ Class Candidate extends MY_Controller{
 			$cskill = $this->skill_model->get_list($input);
 			$this->data['cskill'] = $cskill;
 
+			//việ làm đã ứng tuyển
+			$this->load->model('map_candidate_recruitment_model');
+			$input['where'] = array('candidate_id'=>$user_id);
+			$listmapcandidate = $this->map_candidate_recruitment_model->get_list($input);
+			$this->data['listmapcandidate'] = $listmapcandidate;
+
 		$this->data['temp'] = 'site/candidate/view';
 		$this->load->view('site/layout',$this->data);
 	}

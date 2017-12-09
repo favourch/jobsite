@@ -108,22 +108,46 @@ Class Career extends MY_Controller{
 		$this->load->model('member_company_model');
 		$jobname = $this->recruitment_model->get_info($id);
 		$this->data['jobname'] = $jobname;
+		$company = $this->member_company_model->get_info($jobname->company_id);
+		$this->data['company'] = $company;
+		$companyid = $company->id;
 		$user_id = $this->session->userdata('candidate_id_login');
 		$this->load->model('member_candidate_model');
 		$candidate = $this->member_candidate_model->get_info($user_id);
 		$this->data['candidate'] = $candidate;
+		$oldcv = $candidate->cv_upload;
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('phone','Số điện thoại','required|min_length[6]');
 			if($this->form_validation->run()){
 				$phone = $this->input->post('phone');
 				$uploadcv = $this->input->post('cv_upload');
+				if($uploadcv==1){
+					$uploadcv = $oldcv;
+				}
+
+				$this->load->library('upload_library');
+				$upload_path = './uploads/candidatecv';
+				$upload_data = $this->upload_library->upload($upload_path, 'cvupload');
+				if(isset($upload_data['file_name'])){
+					$image_link = $upload_data['file_name'];
+				}
+				if($uploadcv==2){
+					$uploadcv = $image_link;
+				}
+
 				$data = array(
 					'recruitment_id'=> $id,
 					'candidate_id'=> $user_id,
+					'company_id' => $companyid,
 					'phone' => $phone,
-					'cv_upload' => $cv_uploads
+					'cv_upload' => $uploadcv,
+					'apply_date' => now()
 					);
+			$this->load->model('map_candidate_recruitment_model');
+			$this->map_candidate_recruitment_model->create($data);
+			$this->session->set_flashdata('message', 'Nộp hồ sơ thành công !');
+			redirect(base_url('ung-vien'));
 			}
 		}
 

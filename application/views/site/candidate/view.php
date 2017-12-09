@@ -268,33 +268,29 @@ $(".wrapper-bookmark").on("click", "#respondmark .del_bookmark", function(e) {
 							    </div> <!-- end #manage-applications-tab -->
 
 							    <div id="notifications" class="tab-pane fade in">
-							        <h3 class="tab-pane-title">Your notifications</h3>
+							        <h3 class="tab-pane-title">Việc làm đã ứng tuyển</h3>
 							        <div class="notifications-list-wrapper">
 
+							        	<?php foreach($listmapcandidate as $row): ?>
+							        	<?php $companyinfo = $this->member_company_model->get_info($row->company_id); ?>
+							        	<?php $jobinfo = $this->recruitment_model->get_info($row->recruitment_id); ?>
 							        	<div class="notification flex items-center no-column no-wrap">
 											<div class="notification-company-logo">
-												<img src="images/company-logo07.jpg.png" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo07.jpg" alt="company-logo" class="img-responsive">
+			<img src="<?php echo base_url('uploads/company/'.$companyinfo->logo_url); ?>" alt="" class="img-responsive">
 											</div> <!-- end .notification-company-logo -->
 											<div class="notification-text">
-												<p>Your bookmarked job “Web designer needed” from<span class="company-name">Banana Inc.</span>has expired.</p>
-												<p class="ultra-light">3 hours ago</p>
+												<p><b><?php echo $jobinfo->title; ?></b> </p>
+											<span class="company-name"><?php echo $companyinfo->company_name; ?></span>
+												<p class="ultra-light">Ứng tuyển lúc : <?php echo int_to_date($row->apply_date); ?></p>
 											</div> <!-- end .notification-text -->
 							        	</div> <!-- end .notification -->
+							        <?php endforeach; ?>
 
 							        	<div class="divider"></div>
 
+
 							        </div> <!-- end .notifications-list-wrapper -->
-						        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
-										<a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-										<ul class="list-unstyled flex no-column items-center">
-											<li><a href="#0">1</a></li>
-											<li><a href="#0">2</a></li>
-											<li><a href="#0">3</a></li>
-											<li><a href="#0">4</a></li>
-											<li><a href="#0">5</a></li>									
-										</ul>
-										<a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-									</div> <!-- end .jobpress-custom-pager -->							        
+						  						        
 							    </div> <!-- end #notifications-tab -->
 
 
