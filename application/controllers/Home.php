@@ -6,6 +6,10 @@ Class Home extends MY_Controller{
 		$this->load->model('career_model');
 		$this->load->model('partners_model');
 		$this->load->model('recruitment_model');
+		$this->load->model('city_model');
+
+		$cityinfo = $this->city_model->get_list();
+		$this->data['cityinfo'] = $cityinfo;
 		//slide
 		$slide_list = $this->slide_model->get_list();
 		$this->data['slide_list'] = $slide_list;

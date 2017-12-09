@@ -18,17 +18,7 @@
 				<div class="container">
 					<div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">Quản lý tài khoản</li>
-
-							    <li><a href="<?php echo base_url('ung-vien'); ?>">Hồ sơ của tôi</a></li>
-							    <li><a class="active" href="#">Cập nhật tài khoản</a></li>
-							    <li class="nav-divider"></li>
-							    <li><a href="<?php echo base_url('candidate/changpass'); ?>">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+					<?php $this->load->view('site/candidate/left'); ?>
 						
 						<div class="right-side-content">
 							<div class="tab-content candidate-dashboard">

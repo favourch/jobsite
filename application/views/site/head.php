@@ -5,6 +5,7 @@
         <!-- CSS -->
         <!-- Bootstrap -->
         <link href="<?php echo public_url(); ?>/site/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo public_url(); ?>/site/css/bootstrap-select.css" rel="stylesheet">
         <!-- Ionicons -->
         <link href="<?php echo public_url(); ?>/site/fonts/ionicons/css/ionicons.min.css" rel="stylesheet">
         <!-- Owl Carousel -->

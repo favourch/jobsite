@@ -108,9 +108,11 @@ Class Career extends MY_Controller{
 		$this->load->model('member_company_model');
 		$jobname = $this->recruitment_model->get_info($id);
 		$this->data['jobname'] = $jobname;
+
 		$company = $this->member_company_model->get_info($jobname->company_id);
 		$this->data['company'] = $company;
 		$companyid = $company->id;
+		
 		$user_id = $this->session->userdata('candidate_id_login');
 		$this->load->model('member_candidate_model');
 		$candidate = $this->member_candidate_model->get_info($user_id);

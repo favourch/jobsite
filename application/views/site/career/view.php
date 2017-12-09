@@ -107,7 +107,7 @@
 
 									<div class="system-login text-center">
 										<p class="divider-text text-center"><span>Ứng tuyển việc làm</span></p>
-										<a href="<?php echo base_url('career/submitjob/'.$info->id); ?>" class="button">Nộp đơn ứng tuyển</a>
+										<a href="<?php echo base_url('ung-vien/nop-ho-so-'.$info->id); ?>" class="button">Nộp đơn ứng tuyển</a>
 									</div> <!-- end .system-login -->
 
 								</div> <!-- end .right-side-inner -->

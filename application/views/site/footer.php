@@ -78,8 +78,8 @@
         <!-- Bootstrap -->
         <script src="<?php echo public_url(); ?>/site/js/bootstrap.min.js" ></script>
         <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>
+        <script src="<?php echo public_url(); ?>/site/js/bootstrap-select.js" ></script>
         <!-- google maps -->
-        <script src="../../maps.googleapis.com/maps/api/js-key=AIzaSyAy-PboZ3O_A25CcJ9eoiSrKokTnWyAmt8.js"></script>
         <!-- Owl Carousel -->
         <script src="<?php echo public_url(); ?>/site/js/owl.carousel.min.js"></script>
         <!-- Wow.js -->

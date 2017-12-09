@@ -68,6 +68,13 @@ $route['ung-vien/dang-nhap'] = 'candidate/login';
 $route['ung-vien/dang-ky'] = 'member_register/register';
 $route['ung-vien'] = 'candidate/view';
 $route['ung-vien/cap-nhat-thong-tin'] = 'candidate/update_cv';
+$route['ung-vien/doi-mat-khau'] = 'candidate/changepass';
+$route['ung-vien/dang-xuat'] = 'candidate/logout';
+$route['ung-vien/nha-tuyen-dung-xem-ho-so'] = 'candidate/company_view';
+$route['ung-vien/viec-lam-da-ung-tuyen'] = 'candidate/job_applied';
+$route['ung-vien/viec-lam-da-luu'] = 'candidate/job_saved';
+
+$route['ung-vien/nop-ho-so-(:num)'] = 'career/submitjob/$1';
 //rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
 $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';

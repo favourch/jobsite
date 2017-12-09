@@ -72,14 +72,7 @@ Class Candidate extends MY_Controller{
 		$this->load->model('member_company_model');
 		$this->load->model('city_model');
 		$this->load->model('salary_model');
-		$input = array();
-		$input['where'] = array('candidate_id'=>$user_id);
-		$listsave = $this->map_recruitment_model->get_list();
-		$this->data['listsave'] = $listsave;
-
-		if(!$this->session->userdata('candidate_id_login')){
-			redirect();
-		}
+		
 		
 		$user = $this->member_candidate_model->get_info($user_id);
 		if(!$user){
@@ -123,17 +116,47 @@ Class Candidate extends MY_Controller{
 			$cskill = $this->skill_model->get_list($input);
 			$this->data['cskill'] = $cskill;
 
-			//việ làm đã ứng tuyển
+
+		$this->data['temp'] = 'site/candidate/view';
+		$this->load->view('site/layout',$this->data);
+	}
+
+	//viec lam da ung tuyen
+	function job_applied(){
+
+			$user_id = $this->session->userdata('candidate_id_login');
 			$this->load->model('map_candidate_recruitment_model');
 			$input['where'] = array('candidate_id'=>$user_id);
 			$listmapcandidate = $this->map_candidate_recruitment_model->get_list($input);
 			$this->data['listmapcandidate'] = $listmapcandidate;
 
-		$this->data['temp'] = 'site/candidate/view';
-		$this->load->view('site/layout',$this->data);
+			$this->data['temp'] = 'site/candidate/job_applied';
+			$this->load->view('site/layout',$this->data);
 	}
+	function job_saved(){
+		$user_id = $this->session->userdata('candidate_id_login');
+		$this->load->model('map_recruitment_model');
+		$input = array();
+		$input['where'] = array('candidate_id'=>$user_id);
+		$listsave = $this->map_recruitment_model->get_list();
+		$this->data['listsave'] = $listsave;
+
+		if(!$this->session->userdata('candidate_id_login')){
+			redirect();
+		}
+
+			$this->data['temp'] = 'site/candidate/job_saved';
+			$this->load->view('site/layout',$this->data);
+	}
+	function company_view(){
+
+			$this->data['temp'] = 'site/candidate/company_view';
+			$this->load->view('site/layout',$this->data);
+	}
+
 	//Xử lý dữ liệu kinh nghiệm làm việc
 	function add(){
+
 				$user_id = $this->session->userdata('candidate_id_login');
 				$desc = $this->input->post('desc');
 				$company_name = $this->input->post('company_name');
@@ -152,6 +175,8 @@ Class Candidate extends MY_Controller{
 					);
 				$this->load->model('work_experience_model');
 				$this->work_experience_model->create($data);
+				$this->session->set_flashdata('message', 'Thêm dữ liệu thành công !');
+
 	}
 	function del($id){
             $id = $this->uri->rsegment(3);
@@ -177,7 +202,8 @@ Class Candidate extends MY_Controller{
 					'description' => $desc
 					);
      			$this->load->model('work_experience_model');
-           		 $this->work_experience_model->update($id,$data);
+           		$this->work_experience_model->update($id,$data);
+           		$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
      }                 
 
      //xử lý dữ liệu học vấn
@@ -409,8 +435,6 @@ Class Candidate extends MY_Controller{
         $input['where'] = array('candidate_id'=>$user_id);
         $data['listcetifie'] = $this->certificate_model->get_list($input);
 
-
-
         $this->load->model('work_experience_model');
         $data['listexperience'] = $this->work_experience_model->get_list($input);
 
@@ -426,8 +450,6 @@ Class Candidate extends MY_Controller{
 	}
 
 	
-
-
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){
 				$this->session->unset_userdata('candidate_id_login');

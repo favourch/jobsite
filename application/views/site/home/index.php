@@ -7,13 +7,29 @@
                         <form class="form-inline flex">
                             <div class="form-group">
                                 <div class="form-group-inner">
-                                    <input type="text" class="form-control" id="input-field-1" placeholder="Chức danh / Từ khóa / Tên công ty">
+                                    <input type="text" class="form-control" name="keyword" id="input-field-1" placeholder="Chức danh / Từ khóa / Tên công ty">
                                     <i class="ion-ios-briefcase-outline"></i>
                                 </div>
                             </div>
+               <div class="form-group">
+              <div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="careerid">
+             <option value="0">Tất cả nghành nghề</option>
+            <?php foreach($category_home as $row): ?>
+            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
+                     </div>
+
                             <div class="form-group">                            
-                            <input type="text" class="form-control" id="input-field-2" placeholder="Địa điểm làm việc">
-                                <i class="ion-ios-location-outline"></i>
+                            <select class="selectpicker" data-live-search="true" name="cityid">
+                            <option value="0">Tất cả địa điểm</option>
+                            <?php foreach($cityinfo as $row): ?>
+                            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+                            <?php endforeach; ?>
+                                </select>
+                            
                             </div>
                             <button type="submit" class="button"><i class="ion-ios-search-strong"></i></button>
                         </form>

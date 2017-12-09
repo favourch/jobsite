@@ -19,18 +19,7 @@
 				<div class="thongbao-tc"><?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?></div>
 					<div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">Quản lý tài khoản</li>
-							    <li><a href="<?php echo base_url('candidate/view'); ?>">Hồ sơ của tôi</a></li>
-							    <li><a href="<?php echo base_url('candidate/update_cv'); ?>">Cập nhật thông tin</a></li>
-							    
-							    <li class="nav-divider"></li>
-		
-							    <li><a class="active" href="#">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('candidate/logout'); ?>">Đăng xuất</a></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+					<?php $this->load->view('site/candidate/left'); ?>
 						
 						<div class="right-side-content">
 							<div class="tab-content candidate-dashboard">
