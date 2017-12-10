@@ -3630,7 +3630,7 @@ label>sup, .label>sup {
 	position: relative;
 }
 .bookmarked-job-meta .candidate-location>span, .bookmarked-job-meta .hourly-rate>span {
-	color: #a0a7ba;
+	color: #f7941d;
 }
 .bookmarked-job-meta .candidate-location>span {
 	padding-left: 3px;

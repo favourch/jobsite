@@ -1,5 +1,9 @@
 <?php
 Class Home extends MY_Controller{
+	function __construct(){
+		parent::__construct();
+	}
+
 	function index(){
 		$this->load->model('slide_model');
 		$this->load->model('news_model');
@@ -41,4 +45,44 @@ Class Home extends MY_Controller{
 		$this->data['temp'] = 'site/home/index';
 		$this->load->view('site/layout', $this->data);
 	}
-}
+
+	function find_jobs(){
+		$this->load->model('recruitment_model');
+		$this->load->model('member_company_model');
+		$this->load->model('city_model');
+		$this->load->model('job_type_model');
+		$this->load->model('salary_model');
+		
+		if($this->input->get()){
+		$keyword = $this->input->get('keyword');
+		$careerid = $this->input->get('careerid');
+		$cityid = $this->input->get('cityid');
+		$input = array();
+		if($keyword){
+			$input['like'] = array('title', $keyword);
+		}
+		elseif($careerid!=0){
+			$input['where'] = array('career_id'=>$careerid);
+		}
+		elseif($cityid!=0){
+			$input['where'] = array('city_id'=>$cityid);
+		}
+		elseif(isset($keyword) && isset($career_id) && isset($cityid)){
+			$input['like'] = array('title', $keyword);
+			$input['where'] = array(
+				'career_id'=>$careerid,
+				'city_id' => $cityid
+				);
+		}
+
+		$listjobs = $this->recruitment_model->get_list($input);
+		$this->data['listjobs'] = $listjobs;
+
+		}
+
+
+		$this->data['temp'] = 'site/home/find_jobs';
+		$this->load->view('site/layout', $this->data);
+	}
+
+}//end class

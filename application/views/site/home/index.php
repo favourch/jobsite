@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="job-search-form">
                         <h2>Hơn <span>100,000<sup>+</sup></span>việc làm đang chờ bạn</h2>
-                        <form class="form-inline flex">
+                        <form class="form-inline flex" method="GET" action="<?php echo base_url('home/find_jobs'); ?>">
                             <div class="form-group">
                                 <div class="form-group-inner">
                                     <input type="text" class="form-control" name="keyword" id="input-field-1" placeholder="Chức danh / Từ khóa / Tên công ty">
