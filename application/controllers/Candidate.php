@@ -126,7 +126,34 @@ Class Candidate extends MY_Controller{
 
 			$user_id = $this->session->userdata('candidate_id_login');
 			$this->load->model('map_candidate_recruitment_model');
+			$this->load->library('pagination');
+			$input = array();
 			$input['where'] = array('candidate_id'=>$user_id);
+		$total_row = $this->map_candidate_recruitment_model->get_total($input);
+		$this->data['total_row'] = $total_row;
+		$segment = $this->uri->segment(3);
+		$segment = intval($segment);
+		$config = array();
+		$config['base_url']    = home_url('ung-vien/viec-lam-da-ung-tuyen');
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 10;
+		$config['uri_segment'] = 3;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page"> Last';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
+		$this->pagination->initialize($config);
+		
+
+			$input["limit"] = array($config['per_page'], $segment);
+
 			$listmapcandidate = $this->map_candidate_recruitment_model->get_list($input);
 			$this->data['listmapcandidate'] = $listmapcandidate;
 
@@ -136,9 +163,36 @@ Class Candidate extends MY_Controller{
 	function job_saved(){
 		$user_id = $this->session->userdata('candidate_id_login');
 		$this->load->model('map_recruitment_model');
+		$this->load->library('pagination');
+
 		$input = array();
 		$input['where'] = array('candidate_id'=>$user_id);
-		$listsave = $this->map_recruitment_model->get_list();
+		$total_row = $this->map_recruitment_model->get_total($input);
+		$this->data['total_row'] = $total_row;
+		$segment = $this->uri->segment(3);
+		$segment = intval($segment);
+		$config = array();
+		$config['base_url']    = home_url('ung-vien/viec-lam-da-luu');
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 10;
+		$config['uri_segment'] = 3;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page"> Last';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
+		$this->pagination->initialize($config);
+		
+
+		$input["limit"] = array($config['per_page'], $segment);
+
+		$listsave = $this->map_recruitment_model->get_list($input);
 		$this->data['listsave'] = $listsave;
 
 		if(!$this->session->userdata('candidate_id_login')){

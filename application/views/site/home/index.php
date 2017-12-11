@@ -46,24 +46,24 @@
                         <div class="features-bar-inner flex space-between">
                             <div class="features-box self-center">
                                 <h3>Leading the industry</h3>
-                                <a href="about.html" tppabs="http://jobpress.wecookcode.com/demo/about.html">About us<i class="ion-ios-arrow-thin-right"></i></a>
+                                <a href="about.html">About us<i class="ion-ios-arrow-thin-right"></i></a>
                             </div> <!-- end .feature-box -->
                             <div class="features-box-icon flex no-wrap">
-                                <img src="<?php echo public_url(); ?>/site/images/feature-icon01.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/feature-icon01.png" alt="cup-icon" class="img-responsive self-center">
+                                <img src="<?php echo public_url(); ?>/site/images/feature-icon01.png" alt="cup-icon" class="img-responsive self-center">
                                 <div class="content self-center">
                                     <h3>High average salary</h3>
                                     <a href="#0">Learn more<i class="ion-ios-arrow-thin-right"></i></a>
                                 </div> <!-- end .content -->                            
                             </div> <!-- end .feature-box-icon -->
                             <div class="features-box-icon flex no-wrap">
-                                <img src="<?php echo public_url(); ?>/site/images/feature-icon02.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/feature-icon02.png" alt="cup-icon" class="img-responsive self-center">
+                                <img src="<?php echo public_url(); ?>/site/images/feature-icon02.png" alt="cup-icon" class="img-responsive self-center">
                                 <div class="content self-center">
                                     <h3>2,500,000+ candidates</h3>
                                     <a href="#0">Our community<i class="ion-ios-arrow-thin-right"></i></a>
                                 </div> <!-- end .content -->
                             </div> <!-- end .feature-box-icon -->
                             <div class="user-profile-icon self-center">
-                                <img src="<?php echo public_url(); ?>/site/images/profile-icon01.png" tppabs="http://jobpress.wecookcode.com/demo/<?php echo public_url(); ?>/site/images/profile-icon01.png" alt="profile-icon" class="img-responsive self-center">
+                                <img src="<?php echo public_url(); ?>/site/images/profile-icon01.png" alt="profile-icon" class="img-responsive self-center">
                             </div> <!-- end .profile-icon -->
                         </div> <!-- end .features-bar-inner -->
                     </div> <!-- end .container -->

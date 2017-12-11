@@ -92,6 +92,10 @@ $(".wrapper-bookmark").on("click", "#respondmark .del_bookmark", function(e) {
 							        	<?php endforeach; ?>
 							        	</div>
 						        	</div> <!-- end .bookmarked-jobs-list-wrapper -->
+						        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
+										<?php echo $this->pagination->create_links(); ?>
+									</div> <!-- end .jobpress-custom-pager -->
+						        	
 						       	</div>		        
 							    </div> <!-- end #bookmarked-jobs-tab -->
 

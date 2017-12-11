@@ -67,6 +67,7 @@ $route['nha-tuyen-dung/doi-mat-khau'] = 'companies/change_pass';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so'] = 'companies/candidate_applied';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so/(:num)'] = 'companies/candidate_applied/$1';
 
+
 $route['ung-vien/dang-nhap'] = 'candidate/login';
 $route['ung-vien/dang-ky'] = 'member_register/register';
 $route['ung-vien'] = 'candidate/view';
@@ -75,7 +76,9 @@ $route['ung-vien/doi-mat-khau'] = 'candidate/changepass';
 $route['ung-vien/dang-xuat'] = 'candidate/logout';
 $route['ung-vien/nha-tuyen-dung-xem-ho-so'] = 'candidate/company_view';
 $route['ung-vien/viec-lam-da-ung-tuyen'] = 'candidate/job_applied';
+$route['ung-vien/viec-lam-da-ung-tuyen/(:num)'] = 'candidate/job_applied/$1';
 $route['ung-vien/viec-lam-da-luu'] = 'candidate/job_saved';
+$route['ung-vien/viec-lam-da-luu/(:num)'] = 'candidate/job_saved/$1';
 
 $route['ung-vien/nop-ho-so-(:num)'] = 'career/submitjob/$1';
 //rewrite danh muc việc làm

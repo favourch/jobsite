@@ -46,11 +46,15 @@
 									<br>
 									
 									<input type="submit" class="button" value="Nộp hồ sơ">
-									<button type="button" class="button">Trở về</button>
+									<button type="button" class="button" onclick="return goBack();">Trở về</button>
 									
 								</form> <!-- end .comment-form -->
 
-
+<script type="text/javascript">
+	function goBack() {
+    window.history.go(-2);
+}
+</script>
 
 							</div> <!-- end .left-side-wrapper -->
 
