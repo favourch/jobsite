@@ -107,7 +107,13 @@
 
 									<div class="system-login text-center">
 										<p class="divider-text text-center"><span>Ứng tuyển việc làm</span></p>
+										<?php if(isset($user_info)): ?>
 										<a href="<?php echo base_url('ung-vien/nop-ho-so-'.$info->id); ?>" class="button">Nộp đơn ứng tuyển</a>
+									<?php else: ?>
+										<a href="<?php echo base_url('ung-vien/dang-nhap'); ?>" class="button">Đăng nhập để ứng tuyển</a>
+									<?php endif; ?>
+
+
 									</div> <!-- end .system-login -->
 
 								</div> <!-- end .right-side-inner -->

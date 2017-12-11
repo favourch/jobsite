@@ -84,6 +84,7 @@ Class Career extends MY_Controller{
 		$level = $this->level_model->get_info($info->level_id);
 		$this->data['level'] = $level;
 
+		$this->load->model('career_model');
 		$career = $this->career_model->get_info($info->career_id);
 		$this->data['career'] = $career;
 

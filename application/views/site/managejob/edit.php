@@ -18,24 +18,7 @@
 				<div class="container">
 					<div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-
-								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-								<li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Trang quản lý</a></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tuyển dụng mới</a></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
-							    <li class="nav-divider"></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
-							    <li class="nav-divider"></li>
-								<li class="heading">HOTLINE HỖ TRỢ NHÀ TUYỂN DỤNG</li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+				<?php $this->load->view('site/companies/left'); ?>
 						
 						<div class="right-side-content">
 							<div class="tab-content candidate-dashboard">

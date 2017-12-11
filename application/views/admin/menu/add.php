@@ -37,24 +37,21 @@
 								<select name="parent" class="span6 typeahead">
 								<option value="0">Là danh mục cha</option>
 								<?php foreach($listmn as $row): ?>
-								<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+								<?php if(count($row->subs) > 0 ): ?>
+								<optgroup label="<?php echo $row->name; ?>">
+								<?php foreach($row->subs as $sub): ?>
+								<option value="<?php echo $sub->id; ?>" <?php echo ($this->input->get('id') == $sub->id) ? "selected" : "" ?> ><?php echo $sub->name; ?></option>
+								<?php endforeach; ?>
+								</optgroup>
+								<?php else: ?>
+								<option value="<?php echo $row->id; ?>" <?php echo ($this->input->get('id') == $row->id) ? "selected" : "" ?> ><?php echo $row->name; ?></option>
+								<?php endif; ?>
 							<?php endforeach; ?>
 								</select>
 								<div class="help-block"><?php echo form_error('parent'); ?></div>
 							  </div>
 							</div>
-							<div class="control-group">
-							  <label class="control-label" for="typeahead">Danh mục sản phẩm</label>
-							  <div class="controls">
-								<select name="category_id" class="span6 typeahead">
-								<option value="0">Không trỏ đến</option>
-								<?php foreach($listcategory as $row) : ?>
-								<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
-								<?php endforeach; ?>
-								</select>
-								<div class="help-block"><?php echo form_error('category_id'); ?></div>
-							  </div>
-							</div>
+
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">Danh mục tin tức</label>
 							  <div class="controls">

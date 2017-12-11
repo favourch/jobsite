@@ -35,7 +35,7 @@
 			<img src="<?php echo base_url('uploads/company/'.$companyinfo->logo_url); ?>" alt="" class="img-responsive">
 											</div> <!-- end .notification-company-logo -->
 											<div class="notification-text">
-												<p><b><?php echo $jobinfo->title; ?></b> </p>
+												<p><b><a href="<?php echo base_url($jobinfo->cat_name.'-'.$jobinfo->id.'-jv'); ?>"><?php echo $jobinfo->title; ?></a></b> </p>
 											<span class="company-name"><?php echo $companyinfo->company_name; ?></span>
 												<p class="ultra-light">Ứng tuyển lúc : <?php echo int_to_date($row->apply_date); ?></p>
 											</div> <!-- end .notification-text -->

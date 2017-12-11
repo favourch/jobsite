@@ -25,109 +25,12 @@
 				<div class="thongbao-tc"><?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?></div>
 				<!-- End thông báo dữ liệu -->
 					<div class="employer-dashboard-wrapper flex space-between no-wrap">
-
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-							    <li class="active"><a data-toggle="pill" href="#profile">Thông tin tài khoản</a></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
-
-							    <li class="nav-divider"></li>
-							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
-						<li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
-							    <li class="nav-divider"></li>
-							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
-								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
-							   <li><a data-toggle="pill" href="#manage-applications-employer">Tìm ứng viên</a></li>
-							    <li class="nav-divider"></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+						<?php $this->load->view('site/companies/left'); ?>
 						
 						<div class="right-side-content">
 
 							<div class="tab-content employer-dashboard">
-
-							    <div id="manage-applications-employer" class="tab-pane fade in">
-							        <h3 class="tab-pane-title">Manage applications</h3>
-							        <div class="candidate-applications-list-wrapper">
-
-							        	<ul class="candidate-applications-table-headings flex items-center no-column no-wrap list-unstyled">
-							        		<li class="candidate-name-cell candidate-cell"><h6>Name</h6></li>
-							        		<li class="candidate-job-cell candidate-cell"><h6>Job</h6></li>
-							        		<li class="candidate-resume-cell"><h6>Resume</h6></li>
-							        		<li class="candidate-actions-cell"><h6>Actions</h6></li>
-							        	</ul> <!-- end .fav-candidates-table-headings -->
-
-							        	<div class="candidate-applications-wrapper">
-
-							        		<div class="candidate-application flex no-wrap no-column items-center list-unstyled">
-												<div class="candidate-name-cell candidate-cell flex items-center no-column no-wrap">		
-													<div class="cell-mobile-label">
-														<h6>Name</h6>
-													</div> <!-- end .cell-label -->
-													<div class="candidate-cell-inner flex items-center no-column no-wrap">
-														<div class="candidate-img">
-															<img src="images/candidate-small08.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate-small08.jpg" alt="candidate-image" class="img-responsive">
-														</div> <!-- end .candidate-img -->
-														<div class="cell-text no-column">
-															<h4>Brittany Riley</h4>
-															<p>Marketer</p>
-														</div> <!-- end .cell-text -->
-													</div> <!-- end .candidate-cell-inner -->
-												</div> <!-- end .candidate-name-cell -->
-
-								        		<div class="candidate-job-cell candidate-cell flex no-column no-wrap">
-													<div class="cell-mobile-label">
-														<h6>Job</h6>
-													</div> <!-- end .cell-label -->
-													<div class="candidate-cell-inner flex no-column no-wrap">
-														<p>Looking for a market position</p>
-								        			</div> <!-- end .candidate-cell-inner -->
-								        		</div> <!-- end .candidate-job-cell -->
-
-								        		<div class="candidate-resume-cell candidate-cell flex no-column no-wrap">
-													<div class="cell-mobile-label">
-														<h6>Resume</h6>
-													</div> <!-- end .cell-label -->
-													<div class="candidate-cell-inner flex no-column no-wrap">
-														<p><span><i class="ion-document"></i></span>PDF (54KB)</p>
-													</div> <!-- end .candidate-cell-inner -->								        			
-								        		</div> <!-- end .candidate-resume-cell -->
-
-								        		<div class="candidate-actions-cell candidate-cell flex items-center no-wrap no-column no-wrap">
-													<div class="cell-mobile-label">
-														<h6>Actions</h6>
-													</div> <!-- end .cell-label -->
-													<div class="candidate-cell-inner flex no-column no-wrap">
-									        			<i class="ion-ios-checkmark-empty approve-icon"></i>
-									        			<i class="ion-ios-close-empty trash-icon"></i>
-								        			</div> <!-- end .candidate-cell-inner -->
-								        		</div> <!-- end .candidate-actions-cell -->
-							        		</div> <!-- end .candidate-application -->
-
-							        		<div class="divider"></div>
-
-							        	</div> <!-- end .candidate-applications-wrapper -->
-						        	</div> <!-- end .candidate-applications-list-wrapper -->
-
-						        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
-										<a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-										<ul class="list-unstyled flex no-column items-center">
-											<li><a href="#0">1</a></li>
-											<li><a href="#0">2</a></li>
-											<li><a href="#0">3</a></li>
-											<li><a href="#0">4</a></li>
-											<li><a href="#0">5</a></li>									
-										</ul>
-										<a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-									</div> <!-- end .jobpress-custom-pager -->
-
-							    </div> <!-- end #manage-applications-employer -->
-
+				
 							    <div id="manage-jobs" class="tab-pane fade in">
 							        <h3 class="tab-pane-title">Manage Jobs</h3>
 							        <div class="posted-jobs-list-wrapper">

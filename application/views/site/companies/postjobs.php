@@ -134,10 +134,10 @@
 									<div class="form-group-wrapper">
 										<div class="form-group">
 											<p class="label">Yêu cầu hồ sơ</p>
-<textarea name="profile" class="txtarea2">- Đơn xin việc.
-- Sơ yếu lý lịch.
-- Hộ khẩu, chứng minh nhân dân và giấy khám sức khỏe.
-- Các bằng cấp có liên quan.</textarea>
+<textarea name="profile" class="txtarea2">- Đơn xin việc.<br>
+- Sơ yếu lý lịch.<br>
+- Hộ khẩu, chứng minh nhân dân và giấy khám sức khỏe.<br>
+- Các bằng cấp có liên quan.<br></textarea>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
 									

@@ -49,7 +49,7 @@ Class Category extends MY_Controller{
 				$name = $this->input->post('name');
 				$is_order = $this->input->post('is_order');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->category_model->slug($name);
+				$cat_name = $this->slug($name);
 				$parent = $this->input->post('parent');
 				if($is_order==""){$is_order=99;}
 
@@ -102,7 +102,7 @@ Class Category extends MY_Controller{
 				$name = $this->input->post('name');
 				$is_order = $this->input->post('is_order');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->category_model->slug($name);
+				$cat_name = slug($name);
 				$parent = $this->input->post('parent');
 				if($is_order==""){$is_order=99;}
 

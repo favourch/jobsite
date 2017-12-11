@@ -61,8 +61,11 @@ $route['nha-tuyen-dung'] = 'companies/view';
 $route['nha-tuyen-dung/cap-nhat-thong-tin'] = 'companies/edit';
 $route['nha-tuyen-dung/dang-tin'] = 'companies/postjobs';
 $route['nha-tuyen-dung/danh-sach-tin-dang'] = 'managejob';
+$route['nha-tuyen-dung/danh-sach-tin-dang/(:num)'] = 'managejob/index/$1';
 $route['nha-tuyen-dung/cap-nhat-tin-dang-(:num)'] = 'managejob/edit/$1';
 $route['nha-tuyen-dung/doi-mat-khau'] = 'companies/change_pass';
+$route['nha-tuyen-dung/ung-vien-nop-ho-so'] = 'companies/candidate_applied';
+$route['nha-tuyen-dung/ung-vien-nop-ho-so/(:num)'] = 'companies/candidate_applied/$1';
 
 $route['ung-vien/dang-nhap'] = 'candidate/login';
 $route['ung-vien/dang-ky'] = 'member_register/register';

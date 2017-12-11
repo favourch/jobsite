@@ -98,6 +98,6 @@ var editor = CKEDITOR.replace( 'editor4',
 		<script src="<?php echo public_url(); ?>admin/js/jquery.sparkline.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/counter.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/retina.js"></script>
-		<!-- <script src="<?php echo public_url(); ?>admin/js/custom.js"></script> -->
-		<!-- <script type="text/javascript" src="<?php echo public_url()?>admin/js/custom_admin.js"></script> -->
+		 <script src="<?php echo public_url(); ?>admin/js/custom.js"></script> 
+		 <script type="text/javascript" src="<?php echo public_url()?>admin/js/custom_admin.js"></script> 
 	<!-- end: JavaScript-->

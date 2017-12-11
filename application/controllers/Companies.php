@@ -380,6 +380,52 @@ Class Companies extends MY_Controller{
 		$this->load->view('site/layout',$this->data);
 	}
 
+	function candidate_applied(){
+		$this->load->model('member_candidate_model');
+		$this->load->model('map_candidate_recruitment_model');
+		$this->load->model('recruitment_model');
+		$this->load->library('pagination');
+		$company_id = $this->session->userdata('company_id_login');
+		$info_company = $this->member_company_model->get_info($company_id);
+		if(!$info_company){
+			redirect();
+		}
+
+		$input = array();
+		$input['where'] = array('company_id'=>$company_id);
+
+		$total_row = $this->map_candidate_recruitment_model->get_total($input);
+		$this->data['total_row'] = $total_row;
+		$segment = $this->uri->segment(3);
+		$segment = intval($segment);
+
+		$config = array();
+		$config['base_url']    = home_url('nha-tuyen-dung/ung-vien-nop-ho-so');
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 10;
+		$config['uri_segment'] = 3;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page"> Last';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
+		$this->pagination->initialize($config);
+		
+
+		$input["limit"] = array($config['per_page'], $segment);
+
+		$listapplied = $this->map_candidate_recruitment_model->get_list($input);
+		$this->data['listapplied'] = $listapplied;
+		$this->data['temp'] = 'site/companies/candidate_applied';
+		$this->load->view('site/layout',$this->data);
+	}
+
 	function logout(){
 		if($this->session->userdata('company_id_login')){
 				$this->session->unset_userdata('company_id_login');

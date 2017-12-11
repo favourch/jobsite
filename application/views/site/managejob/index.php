@@ -28,26 +28,7 @@
 				<!-- End thông báo dữ liệu -->
 					<div class="employer-dashboard-wrapper flex space-between no-wrap">
 
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Thông tin tài khoản</a></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
-
-							    <li class="nav-divider"></li>
-							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
-						<li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li class="active"><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
-							    <li class="nav-divider"></li>
-							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
-								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
-							   <li><a data-toggle="pill" href="#manage-applications-employer">Tìm ứng viên</a></li>
-							    <li class="nav-divider"></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+				<?php $this->load->view('site/companies/left'); ?>
 						
 						<div class="right-side-content">
 
@@ -67,6 +48,8 @@
 							        	<div class="posted-jobs-wrapper">
 
 							        	<?php foreach($info_job as $row): ?>
+							        	<?php $input['where'] = array('recruitment_id'=>$row->id); ?>
+							        <?php $total_applied = $this->map_candidate_recruitment_model->get_total($input); ?>
 							        		<div class="posted-job flex no-wrap no-column items-center list-unstyled">
 												<div class="posted-job-title-cell posted-job-cell flex items-center no-column no-wrap">		
 													<div class="cell-mobile-label">
@@ -93,7 +76,8 @@
 								        		<div class="posted-job-candidates-cell posted-job-cell flex no-column no-wrap">
 													<div class="cell-mobile-label">
 														<h6>Lượt ứng tuyển</h6>
-													</div> <!-- end .cell-label -->												<span style="padding-left: 20px;">3</span>	
+													</div> <!-- end .cell-label -->						
+													<span style="padding-left: 20px;"><?php echo $total_applied; ?></span>	
 																				        			
 								        		</div> <!-- end .posted-job-candidates-cell -->
 

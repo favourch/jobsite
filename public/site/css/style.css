@@ -51,7 +51,7 @@
 /* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
 @import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 23px;
@@ -157,7 +157,6 @@ h3 {
 }
 h4,h5 {
 	color: #fff;
-	font-family: 'Lato', sans-serif;
 	margin: 0;
 }
 h4 {
@@ -172,7 +171,7 @@ h5 {
 	margin-bottom: 10px;
 }
 h6 {
-	font-size: 9px;
+	font-size: 11px;
 	font-weight: 700;
 	line-height: 14px;
 	color: #627199;
@@ -314,7 +313,7 @@ ul {
 		width: 20%;
 	}
 	.job-company-icon img{
-		width: 100%;
+
 	}
 	.bookmarked-job-info{
 		width: 80%;
@@ -388,7 +387,7 @@ ul {
    ========================================================================== */
 
 .button {
-	font-size: 9px;
+	font-size: 13px;
 	font-weight: 700;
 	line-height: 14px;
 	display: inline-block;
@@ -497,7 +496,6 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	font-weight: 500;
 	padding: 0 16px;
 	outline: none !important;
-	font-family: 'Lato', sans-serif;
 	border: 1px solid #cfcfcf;
 }
 ::-webkit-input-placeholder {
@@ -654,7 +652,7 @@ select::-ms-expand {
 	margin: 0;
 }
 .main-nav ul>li a {
-	font-size: 12px;
+	font-size: 13px;
 	color: #627199;
 	display: inline-block;
 	font-weight: 700;
@@ -1517,7 +1515,7 @@ li.active{
 	-webkit-box-flex: 0;
 	-ms-flex: 0 20%;
 	float: left;;
-	padding: 30px 10px;
+	padding: 30px 0px;
 	
 	width: 20%;
 	cursor: pointer;
@@ -1539,7 +1537,6 @@ li.active{
 .category-grid .category-row .item h4 {
 	margin-bottom: 0;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 	line-height: 20px;
 }
@@ -2575,7 +2572,6 @@ li.active{
 .form-group .label {
 	font-size: 10px;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 	color: #a0a7ba;
 	line-height: 15px;
@@ -2965,7 +2961,6 @@ li.active{
 	font-size: 12px;
 	color: #627199;
 	font-weight: 500;
-	font-family: 'Montserrat', sans-serif;
 	display: inline-block;
 	width: auto;
 }
@@ -3239,9 +3234,9 @@ li.active{
 	padding: 0 25px;
 }
 .left-sidebar-menu .nav-pills .heading {
-    color: #a0a7ba;
+    color: #000;
     font-weight: 700;
-    font-size: 9px;
+    font-size: 12px;
     margin-bottom: 7px;
     text-transform: uppercase;
 }
@@ -3356,11 +3351,9 @@ li.active{
 }
 .profile-info .profile-picture img {
 	max-width: 100px;
-	min-height: 75px;
 }
 .profile-meta h4 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
 }
@@ -3441,7 +3434,7 @@ min-width: 19%;
 	flex: 0 74%;	
 }
 .profile-experience .profile-designation {
-	font-family: 'Montserrat', sans-serif;
+	
 }
 .profile-experience p {
 	margin-bottom: 12px;
@@ -3530,6 +3523,7 @@ label>sup, .label>sup {
 
 .right-side-content img {
 	border-radius: 5px;
+	width: 60px;
 }
 .right-side-content .candidate-dashboard {
 	padding: 22px 0 30px;	
@@ -3598,7 +3592,6 @@ label>sup, .label>sup {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin: 0;	
 }
@@ -4454,7 +4447,7 @@ label>sup, .label>sup {
 .posted-job-title-cell>h4, .posted-job-title-cell .cell-text>h4 {
     margin: 0;
     color: #000;
-    font-family: 'Montserrat', sans-serif;	
+    font-weight: bold;	
 }
 .posted-job-title-cell p>i {
     padding-right: 4px;	
@@ -5443,7 +5436,6 @@ label>sup, .label>sup {
 .featured-job .right-side-inner h5:first-of-type {
     margin: 0;
     font-size: 13px;
-    font-family: 'Montserrat', sans-serif;
     line-height: 18px;
 }
 .featured-job .right-side-inner h5:last-of-type {
@@ -5470,7 +5462,7 @@ label>sup, .label>sup {
     margin: 0;
     position: relative;
     top: -2px;
-    font-family: 'Montserrat', sans-serif;
+
     margin-bottom: 3px;
     font-size: 13px;	
 }
@@ -5788,7 +5780,6 @@ label>sup, .label>sup {
 }
 .job-post-top .job-post-top-right>h4{
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
 }
@@ -5803,7 +5794,6 @@ label>sup, .label>sup {
 	padding-top: 25px;
 }
 .job-post-bottom h4 {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
 }
@@ -5814,7 +5804,6 @@ label>sup, .label>sup {
     color: #627199;
     font-size: 14px;
     line-height: 23px;
-    font-family: 'Lato', sans-serif;	
 }
 .job-post-nested-list>li>span {
     color: #9db723;
@@ -5873,16 +5862,14 @@ label>sup, .label>sup {
 	margin-bottom: 20px;
 }
 .job-post-company-info>h5 {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase;	
 }
 .job-post-company-info ul>li, .job-post-company-info ul>li>a {
     color: #627199;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 23px;
-    font-family: 'Montserrat', sans-serif;	
 }
 .job-post-company-info ul>li {
 	padding-bottom: 5px;
@@ -6147,7 +6134,6 @@ label>sup, .label>sup {
 }
 .multisteps-form .form-fields-title {
 	margin: 0;
-	font-family: 'Montserrat', sans-serif;
 }
 .multisteps-form .form-inner .job-post-share {
 	padding: 0;

@@ -51,14 +51,12 @@ Class Menu extends MY_Controller{
 				//tiến hành thêm vào csdl
 				$name = $this->input->post('name');
 				$parent = $this->input->post('parent');
-				$category_id = $this->input->post('category_id');
 				$cat_id = $this->input->post('cat_id');
 				$is_order = $this->input->post('is_order');
 				$link = $this->input->post('link');
 				$data = array(
 					'name'=> $name,
 					'parent'=> $parent,
-					'category_id'=>$category_id,
 					'cat_id'=>$cat_id,
 					'is_order' => $is_order,
 					'link' => $link
@@ -78,14 +76,16 @@ Class Menu extends MY_Controller{
 		$input = array();
 		$input['where'] = array('parent'=>0);
 		$listmn = $this->menu_model->get_list($input);
+		foreach($listmn as $row){
+			$input['where'] = array('parent'=> $row->id);
+			$subs = $this->menu_model->get_list($input); // lấy ra danh mục con
+			$row->subs = $subs; 
+		}
 		$this->data['listmn'] = $listmn;
-		//lấy ra danh mục sản phẩm
-		$this->load->model('category_model');
-		$listcategory = $this->category_model->get_list($input);
-		$this->data['listcategory'] = $listcategory;
+
 		//Lấy ra danh mục tin
 		$this->load->model('catnews_model');
-		$listcatnews = $this->catnews_model->get_list($input);
+		$listcatnews = $this->catnews_model->get_list();
 		$this->data['listcatnews'] = $listcatnews;
 
 
@@ -106,14 +106,12 @@ Class Menu extends MY_Controller{
 			if($this->form_validation->run()){
 				$name = $this->input->post('name');
 				$parent = $this->input->post('parent');
-				$category_id = $this->input->post('category_id');
 				$cat_id = $this->input->post('cat_id');
 				$is_order = $this->input->post('is_order');
 				$link = $this->input->post('link');
 				$data = array(
 					'name'=>$name,
 					'parent'=>$parent,
-					'category_id'=>$category_id,
 					'cat_id'=>$cat_id,
 					'is_order'=>$is_order,
 					'link'=>$link
@@ -128,14 +126,15 @@ Class Menu extends MY_Controller{
 		$input = array();
 		$input['where'] = array('parent'=>0);
 		$listmn = $this->menu_model->get_list($input);
+		foreach($listmn as $row){
+			$input['where'] = array('parent'=> $row->id);
+			$subs = $this->menu_model->get_list($input); // lấy ra danh mục con
+			$row->subs = $subs; 
+		}
 		$this->data['listmn'] = $listmn;
-		//lấy ra danh mục sản phẩm
-		$this->load->model('category_model');
-		$listcategory = $this->category_model->get_list($input);
-		$this->data['listcategory'] = $listcategory;
 		//Lấy ra danh mục tin
 		$this->load->model('catnews_model');
-		$listcatnews = $this->catnews_model->get_list($input);
+		$listcatnews = $this->catnews_model->get_list();
 		$this->data['listcatnews'] = $listcatnews;
 
 		$this->data['temp'] = 'admin/menu/edit';

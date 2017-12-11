@@ -47,7 +47,7 @@ Class Catnews extends MY_Controller{
 				if($this->form_validation->run()){
 					$name = $this->input->post('name');
 					$cat_name = $this->input->post('cat_name');
-					$cat_name = $this->catnews_model->slug($name);
+					$cat_name = slug($name);
 					$parent = $this->input->post('parent');
 					$is_order = $this->input->post('is_order');
 					if($is_order==''){$is_order=0;}
@@ -96,7 +96,7 @@ Class Catnews extends MY_Controller{
 			if($this->form_validation->run()){
 				$name = $this->input->post('name');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->catnews_model->slug($name);
+				$cat_name = slug($name);
 				$parent = $this->input->post('parent');
 				$is_order = $this->input->post('is_order');
 				$status = $this->input->post('status');

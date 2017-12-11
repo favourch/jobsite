@@ -42,7 +42,7 @@ Class MY_Model extends CI_Model{
 		}
 	}
 
-
+    
 	//Lấy danh sách dữ liệu
 	function get_list($input = array()){
 		$this->get_list_set_input($input);
