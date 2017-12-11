@@ -65,11 +65,13 @@
 											<p><?php echo $user_info->description; ?></p>
 										<?php endif; ?>
 										<div id="demo" class="collapse" style="padding-top: 15px;">
-										<textarea name="description" class="txtarea"><?php echo $user_info->description; ?></textarea>
-										<div class="btnluu" style="padding-top: 15px; text-align: right;">
-										<button data-toggle="collapse" class="button" data-target="#demo" value="Hủy">Hủy</button>
-										<input type="submit" class="button" value="Lưu" onclick="return check_mt();">
-										</div>
+										<textarea name="description" class="txtarea">
+										<?php echo $user_info->description; ?>
+										</textarea>										
+										<p class="btnluu" style="padding-top: 15px;text-align: right;">
+						<button type="submit" id="29" class="edit_tr button" onclick="return check_mt();">Lưu lại</button>
+						<button type="button" class="button" data-toggle="collapse" data-target="#demo" aria-expanded="true">Hủy</button>
+									</p>
 										</div>
 										
 										</div> <!-- end .profile-about -->
