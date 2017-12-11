@@ -49,8 +49,7 @@ $(".edit_cv").on("change", function () {
 });
 });
 </script> 
-							<div class="cv_upload">
-								<h4>Hồ sơ đính kèm</h4>
+							<div class="cv_upload col-md-12">							
 							<div class="bao_cv">
 								<span>Hồ sơ của bạn <i class="ion-edit"></i></span>
 								<form method="post" enctype="multipart/form-data" id="frmUpload" name="frmUpload">
