@@ -51,7 +51,7 @@
 /* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
 @import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 23px;
@@ -157,7 +157,7 @@ h3 {
 }
 h4,h5 {
 	color: #fff;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	margin: 0;
 }
 h4 {
@@ -497,7 +497,7 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	font-weight: 500;
 	padding: 0 16px;
 	outline: none !important;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	border: 1px solid #cfcfcf;
 }
 ::-webkit-input-placeholder {
@@ -1020,7 +1020,7 @@ li.active{
 }
 .section.page-title>.inner h3 {
     font-weight: 400;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .section.page-title>.inner h1, .section.page-title>.inner h3 {
 	margin: 0;
@@ -1109,7 +1109,7 @@ li.active{
 	border-radius: 4px;
 	padding: 6px 10px;
 	text-transform: none;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-size: 12px;
 	line-height: 13px;
 	-webkit-box-shadow: none;
@@ -1539,7 +1539,7 @@ li.active{
 .category-grid .category-row .item h4 {
 	margin-bottom: 0;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 700;
 	line-height: 20px;
 }
@@ -1751,7 +1751,7 @@ li.active{
 	margin-bottom: 25px;
 }
 .news-item.quote .news-content h4 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     color: #6189f4;
     margin: 0;
     text-transform: uppercase;
@@ -1763,7 +1763,7 @@ li.active{
 .news-item.link .news-content h2 {
     font-weight: 100;
     line-height: 33px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     text-transform: capitalize;
 }
 .news-item.link .news-content a {
@@ -2025,7 +2025,7 @@ li.active{
 	margin-left: calc(-50vw + 50%);	
 }
 .footer .bottom p {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .footer .bottom ul>li {
 	text-transform: uppercase;
@@ -2115,10 +2115,10 @@ li.active{
 	text-transform: none;
 	color: #a0a0a0;
 	font-size: 12px;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .login-signup-modal .checkbox a{
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 400;
     font-size: 12px;
     color: #2876db;
@@ -2144,7 +2144,7 @@ li.active{
     font-weight: 500;
     padding: 0 16px;
     outline: none !important;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     background: #f8f8f8;
     border: 1px solid #ededed;
     -webkit-box-shadow: none;
@@ -2575,7 +2575,7 @@ li.active{
 .form-group .label {
 	font-size: 10px;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 700;
 	color: #a0a7ba;
 	line-height: 15px;
@@ -2763,7 +2763,7 @@ li.active{
 	text-transform: none;
 	font-size: 12px;
 	font-weight: 400;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	text-align: left;
 	width: 160px;
 }
@@ -2830,7 +2830,7 @@ li.active{
 }
 .candidate-info .candidate-name {
     color: #000;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     margin: 0;
 }
 .candidate-info .candidate-designation {
@@ -2965,7 +2965,7 @@ li.active{
 	font-size: 12px;
 	color: #627199;
 	font-weight: 500;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	display: inline-block;
 	width: auto;
 }
@@ -2977,7 +2977,7 @@ li.active{
     height: 37px;
     color: #a0a7ba;
     font-size: 12px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .filter.categories-filter .form-control option {
 	font-size: 12px;
@@ -3013,7 +3013,7 @@ li.active{
 }
 .categories-icon-row .item-text-content .category-icon-title {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
 }
@@ -3078,7 +3078,7 @@ li.active{
 }
 .categories-list-heading>h4 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
     -webkit-transition: .3s;	
@@ -3103,7 +3103,7 @@ li.active{
 }
 .categories-columns-wrapper .categories-column>li>a {
 	color: #627199;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 400;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
@@ -3360,7 +3360,7 @@ li.active{
 }
 .profile-meta h4 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
 }
@@ -3441,7 +3441,7 @@ min-width: 19%;
 	flex: 0 74%;	
 }
 .profile-experience .profile-designation {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .profile-experience p {
 	margin-bottom: 12px;
@@ -3598,7 +3598,7 @@ label>sup, .label>sup {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     margin: 0;	
 }
@@ -3806,7 +3806,7 @@ label>sup, .label>sup {
 .job-alert .company-name-cell>h4, .job-alert .company-name-cell .cell-text>h4 {
     margin: 0;
     color: #000;
-    font-family: 'Montserrat', sans-serif;	
+    font-family:'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .job-alert .company-name-cell p>i {
     padding-right: 4px;	
@@ -3961,7 +3961,7 @@ label>sup, .label>sup {
 .application-company-text>h4 {
     margin: 0;
     font-weight: bold;
-    font-family: 'Montserrat', sans-serif;	
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .application-company-text p {
     font-size: 12px;
@@ -4059,7 +4059,7 @@ label>sup, .label>sup {
 .candidate-name-cell>h4, .candidate-name-cell .cell-text>h4 {
     margin: 0;
     color: #000;
-    font-family: 'Montserrat', sans-serif;	
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .candidate-name-cell p>i {
     padding-right: 4px;	
@@ -4454,7 +4454,7 @@ label>sup, .label>sup {
 .posted-job-title-cell>h4, .posted-job-title-cell .cell-text>h4 {
     margin: 0;
     color: #000;
-    font-family: 'Montserrat', sans-serif;	
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .posted-job-title-cell p>i {
     padding-right: 4px;	
@@ -4702,7 +4702,7 @@ label>sup, .label>sup {
 .recent-post h4{
 	margin: 0;
 	line-height: 19px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .recent-post h4>a {
     color: #627199;
@@ -4921,7 +4921,7 @@ label>sup, .label>sup {
 }
 .blog-text-content .blog-text strong {
 	color: #000;
-    font-family: 'Montserrat', sans-serif; 
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 @media all and (max-width: 768px) {
 	.content-meta .left-side {
@@ -5065,7 +5065,7 @@ label>sup, .label>sup {
 }
 .comment-wrapper-inner .right-side>h4 {
 	margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     margin-bottom: 10px;	
 }
@@ -5443,7 +5443,7 @@ label>sup, .label>sup {
 .featured-job .right-side-inner h5:first-of-type {
     margin: 0;
     font-size: 13px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     line-height: 18px;
 }
 .featured-job .right-side-inner h5:last-of-type {
@@ -5788,7 +5788,7 @@ label>sup, .label>sup {
 }
 .job-post-top .job-post-top-right>h4{
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
 }
@@ -5803,7 +5803,7 @@ label>sup, .label>sup {
 	padding-top: 25px;
 }
 .job-post-bottom h4 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
 }
@@ -5814,7 +5814,7 @@ label>sup, .label>sup {
     color: #627199;
     font-size: 14px;
     line-height: 23px;
-    font-family: 'Lato', sans-serif;	
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .job-post-nested-list>li>span {
     color: #9db723;
@@ -5873,7 +5873,7 @@ label>sup, .label>sup {
 	margin-bottom: 20px;
 }
 .job-post-company-info>h5 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase;	
@@ -5882,7 +5882,7 @@ label>sup, .label>sup {
     color: #627199;
     font-size: 12px;
     line-height: 23px;
-    font-family: 'Montserrat', sans-serif;	
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .job-post-company-info ul>li {
 	padding-bottom: 5px;
@@ -6063,7 +6063,7 @@ label>sup, .label>sup {
 .pricing-plan-field p {
     padding-left: 10px;
     font-style: italic;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 300;
     font-size: 12px;
     padding-left: 10px;
@@ -6147,7 +6147,7 @@ label>sup, .label>sup {
 }
 .multisteps-form .form-fields-title {
 	margin: 0;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 }
 .multisteps-form .form-inner .job-post-share {
 	padding: 0;
@@ -6296,7 +6296,7 @@ h2.job-post-success {
 .panel-title>a {
     color: #000;
     font-size: 18px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 400;
     padding: 20px 15px;
     border-bottom: 1px solid #ededed;
@@ -6352,7 +6352,7 @@ h2.job-post-success {
 .companies-list>h4 {
     border: 1px solid #ededed;
     background: #f8f8f8;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     font-weight: 400;
     border-radius: 3px;
     padding: 7px 19px;
@@ -6383,7 +6383,7 @@ h2.job-post-success {
 .companies-list ul>li>a {
     color: #627199;
     font-weight: 500;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
     padding-bottom: 7px;
     display: inline-block;
 }
