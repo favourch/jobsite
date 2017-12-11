@@ -237,7 +237,8 @@ Class Candidate extends MY_Controller{
 			$id = intval($id);
             $this->load->model('work_experience_model');
             $this->work_experience_model->deleteOne($id);
-        }
+		}
+		
      function edit(){
      		if($this->input->post('id'))
      			$id = $this->input->post('id');
@@ -314,7 +315,8 @@ Class Candidate extends MY_Controller{
             $this->certificate_model->deleteOne($id);
         }
      //xu ly du lieu ky nang
-    function addskill(){
+	
+	 function addskill(){
     	$user_id = $this->session->userdata('candidate_id_login');
 		$skill = $this->input->post('skill');
 		$data = array(
@@ -323,16 +325,15 @@ Class Candidate extends MY_Controller{
 					);
      			$this->load->model('skill_model');
            		$this->skill_model->create($data);
-    }   
+	}   
+	
     function delskill($id){
             $id = $this->uri->rsegment(3);
 			$id = intval($id);
             $this->load->model('skill_model');
             $this->skill_model->deleteOne($id);
-        }           
-
-
-
+		}          
+		
 	function update_cv(){
 		$user_id = $this->session->userdata('candidate_id_login');
 		$info = $this->member_candidate_model->get_info($user_id);
@@ -396,8 +397,6 @@ Class Candidate extends MY_Controller{
 		$this->load->view('site/layout',$this->data);
 	}
 
-
-
 	function check_pass(){
 		$pass = $this->_get_passinfo();
 		if($pass){
@@ -408,7 +407,6 @@ Class Candidate extends MY_Controller{
 			return false;
 		}
 	}
-
 
 	function changepass(){
 		$user_id = $this->session->userdata('candidate_id_login');
@@ -502,12 +500,15 @@ Class Candidate extends MY_Controller{
 
        
 	}
-
 	
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){
 				$this->session->unset_userdata('candidate_id_login');
 				redirect(base_url('candidate/login'));
 			}
+	}
+
+	function api_desciption(){
+		
 	}
 }
