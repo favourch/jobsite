@@ -7,7 +7,6 @@ Class MY_Model extends CI_Model{
 	var $order = '';
 	var $select = '';
 
-
 	function get_total($input = array()){
 		$this->get_list_set_input($input);
 		$query = $this->db->get($this->table);

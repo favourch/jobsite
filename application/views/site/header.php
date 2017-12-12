@@ -9,14 +9,29 @@
                                 <ul class="list-unstyled">
                                     <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
                                     <?php foreach($menu_list as $row): ?>
+                                    <?php $catname = $this->catnews_model->get_info($row->cat_id); ?>
                                     <?php if(!empty($row->subs)) : ?>
                                     <li class="menu-item-has-children">
-                                        <a href="<?php echo base_url('news/catnews/'.$row->cat_id); ?>">
+                                        <?php if($catname!=''): ?>
+                                        <a href="<?php echo base_url($catname->cat_name.'-c'.$row->cat_id); ?>">
+                                        <?php else: ?>
+                                        <a href="#">
+                                        <?php endif; ?>
                                         <?php echo $row->name; ?></a>
                                         <ul>
                                         <?php foreach($row->subs as $sub) : ?>
-                                        <li><a href="<?php echo base_url('news/catnews/'.$sub->cat_id); ?>">
-                                        <?php echo $sub->name; ?></a></li>
+                                        <?php $catsub = $this->catnews_model->get_info($sub->cat_id); ?>
+                                        <li>
+                                        <?php if($catsub!=''): ?>
+                                        <a href="<?php echo base_url($catsub->cat_name.'-c'.$sub->cat_id); ?>">
+                                        <?php echo $sub->name; ?>
+                                        <?php else: ?>
+                                        <a href="#">
+                                        <?php echo $sub->name; ?>
+                                    <?php endif; ?>
+                                        </a>
+
+                                        </li>
                                         <?php endforeach; ?>
                                         </ul>                                   
                                     </li>

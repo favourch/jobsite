@@ -5,6 +5,7 @@ Class Menu extends MY_Controller{
 		$this->load->model('menu_model');
 	}
 
+
 	function index(){
 		
 		$this->load->library('pagination');

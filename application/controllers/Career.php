@@ -47,11 +47,9 @@ Class Career extends MY_Controller{
 
 		$segment = $this->uri->segment(4);
 		$segment = intval($segment);
-		
-		
+			
 		$input["limit"] = array($config['per_page'], $segment);
 		
-
 		$list = $this->recruitment_model->get_list($input);
 		$this->data['list'] = $list;
 

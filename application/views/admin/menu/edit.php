@@ -38,11 +38,12 @@
 								<option value="0">Là danh mục cha</option>
 								<?php foreach($listmn as $row): ?>
 								<?php if(count($row->subs) > 0 ): ?>
-								<optgroup label="<?php echo $row->name; ?>" value="<?php echo $row->id; ?>" >
+								<option label="<?php echo $row->name; ?>" value="<?php echo $row->id; ?>" <?php echo ($row->id == $menu->parent) ? "selected" : "" ?> >
+								</option>
 								<?php foreach($row->subs as $sub): ?>
-								<option value="<?php echo $sub->id; ?>" <?php echo ($row->id == $sub->parent) ? "selected" : "" ?> ><?php echo $sub->name; ?> </option>
+							<option disabled="" value="<?php echo $sub->id; ?>"> --- <?php echo $sub->name; ?> </option>
 								<?php endforeach; ?>
-								</optgroup>
+								
 								<?php else: ?>
 								<option value="<?php echo $row->id; ?>" <?php echo ($this->input->get('id') == $row->id) ? "selected" : "" ?> ><?php echo $row->name; ?></option>
 								<?php endif; ?>

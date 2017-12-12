@@ -122,21 +122,23 @@ $(".FormSubmit").click(function (e) {
 					</div> <!-- end .center-content -->
 
 					<div class="right-side">
-						
+		
 						<div class="job-categories-widget jobs-widget">
 							<h6>Lọc theo danh mục</h6>
+					        <form method="post">
 					        <ul class="job-categories list-unstyled">
 			                    <?php foreach($careerlist as $row): ?>
 			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
 			                    <?php $totaljob = $this->recruitment_model->get_total($input); ?>
 			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
 			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>">
-			                        <label for="checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>( <?php echo $totaljob; ?> ) </span></label>
+			                        <label for="checkbox<?php echo $row->id; ?>" id="<?php echo $row->id ?>" class="FrmCategory"><?php echo $row->name; ?><span>( <?php echo $totaljob; ?> ) </span></label>
 			                        <span><i class="ion-android-add"></i></span>
 			                    </li>
 			                <?php endforeach; ?>
 
 		                    </ul> <!-- end .job-categories -->
+		                    </form>
 						</div> <!-- end .job-categories-widget -->
 
 						<div class="job-status-widget jobs-widget">
