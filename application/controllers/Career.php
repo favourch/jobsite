@@ -20,7 +20,7 @@ Class Career extends MY_Controller{
 		}
 		$this->data['category'] = $category;
 		$input = array();
-		$input["where"] = array('career_id'=>$id);
+		
 		//lấy ra danh sách việc làm trong danh mục
 		$this->load->library('pagination');
 		//lấy ra tổng tất cả các sản phẩm
@@ -47,7 +47,14 @@ Class Career extends MY_Controller{
 
 		$segment = $this->uri->segment(4);
 		$segment = intval($segment);
-			
+
+		$input["where"] = array('career_id'=>$id);
+		if($this->input->post()){
+		$categoryid = $this->input->post('categoryid');
+		$input['where'] = array('career_id'=>$categoryid);
+		}
+		
+		
 		$input["limit"] = array($config['per_page'], $segment);
 		
 		$list = $this->recruitment_model->get_list($input);

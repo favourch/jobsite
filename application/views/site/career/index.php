@@ -122,17 +122,42 @@ $(".FormSubmit").click(function (e) {
 					</div> <!-- end .center-content -->
 
 					<div class="right-side">
-		
+					<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$(".job-category").on('change', function (e) {
+		e.preventDefault();
+		var ID=$(this).attr('id');	
+		alert(ID);
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>career", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"categoryid="+ID, //Form variables
+		success:function(response){
+			$('frmContent').html(response);
+			$("#LoadingImage").hide(); //hide loading image
+			//window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+});
+</script> 	
 						<div class="job-categories-widget jobs-widget">
 							<h6>Lọc theo danh mục</h6>
-					        <form method="post">
+					        <form method="post" id="frmContent">
 					        <ul class="job-categories list-unstyled">
 			                    <?php foreach($careerlist as $row): ?>
 			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
 			                    <?php $totaljob = $this->recruitment_model->get_total($input); ?>
-			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
+			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap" id="<?php echo $row->id ?>">
 			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>">
-			                        <label for="checkbox<?php echo $row->id; ?>" id="<?php echo $row->id ?>" class="FrmCategory"><?php echo $row->name; ?><span>( <?php echo $totaljob; ?> ) </span></label>
+			                        <label for="checkbox<?php echo $row->id; ?>" class="FrmCategory"><?php echo $row->name; ?><span>( <?php echo $totaljob; ?> ) </span></label>
 			                        <span><i class="ion-android-add"></i></span>
 			                    </li>
 			                <?php endforeach; ?>

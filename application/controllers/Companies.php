@@ -59,7 +59,8 @@ Class Companies extends MY_Controller{
 				$contact_title = $this->input->post('contact_title');
 				$contact_email = $this->input->post('contact_email');
 				$contact_phone = $this->input->post('contact_phone');
-
+				//mã kích hoạt tài khoản
+				$activation=md5($email.time());
 				//lấy tên file ảnh, upload ảnh đại diện
 				$this->load->library('upload_library');
 				$upload_path = './uploads/company';
@@ -84,16 +85,64 @@ Class Companies extends MY_Controller{
 					'contact_title' => $contact_title,
 					'contact_email' => $contact_email,
 					'contact_phone' => $contact_phone,
+					'actived' => $activation,
 					'created' =>now()
 					);
 		
 			$this->member_company_model->create($data);
+
+			//gửi email xác nhận đăng ký
+			$config = array(
+    		'protocol' => 'smtp',
+    		'smtp_host' => 'ssl://smtp.googlemail.com',
+    		'smtp_port' => 465,
+    		'smtp_user' => 'an.vitaminmy@gmail.com',
+    		'smtp_pass' => 'thanhan123',
+    		'mailtype'  => 'html', 
+    		'charset' => 'utf-8',
+			);
+			$this->load->library('email', $config);
+			$this->email->set_newline("\r\n");
+			$this->email->from('admin@lienketso.vn','Lienketso system');
+			$this->email->to('thanhan1507@gmail.com');
+			$this->email->subject('Thông báo email');
+			$this->email->message('Bạn đăng ký thành công tài khoản');
+			$this->email->send();
+
 			redirect(base_url());			
 		}
 	}
 
 	$this->data['temp'] = 'site/companies/register';
 	$this->load->view('site/layout',$this->data);
+	}
+
+	//kích hoạt tài khoản
+	function activation(){
+
+		if(!empty($_GET['code']) && isset($_GET['code']))
+		{
+		$code=$_GET['code'];
+		$input = array();
+		$where = array('actived'=>$code);
+		$user = $this->member_company_model->get_info_rule($where);
+		$id = $user->id;
+		if($user){
+			$data = array(
+				'status'=>1
+				);
+			$this->member_company_model->update($id,$data);
+			$this->session->set_userdata('company_id_login', $id);
+			redirect(base_url('companies/activation'));
+		}
+		else{
+			redirect();
+		}
+		}
+
+		$this->data['temp'] = 'site/companies/activesuccess';
+		$this->load->view('site/layout',$this->data);
+
 	}
 
 		//đăng nhập
