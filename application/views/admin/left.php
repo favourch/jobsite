@@ -5,7 +5,6 @@
 						<li><a href="<?php echo base_url('admin') ?>"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Home Panel</span></a></li>	
 						<li><a href="<?php echo admin_url('city'); ?>"><i class="icon-flag"></i><span class="hidden-tablet"> Quản lý địa điểm</span></a></li>
 						<li>
-						<li><a href="<?php echo admin_url('category'); ?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Danh mục giáo viên</span></a></li>
 						<li><a href="<?php echo admin_url('career'); ?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Danh mục việc làm</span></a></li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Cấu hình công việc</span></a>

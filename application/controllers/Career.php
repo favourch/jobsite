@@ -55,6 +55,10 @@ Class Career extends MY_Controller{
 		$list = $this->recruitment_model->get_list($input);
 		$this->data['list'] = $list;
 
+		//danh mục việc làm
+		$careerlist = $this->career_model->get_list();
+		$this->data['careerlist'] = $careerlist;
+
 		//hiển thị ra view
 		$this->data['temp'] = "site/career/index";
 		$this->load->view('site/layout',$this->data);

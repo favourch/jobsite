@@ -56,7 +56,7 @@ $(".FormSubmit").click(function (e) {
 		$(".FormSubmit").hide(); //hide submit button
 		$("#LoadingImage").show(); //show loading image	
 		var ID=$(this).attr('id');		
-		alert(ID);
+		alert('Lưu việc làm thành công !');
 		jQuery.ajax({
 		type: "POST", // HTTP method POST or GET
 		url: "<?php echo base_url() ?>candidate/savejobs", //Where to make Ajax calls
@@ -124,67 +124,18 @@ $(".FormSubmit").click(function (e) {
 					<div class="right-side">
 						
 						<div class="job-categories-widget jobs-widget">
-							<h6>Categories</h6>
+							<h6>Lọc theo danh mục</h6>
 					        <ul class="job-categories list-unstyled">
+			                    <?php foreach($careerlist as $row): ?>
+			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
+			                    <?php $totaljob = $this->recruitment_model->get_total($input); ?>
 			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox1" type="checkbox">
-			                        <label for="checkbox1">Fianance<span>4,286 Jobs</span></label>
+			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>">
+			                        <label for="checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>( <?php echo $totaljob; ?> ) </span></label>
 			                        <span><i class="ion-android-add"></i></span>
 			                    </li>
+			                <?php endforeach; ?>
 
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox2" type="checkbox">
-			                        <label for="checkbox2">Constructions<span>452 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox3" type="checkbox">
-			                        <label for="checkbox3">Logistics<span>1,867 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox4" type="checkbox" checked="">
-			                        <label for="checkbox4">Art/Design<span>3,094 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox5" type="checkbox">
-			                        <label for="checkbox5">Sales/Marketing<span>2,955 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox6" type="checkbox">
-			                        <label for="checkbox6">Science<span>470 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox7" type="checkbox" checked="">
-			                        <label for="checkbox7">Technologies<span>4,536 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox8" type="checkbox">
-			                        <label for="checkbox8">Healthcare<span>2,619 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox9" type="checkbox">
-			                        <label for="checkbox9">Education Training<span>1,132 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox10" type="checkbox">
-			                        <label for="checkbox10">Food Services<span>757 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
 		                    </ul> <!-- end .job-categories -->
 						</div> <!-- end .job-categories-widget -->
 
