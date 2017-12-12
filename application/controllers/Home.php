@@ -52,28 +52,45 @@ Class Home extends MY_Controller{
 		$this->load->model('city_model');
 		$this->load->model('job_type_model');
 		$this->load->model('salary_model');
-		
+		$this->load->library('pagination');
+
 		if($this->input->get()){
 		$keyword = $this->input->get('keyword');
 		$careerid = $this->input->get('careerid');
 		$cityid = $this->input->get('cityid');
 		$input = array();
+
 		if($keyword){
 			$input['like'] = array('title', $keyword);
 		}
-		elseif($careerid!=0){
+		if($careerid!=0){
 			$input['where'] = array('career_id'=>$careerid);
 		}
-		elseif($cityid!=0){
+		if($cityid!=0){
 			$input['where'] = array('city_id'=>$cityid);
 		}
-		elseif(isset($keyword) && isset($career_id) && isset($cityid)){
+		if($keyword && $careerid!=0){
+			$input['like'] = array('title', $keyword);
+			$input['where'] = array('career_id'=>$careerid);
+		}
+		if($keyword && $cityid!=0){
+			$input['like'] = array('title', $keyword);
+			$input['where'] = array('city_id'=>$cityid);
+		}
+		if($careerid!=0 && $cityid!=0){
+			$input['where'] = array(
+				'career_id'=>$careerid,
+				'city_id' => $cityid
+				);
+		}
+		if(!empty($keyword) && $careerid!=0 && $cityid!=0){
 			$input['like'] = array('title', $keyword);
 			$input['where'] = array(
 				'career_id'=>$careerid,
 				'city_id' => $cityid
 				);
 		}
+		
 
 		$listjobs = $this->recruitment_model->get_list($input);
 		$this->data['listjobs'] = $listjobs;

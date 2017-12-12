@@ -85,7 +85,7 @@ Class Companies extends MY_Controller{
 					'contact_title' => $contact_title,
 					'contact_email' => $contact_email,
 					'contact_phone' => $contact_phone,
-					'actived' => $activation,
+					'token_key' => $activation,
 					'created' =>now()
 					);
 		
@@ -124,7 +124,7 @@ Class Companies extends MY_Controller{
 		{
 		$code=$_GET['code'];
 		$input = array();
-		$where = array('actived'=>$code);
+		$where = array('token_key'=>$code);
 		$user = $this->member_company_model->get_info_rule($where);
 		$id = $user->id;
 		if($user){
