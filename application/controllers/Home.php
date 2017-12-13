@@ -53,13 +53,18 @@ Class Home extends MY_Controller{
 		$this->load->model('job_type_model');
 		$this->load->model('salary_model');
 		$this->load->library('pagination');
-		$input = array();
-		
+		$this->load->model('career_model');
+		$listcareer = $this->career_model->get_list();
+		$this->data['listcareer'] = $listcareer;
 
+		$input = array();
 		if($this->input->get()){
 		$keyword = $this->input->get('keyword');
 		$careerid = $this->input->get('careerid');
 		$cityid = $this->input->get('cityid');
+		$this->data['keyword'] = $keyword;
+		$this->data['careerid'] = $careerid;
+		$this->data['cityid'] = $cityid;
 		
 		if($keyword){
 			$input['like'] = array('title', $keyword);
@@ -99,7 +104,7 @@ Class Home extends MY_Controller{
 		$config = array();
 		$config['base_url']    = home_url('home/find_jobs?keyword='.$keyword.'&careerid='.$careerid.'&cityid='.$cityid);
 		$config['total_rows']  = $total_row;
-		$config['per_page']    = 5;
+		$config['per_page']    = 20;
 		$config['uri_segment'] = 3;
 		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
     	$config['full_tag_close'] = '</ul>';

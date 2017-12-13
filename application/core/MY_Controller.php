@@ -26,18 +26,7 @@ Class MY_Controller extends CI_Controller{
 			
 			default:
 				{
-					$this->load->model('category_model');
-					$input =array();
-					$input['where'] = array('parent'=>0);
-					$category_list = $this->category_model->get_list($input);
-					//print_r($category_list);
-					foreach($category_list as $row){
-						$input['where'] = array('parent'=>$row->id);
-						$subs = $this->category_model->get_list($input);
-						$row->subs = $subs;
-					}
 					
-					$this->data['category_list'] = $category_list;
 					//load menu trang chủ
 					$this->load->model('menu_model');
 					$this->load->model('catnews_model');
@@ -103,7 +92,7 @@ Class MY_Controller extends CI_Controller{
 					$hotjob = $this->recruitment_model->get_list($input);
 					$this->data['hotjob'] = $hotjob;
 
-					//tổng số việc làm
+					//tổng số ứng viên
 					$this->load->model('member_candidate_model');
 					$total_candidate = $this->member_candidate_model->get_total();
 					$this->data['total_candidate'] = $total_candidate;

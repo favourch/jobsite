@@ -6,9 +6,9 @@
 					<p class="breadcrumb-menu">
 						<a href="index.html"><i class="ion-ios-home"></i></a>
 						<i class="ion-ios-arrow-right arrow-right"></i>
-						<a href="#0">Job listing - list view</a>
+						<a href="#0">Tìm việc nhanh</a>
 					</p> <!-- end .breabdcrumb-menu -->
-					<h2 class="breadcrumb-title">Showing all jobs</h2>
+					<h2 class="breadcrumb-title">Tất cả việc làm</h2>
 				</div> <!-- end .container-fluid -->
 			</div> <!-- end .inner -->
 		</div> <!-- end .section -->
@@ -21,24 +21,24 @@
 					<div class="left-side">
 
 						<div class="statistics-widget-wrapper jobs-widget">
-							<h6>Overall statistics</h6>
+							<h6>Thống kê việc làm</h6>
 							<div class="statistics-widget flex no-column no-wrap">
 								<div class="left-side-inner">
-									<h2 class="dark">683,207</h2>
-									<h5>Created Resumes</h5>
+									<h2 class="dark"><?php echo $total_candidate; ?></h2>
+									<h5>Ứng viên</h5>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-									<button type="button" class="button button-sm grey">+583 this week</button>
+									<button type="button" class="button button-sm grey">+583 tuần này</button>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .statisstics-widget -->
 
 							<div class="statistics-widget flex no-column no-wrap">
 								<div class="left-side-inner">
-										<h2 class="dark">129, 245</h2>
-										<h5>Posted Jobs</h5>
+										<h2 class="dark"><?php echo $total_recruitment; ?></h2>
+										<h5>Việc làm</h5>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-									<button type="button" class="button button-sm grey">+364 this week</button>
+									<button type="button" class="button button-sm grey">+364 tuần này</button>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .statisstics-widget -->
 
@@ -47,124 +47,29 @@
 						<div class="divider"></div>
 
 						<div class="featured-jobs-widget-wrapper jobs-widget">
-							<h6>Featured Jobs</h6>
-							<div class="featured-jobs-widget">
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo16.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo16.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo15.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo15.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo17.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo17.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
-
+							<div class="featured-jobs" style="text-align: center;">
+								<a href="#"><img src="<?php echo public_url('site/images/bannertest.jpg'); ?>"></a>
+								<a href="#"><img src="<?php echo public_url('site/images/topica.jpg'); ?>"></a>
 							</div> <!-- end .featured-jobs-widget -->
 
 						</div> <!-- end .featured-jobs-widget-wrapper -->
 
 						<div class="divider"></div>
 
-						<div class="latest-updates-widget-wrapper jobs-widget">
-							<h6>Latest updates</h6>
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/avatar11.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar11.jpg" alt="avatar" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>James Patel</span>has got a job!</h5>
-									<h5><span>Web Designer</span>for Banana Inc. in<a href="#0">Art/Design</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/avatar12.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar12.jpg" alt="avatar" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Alice Phillips</span>has got a job!</h5>
-									<h5><span>Web Designer</span>for Banana Inc. in<a href="#0">Art/Design</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/company-logo11.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo11.jpg" alt="company-logo" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Evotweet</span>has got a job!</h5>
-									<h5><a href="#0">Front-end developer</a>needed in<a href="#0">Technologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/avatar13.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar13.jpg" alt="avatar" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Wayne Welch</span>has got a job!</h5>
-									<h5><span>Software Engineer</span>for Apple Inc. in<a href="#0">Technologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/company-logo12.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo12.jpg" alt="company-logo" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Prymb Creative Studio</span>has got a job!</h5>
-									<h5><a href="#0">We're looking for an Art Director</a>in<a href="#0">Tecnologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-						</div> <!-- end .latest-updates-widget-wrapper -->
-
 					</div> <!-- end .left-side -->
 
 					<div class="center-content-wrapper">
-
+					<?php $careername = $this->career_model->get_info($careerid); ?>
+					<?php $cityname = $this->city_model->get_info($cityid); ?>
 						<div class="sort-by-wrapper on-listing-page flex space-between items-center no-wrap">
 							<div class="left-side-inner">
-								<h6>Showing <span>1-5</span>or<span>748</span>job in<a href="#0">Art/design</a>and<a href="#0">Technologies</a>in<a href="#0">San Francisco</a></h6>								
+								<h6>Có tất cả <span><?php echo $total_row; ?></span>Việc làm 
+								<?php if($keyword): ?><a href="#0">"<?php echo $keyword; ?>"</a><?php endif; ?>
+					<?php if($careerid): ?> Danh mục <a href="#0"><?php echo $careername->name; ?></a><?php endif; ?>
+					<?php if($cityid): ?> Địa điểm <a href="#0"><?php echo $cityname->name; ?></a><?php endif; ?>
+								</h6>								
 							</div> <!-- end .left-side -->								
-							<div class="right-side-inner">
-								<div class="sort-by dropdown flex no-wrap no-column items-center">
-									<h6>sort by</h6>
-									<button class="button dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						       			Default
-						    		<i class="ion-ios-arrow-down"></i>
-						 			</button>
-									<ul class="dropdown-menu" aria-labelledby="sort-by">
-									    <li><a href="#">Featured</a></li>
-									    <li><a href="#">Top candidates</a></li>
-									    <li><a href="#">Price, high to low</a></li>							    
-									    <li><a href="#">Alphabetically, A-Z</a></li>
-									    <li><a href="#">Alphabetically, Z-A</a></li>
-									    <li><a href="#">Best sellers</a></li>
-								  	</ul> <!-- end .dropdown-menu -->
-								</div> <!-- end .sort-by-drop-down -->	
-							</div> <!-- end .right-side -->
+					
 						</div> <!-- end .sort-by-wrapper -->
 						
 				        <div class="bookmarked-jobs-list-wrapper on-listing-page">
@@ -178,7 +83,11 @@
 				        	<div class="bookmarked-job-wrapper">
 				        		<div class="bookmarked-job flex no-wrap no-column ">
 					        		<div class="job-company-icon">
-					   <img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="company-icon" class="img-responsive">
+					   <?php if($company->logo_url!=''): ?>
+					   <img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+					<?php else: ?>
+						<img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+					<?php endif; ?>
 					        		</div> <!-- end .job-icon -->
 					        		<div class="bookmarked-job-info">
 					        			<h4 class="dark flex no-column"><?php echo $row->title; ?><a href="#0" class="button full-time"><?php echo $jobtype->name; ?></a></h4>
@@ -210,67 +119,18 @@
 					<div class="right-side">
 						
 						<div class="job-categories-widget jobs-widget">
-							<h6>Categories</h6>
+							<h6>Lọc theo danh mục</h6>
 					        <ul class="job-categories list-unstyled">
+			                    <?php foreach($listcareer as $row): ?>
+			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
+			                    <?php $total_recruit = $this->recruitment_model->get_total($input); ?>
 			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox1" type="checkbox">
-			                        <label for="checkbox1">Fianance<span>4,286 Jobs</span></label>
+			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>">
+			                   <label for="checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>( <?php echo $total_recruit; ?> )</span></label>
 			                        <span><i class="ion-android-add"></i></span>
 			                    </li>
+			                <?php endforeach; ?>
 
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox2" type="checkbox">
-			                        <label for="checkbox2">Constructions<span>452 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox3" type="checkbox">
-			                        <label for="checkbox3">Logistics<span>1,867 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox4" type="checkbox" checked="">
-			                        <label for="checkbox4">Art/Design<span>3,094 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox5" type="checkbox">
-			                        <label for="checkbox5">Sales/Marketing<span>2,955 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox6" type="checkbox">
-			                        <label for="checkbox6">Science<span>470 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox7" type="checkbox" checked="">
-			                        <label for="checkbox7">Technologies<span>4,536 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox8" type="checkbox">
-			                        <label for="checkbox8">Healthcare<span>2,619 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox9" type="checkbox">
-			                        <label for="checkbox9">Education Training<span>1,132 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="checkbox10" type="checkbox">
-			                        <label for="checkbox10">Food Services<span>757 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
 		                    </ul> <!-- end .job-categories -->
 						</div> <!-- end .job-categories-widget -->
 
@@ -345,11 +205,7 @@
 		                    </ul> <!-- end .job-locations -->
 						</div> <!-- end .job-locations-widget -->
 
-						<div class="cta-job-widget">
-							<h5 class="dark">Need a job?</h5>
-							<h3 class="dark">Join our community and search for a better job</h3>
-							<a href="#0">Get started now <span><i class="ion-ios-arrow-thin-right"></i></span></a>
-						</div> <!-- end .cta-job-widget -->
+						
 
 					</div> <!-- end .right-side -->
 
