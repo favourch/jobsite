@@ -99,7 +99,7 @@ Class MY_Controller extends CI_Controller{
 					//công việc nổi bật
 					$input = array();
 					$input['limit'] = array(5,0);
-					$input['where'] = array('is_hot'=>1);
+					$input['where'] = array('status'=>2);
 					$hotjob = $this->recruitment_model->get_list($input);
 					$this->data['hotjob'] = $hotjob;
 

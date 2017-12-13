@@ -36,23 +36,13 @@
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" name="cat_name" value="<?php echo $info->cat_name; ?>" >
 							  </div>
-							</div>
-
-							<div class="control-group">
-							  <label class="control-label" for="">Hiển thị nổi bật</label>
-							  <div class="controls">
-								<select name="is_hot">
-									<?php echo yes_no(1,$info->is_hot); ?>
-								</select>
-								
-							  </div>
-							</div>          
+							</div>   
 
 							<div class="control-group">
 							  <label class="control-label" for="">Trạng thái</label>
 							  <div class="controls">
 								<select name="status">
-									<?php echo yes_no(1,$info->status); ?>
+									<?php echo get_status(1,$info->status); ?>
 								</select>
 								
 							  </div>
