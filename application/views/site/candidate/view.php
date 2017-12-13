@@ -595,11 +595,6 @@
                                 </div> <!-- end .profile-skills-wrapper -->
                             </div> <!-- end .profile-wrapper -->						        
                         </div> <!-- end #resume-tab -->
-
-
-
-
-
                     </div> <!-- end .candidate-dashboard -->
                 </div> <!-- end .right-side-content -->
             </div> <!-- end .candidate-dashboard-wrapper -->

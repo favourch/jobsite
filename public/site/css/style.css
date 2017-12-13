@@ -51,7 +51,7 @@
 /* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
 @import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 23px;
@@ -6534,17 +6534,13 @@ h2.job-post-success {
 .r-dropdown >.dropdown-content a:hover{
 	background: #1b1b21;
 	color: #fff;
-<<<<<<< HEAD
-=======
 }
-
 
 .candidate-register-wrapper{
 	background-color: #ffffff;
 	border-radius: 5px;
 	padding: 20px;
 }
-
 .candidate-register-wrapper button[type='submit']{
 	color: #fff;
 	background-color: #1650e3;    
@@ -6563,5 +6559,44 @@ h2.job-post-success {
 }
 .candidate-register-wrapper label{
 	color: #627199;
->>>>>>> aa1670759adbee3e7fe982895829b133d6469567
+}
+
+.Latest-jobs-section .nav.nav-tabs{
+	text-align: center;
+	border-bottom: none;
+}
+.Latest-jobs-section .nav.nav-tabs > li{
+	float: none;
+	display: inline-block;
+}
+.Latest-jobs-section .nav.nav-tabs > li > a {
+	padding: 10px 15px 0 15px;
+	border-bottom: 2px solid #EFEFEF;
+}
+.Latest-jobs-section .nav.nav-tabs > li.active > a{
+	border: none;
+	border-bottom: 2px solid #EE983A;
+}
+.Latest-jobs-section .nav.nav-tabs > li > a > h3{
+	font-weight: 500;
+    text-transform: uppercase;
+	margin-bottom: 0;
+	color: #555555;
+}
+.Latest-jobs-section ul.list-group{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.Latest-jobs-section li.list-group-item{
+	border: none;
+	border-top: 1px solid #ddd;
+	margin-top: 2px;
+	margin-right: 20px;
+	width: 48%;
+}
+.Latest-jobs-section li.list-group-item:nth-child(-n+2){
+	border-top:none;
+}
+.Latest-jobs-section li.list-group-item > .media > .media-body > h4{
+	margin-bottom: 0;
 }
