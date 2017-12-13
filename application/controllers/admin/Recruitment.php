@@ -39,45 +39,13 @@ Class Recruitment extends MY_Controller{
 	
 	}
 
-	function add(){
-
-		if($this->input->post()){
-			$this->form_validation->set_rules('title','Tiêu đề danh  mục','required|min_length[6]');
-				if($this->form_validation->run()){
-				//tiến hành thêm vào csdl
-				$title = $this->input->post('title');
-				$is_hot = $this->input->post('is_hot');
-				$cat_name = $this->input->post('cat_name');
-				$cat_name = slug($title);
-				$data = array(
-					'title'=> $title,
-					'cat_name' => $cat_name,
-					'is_hot' => intval($is_hot)
-					);
-				if($this->recruitment_model->create($data)){
-					// tạo nội dung thông báo
-					$this->session->set_flashdata('message', 'Thêm mới dữ liệu thành công !');
-				}
-				else{
-					$this->session->set_flashdata('message', 'Lỗi dữ liệu, không thêm được !');
-				}
-				//chuyển sang trang danh sách admin
-				redirect(admin_url('recruitment'));
-			}
-
-			
-		}
-
-		$this->data['temp'] = 'admin/recruitment/add';
-		$this->load->view('admin/main', $this->data);
-	}
 
 	function edit(){
 		$id = $this->uri->rsegment(3);
 		$id = intval($id);
 		$info = $this->recruitment_model->get_info($id);
 		if (!$info) {
-			$this->session->set_flashdata('message','Không tồn tại danh mục này');
+			$this->session->set_flashdata('message','Không tồn tại việc làm này');
 			redirect(admin_url('recruitment'));
 		}
 		$this->data['info'] = $info;
@@ -86,13 +54,13 @@ Class Recruitment extends MY_Controller{
 				if($this->form_validation->run()){
 				//tiến hành thêm vào csdl
 				$title = $this->input->post('title');
-				$is_hot = $this->input->post('is_hot');
+				$status = $this->input->post('status');
 				$cat_name = $this->input->post('cat_name');
 				$cat_name = slug($title);
 				$data = array(
 					'title'=> $title,
 					'cat_name' => $cat_name,
-					'is_hot' => intval($is_hot)
+					'status' => intval($status)
 					);
 				if($this->recruitment_model->update($id, $data)){
 					// tạo nội dung thông báo

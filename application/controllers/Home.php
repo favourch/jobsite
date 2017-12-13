@@ -53,13 +53,14 @@ Class Home extends MY_Controller{
 		$this->load->model('job_type_model');
 		$this->load->model('salary_model');
 		$this->load->library('pagination');
+		$input = array();
+		
 
 		if($this->input->get()){
 		$keyword = $this->input->get('keyword');
 		$careerid = $this->input->get('careerid');
 		$cityid = $this->input->get('cityid');
-		$input = array();
-
+		
 		if($keyword){
 			$input['like'] = array('title', $keyword);
 		}
@@ -90,7 +91,30 @@ Class Home extends MY_Controller{
 				'city_id' => $cityid
 				);
 		}
+
+		$total_row = $this->recruitment_model->get_total($input);
+		$this->data['total_row'] = $total_row;
+		$segment = $this->uri->segment(3);
+		$segment = intval($segment);
+		$config = array();
+		$config['base_url']    = home_url('home/find_jobs?keyword='.$keyword.'&careerid='.$careerid.'&cityid='.$cityid);
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 5;
+		$config['uri_segment'] = 3;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page"> Last';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
+		$this->pagination->initialize($config);
 		
+		$input["limit"] = array($config['per_page'], $segment);
 
 		$listjobs = $this->recruitment_model->get_list($input);
 		$this->data['listjobs'] = $listjobs;
