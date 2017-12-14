@@ -79,17 +79,17 @@
                                     <div class="divider"></div>
 
                                     <div class="profile-about profile-section">
-                                        <h3 class="dark profile-title">Thông tin chung<span><a data-toggle="collapse" data-target="#demo" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
+                                        <h3 class="dark profile-title">Thông tin chung<span><a data-toggle="collapse" data-target="#pn_description" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
                                         <?php if (empty($user_info->description)) : ?>
                                             <p>Giới thiệu bản thân và miêu tả mục tiêu nghề nghiệp của bạn.</p>
                                         <?php else: ?>
                                             <p id="user_description"><?php echo $user_info->description; ?></p>
                                                 <?php endif; ?>
-                                        <div id="demo" class="collapse" style="padding-top: 15px;">
+                                        <div id="pn_description" class="collapse" style="padding-top: 15px;">
                                         <textarea name="description" class="txtarea" id="description"><?php echo $user_info->description; ?></textarea>										
                                             <p class="btnluu" style="padding-top: 15px;text-align: right;">
                                                 <button type="button" id="29" class="button" onclick="saveDescription();">Lưu lại</button>
-                                                <button type="button" class="button" data-toggle="collapse" data-target="#demo" aria-expanded="true">Hủy</button>
+                                                <button type="button" class="button" data-toggle="collapse" data-target="#pn_description" aria-expanded="true">Hủy</button>
                                             </p>
                                         </div>
 
@@ -622,7 +622,8 @@ function saveDescription() {
            if(typeof obj['SUCCESS'] != 'undefined'){
             $('.alert-success > .alert-msg').html(obj['SUCCESS']);
             $('.alert-success').removeClass('alert-hide');     
-            $("#user_description").html(description);      
+            $("#user_description").html(description);
+            $("#pn_description").collapse("hide");      
             };
 
         }catch(e) {     
