@@ -24,27 +24,6 @@
                 }
                 ?>
 
-            <div class="alert alert-success alert-hide">
-            <button type="button" class="close" data-dismiss="alert">×</button>            
-            <strong>Thành công!</strong>
-             <span class="alert-msg">ádasds</span>
-            </div>
-
-            <div class="alert alert-warning alert-hide">
-            <button type="button" class="close" data-dismiss="alert">×</button>            
-            <strong>Cảnh báo!</strong>
-             <span class="alert-msg">ádasds</span>
-            </div>
-
-            <div class="alert alert-danger alert-hide">
-            <button type="button" class="close" data-dismiss="alert">×</button>            
-            <strong>Lỗi!</strong>
-             <span class="alert-msg">ádasds</span>
-            </div>
-            </div>
-
-            
-
             <div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
 <?php $this->load->view('site/candidate/left'); ?>

@@ -71,6 +71,9 @@ Class News extends MY_Controller{
 				$description = $this->input->post('description');
 				$content = $this->input->post('content');
 				$status = $this->input->post('status');
+				$tags = $this->input->post('tags');
+				$cattags = slug2($tags);
+				$metades = $this->input->post('meta_description');
 				//load thư viện uploads ảnh
 				$this->load->library('upload_library');
 				$upload_path = './uploads/news';
@@ -87,7 +90,10 @@ Class News extends MY_Controller{
 					'content' => $content,
 					'created' => now(),
 					'image' => $image_link,
-					'status' => $status
+					'status' => $status,
+					'tags'=> $tags,
+					'cat_tags' => $cattags,
+					'meta_description'=> $metades
 					);
 
 				$this->news_model->create($data);
@@ -129,7 +135,10 @@ Class News extends MY_Controller{
 				$content = $this->input->post('content');
 				$updated = now();
 				$status = $this->input->post('status');
-			}
+				$tags = $this->input->post('tags');
+				$cattags = slug2($tags);
+				$metades = $this->input->post('meta_description');
+			
 
 			//lấy tên file ảnh, upload ảnh đại diện
 				$this->load->library('upload_library');
@@ -146,7 +155,10 @@ Class News extends MY_Controller{
 					'description'=>$description,
 					'content'=>$content,
 					'updated'=>$updated,
-					'status'=>$status
+					'status'=>$status,
+					'tags'=>$tags,
+					'cat_tags'=> $cattags,
+					'meta_description'=>$metades
 					);
 				if($image_link!=''){
 					$data['image'] = $image_link;
@@ -156,6 +168,7 @@ Class News extends MY_Controller{
 				$this->session->set_flashdata('message', 'Sửa dữ liệu thành công !');
 				//chuyển sang trang danh sách danh mục
 				redirect(admin_url('news'));
+				}
 		}
 
 		//lấy danh mục

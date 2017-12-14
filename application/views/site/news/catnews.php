@@ -41,9 +41,9 @@
 						<?php endforeach; ?>						
 						</div>  <!-- end .news-grid-row -->
 
-						<div class="load-more-button-wrapper text-center">
-							<a href="" id="load-more-button" class="button">LOAD MORE</a>
-						</div> <!-- end .load-more-button-wrapper -->						
+						<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
+						<?php echo $this->pagination->create_links(); ?>
+						</div> <!-- end .jobpress-custom-pager -->						
 					</div> <!-- end .news-grid -->
 				</div> <!-- end .container -->
 			</div> <!-- end .inner -->
