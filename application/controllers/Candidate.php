@@ -508,7 +508,24 @@ Class Candidate extends MY_Controller{
 			}
 	}
 
-	function api_desciption(){
-		
+	function api_desciption(){		
+		$user_id = $this->session->userdata('candidate_id_login');
+		if($user_id == null || $user_id==""){
+			$data = array(
+				'ERROR' => "Phiên làm việc của bạn đã hết hạn. Xin mời đăng nhập lại"				
+				);
+				echo json_encode($data);
+		}else{
+
+			$description = $_POST['desciption'];
+			$data = array(
+				'description' =>$description
+			);
+			$this->member_candidate_model->update($user_id,$data);
+			$data = array(
+				'SUCCESS' => "Cập nhật thành công"				
+				);
+				echo json_encode($data);
+		}			
 	}
 }

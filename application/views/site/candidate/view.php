@@ -17,11 +17,34 @@
 <div class="section candidate-dashboard-content solid-light-grey-bg">
     <div class="inner">
         <div class="container">
-            <div class="thongbao-tc"><?php
+            <div class="thongbao-tc">
+            <?php
                 if (isset($message)) {
                     $this->load->view('admin/message', $this->data);
                 }
-                ?></div>
+                ?>
+
+            <div class="alert alert-success alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Thành công!</strong>
+             <span class="alert-msg">ádasds</span>
+            </div>
+
+            <div class="alert alert-warning alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Cảnh báo!</strong>
+             <span class="alert-msg">ádasds</span>
+            </div>
+
+            <div class="alert alert-danger alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Lỗi!</strong>
+             <span class="alert-msg">ádasds</span>
+            </div>
+            </div>
+
+            
+
             <div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
 <?php $this->load->view('site/candidate/left'); ?>
@@ -31,13 +54,7 @@
 
                         <div id="resume" class="tab-pane fade in active">
                             <div class="profile-badge"><h6>Hồ sơ của tôi</h6></div>
-                            <div class="profile-wrapper">
-                                <script type="text/javascript">
-                                    function check_mt() {
-                                        document.frmmt.mt.value = "ok";
-                                        document.frmmt.submit();
-                                    }
-                                </script>
+                            <div class="profile-wrapper">                                
                                 <form method="post" name="frmmt" action="<?php echo base_url('candidate/view'); ?>" >
                                     <input type="hidden" name="mt">
                                     <div class="profile-info profile-section flex no-column no-wrap">
@@ -66,14 +83,12 @@
                                         <?php if (empty($user_info->description)) : ?>
                                             <p>Giới thiệu bản thân và miêu tả mục tiêu nghề nghiệp của bạn.</p>
                                         <?php else: ?>
-                                            <p><?php echo $user_info->description; ?></p>
+                                            <p id="user_description"><?php echo $user_info->description; ?></p>
                                                 <?php endif; ?>
                                         <div id="demo" class="collapse" style="padding-top: 15px;">
-                                            <textarea name="description" class="txtarea">
-<?php echo $user_info->description; ?>
-                                            </textarea>										
+                                        <textarea name="description" class="txtarea" id="description"><?php echo $user_info->description; ?></textarea>										
                                             <p class="btnluu" style="padding-top: 15px;text-align: right;">
-                                                <button type="submit" id="29" class="edit_tr button" onclick="return check_mt();">Lưu lại</button>
+                                                <button type="button" id="29" class="button" onclick="saveDescription();">Lưu lại</button>
                                                 <button type="button" class="button" data-toggle="collapse" data-target="#demo" aria-expanded="true">Hủy</button>
                                             </p>
                                         </div>
@@ -81,15 +96,7 @@
                                     </div> <!-- end .profile-about -->
 
                                     <div class="divider"></div>
-                                </form>
-                                <script type="text/javascript">
-                                    function check_kn() {
-
-                                        document.frmkn.kn.value = "ok";
-                                        document.frmkn.submit();
-                                    }
-                                </script>
-
+                                </form>                               
                                 <script type="text/javascript">
                                     $(document).ready(function () {
                                         //add dữ liệu
@@ -601,3 +608,33 @@
         </div> <!-- end .container -->
     </div> <!-- end .inner -->
 </div> <!-- end .section -->
+<script type="text/javascript">
+function saveDescription() {    
+    var description= $('#description').val().trim();
+    $.ajax({
+        type: "post",
+        url: "<?php echo base_url() ?>candidate/api_desciption",
+        cache: false,               
+        data: {'desciption':description},
+        success: function(json){                        
+        try{        
+            var obj = jQuery.parseJSON(json);           
+           if(typeof obj['SUCCESS'] != 'undefined'){
+            $('.alert-success > .alert-msg').html(obj['SUCCESS']);
+            $('.alert-success').removeClass('alert-hide');     
+            $("#user_description").html(description);      
+            };
+
+        }catch(e) {     
+            alert('Exception while request..');
+        }       
+        },
+        error: function(){
+            $('.alert-danger > .alert-msg').html('Có lỗi ghi gửi dữ liệu');                      
+            $('.alert-danger').removeClass('alert-hide');
+            
+        }
+ });
+    
+}
+</script>
