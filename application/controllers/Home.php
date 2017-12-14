@@ -12,25 +12,25 @@ Class Home extends MY_Controller{
 		$this->load->model('recruitment_model');
 		$this->load->model('city_model');
 
+		//việc làm gợi ý
+		$input = array();
+		$input['where'] = array('status'=>3);
+		$recommentjobs = $this->recruitment_model->get_list($input);
+		$this->data['recommentjobs'] = $recommentjobs;
+
 		$cityinfo = $this->city_model->get_list();
 		$this->data['cityinfo'] = $cityinfo;
+
 		//slide
 		$slide_list = $this->slide_model->get_list();
 		$this->data['slide_list'] = $slide_list;
 		// news home
-		$input = array();
+	
 		$input['where'] = array('status'=>1);
 		$input['limit'] = array(3 , 0);
 		$newshome_list = $this->news_model->get_list($input);
 		$this->data['newshome_list'] = $newshome_list;
 
-		//product hot
-		$this->load->model('product_model');
-		$input = array();
-		$input['where'] = array('is_hot'=>1);
-		$input['limit'] = array(10,0);
-		$producthome_list = $this->product_model->get_list($input);
-		$this->data['producthome_list'] = $producthome_list;
 		//category home
 		$input = array('is_online'=>1);
 		$category_home = $this->career_model->get_list($input);
@@ -58,6 +58,7 @@ Class Home extends MY_Controller{
 		$this->data['listcareer'] = $listcareer;
 
 		$input = array();
+
 		if($this->input->get()){
 		$keyword = $this->input->get('keyword');
 		$careerid = $this->input->get('careerid');
@@ -65,7 +66,7 @@ Class Home extends MY_Controller{
 		$this->data['keyword'] = $keyword;
 		$this->data['careerid'] = $careerid;
 		$this->data['cityid'] = $cityid;
-		
+
 		if($keyword){
 			$input['like'] = array('title', $keyword);
 		}
@@ -123,8 +124,14 @@ Class Home extends MY_Controller{
 
 		$listjobs = $this->recruitment_model->get_list($input);
 		$this->data['listjobs'] = $listjobs;
-
+	}
+		
+		$care = $this->input->post('careid');
+		if($care){
+		$input['where'] = array('career_id'=>$care);
 		}
+		$listjobs = $this->recruitment_model->get_list($input);
+		$this->data['listjobs'] = $listjobs;
 
 
 		$this->data['temp'] = 'site/home/find_jobs';

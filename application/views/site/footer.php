@@ -61,7 +61,7 @@
                     </div> <!-- end .widget -->
                 </div> <!-- end .footer-widgets -->
                 <div class="bottom flex space-between items-center">
-                    <p class="copyright-text small">&copy; 2017 <a href="#0">JobPress</a>. All Rights Reserved. Designed by <a href="#0">LeoStudo</a>.</p>
+                    <p class="copyright-text small">&copy; 2018 <a href="#0">English center work</a>. All Rights Reserved. Designed by <a href="http://lienketso.com.vn" target="_blank">Lienketso.com.vn</a>.</p>
                     <ul class="list-unstyled copyright-menu flex no-column">
                         <li><a href="#0">Privacy policy</a></li>
                         <li><a href="#0">Terms of service</a></li>

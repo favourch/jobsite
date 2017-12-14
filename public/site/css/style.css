@@ -51,7 +51,7 @@
 /* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
 @import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
-	font-family: 'Roboto', Helvetica, Verdana, Arial, sans-serif;
+	font-family: 'Open sans', Helvetica, Verdana, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 23px;
@@ -1539,6 +1539,9 @@ li.active{
 	text-transform: uppercase;
 	font-weight: 700;
 	line-height: 20px;
+}
+.category-grid .category-row .item h4 a{
+	color: #fff;
 }
 .category-grid .category-row .item:before, .category-grid .category-row .item:last-of-type:after {
 	content: "";
@@ -6599,4 +6602,6 @@ h2.job-post-success {
 }
 .Latest-jobs-section li.list-group-item > .media > .media-body > h4{
 	margin-bottom: 0;
+	font-size: 16px;
+	font-weight: bold;
 }

@@ -1,4 +1,5 @@
-
+<script type="text/javascript" src="<?php echo public_url('site/js/angular.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo public_url('site/js/myapp.js'); ?>"></script>
 		<!-- Breadcrumb Bar -->
 		<div class="section breadcrumb-bar solid-blue-bg">
 			<div class="inner">
@@ -13,9 +14,13 @@
 			</div> <!-- end .inner -->
 		</div> <!-- end .section -->
 
+		<div ng-app="myApp">
 			<!-- Job Listings Section -->
 		<div class="section jobs-listing-section">
 			<div class="container-fluid">
+
+			<div ng-controller="MyController">
+
 				<div class="jobs-listing-wrapper flex no-wrap">
 
 					<div class="left-side">
@@ -72,9 +77,8 @@
 					
 						</div> <!-- end .sort-by-wrapper -->
 						
-				        <div class="bookmarked-jobs-list-wrapper on-listing-page">
+				        <div class="bookmarked-jobs-list-wrapper on-listing-page" id="txtHint">
 				        	
-
 				        <?php foreach($listjobs as $row): ?>
 				        <?php $company = $this->member_company_model->get_info($row->company_id); ?>
 				        <?php $city = $this->city_model->get_info($row->city_id); ?>
@@ -108,8 +112,10 @@
 				        		</div> <!-- end .bookmarked-job -->
 				        	</div> <!-- end .bookmarked-job-wrapper --> 
 				        <?php endforeach; ?>
+			        	</div> 
 
-			        	</div> <!-- end .bookmarked-jobs-list-wrapper -->
+
+			        	<!-- end .bookmarked-jobs-list-wrapper -->
 			        	<div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
 							<?php echo $this->pagination->create_links(); ?>
 						</div> <!-- end .jobpress-custom-pager -->	
@@ -117,21 +123,50 @@
 					</div> <!-- end .center-content -->
 
 					<div class="right-side">
-						
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>					
+<script type="text/javascript">
+$(document).ready(function() {
+//edit dữ liệu
+$(".careerfiel").on("change", function () {		
+	 	var id = 'careid='+$(".careerfiel").val();
+	 	jQuery.ajax({
+		cache: false,
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>home/find_jobs", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data :id,
+        async : false,
+        contentType : false,
+        processData : true,
+		success:function(response){
+			 alert(id);
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$("#LoadingCV").hide(); //hide loading image
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+		
+});
+});
+</script> 
 						<div class="job-categories-widget jobs-widget">
 							<h6>Lọc theo danh mục</h6>
+					       <form method="GET">
 					        <ul class="job-categories list-unstyled">
 			                    <?php foreach($listcareer as $row): ?>
 			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
 			                    <?php $total_recruit = $this->recruitment_model->get_total($input); ?>
 			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
-			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>">
+			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>" class="careerfiel">
 			                   <label for="checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>( <?php echo $total_recruit; ?> )</span></label>
 			                        <span><i class="ion-android-add"></i></span>
 			                    </li>
 			                <?php endforeach; ?>
-
 		                    </ul> <!-- end .job-categories -->
+		                    </form>
+
 						</div> <!-- end .job-categories-widget -->
 
 						<div class="job-status-widget jobs-widget">
@@ -208,7 +243,8 @@
 						
 
 					</div> <!-- end .right-side -->
-
+					</div>
 				</div> <!-- end .jobs-listing-wrapper -->
 			</div> <!-- end .container-fluid -->
 		</div> <!-- end .section -->
+		</div>
