@@ -121,11 +121,27 @@
                             </div>
                             <div class="tab-pane fade" id="tab_job_suggest">
                             <ul class="list-group row">
-                                <li class="list-group-item col-xs-6">Row1</li>
-                                <li class="list-group-item col-xs-6">Row2</li>
-                                <li class="list-group-item col-xs-6">Row3</li>
-                                <li class="list-group-item col-xs-6">Row4</li>
-                                <li class="list-group-item col-xs-6">Row5</li>
+                            <?php foreach($recommentjobs as $row): ?>
+                            <?php $company = $this->member_company_model->get_info($row->company_id); ?>
+                            <?php $salary = $this->salary_model->get_info($row->salary_id); ?>
+                            <?php $city = $this->city_model->get_info($row->city_id); ?>
+                                <li class="list-group-item col-md-6">
+                                    <div class="media">
+                                        <div class="media-left">
+                                <?php if($company->logo_url==''): ?>
+                                    <img class="media-object" src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive" width="70">
+                                    <?php else: ?>     
+                                    <img class="media-object" src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive" width="70">
+                                <?php endif; ?>                                          
+                                        </div>
+                                        <div class="media-body">
+                                        <h4><a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>"><?php echo $row->title; ?></a> </h4>
+                                        <p><?php echo $company->company_name; ?></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                               
                             </ul>
                             </div>                     
                         </div>
@@ -181,7 +197,7 @@
                             <?php $catname = $row->cat_name; ?>
                             <div class="item">
                                <a href="<?php echo base_url('viec-lam/'.$catname.'-d'.$row->id); ?>"> <img src="<?php echo public_url(); ?>/site/images/category-icon09.png" alt="" class="img-responsive"></a>
-                                <h4><?php echo $row->name; ?></h4>
+                                <h4><a href="<?php echo base_url('viec-lam/'.$catname.'-d'.$row->id); ?>"><?php echo $row->name; ?></a></h4>
                                 <p class="light">( <?php echo $total_career; ?> ) Việc làm</p>
                             </div> <!-- end .item -->
                         <?php endforeach; ?>
