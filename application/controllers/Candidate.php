@@ -232,13 +232,7 @@ Class Candidate extends MY_Controller{
 				$this->session->set_flashdata('message', 'Thêm dữ liệu thành công !');
 
 	}
-	function del($id){
-            $id = $this->uri->rsegment(3);
-			$id = intval($id);
-            $this->load->model('work_experience_model');
-            $this->work_experience_model->deleteOne($id);
-		}
-		
+			
      function edit(){
      		if($this->input->post('id'))
      			$id = $this->input->post('id');
@@ -524,6 +518,25 @@ Class Candidate extends MY_Controller{
 			$this->member_candidate_model->update($user_id,$data);
 			$data = array(
 				'SUCCESS' => "Cập nhật thành công"				
+				);
+				echo json_encode($data);
+		}			
+	}
+
+	function api_del_exp(){		
+		$user_id = $this->session->userdata('candidate_id_login');
+		if($user_id == null || $user_id==""){
+			$data = array(
+				'ERROR' => "Phiên làm việc của bạn đã hết hạn. Xin mời đăng nhập lại"				
+				);
+				echo json_encode($data);
+		}else{
+
+			$del_id = $_POST['del_id'];
+			$this->load->model('work_experience_model');
+            $this->work_experience_model->deleteOne($del_id);
+			$data = array(
+				'SUCCESS' => "Đã xóa thành công"				
 				);
 				echo json_encode($data);
 		}			

@@ -77,8 +77,8 @@
         <script src="<?php echo public_url(); ?>/site/js/jquery-3.1.1.min.js" ></script>
         <!-- Bootstrap -->
         <script src="<?php echo public_url(); ?>/site/js/bootstrap.min.js" ></script>
-        <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>
-        <script src="<?php echo public_url(); ?>/site/js/bootstrap-select.js" ></script>
+        <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>        
+        <script src="<?php echo public_url(); ?>/site/js/bootbox.min.js" ></script>
         <!-- google maps -->
         <!-- Owl Carousel -->
         <script src="<?php echo public_url(); ?>/site/js/owl.carousel.min.js"></script>

@@ -169,30 +169,6 @@
                                             });
                                         });
 
-                                        //del dữ liệu
-                                        $(".content_wrapper").on("click", "#responds .del_button", function (e) {
-                                            e.preventDefault();
-                                            var clickedID = this.id.split('-'); //Split ID string (Split works as PHP explode)
-                                            var DbNumberID = clickedID[1]; //and get number from array
-                                            var myData = 'recordToDelete=' + DbNumberID; //build a post data structure
-                                            $('#item_' + DbNumberID).addClass("sel"); //change background of this element by adding class
-                                            $(this).hide(); //hide currently clicked delete button
-
-                                            jQuery.ajax({
-                                                type: "POST", // HTTP method POST or GET
-                                                url: "<?php echo base_url() ?>candidate/del/" + DbNumberID, //Where to make Ajax calls
-                                                dataType: "text", // Data type, HTML, json etc.
-                                                data: myData, //Form variables
-                                                success: function (response) {
-                                                    //on success, hide  element user wants to delete.
-                                                    $('#item_' + DbNumberID).fadeOut();
-                                                },
-                                                error: function (xhr, ajaxOptions, thrownError) {
-                                                    //On error, we alert user
-                                                    alert(thrownError);
-                                                }
-                                            });
-                                        });
                                     });
                                 </script> 
 
@@ -247,7 +223,7 @@
                                                         <div class="profile-experience-right">
                                                             <span><a data-toggle="collapse" data-target="#demo_<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-edit"></i></a></span>
                                                             <div class="del_wrapper">
-                                                                <span><a class="del_button" id="del-<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-close-circled"></i></a></span>
+                                                                <span><a  style="cursor: pointer;" onclick="removeExperience(<?php echo $row->id; ?>)"><i class="ion-close-circled"></i></a></span>
                                                             </div>
                                                         </div> <!-- end .profile-experience-right -->
                                                     </div> <!-- end .profile-experience -->
@@ -618,7 +594,14 @@ function saveDescription() {
         data: {'desciption':description},
         success: function(json){                        
         try{        
-            var obj = jQuery.parseJSON(json);           
+            var obj = jQuery.parseJSON(json);
+            if(typeof obj['ERROR'] != 'undefined'){
+            $('.alert-danger > .alert-msg').html(obj['ERROR']);
+            $('.alert-danger').removeClass('alert-hide');     
+            $("#user_description").html(description);
+            $("#pn_description").collapse("hide");      
+            };
+
            if(typeof obj['SUCCESS'] != 'undefined'){
             $('.alert-success > .alert-msg').html(obj['SUCCESS']);
             $('.alert-success').removeClass('alert-hide');     
@@ -635,7 +618,54 @@ function saveDescription() {
             $('.alert-danger').removeClass('alert-hide');
             
         }
- });
-    
+ });    
+}
+
+function removeExperience(id){
+    bootbox.confirm({
+    message: "Bạn thật sự muốn xóa thông tin này?",
+    buttons: {
+        confirm: {
+            label: 'Yes',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'No',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+        if(result==true){
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url() ?>candidate/api_del_exp",
+                cache: false,               
+                data: {'del_id':id},
+                success: function(json){                        
+                try{        
+                    var obj = jQuery.parseJSON(json);
+                    if(typeof obj['ERROR'] != 'undefined'){
+                    $('.alert-danger > .alert-msg').html(obj['ERROR']);
+                    $('.alert-danger').removeClass('alert-hide');     
+                    };           
+                if(typeof obj['SUCCESS'] != 'undefined'){
+                    $('div#item_'+id).remove()
+                    $('.alert-success > .alert-msg').html(obj['SUCCESS']);
+                    $('.alert-success').removeClass('alert-hide');     
+                    };
+
+                }catch(e) {     
+                    alert('Exception while request..');
+                }       
+                },
+                error: function(){
+                    $('.alert-danger > .alert-msg').html('Có lỗi ghi gửi dữ liệu');                      
+                    $('.alert-danger').removeClass('alert-hide');
+                    
+                }
+            });
+        }       
+    }
+});
 }
 </script>
