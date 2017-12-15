@@ -15,6 +15,7 @@ Class Home extends MY_Controller{
 		//việc làm gợi ý
 		$input = array();
 		$input['where'] = array('status'=>3);
+		$input['limit'] = array(16,0);
 		$recommentjobs = $this->recruitment_model->get_list($input);
 		$this->data['recommentjobs'] = $recommentjobs;
 

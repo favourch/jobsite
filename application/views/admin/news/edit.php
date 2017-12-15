@@ -93,7 +93,31 @@
 								</select>
 								
 							  </div>
-							</div>          
+							</div>    
+							<div class="control-group">
+               
+                <div class="controls">
+                <p class="btn-group">
+                <label class="control-label" for="selectError3">Cấu hình seo</label>
+                </p>
+                </div>
+                </div> 
+                           <div class="showme" id="cc">
+                <div class="control-group">
+                <label class="control-label" for="typeahead">Tags</label>
+                <div class="controls">
+                <input type="text" class="span6 typeahead" name="tags" value="<?php echo $info->tags; ?>">
+                <p style="color: #999">Mây thẻ hiển thị trong cuối mỗi bài post, cách nhau bởi dấu ","</p>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="typeahead">Meta description</label>
+                <div class="controls">
+                <textarea name="meta_description" class="span6 typeahead" style="height: 100px; resize: none;"><?php echo $info->meta_description; ?></textarea>
+                <p style="color: #999">Mô tả tin tức cho công cụ tìm kiếm</p>
+                </div>
+              </div>
+                </div>           
 
 							<div class="form-actions">
 							  <input type="submit" class="btn btn-primary" value="Lưu thông tin">
@@ -108,3 +132,20 @@
 			</div><!--/row-->
 
 			</div>
+
+<script language='javascript'>
+function cancel(){
+  window.history.go(-1);
+}
+
+$(document).ready(function(){
+  $("#cc").hide();
+  $("#show").click(function(){
+    $("#cc").show();
+  });
+  $("#hide").click(function(){
+    $("#cc").hide();
+  });
+});
+
+</script>

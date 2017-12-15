@@ -81,7 +81,8 @@ Class MY_Controller extends CI_Controller{
 					$this->load->model('city_model');
 					$this->load->model('salary_model');
 					$input = array();
-					$input['limit'] = array(10,0);
+					$input['where'] = array('status'=>1);
+					$input['limit'] = array(16,0);
 					$lastestjob = $this->recruitment_model->get_list($input);
 					$this->data['lastestjob'] = $lastestjob;
 

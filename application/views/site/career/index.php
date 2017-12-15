@@ -52,11 +52,9 @@ $(document).ready(function() {
 //add dữ liệu
 $(".FormSubmit").click(function (e) {
 		e.preventDefault();
-			
 		$(".FormSubmit").hide(); //hide submit button
 		$("#LoadingImage").show(); //show loading image	
 		var ID=$(this).attr('id');		
-		alert('Lưu việc làm thành công !');
 		jQuery.ajax({
 		type: "POST", // HTTP method POST or GET
 		url: "<?php echo base_url() ?>candidate/savejobs", //Where to make Ajax calls
@@ -65,6 +63,7 @@ $(".FormSubmit").click(function (e) {
 		success:function(response){
 			//$("#"+ID).hide(); //show submit button
 			$("#LoadingImage").hide(); //hide loading image
+			window.location.reload();
 		},
 		error:function (xhr, ajaxOptions, thrownError){
 			$(".FormSubmit").show(); //show submit button
@@ -104,7 +103,17 @@ $(".FormSubmit").click(function (e) {
 												
 					        				</div> <!-- end .bookmarked-job-meta -->
 					        			<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-					        		<a class="FormSubmit" id="<?php echo $row->id; ?>"><i class="ion-ios-heart wishlist-icon"></i></a>
+					        		<?php $where=array('recruitment_id'=>$row->id, 'candidate_id'=>$canidateid); ?>
+					        		<?php $mapcandi = $this->map_recruitment_model->get_info_rule($where);?>
+					        		<?php if(isset($user_info)): ?>
+					        		<?php if($mapcandi): ?>
+					        			<h6>Đã lưu</h6>
+										<a href="#" id=""><i class="ion-flag"></i></a>
+					        		<?php else: ?>
+					        		<a class="FormSubmit" href="#" id="<?php echo $row->id; ?>"><i class="ion-ios-heart"></i></a>
+					        	<?php endif ?>
+					        		<?php endif; ?>
+
 					        					<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button">Xem việc làm</a>
 					        				</div> <!-- end .right-side-bookmarked-job-meta -->
 					        			</div> <!-- end .bookmarked-job-info-bottom -->

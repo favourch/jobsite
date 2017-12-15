@@ -87,6 +87,7 @@ $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';
 $route['(:any)-(:num)-jv'] = 'career/view/$2';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';
+$route['(:any)-c(:num)/(:num)'] = 'news/catnews/$2/$3';
 $route['(:any)-(:num).html'] = 'news/detail/$2';
 //trang tin tức
 $route['(:any)-pv(:num)'] = 'page/view/$2';

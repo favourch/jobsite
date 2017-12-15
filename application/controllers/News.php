@@ -41,17 +41,24 @@ Class News extends MY_Controller{
 		$total_row = $this->news_model->get_total($input);
 		$this->data['total_row'] = $total_row;
 		$config = array();
-		$config['base_url']    = base_url('news/catnews/'.$id);
+		$config['base_url']    = base_url($category->cat_name.'-c'.$category->id);
 		$config['total_rows']  = $total_row;
-		$config['per_page']    = 6;
-		$config['uri_segment'] = 4;
-		$config['next_link']   = "Next page";
-		$config['prev_link']   = "Prev page";
+		$config['per_page']    = 9;
+		$config['uri_segment'] = 2;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page">';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
 		$this->pagination->initialize($config);
-
-		$segment = $this->uri->segment(4);
+		$segment = $this->uri->segment(2);
 		$segment = intval($segment);
-		
 		
 		$input["limit"] = array($config['per_page'], $segment);
 		
@@ -86,8 +93,15 @@ Class News extends MY_Controller{
 		 $data =array();
 		 $data['view'] = $info->view + 1;
 		 $this->news_model->update($id,$data);
-		$this->data['temp'] = 'site/news/detail';
-		$this->load->view('site/layout',$this->data);
+
+		 //việc làm trang tin
+		 $this->load->model('recruitment_model');
+		 $input['where'] = array('status'=>3);
+		 $newsjobs = $this->recruitment_model->get_list($input);
+		 $this->data['newsjobs'] = $newsjobs;
+
+		 $this->data['temp'] = 'site/news/detail';
+		 $this->load->view('site/layout',$this->data);
 	}
 
 }//end class

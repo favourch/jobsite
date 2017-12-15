@@ -52,5 +52,18 @@ function date_to_int($tr)
 		function slug($str){
 		return preg_replace('/[^a-zA-Z0-9\-_]/','',replace(convert_upper_to_lower(convert_vi_to_en($str))));
 		}
+		function slug2($str){
+		return preg_replace('/[^a-zA-Z0-9\-,_]/','',replace(convert_upper_to_lower(convert_vi_to_en($str))));
+		}
 
+		function tags($url,$class,$string){
+	$name = (explode(",",$string));
+	$total = count($name);
+	$html="";
+	for($i=0;$i<$total;$i++){
+	$slug = $name[$i];
+	$html.="<li><a class='$class' href='".$url."tags/".$slug."/' title='".$name[$i]."' itemprop='keywords'>".$name[$i]."</a></li>";
+	}
+	return $html;
+	}
 		

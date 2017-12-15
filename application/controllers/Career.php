@@ -7,10 +7,12 @@ Class Career extends MY_Controller{
 	}
 
 	function index(){
+		$canidateid = $this->session->userdata('candidate_id_login');
+		$this->data['canidateid'] = $canidateid;
 		//lấy ra id của danh mục
 		$id = $this->uri->rsegment(3);
 		$id = intval($id);
-
+		$this->load->model('map_recruitment_model');
 		$this->load->model('city_model');
 		$this->load->model('member_company_model');
 		$this->load->model('salary_model');
@@ -70,10 +72,16 @@ Class Career extends MY_Controller{
 	}
 
 	function view(){
+		$this->load->model('map_recruitment_model');
 		$id = $this->uri->rsegment(3);
 		$id = intval($id);
 		$info = $this->recruitment_model->get_info($id);
 		$this->data['info'] = $info;
+		$canid = $this->session->userdata('candidate_id_login');
+		$where = array('recruitment_id'=>$info->id, 'candidate_id'=>$canid);
+		
+		$maprecruitment = $this->map_recruitment_model->get_info_rule($where);
+		$this->data['maprecruitment'] = $maprecruitment;
 
 		$image_list = @json_decode($info->image_list);
 		$this->data['image_list'] = $image_list;

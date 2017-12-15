@@ -14,6 +14,14 @@ Class MY_Model extends CI_Model{
 	}
 
 	//lấy thông tin dữ liệu trong bảng
+		function get_catname($catname){
+		if(!$catname){
+			return FALSE;
+		}
+		//$where ="WHERE $cond";
+		$where['cat_name'] = $cat_name;
+		return $this->get_info_rule($where);
+	}
 	function get_info($id){
 		if(!$id){
 			return FALSE;

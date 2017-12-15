@@ -71,10 +71,55 @@
 													<li><a href="#0" class="button button-sm g-plus-btn"><span><i class="ion-social-googleplus"></i></span>Google plus</a></li>
 												</ul> <!-- end .social-share -->
 											</div> <!-- end .job-post-share-left -->
+											
+											<?php if(isset($user_info)): ?>
 											<div class="job-post-share-right flex items-center no-column no-wrap">
+												<a href="#" id="saved"><i class="ion-flag wishlist-icon"></i></a>
+											<?php if($maprecruitment ): ?>
+											<?php if($info->id==$maprecruitment->recruitment_id && $maprecruitment->candidate_id==$user_info->id): ?>
+												<h6>Đã lưu</h6>
+												<a href="#" id=""><i class="ion-flag"></i></a>
+										<?php endif; ?>
+										<?php else: ?>
 												<h6>Lưu việc làm</h6>
-												<i class="ion-ios-heart wishlist-icon"></i>
+												<a href="#" class="FormSubmit" id="<?php echo $info->id; ?>"><i class="ion-ios-heart"></i></a>
+											<?php endif; ?>
 											</div> <!-- end .job-post-share-right -->
+										<?php endif; ?>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$('#saved').hide();
+$(".FormSubmit").click(function (e) {
+		e.preventDefault();
+		$(".FormSubmit").hide(); //hide submit button
+		$("#LoadingImage").show(); //show loading image	
+		var ID=$(this).attr('id');		
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidate/savejobs", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"cid="+ID, //Form variables
+		success:function(response){
+			//$("#"+ID).hide(); //show submit button
+			$("#saved").show(); //hide loading image
+			$('.FormSubmit').hide();
+			window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$(".FormSubmit").show(); //show submit button
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
+
+});
+</script> 
 											
 										</div> <!-- end .job-post-share -->
 
@@ -142,7 +187,6 @@
 												<h6 class="hourly-rate"><span><?php echo int_to_date($row->start_date); ?></span></h6>
 							        				</div> <!-- end .bookmarked-job-meta -->
 							        				<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-							        					<i class="ion-ios-heart wishlist-icon"></i>
 							        					<a href="<?php echo base_url($row->cat_name.'-'.$row->id.'-jv'); ?>" class="button">Chi tiết</a>
 							        				</div> <!-- end .right-side-bookmarked-job-meta -->
 							        			</div> <!-- end .bookmarked-job-info-bottom -->
