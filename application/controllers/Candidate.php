@@ -245,29 +245,47 @@ Class Candidate extends MY_Controller{
 
 	//Xử lý dữ liệu kinh nghiệm làm việc
 	function add(){
-
-				$user_id = $this->session->userdata('candidate_id_login');
-				$desc = $this->input->post('desc');
-				$company_name = $this->input->post('company_name');
-				$position = $this->input->post('position');
-				$from_date = $this->input->post('from_date');
-				$from_date = date_to_int($from_date);
-				$to_date = $this->input->post('to_date');
-				$to_date = date_to_int($to_date);
-				$data = array(
-					'company_name' => $company_name,
-					'position' => $position,
-					'from_date' => $from_date,
-					'to_date' => $to_date,
-					'candidate_id'=>$user_id,
-					'description' => $desc
-					);
-				$this->load->model('work_experience_model');
-				$this->work_experience_model->create($data);
-				$this->session->set_flashdata('message', 'Thêm dữ liệu thành công !');
+		$user_id = $this->session->userdata('candidate_id_login');
+		if($user_id == null || $user_id==""){
+			$data = array(
+				'ERROR' => "Phiên làm việc của bạn đã hết hạn. Xin mời đăng nhập lại"				
+				);
+			echo json_encode($data);
+			return;
+		}
+				
+		$desc = $this->input->post('desc');
+		$company_name = $this->input->post('company_name');
+		$position = $this->input->post('position');
+		$from_date = date_to_int($this->input->post('from_date'));
+		$to_date = date_to_int($this->input->post('to_date'));
+		$data = array(
+			'company_name' => $company_name,
+			'position' => $position,
+			'from_date' => $from_date,
+			'to_date' => $to_date,
+			'candidate_id'=>$user_id,
+			'description' => $desc
+			);
+		 $this->load->model('work_experience_model');
+		
+		 $inserted_id = 444;// $this->work_experience_model->create($data);
+		 if($inserted_id>0){
+			$data = array(
+				'SUCCESS' => "Đã thêm kinh nghiệm việc làm. Bạn hãy ấn F5 để hiển thị dữ liệu mới nhất",
+				'ID'=> $inserted_id			
+				);
+				echo json_encode($data);
+		 }else{
+			$data = array(
+				'ERROR' => "Không thể thêm được kinh nghiệm"				
+				);
+				echo json_encode($data);
+		 }
+		
 
 	}
-			
+
      function edit(){
      		if($this->input->post('id'))
      			$id = $this->input->post('id');

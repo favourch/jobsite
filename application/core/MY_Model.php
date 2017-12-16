@@ -43,9 +43,10 @@ Class MY_Model extends CI_Model{
 	//insert dữ liệu
 	function create($data = array()){
 		if($this->db->insert($this->table,$data)){
-			return TRUE;
+			$insert_id = $this->db->insert_id();
+			return  $insert_id;
 		}else{
-			return FALSE;
+			return 0;
 		}
 	}
 

@@ -23,7 +23,24 @@
                     $this->load->view('admin/message', $this->data);
                 }
                 ?>
+            <div class="alert alert-success alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Thành công!</strong>
+             <span class="alert-msg"></span>
+            </div>
 
+            <div class="alert alert-warning alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Cảnh báo!</strong>
+             <span class="alert-msg"></span>
+            </div>
+
+            <div class="alert alert-danger alert-hide">
+            <button type="button" class="close" data-dismiss="alert">×</button>            
+            <strong>Lỗi!</strong>
+             <span class="alert-msg"></span>
+            </div>
+            </div>
             <div class="candidate-dashboard-wrapper flex space-between no-wrap">
 
 <?php $this->load->view('site/candidate/left'); ?>
@@ -82,42 +99,7 @@
                                 </form>                               
                                 <script type="text/javascript">
                                     $(document).ready(function () {
-                                        //add dữ liệu
-                                        $("#FormSubmit").click(function (e) {
-                                            e.preventDefault();
-                                            if ($("#contentText").val() === '')
-                                            {
-                                                alert("Bạn chưa điền nội dung");
-                                                return false;
-                                            }
-                                            $("#FormSubmit").hide(); //hide submit button
-                                            $("#LoadingImage").show(); //show loading image			
-                                            var content = 'desc=' + $("#contentText").val(); //build a post data structure
-                                            var company = 'company_name=' + $("#companyname").val();
-                                            var posi = 'position=' + $("#position").val();
-                                            var fdate = 'from_date=' + $("#fromdate").val();
-                                            var tdate = 'to_date=' + $("#todate").val();
-                                            jQuery.ajax({
-                                                type: "POST", // HTTP method POST or GET
-                                                url: "<?php echo base_url() ?>candidate/add", //Where to make Ajax calls
-                                                dataType: "text", // Data type, HTML, json etc.
-                                                data: company + "&" + posi + "&" + fdate + "&" + tdate + "&" + content, //Form variables
-                                                success: function ($response) {
-                                                    $("#responds").append($response);
-                                                    $("#contentText").val(''); //empty text field on successful
-                                                    $("#FormSubmit").show(); //show submit button
-                                                    $("#LoadingImage").hide(); //hide loading image
-                                                    $("#demo1").hide();
-                                                    window.location.reload();
-                                                },
-                                                error: function (xhr, ajaxOptions, thrownError) {
-                                                    $("#FormSubmit").show(); //show submit button
-                                                    $("#LoadingImage").hide(); //hide loading image
-                                                    alert("Lỗi không kết nối được");
-                                                    //alert(thrownError);
-                                                }
-                                            });
-                                        });
+
 
                                         //edit dữ liệu
                                         $(".edit_tr").click(function () {
@@ -185,13 +167,13 @@
                                                 <textarea name="desc" id="contentText" rows="6" placeholder="Nhập mô tả công việc của bạn" class="txtarea"></textarea>
                                             </div> <!-- end .form-group -->
                                             <p style="text-align: right;">
-                                                <button type="submit" class="button" id="FormSubmit" >Lưu lại</button>
+                                                <button type="button" class="button" id="FormSubmit" onclick="addExperience()" >Lưu lại</button>
                                                 <button type="button" class="button" data-toggle="collapse" data-target="#demo1">Hủy</button>
                                             </p>
                                             <img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
                                         </div>
 
-                                        <div id="responds" class="responds">
+                                        <div id="list_exp">
 <?php foreach ($knlamviec as $row): ?>
                                                 <div id="item_<?php echo $row->id; ?>">
                                                     <div class="profile-experience flex space-between no-wrap no-column">
@@ -200,36 +182,36 @@
                                                             <span class="profile-company dark"><?php echo $row->company_name; ?></span>
                                                             <p class="small ultra-light">
                                                                 Từ tháng <b><?php echo int_to_date($row->from_date); ?></b> đến tháng <b><?php echo int_to_date($row->to_date); ?></b></p>
-                                                            <p><?php echo $row->description; ?></p>
+                                                            <p class="profile-description"><?php echo $row->description; ?></p>
 
                                                         </div> <!-- end .profile-experience-left -->
                                                         <div class="profile-experience-right">
-                                                            <span><a data-toggle="collapse" data-target="#demo_<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-edit"></i></a></span>
+                                                            <span><a class="link_edit" data-toggle="collapse" data-target="#edit_pn_exp_<?php echo $row->id; ?>" style="cursor: pointer;"><i class="ion-edit"></i></a></span>
                                                             <div class="del_wrapper">
-                                                                <span><a  style="cursor: pointer;" onclick="removeExperience(<?php echo $row->id; ?>)"><i class="ion-close-circled"></i></a></span>
+                                                                <span><a  class="link_del"style="cursor: pointer;" onclick="removeExperience(<?php echo $row->id; ?>)"><i class="ion-close-circled"></i></a></span>
                                                             </div>
                                                         </div> <!-- end .profile-experience-right -->
                                                     </div> <!-- end .profile-experience -->
 
-                                                    <div id="demo_<?php echo $row->id ?>" class="collapse">
+                                                    <div id="edit_pn_exp_<?php echo $row->id ?>" class="collapse">
                                                         <div class="form-group-wrapper flex space-between items-center">
                                                             <div class="form-group">
                                                                 <p class="label">Tên công ty*</p>
-                                                                <input type="text" id="company_<?php echo $row->id; ?>" value="<?php echo $row->company_name; ?>" >
+                                                                <input type="text" id="company_<?php echo $row->id; ?>" value="<?php echo $row->company_name; ?>" class="txt_company">
                                                             </div> <!-- end .form-group -->
                                                             <div class="form-group">
                                                                 <p class="label">Chức danh*</p>
-                                                                <input type="text" id="position_<?php echo $row->id; ?>" value="<?php echo $row->position; ?>">
+                                                                <input type="text" id="position_<?php echo $row->id; ?>" value="<?php echo $row->position; ?>" class="txt_position">
                                                             </div> <!-- end .form-group -->
                                                         </div> <!-- end .form-group-wrapper -->
                                                         <div class="form-group-wrapper flex space-between items-center">
                                                             <div class="form-group">
                                                                 <p class="label">Từ tháng*</p>
-                                                                <input type="text" class="datepicker" id="fromdate_<?php echo $row->id; ?>" value="<?php echo int_to_date($row->from_date); ?>">
+                                                                <input type="text" class="datepicker from_date" id="fromdate_<?php echo $row->id; ?>" value="<?php echo int_to_date($row->from_date); ?>">
                                                             </div> <!-- end .form-group -->
                                                             <div class="form-group">
                                                                 <p class="label">Đến tháng*</p>
-                                                                <input type="text" class="datepicker1" id="todate_<?php echo $row->id; ?>" value="<?php echo int_to_date($row->to_date); ?>">
+                                                                <input type="text" class="datepicker1 to_date" id="todate_<?php echo $row->id; ?>" value="<?php echo int_to_date($row->to_date); ?>">
                                                             </div> <!-- end .form-group -->
                                                         </div> <!-- end .form-group-wrapper -->
 
@@ -239,7 +221,7 @@
                                                         </div> <!-- end .form-group -->
                                                         <p style="text-align: right;">
                                                             <button type="submit" id="<?php echo $row->id; ?>" class="edit_tr button">Lưu lại</button>
-                                                            <button type="button" class="button" data-toggle="collapse" data-target="#demo_<?php echo $row->id; ?>">Hủy</button>
+                                                            <button type="button" class="button" data-toggle="collapse" data-target="#edit_pn_exp_<?php echo $row->id; ?>">Hủy</button>
                                                         </p>
                                                         <img src="<?php echo public_url('site/images/loading.gif') ?>" id="LoadingImage" style="display:none" />
                                                     </div>
@@ -604,6 +586,59 @@ function saveDescription() {
  });    
 }
 
+function addExperience(){
+    if ($("#contentText").val() === '')
+    {
+        bootbox.alert("Bạn chưa điền nội dung!");                                                
+        return false;
+    }
+		
+var content = $("#contentText").val().trim(); //build a post data structure
+var company = $("#companyname").val().trim();
+var position = $("#position").val().trim();
+var from_date = $("#fromdate").val().trim();
+var to_date = $("#todate").val().trim();
+jQuery.ajax({
+        type: "POST", // HTTP method POST or GET
+        url: "<?php echo base_url() ?>candidate/add", //Where to make Ajax calls
+        dataType: "json", // Data type, HTML, json etc.
+        data: {'desc':content,'company_name':company,'position':position,'from_date':from_date,'to_date':to_date}, //Form variables
+        success: function(resonse){                        
+            try{        
+              
+                if(typeof resonse.ERROR != 'undefined'){
+                $('.alert-danger > .alert-msg').html(resonse.ERROR);
+                $('.alert-danger').removeClass('alert-hide');     
+                };           
+            if(typeof  resonse.SUCCESS != 'undefined'){
+                // if(typeof resonse.ID != 'undefined'){
+                //    var first_child_id= $('#list_exp').children().first().attr('id');
+                //     $( "#"+first_child_id ).clone().insertBefore( "#"+first_child_id );
+
+                //     //new element 
+                //     $('#list_exp').children().first().attr('id','item_'+resonse.ID);
+                //     $('div#item_'+resonse.ID+' h5.profile-designation').html(position);
+                //     $('div#item_'+resonse.ID+' span.profile-company').html(company);
+                //     $('div#item_'+resonse.ID+' p.small.ultra-light').html("Từ tháng <b>" + from_date + "</b> đến tháng <b>" + to_date + "</b>");
+                //     $('div#item_'+resonse.ID+' p.profile-description').html(content);
+                // }
+
+                $('.alert-success > .alert-msg').html(resonse.SUCCESS);
+                $('.alert-success').removeClass('alert-hide');
+
+                };
+
+            }catch(e) {     
+                console.log(e);               
+            }       
+            },
+        error: function(){
+            $('.alert-danger > .alert-msg').html('Có lỗi ghi gửi dữ liệu');                      
+            $('.alert-danger').removeClass('alert-hide');
+            
+        }
+    });                                       
+}
 function removeExperience(id){
     bootbox.confirm({
     message: "Bạn thật sự muốn xóa thông tin này?",
