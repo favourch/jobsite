@@ -12,6 +12,7 @@
 							   <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
 							    <li class="nav-divider"></li>
 							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/tim-ung-vien'); ?>">Tìm ứng viên</a></li>
 								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
 							   <li><a href="<?php echo base_url('nha-tuyen-dung/ung-vien-nop-ho-so'); ?>">Ứng viên nộp hồ sơ</a></li>
 							    <li class="nav-divider"></li>
@@ -19,9 +20,8 @@
 							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
 							    <li class="nav-divider"></li>
 								<li class="heading">HOTLINE HỖ TRỢ NHÀ TUYỂN DỤNG</li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
-							    <li><span style="font-size: 13px;">Nguyễn Xuân Hương</span> <span style="font-size: 13px; color: #1790d4; float: right;">0979 823 452</span></li>
+								<?php foreach($supportlist as $row): ?>
+							    <li><span style="font-size: 13px;"><?php echo $row->name; ?></span> <span style="font-size: 13px; color: #1790d4; float: right;"><?php echo $row->phone; ?></span></li>
+							<?php endforeach; ?>
 							</ul>
 						</div> <!-- end .left-sidebar-menu -->

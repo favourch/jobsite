@@ -81,10 +81,15 @@ $route['ung-vien/viec-lam-da-luu'] = 'candidate/job_saved';
 $route['ung-vien/viec-lam-da-luu/(:num)'] = 'candidate/job_saved/$1';
 
 $route['ung-vien/nop-ho-so-(:num)'] = 'career/submitjob/$1';
+$route['ung-vien/ho-so-mau'] = 'candidate/cvonline';
+$route['ung-vien/mau-ho-so-1'] = 'candidate/intallcv';
+$route['active?code=(:any)'] = 'candidate/activation?code=$1';
 //rewrite danh muc việc làm
 // $2 chinh laf bien :num (category_id)
 $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';
 $route['(:any)-(:num)-jv'] = 'career/view/$2';
+
+$route['nha-tuyen-dung/tim-ung-vien'] = 'candidatelist/index';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';
 $route['(:any)-c(:num)/(:num)'] = 'news/catnews/$2/$3';

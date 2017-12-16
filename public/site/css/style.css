@@ -310,7 +310,7 @@ ul {
 		padding-right: 30px;
 	}
 	.job-company-icon{
-		width: 20%;
+		max-width: 20%;
 	}
 	.job-company-icon img{
 
@@ -3012,21 +3012,44 @@ li.active{
 	background: #fff;
 }
 .categories-icon-row .item-icon {
-    margin-right: 22px;
-    padding-top: 4px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    float: left;
+}
+.listcandi{
+	padding-bottom: 15px;
+}
+.item-icon img{
+	max-width: 60px;
 }
 .categories-icon-row .item-text-content p {
 	font-weight: 400;
 }
 .categories-icon-row .item-text-content .category-icon-title {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    text-transform: uppercase;	
+   color: #1790d4;
 }
 .categories-icon-row .item-text-content .category-icon-jobs {
     margin-bottom: 8px;
     line-height: 17px;	
+    color: #666;
+    font-weight: bold;
+}
+ul.list-unstyled li{
+	padding-bottom: 10px;
+}
+ul.list-unstyled li a{
+	color: #1790d4;
+	font-weight: bold;
+}
+ul.list-unstyled li a span{
+	color: #999;
+}
+.item-text-content{
+	background: #fff;
+	padding: 5px;
 }
 @media all and (max-width: 992px) {
 	.categories-icon-row .item {
@@ -3085,7 +3108,6 @@ li.active{
 }
 .categories-list-heading>h4 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     text-transform: uppercase;	
     -webkit-transition: .3s;	
@@ -6500,7 +6522,7 @@ h2.job-post-success {
 .dropdown-content {
     display: none;
 	position: absolute;
-	background: #222329;	
+	background: #0c44d1;	
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
@@ -6526,22 +6548,23 @@ h2.job-post-success {
     border-left: 1px solid #215bee;
 }
 .r-dropdown > .dropdown-content a{
-	font-size: 12px;
+	font-size: 14px;
 	background: none;
     height: 50px;
     width: 100%;
     line-height: 50px;
     padding: 0 20px;
     color: #627199;
-    background: #222329;
+    background: #0c44d1;
     min-width: 220px;
 	display: block;
-	border-bottom: 1px solid #2f3036;
+	border-bottom: 1px solid #fff;
 	padding: 0 20px;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
 	text-transform: capitalize;
+	color: #fff;
 }
 .r-dropdown >.dropdown-content a:hover{
 	background: #1b1b21;

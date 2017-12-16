@@ -22,7 +22,7 @@ Class Career extends MY_Controller{
 		}
 		$this->data['category'] = $category;
 		$input = array();
-		
+		$input["where"] = array('career_id'=>$id);
 		//lấy ra danh sách việc làm trong danh mục
 		$this->load->library('pagination');
 		//lấy ra tổng tất cả các sản phẩm
@@ -50,13 +50,25 @@ Class Career extends MY_Controller{
 		$segment = $this->uri->segment(4);
 		$segment = intval($segment);
 
-		$input["where"] = array('career_id'=>$id);
+		
 		if($this->input->post()){
 		$categoryid = $this->input->post('categoryid');
 		$input['where'] = array('career_id'=>$categoryid);
 		}
 		
+
+			$select = $this->input->post('orderlist');
+			if($select==1){
+				$input['order'] = array('salary_id','desc');
+			}
+			if($select==2){
+				$input['order'] = array('salary_id','asc');
+			}
+			if($select==3){
+				$input['order'] = array('id','asc');
+			}
 		
+
 		$input["limit"] = array($config['per_page'], $segment);
 		
 		$list = $this->recruitment_model->get_list($input);
@@ -65,6 +77,9 @@ Class Career extends MY_Controller{
 		//danh mục việc làm
 		$careerlist = $this->career_model->get_list();
 		$this->data['careerlist'] = $careerlist;
+		$this->load->model('job_type_model');
+		$jobtype = $this->job_type_model->get_list();
+		$this->data['jobtype'] = $jobtype;
 
 		//hiển thị ra view
 		$this->data['temp'] = "site/career/index";

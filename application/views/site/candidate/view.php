@@ -38,18 +38,22 @@
                                     <input type="hidden" name="mt">
                                     <div class="profile-info profile-section flex no-column no-wrap">
                                         <div class="profile-picture">
-                                            <img src="<?php echo base_url('uploads/candidate/' . $user_info->image); ?>" alt="candidate-picture" class="img-responsive">
+                                            <?php if($user_info->image!=''): ?>
+                                            <img src="<?php echo base_url('uploads/candidate/'.$user_info->image); ?>" alt="" class="img-responsive">
+                                        <?php else: ?>
+                                            <img src="<?php echo public_url('site/images/user.png'); ?>" alt="" class="img-responsive">
+                                        <?php endif; ?>
                                         </div> <!-- end .user-picture -->
                                         <div class="profile-meta">
                                             <h4 class="dark"><?php echo $user_info->full_name; ?></h4>
                                             <p><?php echo $user_info->title; ?></p>
                                             <div class="profile-contact flex items-center no-wrap no-column">
-                                                <h6 class="contact-location"><?php echo $user_info->address; ?></span></h6>
-                                                <h6 class="contact-phone"><?php echo $user_info->phone; ?></h6>
-                                                <h6 class="contact-email"><?php echo $user_info->email; ?></h6>
+                                                <p class="contact-location"><?php echo $user_info->address; ?></span></p>
+                                                <p class="contact-phone"><?php echo $user_info->phone; ?></p>
+                                                <p class="contact-email"><?php echo $user_info->email; ?></p>
                                             </div> <!-- end .profile-contact -->
                                             <ul class="list-unstyled flex no-column">
-                                                <li><a href="<?php echo base_url('candidate/intallcv'); ?>" target="_blank" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><i class="ion-clipboard"></i>Tải hồ sơ</a></li>
+                                                <li><a href="<?php echo base_url('ung-vien/ho-so-mau'); ?>" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><i class="ion-clipboard"></i>Tải hồ sơ</a></li>
 
                                             </ul> <!-- end .social-icons -->
                                         </div> <!-- end .profile-meta -->
@@ -58,7 +62,7 @@
                                     <div class="divider"></div>
 
                                     <div class="profile-about profile-section">
-                                        <h3 class="dark profile-title">Thông tin chung<span><a data-toggle="collapse" data-target="#pn_description" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
+                                        <h3 class="dark profile-title">Mục tiêu nghề nghiệp<span><a data-toggle="collapse" data-target="#pn_description" style="cursor: pointer;"><i class="ion-edit"></i></a></span></h3>
                                         <?php if (empty($user_info->description)) : ?>
                                             <p>Giới thiệu bản thân và miêu tả mục tiêu nghề nghiệp của bạn.</p>
                                         <?php else: ?>

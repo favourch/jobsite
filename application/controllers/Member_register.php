@@ -35,6 +35,7 @@ Class member_register extends MY_Controller{
 			$this->form_validation->set_rules('birthday','Ngày sinh','required');
 			$this->form_validation->set_rules('password','Mật khẩu','required|min_length[6]');
 			$this->form_validation->set_rules('repassword','Nhập lại mật khẩu','matches[password]');
+			$activation=md5($email.time());
 			if($this->form_validation->run()){
 				$name = $this->input->post('name');
 				$email = $this->input->post('email');
@@ -54,7 +55,8 @@ Class member_register extends MY_Controller{
 					'city_id'=>$city,
 					'gender' => $gender,
 					'birthday' => date("Y-m-d 00:00:00", strtotime($birthday)),
-					'created_date' =>date('Y-m-d H:i:s')
+					'created_date' =>date('Y-m-d H:i:s'),
+					'token_key' => $activation
 					);
 		
 			$this->member_candidate_model->create($data);
@@ -65,5 +67,7 @@ Class member_register extends MY_Controller{
 	$this->data['temp'] = 'site/member_register/register';
 	$this->load->view('site/layout',$this->data);
 }
+
+
 
 }//end class

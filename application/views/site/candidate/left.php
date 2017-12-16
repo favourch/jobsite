@@ -2,17 +2,17 @@
 						<div class="left-sidebar-menu">							
 							<ul class="nav nav-pills nav-stacked">
 								<li class="heading">Quản lý tài khoản</li>
-
 							    <li><a href="<?php echo base_url('ung-vien'); ?>">Hồ sơ của tôi</a></li>
 							    <li><a href="<?php echo base_url('ung-vien/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
+							    <li><a href="<?php echo base_url('ung-vien/ho-so-mau'); ?>">Tải hồ sơ mẫu <i class="ion-archive"></i></a></li>
 							    <li class="nav-divider"></li>
 							   	<li class="heading">Việc làm của tôi</li>
 							   	<li><a href="<?php echo base_url('ung-vien/viec-lam-da-luu'); ?>">Việc làm đã lưu</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a href="<?php echo base_url('ung-vien/viec-lam-da-ung-tuyen') ?>">Việc làm đã ứng tuyển</a> </li>
 								<li><a href="<?php echo base_url('ung-vien/nha-tuyen-dung-xem-ho-so'); ?>">Nhà tuyển dụng xem hồ sơ</a></li>
 							    <li class="nav-divider"></li>
-							    <li><a href="<?php echo base_url('ung-vien/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('ung-vien/dang-xuat'); ?>">Đăng xuất</a></li>
+							    <li><a href="<?php echo base_url('ung-vien/doi-mat-khau'); ?>">Đổi mật khẩu <i class="ion-android-lock"></i></a></li>
+							    <li><a href="<?php echo base_url('ung-vien/dang-xuat'); ?>">Đăng xuất <i class="ion-ios-redo"></i></a></li>
 							</ul>
 
 <script type="text/javascript">

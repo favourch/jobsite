@@ -5,6 +5,34 @@ Class Candidate extends MY_Controller{
 		$this->load->model('member_candidate_model');
 	}
 
+	//kích hoạt tài khoản
+	function activation(){
+		if(!empty($_GET['code']) && isset($_GET['code']))
+		{
+		$code=$_GET['code'];
+		$input = array();
+		$where = array('token_key'=>$code);
+		$user = $this->member_candidate_model->get_info_rule($where);
+		$id = $user->id;
+		if($user){
+			$data = array(
+				'status'=>1
+				);
+			$this->member_candidate_model->update($id,$data);
+			$this->session->set_userdata('candidate_id_login', $id);
+			redirect(base_url('candidate/activation'));
+		}
+		else{
+			redirect();
+		}
+		}
+
+
+		$this->data['temp'] = 'site/candidate/activesuccess';
+		$this->load->view('site/layout',$this->data);
+
+	}
+
 	function check_login(){
 		$user = $this->_get_userinfo();
 		if($user){
@@ -41,6 +69,13 @@ Class Candidate extends MY_Controller{
 		$where = array('email'=>$email, 'password'=>$password);
 		$user = $this->member_candidate_model->get_info_rule($where);
 		return $user;
+	}
+
+	//mẫu hồ sơ
+	function cvonline(){
+
+		$this->data['temp'] = 'site/candidate/cvonline';
+		$this->load->view('site/layout',$this->data);
 	}
 
 	//việc làm đã lưu
@@ -463,8 +498,6 @@ Class Candidate extends MY_Controller{
         $this->load->library('pdf');
         $pdf = $this->pdf->load();
         // retrieve data from model
-
-
         // boost the memory limit if it's low ;)
         //$html['temp'] = 'site/candidate/intallcv';
         // render the view into HTML
@@ -483,6 +516,8 @@ Class Candidate extends MY_Controller{
 
         $this->load->model('work_experience_model');
         $data['listexperience'] = $this->work_experience_model->get_list($input);
+        $this->load->model('skill_model');
+        $data['skilllist'] = $this->skill_model->get_list($input);
 
         //$this->$data['temp'] = 'site/candidate/intallcv';
        // $this->load->view('site/layout', $this->data);

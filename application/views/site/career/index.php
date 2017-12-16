@@ -27,20 +27,23 @@
 								<h6>Tất cả <span><?php echo $total_row; ?></span>Việc làm<a href="#0"> <?php echo $category->name; ?></a> Tại English center work</h6>								
 							</div> <!-- end .left-side -->								
 							<div class="right-side-inner">
+								<script type="text/javascript">
+									function selectsearch(){
+										fname = document.getElementById('frmlist');
+										document.frmlist.submit();
+									}
+								</script>
 								<div class="sort-by dropdown flex no-wrap no-column items-center">
-									<h6>Sắp xếp theo</h6>
-									<button class="button dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						       			Mặc định
-						    		<i class="ion-ios-arrow-down"></i>
-						 			</button>
-									<ul class="dropdown-menu" aria-labelledby="sort-by">
-									    <li><a href="#">Featured</a></li>
-									    <li><a href="#">Top candidates</a></li>
-									    <li><a href="#">Price, high to low</a></li>							    
-									    <li><a href="#">Alphabetically, A-Z</a></li>
-									    <li><a href="#">Alphabetically, Z-A</a></li>
-									    <li><a href="#">Best sellers</a></li>
-								  	</ul> <!-- end .dropdown-menu -->
+								
+									<h6 style="padding-right: 10px;">Sắp xếp theo</h6>
+									<form method="post" name="frmlist" id="frmlist">
+									<select class="" name="orderlist" id="selecte" onchange="return selectsearch();">
+									    <option value="">Mặc định</option>
+									    <option value="1">Lương ( Cao đến thấp )</option>
+									    <option value="2">Lương ( Thấp đến cao )</option>	
+									    <option value="3">Theo ngày</option>					    
+								  	</select> <!-- end .dropdown-menu -->
+								  	</form>
 								</div> <!-- end .sort-by-drop-down -->	
 							</div> <!-- end .right-side -->
 						</div> <!-- end .sort-by-wrapper -->
@@ -176,33 +179,23 @@ $(".job-category").on('change', function (e) {
 						</div> <!-- end .job-categories-widget -->
 
 						<div class="job-status-widget jobs-widget">
-							<h6>Categories</h6>
+							<h6>Loại công việc</h6>
 					        <ul class="job-status-wrapper list-unstyled">
+			                    <?php foreach($jobtype as $row): ?>
 			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox1" type="checkbox">
-			                        <label for="job-status-checkbox1">Full Time<span>4,286 Jobs</span></label>
+			                        <input id="job-status-checkbox<?php echo $row->id; ?>" type="checkbox">
+			                        <label for="job-status-checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>4,286 Jobs</span></label>
 			                    </li>
-
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox2" type="checkbox">
-			                        <label for="job-status-checkbox2">Part time<span>6,883 Jobs</span></label>
-			                    </li>
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox3" type="checkbox">
-			                        <label for="job-status-checkbox3">Freelancer<span>1,724 Jobs</span></label>
-			                    </li>
-
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox4" type="checkbox">
-			                        <label for="job-status-checkbox4">Internship<span>876 Jobs</span></label>
-			                    </li>
+			                <?php endforeach; ?>
+			                    
 		                    </ul> <!-- end .job-status-wrapper -->
 						</div> <!-- end .job-status-widget -->
 
 						<div class="job-locations-widget jobs-widget">
-							<h6>Locations</h6>
+							<h6>Địa điểm làm việc</h6>
 					        <ul class="job-locations list-unstyled">
-			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
+			                   
+			                    <li class="checkbox flex space-between items-center no-column no-wrap">
 			                        <input id="job-locations-checkbox1" type="checkbox">
 			                        <label for="job-locations-checkbox1">New York<span>7,286 Jobs</span></label>
 			                        <span><i class="ion-android-add"></i></span>
@@ -247,9 +240,9 @@ $(".job-category").on('change', function (e) {
 						</div> <!-- end .job-locations-widget -->
 
 						<div class="cta-job-widget">
-							<h5 class="dark">Need a job?</h5>
-							<h3 class="dark">Join our community and search for a better job</h3>
-							<a href="#0">Get started now <span><i class="ion-ios-arrow-thin-right"></i></span></a>
+							<h5 class="dark">Cần việc làm?</h5>
+							<h3 class="dark">Đăng ký ngay để tìm kiếm một công việc tốt nhất</h3>
+							<a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký <span><i class="ion-ios-arrow-thin-right"></i></span></a>
 						</div> <!-- end .cta-job-widget -->
 					</div> <!-- end .right-side -->
 				</div> <!-- end .jobs-listing-wrapper -->

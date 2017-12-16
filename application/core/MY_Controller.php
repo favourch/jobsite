@@ -26,7 +26,11 @@ Class MY_Controller extends CI_Controller{
 			
 			default:
 				{
-					
+					//support hotline
+					$this->load->model('support_model');
+					$input['where'] = array('status'=>1);
+					$supportlist = $this->support_model->get_list($input);
+					$this->data['supportlist'] = $supportlist;
 					//load menu trang chủ
 					$this->load->model('menu_model');
 					$this->load->model('catnews_model');

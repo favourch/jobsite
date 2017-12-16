@@ -7,10 +7,10 @@
 							<h1>Đăng nhập</h1>
 							<p class="ultra-light">Mời bạn đăng nhập vào hệ thống website để tạo và quản lý hồ sơ, thu hút các nhà tuyển dụng tìm kiếm đến bạn</p>
 							<div class="follow-us flex no-column items-center">
-								<h6>Follow us via:</h6>
-								<ul class="list-unstyled social-icons flex no-column">
-									<li><a href="#0"><i class="ion-social-twitter"></i></a></li>
-									<li><a href="#0"><i class="ion-social-facebook"></i></a></li>
+								<h6>Chưa có tài khoản</h6>
+								<ul class="list-unstyled flex no-column">
+									<li><a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký</a></li>
+									<li><a href="#0"><i class="ion-ios-personadd"></i></a></li>
 								</ul> <!-- end .social-icons -->
 							</div> <!-- end .follow-us -->
 						</div> <!-- end .left -->
@@ -18,19 +18,19 @@
 						<div class="right">
 
 							<form action="<?php echo base_url('candidate/login'); ?>" method="post" id="contact-form" class="contact-form">
-							<?php echo form_error('login'); ?>
+							<span style="color: #c00; font-size: 12px;"><?php echo form_error('login'); ?></span>
 								<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
-										<p class="label">Your Email*</p>
-										<input type="email" name="email" placeholder="Enter your email"  value="">
+										<p class="label">Email của bạn*</p>
+										<input type="email" name="email" placeholder=""  value="">
 										<span style="color: #c00; font-size: 12px;"><?php echo form_error('email'); ?></span>
 									</div> <!-- end .form-group -->
 								
 								</div> <!-- end .form-group-wrapper -->
 								<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
-										<p class="label">Your Password*</p>
-										<input type="password" name="password" placeholder="Enter your password" >
+										<p class="label">Mật khẩu*</p>
+										<input type="password" name="password" placeholder="" >
 										<span style="color: #c00; font-size: 12px;"><?php echo form_error('password'); ?></span>
 									</div> <!-- end .form-group -->
 								</div>
