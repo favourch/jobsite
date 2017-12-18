@@ -50,9 +50,41 @@ Class Candidatelist extends MY_Controller{
 		else{
 			$this->data['categories'] = $categories;
 		}
+
+
 		$this->load->library('pagination');
+
 		$input = array();
 		$input['where'] = array("career_id"=>$id);
+
+		if($this->input->post()){
+			$literacy_id = $this->input->post('literacy_id');
+			$level_id = $this->input->post('level_id');
+			$salary_id = $this->input->post('salary_id');
+			$experience_id = $this->input->post('experience_id');
+			if($literacy_id){
+				$input['where'] = array('literacy_id'=>$literacy_id);
+			}
+			if($level_id){
+				$input['where'] = array('level_id'=>$level_id);
+			}
+			if($salary_id){
+				$input['where'] = array('salary_id'=>$salary_id);
+			}
+			if($experience_id){
+				$input['where'] = array('experience_id'=>$experience_id);
+			}
+			if($literacy_id && $level_id){
+				$input['where'] = array('level_id'=>$level_id, 'literacy_id'=>$literacy_id);
+			}
+			if($literacy_id && $level_id && $salary_id){
+				$input['where'] = array('level_id'=>$level_id, 'literacy_id'=>$literacy_id, 'salary_id'=>$salary_id);
+			}
+			if($literacy_id && $level_id && $salary_id && $experience_id){
+				$input['where'] = array('level_id'=>$level_id, 'literacy_id'=>$literacy_id, 'salary_id'=>$salary_id, 'experience_id'=>$experience_id);
+			}
+
+		}
 
 		$total_row = $this->member_candidate_model->get_total($input);
 		$this->data['total_row'] = $total_row;

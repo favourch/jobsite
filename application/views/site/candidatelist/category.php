@@ -69,44 +69,36 @@
 							
 							<div class="filter categories-filter">
 								<h6 class="filter-widget-title">Tìm kiếm hồ sơ ứng viên</h6>
+								<form action="" method="post">
 								<div class="form-group">
 									<select class="form-control" id="categories-filter" name="literacy_id">
-									    <option value="" selected disabled>Trình độ học vấn</option>
+									    <option value="">Trình độ học vấn</option>
 									    <?php foreach($listracy as $row): ?>
-									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									    <option value="<?php echo $row->id; ?>" <?php echo ($row->id == set_value('literacy_id')) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
 									<?php endforeach; ?>
 									</select>
 								</div> <!-- end .form-group -->
 								<div class="form-group">
-									<select class="form-control" id="categories-filter">
-									    <option value="" selected disabled>Trình độ ngoại ngữ</option>
-									    <option>Featured Developer</option>
-									    <option>Hourly Rate</option>
-									    <option>Location</option>
-									    <option>Skills</option>
-									</select>
-								</div> <!-- end .form-group -->
-								<div class="form-group">
 									<select class="form-control" id="categories-filter" name="level_id">
-									    <option value="" selected disabled>Vị trí mong muốn</option>
+									    <option value="" selected>Vị trí mong muốn</option>
 									    <?php foreach($levelist as $row): ?>
-									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									    <option value="<?php echo $row->id; ?>" <?php echo ($row->id == set_value('level_id')) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
 									<?php endforeach; ?>
 									</select>
 								</div> <!-- end .form-group -->
 								<div class="form-group">
 									<select class="form-control" id="categories-filter" name="salary_id">
-									    <option value="" selected disabled>Mức lương mong muốn</option>
+									    <option value="" selected>Mức lương mong muốn</option>
 									    <?php foreach($listsalary as $row): ?>
-									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									    <option value="<?php echo $row->id; ?>" <?php echo ($row->id == set_value('salary_id')) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
 									<?php endforeach; ?>
 									</select>
 								</div> <!-- end .form-group -->
 								<div class="form-group">
 									<select class="form-control" id="categories-filter" name="experience_id">
-									    <option value="" selected disabled>Chọn mức kinh nghiệm</option>
+									    <option value="" selected>Chọn mức kinh nghiệm</option>
 									    <?php foreach($listex as $row): ?>
-									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									    <option value="<?php echo $row->id; ?>" <?php echo ($row->id == set_value('experience_id')) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
 									<?php endforeach; ?>
 									</select>
 								</div> <!-- end .form-group -->
@@ -114,7 +106,7 @@
 									<input type="submit" class="button" value="Tìm ứng viên" style="width: 100%;">
 								</div>
 							</div> <!-- end .categories-filter -->
-
+							</form>
 						</div> <!-- end .right-sidebar -->
 					</div> <!-- end .page-content -->
 				</div> <!-- end .container -->
