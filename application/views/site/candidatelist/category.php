@@ -5,11 +5,10 @@
 					<p class="breadcrumb-menu">
 						<a href="#0"><i class="ion-ios-home"></i></a>
 						<i class="ion-ios-arrow-right arrow-right"></i>
-						<a href="#0">Companies</a>
+						<a href="#0">Tìm kiếm ứng viên</a>
 						<i class="ion-ios-arrow-right arrow-right"></i>
-						<a href="#0">Browse candidates</a>
+						<a href="#0"><?php echo $categories->name; ?></a>
 					</p> <!-- end .breabdcrumb-menu -->
-					<h2 class="breadcrumb-title">Showing all candidates</h2>
 				</div> <!-- end .container -->
 			</div> <!-- end .inner -->
 		</div> <!-- end .section -->
@@ -21,163 +20,99 @@
 					<div class="page-content flex no-wrap space-between">
 						<div class="left-content">
 							<div class="top flex space-between no-wrap items-center">
-								<h6>showing<span>1-5</span>of<span>683,092</span>candidates</h6>
+								<h6>Có tất cả <span><?php echo $total_row; ?></span>Ứng viên cho danh mục <span><?php echo $categories->name; ?></span></h6>
 								<div class="spacer-xs-m"></div>
-								<div class="sort-by dropdown flex no-wrap no-column items-center">
-									<h6>sort by</h6>
-									<button class="button dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							        Default
-							    	<i class="ion-ios-arrow-down"></i>
-							 		</button>
-									<ul class="dropdown-menu" aria-labelledby="sort-by">
-									    <li><a href="#">Featured</a></li>
-									    <li><a href="#">Top candidates</a></li>
-									    <li><a href="#">Price, high to low</a></li>							    
-									    <li><a href="#">Alphabetically, A-Z</a></li>
-									    <li><a href="#">Alphabetically, Z-A</a></li>
-									    <li><a href="#">Best sellers</a></li>
-								  	</ul> <!-- end .dropdown-menu -->
-								</div> <!-- end .sort-by -->
+								
 							</div> <!-- end .top -->
 
 							<div class="candidates-list">
+								
+							<?php foreach($listcandidate as $row): ?>
+							<?php $cityinfo = $this->city_model->get_info($row->city_id); ?>
+							<?php $experience = $this->require_experience_model->get_info($row->experience_id); ?>
+							<?php $level_info = $this->level_model->get_info($row->level_id); ?>
 								<div class="candidate flex no-wrap no-column">
 									<div class="candidate-image">
-										<img src="images/candidate01.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate01.jpg" alt="candidate-image" class="img-responsive">
+			<?php if($row->image!=''): ?>
+			<img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="" class="img-responsive">
+		<?php else: ?>
+			<img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="" class="img-responsive">
+		<?php endif; ?>
 									</div> <!-- end .candidate-image -->
 									<div class="candidate-info">
-										<h4 class="candidate-name">Richard Thomas</h4>
-										<h5 class="candidate-designation">UI/UX Designer</h5>
-										<p class="candidate-description ultra-light">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
+										<h4 class="candidate-name"><?php echo $row->title; ?>
+									<span style="float: right; color: #fc205b"><?php echo $experience->name; ?></span>
+										</h4>
+								<h5 class="candidate-designation"><?php echo $row->full_name; ?> <span style="float: right;"><?php echo format_date($row->modified_date); ?></span></h5>
+										<p class="candidate-description ultra-light"><?php echo sub($row->description,200); ?> ...</p>
 										<div class="candidate-info-bottom flex no-column items-center">
-											<h6 class="candidate-location"><span>Park ave,</span>nyc, usa</h6>
-											<h6 class="hourly-rate"><span>$45</span>/Hour</h6>
-											<ul class="list-unstyled candidate-skills flex no-column items-center">
-												<li><a href="#0" class="button">PS</a></li>
-												<li><a href="#0" class="button">AI</a></li>
-												<li><a href="#0" class="button">HTML/CSS</a></li>
-											</ul> <!-- end .candiate-skills -->
+									<h5 class="candidate-location"><span><?php echo $cityinfo->name; ?></span></h5>
+								<h5 class="hourly-rate">Chức vụ :<span> <?php echo $level_info->name; ?></span></h5>
+											
 										</div> <!-- end .candidate-info-bottom -->
 									</div> <!-- end .candidate-info -->
 								</div> <!-- end .candidate -->
 
 								<div class="spacer-xs"></div>
+							<?php endforeach; ?>
 
-								<div class="candidate flex no-wrap no-column">
-									<div class="candidate-image">
-										<img src="images/candidate02.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate02.jpg" alt="candidate-image" class="img-responsive">
-									</div> <!-- end .candidate-image -->
-									<div class="candidate-info">
-										<h4 class="candidate-name">Asron Bailey</h4>
-										<h5 class="candidate-designation">Sales/Marketing</h5>
-										<p class="candidate-description ultra-light">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
-										<div class="candidate-info-bottom flex no-column items-center">
-											<h6 class="candidate-location"><span>Park ave,</span>nyc, usa</h6>
-											<h6 class="hourly-rate"><span>$45</span>/Hour</h6>
-										</div> <!-- end .candidate-info-bottom -->
-									</div> <!-- end .candidate-info -->
-								</div> <!-- end .candidate -->
-								<div class="spacer-xs"></div>
-
-								<div class="candidate flex no-wrap no-column">
-									<div class="candidate-image">
-										<img src="images/candidate03.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate03.jpg" alt="candidate-image" class="img-responsive">
-									</div> <!-- end .candidate-image -->
-									<div class="candidate-info">
-										<h4 class="candidate-name">Tammy Dixon</h4>
-										<h5 class="candidate-designation">Copywriter</h5>
-										<p class="candidate-description ultra-light">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
-										<div class="candidate-info-bottom flex no-column items-center">
-											<h6 class="candidate-location"><span>Park ave,</span>nyc, usa</h6>
-											<h6 class="hourly-rate"><span>$45</span>/Hour</h6>
-											<ul class="list-unstyled candidate-skills flex no-column items-center">
-												<li><a href="#0" class="button">MS WORD</a></li>
-											</ul> <!-- end .candiate-skills -->
-										</div> <!-- end .candidate-info-bottom -->
-									</div> <!-- end .candidate-info -->
-								</div> <!-- end .candidate -->
-
-								<div class="spacer-xs"></div>
-
-								<div class="candidate flex no-wrap no-column">
-									<div class="candidate-image">
-										<img src="images/candidate04.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate04.jpg" alt="candidate-image" class="img-responsive">
-									</div> <!-- end .candidate-image -->
-									<div class="candidate-info">
-										<h4 class="candidate-name">Brandon Reynolds</h4>
-										<h5 class="candidate-designation">Web Developer</h5>
-										<p class="candidate-description ultra-light">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
-										<div class="candidate-info-bottom flex no-column items-center">
-											<h6 class="candidate-location"><span>Park ave,</span>nyc, usa</h6>
-											<h6 class="hourly-rate"><span>$45</span>/Hour</h6>
-											<ul class="list-unstyled candidate-skills flex no-column items-center">
-												<li><a href="#0" class="button">HTML/CSS</a></li>
-												<li><a href="#0" class="button">PHP</a></li>
-												<li><a href="#0" class="button">Jquery</a></li>
-											</ul> <!-- end .candiate-skills -->
-										</div> <!-- end .candidate-info-bottom -->
-									</div> <!-- end .candidate-info -->
-								</div> <!-- end .candidate -->
-
-								<div class="spacer-xs"></div>
-
-								<div class="candidate flex no-wrap no-column">
-									<div class="candidate-image">
-										<img src="images/candidate05.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/candidate05.jpg" alt="candidate-image" class="img-responsive">
-									</div> <!-- end .candidate-image -->
-									<div class="candidate-info">
-										<h4 class="candidate-name">Kathy Crawford</h4>
-										<h5 class="candidate-designation">Graphic Designer</h5>
-										<p class="candidate-description ultra-light">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
-										<div class="candidate-info-bottom flex no-column items-center">
-											<h6 class="candidate-location"><span>Park ave,</span>nyc, usa</h6>
-											<h6 class="hourly-rate"><span>$45</span>/Hour</h6>
-											<ul class="list-unstyled candidate-skills flex no-column items-center">
-												<li><a href="#0" class="button">PS</a></li>
-												<li><a href="#0" class="button">AI</a></li>
-											</ul> <!-- end .candiate-skills -->
-										</div> <!-- end .candidate-info-bottom -->
-									</div> <!-- end .candidate-info -->
-								</div> <!-- end .candidate -->
 							</div> <!-- end .candidates-list -->
 
 							<div class="spacer-md"></div>
 
-							<div class="jobpress-custom-pager list-unstyled flex space-between no-column items-center">
-								<a href="#0" class="button"><i class="ion-ios-arrow-left"></i>Prev</a>
-								<ul class="list-unstyled flex no-column items-center">
-									<li><a href="#0">1</a></li>
-									<li><a href="#0">2</a></li>
-									<li><a href="#0">3</a></li>
-									<li><a href="#0">4</a></li>
-									<li><a href="#0">5</a></li>									
-								</ul>
-								<a href="#0" class="button">Next<i class="ion-ios-arrow-right"></i></a>
-							</div> <!-- end .jobpress-custom-pager -->
+						 <div class="jobpress-custom-pager list-unstyled flex space-center no-column items-center">
+										<?php echo $this->pagination->create_links(); ?>
+						</div> <!-- end .jobpress-custom-pager -->
 
 						</div> <!-- end .left-content -->
 						<div class="right-sidebar">
-							<div class="filter location-filter">
-								<h6 class="filter-widget-title">Filter by location</h6>
-									<input type="text" value="New York" data-role="tagsinput" />
-							</div> <!-- end .location-filter -->
-
-							<div class="filter skill-filter">
-								<h6 class="filter-widget-title">Filter by skill</h6>
-									<input type="text" value="HTML" data-role="tagsinput" />
-							</div> <!-- end .skill-filter -->
-
+							
 							<div class="filter categories-filter">
-								<h6 class="filter-widget-title">Filter by categories</h6>
+								<h6 class="filter-widget-title">Tìm kiếm hồ sơ ứng viên</h6>
+								<div class="form-group">
+									<select class="form-control" id="categories-filter" name="literacy_id">
+									    <option value="" selected disabled>Trình độ học vấn</option>
+									    <?php foreach($listracy as $row): ?>
+									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									<?php endforeach; ?>
+									</select>
+								</div> <!-- end .form-group -->
 								<div class="form-group">
 									<select class="form-control" id="categories-filter">
-									    <option value="" selected disabled>Choose Categories</option>
+									    <option value="" selected disabled>Trình độ ngoại ngữ</option>
 									    <option>Featured Developer</option>
 									    <option>Hourly Rate</option>
 									    <option>Location</option>
 									    <option>Skills</option>
 									</select>
 								</div> <!-- end .form-group -->
+								<div class="form-group">
+									<select class="form-control" id="categories-filter" name="level_id">
+									    <option value="" selected disabled>Vị trí mong muốn</option>
+									    <?php foreach($levelist as $row): ?>
+									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									<?php endforeach; ?>
+									</select>
+								</div> <!-- end .form-group -->
+								<div class="form-group">
+									<select class="form-control" id="categories-filter" name="salary_id">
+									    <option value="" selected disabled>Mức lương mong muốn</option>
+									    <?php foreach($listsalary as $row): ?>
+									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									<?php endforeach; ?>
+									</select>
+								</div> <!-- end .form-group -->
+								<div class="form-group">
+									<select class="form-control" id="categories-filter" name="experience_id">
+									    <option value="" selected disabled>Chọn mức kinh nghiệm</option>
+									    <?php foreach($listex as $row): ?>
+									    <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+									<?php endforeach; ?>
+									</select>
+								</div> <!-- end .form-group -->
+								<div class="form-group">
+									<input type="submit" class="button" value="Tìm ứng viên" style="width: 100%;">
+								</div>
 							</div> <!-- end .categories-filter -->
 
 						</div> <!-- end .right-sidebar -->

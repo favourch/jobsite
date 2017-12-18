@@ -2835,15 +2835,17 @@ li.active{
 }
 .candidate .candidate-info {
 	margin-bottom: 15px;
+	width: 100%;
 }
 .candidate-info .candidate-name {
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
+    color: #1790d4;
+    font-weight: bold;
     margin: 0;
 }
 .candidate-info .candidate-designation {
     color: #627199;
-    font-weight: 400;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 .candidate-info .candidate-info-bottom {
     border-top: 1px solid #ededed;
@@ -2851,12 +2853,13 @@ li.active{
     padding-top: 20px;
 }
 .candidate-info-bottom .candidate-location>span, .candidate-info-bottom .hourly-rate>span {
-	color: #627199;
+	color: #003cd4;
 	padding-right: 2px;
 }
 .candidate-info-bottom .candidate-location, .candidate-info-bottom .hourly-rate {
 	position: relative;
 	padding-right: 8px;
+	text-transform: none;
 	color: #a0a7ba;
 }
 .candidate-info-bottom .candidate-location {
@@ -3041,7 +3044,6 @@ ul.list-unstyled li{
 	padding-bottom: 10px;
 }
 ul.list-unstyled li a{
-	color: #1790d4;
 	font-weight: bold;
 }
 ul.list-unstyled li a span{
@@ -3050,6 +3052,9 @@ ul.list-unstyled li a span{
 .item-text-content{
 	background: #fff;
 	padding: 5px;
+}
+#categories-filter{
+	margin-bottom: 10px;
 }
 @media all and (max-width: 992px) {
 	.categories-icon-row .item {

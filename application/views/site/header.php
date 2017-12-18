@@ -1,7 +1,7 @@
             <div class="container clearfix">
                 <div class="header-inner flex space-between items-center">
                     <div class="left">
-                        <div class="logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo public_url(); ?>/site/images/logo.png" alt="" class="img-responsive"></a></div> 
+                        <div class="logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo public_url(); ?>/site/images/logowhite.jpg" alt="" class="img-responsive"></a></div> 
                     </div> <!-- end .left -->               
                     <div class="right flex space-between no-column items-center">
                         <div class="navigation">

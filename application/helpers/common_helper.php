@@ -66,4 +66,7 @@ function date_to_int($tr)
 	}
 	return $html;
 	}
-		
+	
+	   function sub($str,$num){
+	 	return mb_substr(strip_tags($str), 0, $num);
+		}

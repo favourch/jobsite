@@ -60,38 +60,19 @@
 
 								<ul class="list-unstyled">
 									<?php foreach($careerlist as $row): ?>
-									<li class="col-lg-3"><a href="#0"><?php echo $row->name; ?> <span>( 20 )</span></a></li>
-								<?php endforeach; ?>
-									
-								</ul> <!-- end .categories-column -->
-
-							
-							</div> <!-- end .categories-columns-wrapper -->
-						</div> <!-- end .categories-list -->
-
-						<div class="spacer-md"></div>
-
-						<div class="categories-list">
-							<div class="categories-list-heading">
-								<h4 class="dark">Tìm hồ sơ ứng viên theo địa điểm</span></h4>
-							</div> <!-- .categories-list-heading -->
-							<div class="categories-columns-wrapper flex no-wrap space-between">
-
-								<ul class="list-unstyled">
-									<?php foreach($citylist as $row): ?>
-									<?php $input['where'] = array('city_id'=>$row->id); ?>
+									<?php $input['where'] = array('career_id'=>$row->id); ?>
 									<?php $total_candi = $this->member_candidate_model->get_total($input); ?>
-									<li class="col-lg-3"><a href="#0"><?php echo $row->name; ?> <span>( <?php echo $total_candi; ?> )</span></a></li>
+									<li class="col-lg-3">
+									<a href="<?php echo base_url('candidatelist/category/'.$row->id); ?>">
+									<?php echo $row->name; ?> <span>( <?php echo $total_candi; ?> )</span></a></li>
 								<?php endforeach; ?>
 									
 								</ul> <!-- end .categories-column -->
-
-								
-
 							</div> <!-- end .categories-columns-wrapper -->
 						</div> <!-- end .categories-list -->
 
 						<div class="spacer-md"></div>
+
 
 					</div> <!-- end .categories-list-wrapper -->
 				</div> <!-- end .container -->

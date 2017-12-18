@@ -217,7 +217,7 @@
                         <div class="logo-grid-row flex space-between">
                            <?php foreach($partners as $row): ?>
                             <div class="logo-item">
-                               <a href="<?php echo $row->link; ?>" target="_blank"> <img src="<?php echo base_url('uploads/partner/'.$row->image); ?>"  alt="" class="img-responsive self-center">
+                               <a href="<?php echo $row->link; ?>" target="_blank"> <img src="<?php echo base_url('uploads/partner/'.$row->image); ?>"  alt="" title="<?php echo $row->name; ?>" class="img-responsive self-center">
                             </div> <!-- end .logo-item -->
                         <?php endforeach; ?>
                            
