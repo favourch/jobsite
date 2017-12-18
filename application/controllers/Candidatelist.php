@@ -118,4 +118,58 @@ Class Candidatelist extends MY_Controller{
 		$this->data['temp'] = "site/candidatelist/category";
 		$this->load->view("site/layout", $this->data);
 	}
+
+	function view(){
+		$id = $this->uri->rsegment(3);
+		$id = intval($id);
+		$candidate = $this->member_candidate_model->get_info($id);
+		$this->data['candidate'] = $candidate;
+
+		$this->load->model('skill_model');
+		$input['where'] = array('candidate_id'=>$id);
+		$skill = $this->skill_model->get_list($input);
+		$this->data['skill'] = $skill;
+
+		$this->load->model('work_experience_model');
+		$experience = $this->work_experience_model->get_list($input);
+		$this->data['experience'] = $experience;
+
+		$this->load->model('certificate_model');
+		$certificare = $this->certificate_model->get_list($input);
+		$this->data['certificare'] = $certificare;
+
+		$this->load->model('literacy_model');
+		$litid = $candidate->literacy_id;
+		$literacy = $this->literacy_model->get_info($litid);
+		$this->data['literacy'] = $literacy;
+
+		$this->load->model('require_experience_model');
+		$requireex = $this->require_experience_model->get_info($candidate->experience_id);
+		$this->data['requireex'] = $requireex;
+
+		$this->load->model('city_model');
+		$city = $this->city_model->get_info($candidate->city_id);
+		$this->data['city'] = $city;
+
+		$this->load->model('career_model');
+		$career = $this->career_model->get_info($candidate->career_id);
+		$this->data['career'] = $career;
+
+		$this->load->model('salary_model');
+		$salary = $this->salary_model->get_info($candidate->salary_id);
+		$this->data['salary'] = $salary;
+
+		$this->load->model('level_model');
+		$level = $this->level_model->get_info($candidate->level_id);
+		$this->data['level'] = $level;
+
+		$this->load->model('job_type_model');
+		$jobtype = $this->job_type_model->get_info($candidate->job_type);
+		$this->data['jobtype'] = $jobtype;
+
+
+		$this->data['temp'] = "site/candidatelist/view";
+		$this->load->view("site/layout", $this->data);
+	}
+
 }

@@ -5815,7 +5815,7 @@ label>sup, .label>sup {
 }
 .job-post-top .job-post-top-left img {
 	border-radius: 3px;
-    min-width: 70px;	
+    max-width: 80px;	
 }
 .job-post-top .job-post-top-right>h4{
     margin: 0;
@@ -5835,6 +5835,8 @@ label>sup, .label>sup {
 .job-post-bottom h4 {
     font-weight: 700;
     margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #0091d1;
 }
 .job-post-bottom .job-post-nested-list {
 	margin-left: 30px;
@@ -5854,6 +5856,11 @@ label>sup, .label>sup {
 }
 .job-post-share-left>h6, .job-post-share-right>h6 {
 	margin-right: 10px;
+}
+.titlejob{
+	font-weight: bold;
+	font-size: 14px;
+	color: #000;
 }
 @media all and (max-width: 992px) {
 	.job-post-share-left {

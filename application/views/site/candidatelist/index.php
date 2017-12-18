@@ -23,7 +23,7 @@
 								<?php foreach($dynamic as $row): ?>
 								<?php $experience = $this->require_experience_model->get_info($row->experience_id); ?>
 								<div class="listcandi col-lg-4">
-								<a href="#0">
+								<a href="<?php echo base_url('candidatelist/view/'.$row->id); ?>">
 									<div class="item-icon">
 						<?php if($row->image!=''): ?>
 						<img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="">
