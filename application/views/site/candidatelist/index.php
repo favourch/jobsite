@@ -23,7 +23,7 @@
 								<?php foreach($dynamic as $row): ?>
 								<?php $experience = $this->require_experience_model->get_info($row->experience_id); ?>
 								<div class="listcandi col-lg-4">
-								<a href="<?php echo base_url('candidatelist/view/'.$row->id); ?>">
+								<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" target="_blank">
 									<div class="item-icon">
 						<?php if($row->image!=''): ?>
 						<img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="">
@@ -63,7 +63,7 @@
 									<?php $input['where'] = array('career_id'=>$row->id); ?>
 									<?php $total_candi = $this->member_candidate_model->get_total($input); ?>
 									<li class="col-lg-3">
-									<a href="<?php echo base_url('candidatelist/category/'.$row->id); ?>">
+									<a href="<?php echo base_url('ung-vien/'.$row->id.'/'.$row->cat_name.'.html'); ?>">
 									<?php echo $row->name; ?> <span>( <?php echo $total_candi; ?> )</span></a></li>
 								<?php endforeach; ?>
 									

@@ -64,6 +64,7 @@ $route['nha-tuyen-dung/danh-sach-tin-dang'] = 'managejob';
 $route['nha-tuyen-dung/danh-sach-tin-dang/(:num)'] = 'managejob/index/$1';
 $route['nha-tuyen-dung/cap-nhat-tin-dang-(:num)'] = 'managejob/edit/$1';
 $route['nha-tuyen-dung/doi-mat-khau'] = 'companies/change_pass';
+$route['nha-tuyen-dung/ho-so-da-luu'] = 'companies/candidate_saved';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so'] = 'companies/candidate_applied';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so/(:num)'] = 'companies/candidate_applied/$1';
 
@@ -90,6 +91,8 @@ $route['viec-lam/(:any)-d(:num)'] = 'career/index/$2';
 $route['(:any)-(:num)-jv'] = 'career/view/$2';
 
 $route['nha-tuyen-dung/tim-ung-vien'] = 'candidatelist/index';
+$route['ho-so/(:num)/(:any).html'] = 'candidatelist/view/$1';
+$route['ung-vien/(:num)/(:any).html'] = 'candidatelist/category/$1';
 
 $route['(:any)-c(:num)'] = 'news/catnews/$2';
 $route['(:any)-c(:num)/(:num)'] = 'news/catnews/$2/$3';

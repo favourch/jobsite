@@ -95,12 +95,48 @@
 										<?php endforeach; ?>
 
 										<div class="divider"></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+//add dữ liệu
+$('#saved').hide();
+$(".FormSubmit").click(function (e) {
+		e.preventDefault();
+		$(".FormSubmit").hide(); //hide submit button
+		var ID=$(this).attr('id');		
+		jQuery.ajax({
+		type: "POST", // HTTP method POST or GET
+		url: "<?php echo base_url() ?>candidatelist/savecandidate", //Where to make Ajax calls
+		dataType:"text", // Data type, HTML, json etc.
+		data:"cid="+ID, //Form variables
+		success:function(response){
+			//$("#"+ID).hide(); //show submit button
+			$("#saved").show(); //hide loading image
+			$('.FormSubmit').hide();
+			window.location.reload();
+		},
+		error:function (xhr, ajaxOptions, thrownError){
+			$(".FormSubmit").show(); //show submit button
+			alert("Lỗi không kết nối được");
+            //alert(thrownError);
+		}
+		});
+});
 
+});
+</script> 
 										<div class="job-post-share flex space-between items-center no-wrap">
 										
 											<div class="job-post-share-right flex items-center no-column no-wrap">
+												<?php if($company): ?>
+												<?php if($mapcandidate): ?>
+												<h6>Đã lưu</h6>
+												<span class="#"><i class="ion-flag wishlist-icon"></i></span>
+											<?php else: ?>
 												<h6>Lưu hồ sơ</h6>
-												<i class="ion-ios-heart wishlist-icon"></i>
+												<span class="FormSubmit" id="<?php echo $candidate->id; ?>"><i class="ion-ios-heart wishlist-icon"></i></span>
+											<?php endif; ?>
+												<?php endif; ?>
 											</div> <!-- end .job-post-share-right -->
 											
 										</div> <!-- end .job-post-share -->

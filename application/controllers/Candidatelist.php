@@ -120,10 +120,21 @@ Class Candidatelist extends MY_Controller{
 	}
 
 	function view(){
+
+		$company_id = $this->session->userdata('company_id_login');
+		$this->load->model('member_company_model');
+		$company = $this->member_company_model->get_info($company_id);
+		$this->data['company'] = $company;
+
 		$id = $this->uri->rsegment(3);
 		$id = intval($id);
 		$candidate = $this->member_candidate_model->get_info($id);
 		$this->data['candidate'] = $candidate;
+
+		$this->load->model('map_candidate_saved_model');
+		$where = array('candidate_id'=>$id, 'company_id'=>$company_id);
+		$mapcandidate = $this->map_candidate_saved_model->get_info_rule($where);
+		$this->data['mapcandidate'] = $mapcandidate;
 
 		$this->load->model('skill_model');
 		$input['where'] = array('candidate_id'=>$id);
@@ -172,4 +183,18 @@ Class Candidatelist extends MY_Controller{
 		$this->load->view("site/layout", $this->data);
 	}
 
-}
+	function savecandidate(){
+
+			$user_id = $this->session->userdata('company_id_login');
+			$id = $this->input->post('cid');
+			//echo $id;
+			$data = array(
+			'candidate_id'=>$id,
+			'company_id'=>$user_id,
+			'created'=> now()
+			);
+			$this->load->model('map_candidate_saved_model');
+			$this->map_candidate_saved_model->create($data);
+	}
+
+}//end class

@@ -26,26 +26,7 @@
 				<!-- End thông báo dữ liệu -->
 					<div class="employer-dashboard-wrapper flex space-between no-wrap">
 
-						<div class="left-sidebar-menu">							
-							<ul class="nav nav-pills nav-stacked">
-								<li class="heading">CÀI ĐẶT TÀI KHOẢN</li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Thông tin tài khoản</a></li>
-							    <li><a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
-							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
-
-							    <li class="nav-divider"></li>
-							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>
-						<li><a href="<?php echo base_url('nha-tuyen-dung/dang-tin'); ?>">Đăng tin tuyển dụng mới</a></li>
-							   <li><a href="<?php echo base_url('nha-tuyen-dung/danh-sach-tin-dang'); ?>">Tuyển dụng đã đăng</a></li>
-							    <li class="nav-divider"></li>
-							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
-								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
-							   <li><a data-toggle="pill" href="#manage-applications-employer">Tìm ứng viên</a></li>
-							    <li class="nav-divider"></li>
-							    <li class="active"><a href="#">Đổi mật khẩu</a></li>
-							    <li><a href="<?php echo base_url('companies/logout'); ?>">Đăng xuất</a></li>
-							</ul>
-						</div> <!-- end .left-sidebar-menu -->
+					<?php $this->load->view('site/companies/left'); ?>
 						
 						<div class="right-side-content">
 

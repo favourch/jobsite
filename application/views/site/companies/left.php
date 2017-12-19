@@ -13,7 +13,7 @@
 							    <li class="nav-divider"></li>
 							    <li class="heading">QUẢN LÝ HỒ SƠ</li>
 							    <li><a href="<?php echo base_url('nha-tuyen-dung/tim-ung-vien'); ?>">Tìm ứng viên</a></li>
-								<li><a data-toggle="pill" href="#manage-jobs">Hồ sơ đã lưu</a></li>
+								<li><a href="<?php echo base_url('nha-tuyen-dung/ho-so-da-luu'); ?>">Hồ sơ đã lưu</a></li>
 							   <li><a href="<?php echo base_url('nha-tuyen-dung/ung-vien-nop-ho-so'); ?>">Ứng viên nộp hồ sơ</a></li>
 							    <li class="nav-divider"></li>
 							    <li><a href="<?php echo base_url('nha-tuyen-dung/doi-mat-khau'); ?>">Đổi mật khẩu</a></li>
