@@ -74,6 +74,18 @@ body {
 	resize: none;
 	color: #999;
 }
+.titleblue{
+	color: #0091d1;
+	font-weight: bold;
+}
+.titlepink{
+	color: #fc205b;
+	font-weight: bold;
+
+}
+.form-inner-update{
+	padding: 20px;
+}
 
 a {
 	
@@ -3273,7 +3285,7 @@ ul.list-unstyled li a span{
 	padding: 0 25px;
 }
 .left-sidebar-menu .nav-pills .heading {
-    color: #000;
+    color: #0091d1;
     font-weight: 700;
     font-size: 12px;
     margin-bottom: 7px;
@@ -3286,6 +3298,7 @@ ul.list-unstyled li a span{
 .left-sidebar-menu .nav-pills>li>a {
     color: #627199;
     padding: 3px 0;
+    font-weight: bold;
 }
 .left-sidebar-menu .nav-pills>li.active>a, .left-sidebar-menu .nav-pills>li.active>a:focus, .left-sidebar-menu .nav-pills>li.active>a:hover, .left-sidebar-menu .nav-pills>li>a:focus, .left-sidebar-menu .nav-pills>li>a:hover {
     background: none;
@@ -5497,11 +5510,9 @@ label>sup, .label>sup {
     max-width: 35px;
 }
 .latest-update .right-side-inner h5:first-of-type {
-    color: #627199;
     margin: 0;
     position: relative;
     top: -2px;
-
     margin-bottom: 3px;
     font-size: 13px;	
 }

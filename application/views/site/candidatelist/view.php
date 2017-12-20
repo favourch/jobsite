@@ -3,13 +3,10 @@
 			<div class="inner">
 				<div class="container-fluid">
 					<p class="breadcrumb-menu">
-						<a href="index.html"><i class="ion-ios-home"></i></a>
+						<a href="<?php echo base_url(); ?>"><i class="ion-ios-home"></i></a>
 						<i class="ion-ios-arrow-right arrow-right"></i>
 						<a href="#0">Ứng viên - Danh sách ứng viên - Chi tiết ứng viên</a>
 					</p> <!-- end .breabdcrumb-menu -->
-					<h2 class="breadcrumb-title flex items-center">Front-end developer needed
-						<button type="button" class="button full-time button-sm">Full time</button>
-					</h2>
 				</div> <!-- end .container-fluid -->
 			</div> <!-- end .inner -->
 		</div> <!-- end .section -->
@@ -20,11 +17,10 @@
 				<div class="jobs-details-wrapper flex no-wrap">
 
 					<?php $this->load->view('site/candidatelist/left'); ?>
-
 					<div class="right-side-wrapper">
 						<div class="right-side-top">
 							<h6>
-							<span><i class="ion-ios-arrow-left"></i></span>Quay lại <a href="#0">Danh sách ứng viên</a></h6>
+							<span><i class="ion-ios-arrow-left"></i></span>Quay lại <a href="<?php echo base_url('nha-tuyen-dung/tim-ung-vien'); ?>">Danh sách ứng viên</a></h6>
 							<div class="right-side-top-inner flex no-wrap">
 							
 								<div class="job-post-wrapper">
@@ -174,63 +170,37 @@ $(".FormSubmit").click(function (e) {
 							
 						        <div class="bookmarked-jobs-list-wrapper on-listing-page on-job-detals-page">
 									<h3><span>Hồ sơ tương tự</span></h3>
+						        	
+									<?php foreach($semilarcandidate as $row): ?>
+									<?php $jobtypename = $this->job_type_model->get_info($row->job_type); ?>
+									<?php $cityname = $this->city_model->get_info($row->city_id); ?>
 						        	<div class="bookmarked-job-wrapper">
 						        		<div class="bookmarked-job flex no-wrap no-column ">
 							        		<div class="job-company-icon">
-							        			<img src="images/company-logo-big01.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo-big01.jpg" alt="company-icon" class="img-responsive">
+			<?php if($row->image!=''): ?>
+			<img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="" class="img-responsive">
+		<?php else: ?>
+			<img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="" class="img-responsive">
+		<?php endif; ?>
 							        		</div> <!-- end .job-icon -->
 							        		<div class="bookmarked-job-info">
-							        			<h4 class="dark flex no-column">We're looking for a designer<a href="#0" class="button full-time">full time</a></h4>
-							        			<h5>Banana inc.</h5>
-							        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
+							        			<h4 class="dark flex no-column"><?php echo $row->title; ?><a href="#0" class="button full-time"><?php echo $jobtypename->name; ?></a></h4>
+							        			<h5><?php echo $row->full_name; ?></h5>
+							        			<p><?php echo sub($row->description, 150); ?> ...</p>
 							        			<div class="bookmarked-job-info-bottom flex space-between items-center no-column no-wrap">
 							        				<div class="bookmarked-job-meta flex items-center no-wrap no-column">
-								        				<ul class="list-unstyled candidates-avatar flex items-center no-wrap no-column">
-							        						<li><img src="images/avatar02.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar02.jpg" alt="avatar" class="img-responsive"></li>
-							        						<li><img src="images/avatar03.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar03.jpg" alt="avatar" class="img-responsive"></li>
-							        						<li class="candidates-total-count"><img src="images/avatar04.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar04.jpg" alt="avatar" class="img-responsive"><span>54+</span></li>
-							        					</ul> <!-- end .candidates-avatar -->
-														<h6 class="bookmarked-job-category">Art/Design</h6>
-							        					<h6 class="candidate-location">Cupertino,<span>CA, USA</span></h6>
-														<h6 class="hourly-rate">$45<span>/Hour</span></h6>
+								        			
+												<h6 class="bookmarked-job-category"><?php echo $cityname->name; ?></h6>
+							        					<h6 class="candidate-location">Cập nhật : <span><?php echo format_date($row->modified_date); ?></span></h6>
 							        				</div> <!-- end .bookmarked-job-meta -->
 							        				<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-							        					<i class="ion-ios-heart wishlist-icon"></i>
-							        					<a href="#0" class="button">more detail</a>
+							    <a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" class="button">Xem thêm</a>
 							        				</div> <!-- end .right-side-bookmarked-job-meta -->
 							        			</div> <!-- end .bookmarked-job-info-bottom -->
 							        		</div> <!-- end .bookmarked-job-info -->
 						        		</div> <!-- end .bookmarked-job -->
 						        	</div> <!-- end .bookmarked-job-wrapper --> 
-
-						        	<div class="bookmarked-job-wrapper">
-						        		<div class="bookmarked-job flex no-wrap no-column ">
-							        		<div class="job-company-icon">
-							        			<img src="images/company-logo-big01.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo-big01.jpg" alt="company-icon" class="img-responsive">
-							        		</div> <!-- end .job-icon -->
-							        		<div class="bookmarked-job-info">
-							        			<h4 class="dark flex no-column">We need a web designer<a href="#0" class="button part-time">Part time</a></h4>
-							        			<h5>Banana inc.</h5>
-							        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam eu velit cursus, tempor ipsum in, tempus lectus. Nullam tempus nisi id nisl luctus, non tempor justo molestie.</p>
-							        			<div class="bookmarked-job-info-bottom flex space-between items-center no-column no-wrap">
-							        				<div class="bookmarked-job-meta flex items-center no-wrap no-column">
-								        				<ul class="list-unstyled candidates-avatar flex items-center no-wrap no-column">
-							        						<li><img src="images/avatar02.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar02.jpg" alt="avatar" class="img-responsive"></li>
-							        						<li><img src="images/avatar03.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar03.jpg" alt="avatar" class="img-responsive"></li>
-							        						<li class="candidates-total-count"><img src="images/avatar04.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar04.jpg" alt="avatar" class="img-responsive"><span>54+</span></li>
-							        					</ul> <!-- end .candidates-avatar -->
-														<h6 class="bookmarked-job-category">Art/Design</h6>
-							        					<h6 class="candidate-location">Cupertino,<span>CA, USA</span></h6>
-														<h6 class="hourly-rate">$45<span>/Hour</span></h6>
-							        				</div> <!-- end .bookmarked-job-meta -->
-							        				<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
-							        					<i class="ion-ios-heart wishlist-icon"></i>
-							        					<a href="#0" class="button">more detail</a>
-							        				</div> <!-- end .right-side-bookmarked-job-meta -->
-							        			</div> <!-- end .bookmarked-job-info-bottom -->
-							        		</div> <!-- end .bookmarked-job-info -->
-						        		</div> <!-- end .bookmarked-job -->
-						        	</div> <!-- end .bookmarked-job-wrapper -->	
+						        <?php endforeach; ?>
 					        	</div> <!-- end .bookmarked-jobs-list-wrapper -->
 							</div> <!-- end .right-side-bottom-wrapper -->
 							</div> <!-- end .right-side-top-inner -->

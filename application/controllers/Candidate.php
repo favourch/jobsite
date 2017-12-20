@@ -237,7 +237,47 @@ Class Candidate extends MY_Controller{
 			$this->data['temp'] = 'site/candidate/job_saved';
 			$this->load->view('site/layout',$this->data);
 	}
+
 	function company_view(){
+		
+		$user_id = $this->session->userdata('candidate_id_login');
+		$this->load->model('candidate_view_model');
+		$this->load->model('member_company_model');
+		$this->load->model('city_model');
+		$this->load->library('pagination');
+		$input = array();
+		$input['where'] = array('candidate_id'=>$user_id);
+		$total_row = $this->candidate_view_model->get_total($input);
+		$this->data['total_row'] = $total_row;
+		$segment = $this->uri->segment(3);
+		$segment = intval($segment);
+		$config = array();
+		$config['base_url']    = home_url('ung-vien/nha-tuyen-dung-xem-ho-so');
+		$config['total_rows']  = $total_row;
+		$config['per_page']    = 10;
+		$config['uri_segment'] = 3;
+		$config['full_tag_open'] = '<ul class="list-unstyled flex no-column items-center">';
+    	$config['full_tag_close'] = '</ul>';
+    	$config['num_tag_open'] = '<li class="button linkcss">';
+    	$config['num_tag_close'] = '</li>';
+    	$config['first_link'] = '&laquo; First';
+    	$config['first_tag_open'] = '<li class="prev page"> Last';
+    	$config['first_tag_close'] = '</li>';
+    	$config['cur_tag_open'] = '<li class="active button">';
+    	$config['cur_tag_close'] = '</li>';
+		$config['next_link']   = '<span class="button">Trang kế <i class="ion-ios-arrow-right"></i></span>';
+		$config['prev_link']   = '<span class="button"><i class="ion-ios-arrow-left"></i> Quay lại</span>';
+		$this->pagination->initialize($config);
+		
+
+		$input["limit"] = array($config['per_page'], $segment);
+
+		$listview = $this->candidate_view_model->get_list($input);
+		$this->data['listview'] = $listview;
+
+		if(!$this->session->userdata('candidate_id_login')){
+			redirect();
+		}
 
 			$this->data['temp'] = 'site/candidate/company_view';
 			$this->load->view('site/layout',$this->data);
@@ -385,6 +425,9 @@ Class Candidate extends MY_Controller{
 		$user_id = $this->session->userdata('candidate_id_login');
 		$info = $this->member_candidate_model->get_info($user_id);
 		$this->data['info'] = $info;
+		if(!$info){
+			redirect();
+		}
 		$this->load->model('level_model');
 		$currentlv = $this->level_model->get_list();
 		$this->data['currentlv'] = $currentlv;
@@ -394,6 +437,12 @@ Class Candidate extends MY_Controller{
 		$this->load->model('city_model');
 		$city = $this->city_model->get_list();
 		$this->data['city'] = $city;
+		$this->load->model('career_model');
+		$career = $this->career_model->get_list();
+		$this->data['career'] = $career;
+		$this->load->model('salary_model');
+		$salary = $this->salary_model->get_list();
+		$this->data['salary'] = $salary;
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('full_name','Tên đầy đủ','required');

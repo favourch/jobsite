@@ -33,7 +33,7 @@
 								<div class="control-group">
 							  <label class="control-label" for="typeahead">Ngày sinh <sup>*</sup></label>
 							  <div class="controls">
-								<input type="text" class="span6 typeahead" name="birthday" value="<?php echo date_format(new DateTime($info->birthday),'d/m/Y'); ?>" >
+								<input type="text" class="span6 typeahead" name="birthday" value="<?php echo int_to_date($info->birthday); ?>" >
 								<div class="help-block"><?php echo form_error('birthday'); ?></div>
 							  </div>
 

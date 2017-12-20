@@ -27,38 +27,25 @@
 						<div class="divider"></div>
 
 						<div class="featured-jobs-widget-wrapper jobs-widget">
-							<h6>Featured Jobs</h6>
+							<h6>Ứng viên năng động</h6>
 							<div class="featured-jobs-widget">
-
+							<?php foreach($candidate_nd as $row): ?>
 								<div class="featured-job flex items-center no-column no-wrap">
 									<div class="left-side-inner">
-										<img src="images/company-logo16.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo16.jpg" alt="company-logo" class="img-responsive">
+				<?php if($row->image!=''): ?>
+				<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>"><img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="" class="img-responsive" style="width: 50px;"></a>
+			<?php else: ?>
+				<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>">
+				<img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="" class="img-responsive"></a>
+			<?php endif; ?>
 									</div> <!-- end .left-side -->
 									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
+										<h5 class="titleblue"><?php echo $row->title; ?></h5>
+										<h5><?php echo $row->full_name; ?></h5>
 									</div> <!-- end .right-side -->
 								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo15.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo15.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
-
-								<div class="featured-job flex items-center no-column no-wrap">
-									<div class="left-side-inner">
-										<img src="images/company-logo17.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo17.jpg" alt="company-logo" class="img-responsive">
-									</div> <!-- end .left-side -->
-									<div class="right-side-inner">
-										<h5 class="dark">Fullstack web developer needed</h5>
-										<h5>Caap inc.</h5>
-									</div> <!-- end .right-side -->
-								</div> <!-- end .featured-job -->
+							<?php endforeach; ?>
+								
 
 							</div> <!-- end .featured-jobs-widget -->
 
@@ -67,56 +54,23 @@
 						<div class="divider"></div>
 
 						<div class="latest-updates-widget-wrapper jobs-widget">
-							<h6>Latest updates</h6>
+							<h6>Ứng viên mới nhất</h6>
+							
+							<?php foreach($lastestcandidate as $row): ?>
 							<div class="latest-update flex no-column no-wrap">
 								<div class="left-side-inner">
-									<img src="images/avatar11.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar11.jpg" alt="avatar" class="img-responsive">
+									<?php if($row->image!=''): ?>
+									<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>"><img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="<?php echo $row->full_name; ?>" class="img-responsive" width="50"></a>
+								<?php else: ?>
+									<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>"><img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="<?php echo $row->full_name; ?>" class="img-responsive" width="50"></a>
+								<?php endif; ?>
 								</div> <!-- end .left-side -->
 								<div class="right-side-inner">
-									<h5><span>James Patel</span>has got a job!</h5>
-									<h5><span>Web Designer</span>for Banana Inc. in<a href="#0">Art/Design</a></h5>
+									<h5 class="titlepink"><?php echo $row->title; ?></h5>
+									<h5><span><?php echo $row->full_name; ?></span></h5>
 								</div> <!-- end .right-side -->
 							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/avatar12.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar12.jpg" alt="avatar" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Alice Phillips</span>has got a job!</h5>
-									<h5><span>Web Designer</span>for Banana Inc. in<a href="#0">Art/Design</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/company-logo11.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo11.jpg" alt="company-logo" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Evotweet</span>has got a job!</h5>
-									<h5><a href="#0">Front-end developer</a>needed in<a href="#0">Technologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/avatar13.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/avatar13.jpg" alt="avatar" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Wayne Welch</span>has got a job!</h5>
-									<h5><span>Software Engineer</span>for Apple Inc. in<a href="#0">Technologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
-
-							<div class="latest-update flex no-column no-wrap">
-								<div class="left-side-inner">
-									<img src="images/company-logo12.jpg" tppabs="http://jobpress.wecookcode.com/demo/images/company-logo12.jpg" alt="company-logo" class="img-responsive">
-								</div> <!-- end .left-side -->
-								<div class="right-side-inner">
-									<h5><span>Prymb Creative Studio</span>has got a job!</h5>
-									<h5><a href="#0">We're looking for an Art Director</a>in<a href="#0">Tecnologies</a></h5>
-								</div> <!-- end .right-side -->
-							</div> <!-- end .latest-update -->
+						<?php endforeach; ?>
 
 						</div> <!-- end .latest-updates-widget-wrapper -->
 

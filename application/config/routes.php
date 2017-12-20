@@ -76,6 +76,7 @@ $route['ung-vien/cap-nhat-thong-tin'] = 'candidate/update_cv';
 $route['ung-vien/doi-mat-khau'] = 'candidate/changepass';
 $route['ung-vien/dang-xuat'] = 'candidate/logout';
 $route['ung-vien/nha-tuyen-dung-xem-ho-so'] = 'candidate/company_view';
+$route['ung-vien/nha-tuyen-dung-xem-ho-so/(:num)'] = 'candidate/company_view/$1';
 $route['ung-vien/viec-lam-da-ung-tuyen'] = 'candidate/job_applied';
 $route['ung-vien/viec-lam-da-ung-tuyen/(:num)'] = 'candidate/job_applied/$1';
 $route['ung-vien/viec-lam-da-luu'] = 'candidate/job_saved';

@@ -114,10 +114,10 @@ Class Candidatelist extends MY_Controller{
 		$listcandidate = $this->member_candidate_model->get_list($input);
 		$this->data['listcandidate'] = $listcandidate;
 
-
 		$this->data['temp'] = "site/candidatelist/category";
 		$this->load->view("site/layout", $this->data);
 	}
+
 
 	function view(){
 
@@ -130,6 +130,25 @@ Class Candidatelist extends MY_Controller{
 		$id = intval($id);
 		$candidate = $this->member_candidate_model->get_info($id);
 		$this->data['candidate'] = $candidate;
+
+		//nhà tuyển dụng xem hồ sơ
+		$this->load->model('candidate_view_model');
+		$where = array('company_id'=>$company_id, 'candidate_id'=>$id);
+
+		if($this->candidate_view_model->check_company($where)){
+			$data = array(
+				'candidate_id'=>$id,
+				'company_id'=>$company_id,
+				'created'=> now()
+				);
+			$this->candidate_view_model->create($data);
+		}
+		else{
+			$data =array();
+			$data['view'] = $candidate->view + 1;
+			$this->member_candidate_model->update($id,$data);
+		}
+
 
 		$this->load->model('map_candidate_saved_model');
 		$where = array('candidate_id'=>$id, 'company_id'=>$company_id);
@@ -178,6 +197,22 @@ Class Candidatelist extends MY_Controller{
 		$jobtype = $this->job_type_model->get_info($candidate->job_type);
 		$this->data['jobtype'] = $jobtype;
 
+		//hồ sơ tương tự
+		$input['where'] = array('career_id'=>$candidate->career_id);
+		$input['limit'] = array(5,0);
+		$semilarcandidate = $this->member_candidate_model->get_list($input);
+		$this->data['semilarcandidate'] = $semilarcandidate;
+
+		//ứng viên năng động (status=2)
+		$input['where'] = array('status'=>2);
+		$input['limit'] = array(5,0);
+		$candidate_nd = $this->member_candidate_model->get_list($input);
+		$this->data['candidate_nd'] = $candidate_nd;
+		//ứng viên mới nhất
+		$input['where'] = array('status'=>1);
+		$input['limit'] = array(10,0);
+		$lastestcandidate = $this->member_candidate_model->get_list($input);
+		$this->data['lastestcandidate'] = $lastestcandidate;
 
 		$this->data['temp'] = "site/candidatelist/view";
 		$this->load->view("site/layout", $this->data);

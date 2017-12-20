@@ -28,18 +28,24 @@
 					  	<fieldset>
 						  	
 						    <h3 class="step-title text-center dark"><strong><?php echo $info->full_name; ?></strong>, Bổ sung thông tin hồ sơ của bạn để nhận được nhiều cơ hội phỏng vấn hơn.</h2>
-
-					    	<div class="form-inner">
-					    		
+					    	<div class="form-inner-update">
 								<div class="form-fields-wrapper">
-								
-										<div class="form-group-wrapper space-between items-center">
+							<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
 								<p class="label">Tên đầy đủ<sup>*</sup></p>
 							<input type="text" id="" name="full_name" value="<?php echo $info->full_name; ?>">
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('full_name'); ?></span>
 										</div> <!-- end .form-group -->
-									
+									<div class="form-group">
+								<p class="label">Nghành nghề<sup>*</sup></p>
+							<select name="career_id" style="width: 100%;">
+											<option value="">---Vui lòng chọn---</option>
+										<?php foreach($career as $row): ?>
+											<option value="<?php echo $row->id; ?>" <?php echo ($row->id==$info->career_id) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+								<span style="color: #c00; font-size: 12px;"><?php echo form_error('career_id'); ?></span>
+										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
 
 									<div class="form-group-wrapper flex space-between items-center">
@@ -73,6 +79,19 @@
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('experience_id'); ?></span>
 										</div> <!-- end .form-group -->
 										<div class="form-group">
+											<p class="label">Mức lương mong muốn</p>
+											<select name="salary_id" style="width: 100%;">
+											<option value="">---Vui lòng chọn---</option>
+										<?php foreach($salary as $row): ?>
+											<option value="<?php echo $row->id; ?>" <?php echo ($row->id==$info->salary_id) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+										</div> <!-- end .form-group -->
+
+
+									</div> <!-- end .form-group-wrapper -->
+									<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
 											<p class="label">Quốc tịch</p>
 											<select name="nationality" style="width: 100%">
 												<option value="">---Vui lòng chọn---</option>
@@ -89,9 +108,7 @@
 											</select>
 										</div> <!-- end .form-group -->
 
-
-									</div> <!-- end .form-group-wrapper -->
-
+									</div>
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
 											<p class="label">Giới tính</p>
@@ -161,7 +178,7 @@
 
 					    		<div class="button-wrapper text-center">
 					    			<input type="submit" name="" class="button" value="Cập nhật thông tin">
-					    			<button type="submit" name="" class="button">Hủy bỏ</button>
+					    			<button type="button" name="" class="button">Hủy bỏ</button>
 					    		</div> <!-- end .button-wrapper -->
 
 					    	</div> <!-- end .form-inner -->
