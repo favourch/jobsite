@@ -35,10 +35,11 @@ Class member_register extends MY_Controller{
 			$this->form_validation->set_rules('birthday','Ngày sinh','required');
 			$this->form_validation->set_rules('password','Mật khẩu','required|min_length[6]');
 			$this->form_validation->set_rules('repassword','Nhập lại mật khẩu','matches[password]');
-			$activation=md5($email.time());
 			if($this->form_validation->run()){
 				$name = $this->input->post('name');
+				$catname = slug($name);
 				$email = $this->input->post('email');
+				$activation=md5($email.time());
 				$password = $this->input->post('password');
 				$password = md5($password);
 				$phone = $this->input->post('phone');
@@ -48,23 +49,33 @@ Class member_register extends MY_Controller{
 				$birthday = $this->input->post('birthday');
 				$data = array(
 					'full_name'=>$name,
+					'cat_name'=>$catname,
 					'email'=>$email,
 					'password'=>$password,
 					'phone'=>$phone,
 					'address'=>$address,
 					'city_id'=>$city,
 					'gender' => $gender,
-					'birthday' => date("Y-m-d 00:00:00", strtotime($birthday)),
-					'created_date' =>date('Y-m-d H:i:s'),
+					'birthday' => date_to_int($birthday),
+					'created_date' => now(),
 					'token_key' => $activation
 					);
 		
 			$this->member_candidate_model->create($data);
-			redirect(base_url());			
+			$this->session->set_flashdata('message', $email);
+			redirect(base_url('ung-vien/dang-ky-thanh-cong'));			
 		}
 	}
 
 	$this->data['temp'] = 'site/member_register/register';
+	$this->load->view('site/layout',$this->data);
+}
+
+function register_success(){
+	
+	$message = $this->session->flashdata('message');
+	$this->data['message'] = $message;
+	$this->data['temp'] = 'site/member_register/register_success';
 	$this->load->view('site/layout',$this->data);
 }
 

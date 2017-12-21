@@ -31,6 +31,7 @@
 							<?php $cityinfo = $this->city_model->get_info($row->city_id); ?>
 							<?php $experience = $this->require_experience_model->get_info($row->experience_id); ?>
 							<?php $level_info = $this->level_model->get_info($row->level_id); ?>
+							<?php $jobtype = $this->job_type_model->get_info($row->job_type); ?>
 								<div class="candidate flex no-wrap no-column">
 									<div class="candidate-image">
 			<?php if($row->image!=''): ?>
@@ -40,15 +41,15 @@
 		<?php endif; ?>
 									</div> <!-- end .candidate-image -->
 									<div class="candidate-info">
-										<h4 class="candidate-name"><?php echo $row->title; ?>
+										<h4 class="candidate-name"><?php echo $row->title; ?> 
 									<span style="float: right; color: #fc205b"><?php echo $experience->name; ?></span>
 										</h4>
-								<h5 class="candidate-designation"><?php echo $row->full_name; ?> <span style="float: right;"><?php echo format_date($row->modified_date); ?></span></h5>
+								<h5 class="candidate-designation"><?php echo $row->full_name; ?> <span style="float: right;"><?php echo int_to_date($row->modified_date); ?></span></h5>
 										<p class="candidate-description ultra-light"><?php echo sub($row->description,200); ?> ...</p>
 										<div class="candidate-info-bottom flex no-column items-center">
 									<h5 class="candidate-location"><span><?php echo $cityinfo->name; ?></span></h5>
 								<h5 class="hourly-rate">Chức vụ :<span> <?php echo $level_info->name; ?></span></h5>
-											
+								<h5 class=""><span style="color: #4caf50"> <?php echo $jobtype->name; ?></span></h5>
 										</div> <!-- end .candidate-info-bottom -->
 									</div> <!-- end .candidate-info -->
 								</div> <!-- end .candidate -->

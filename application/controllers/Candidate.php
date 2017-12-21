@@ -66,7 +66,7 @@ Class Candidate extends MY_Controller{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$password = md5($password);
-		$where = array('email'=>$email, 'password'=>$password);
+		$where = array('email'=>$email, 'password'=>$password, 'status'>=1);
 		$user = $this->member_candidate_model->get_info_rule($where);
 		return $user;
 	}
@@ -443,14 +443,28 @@ Class Candidate extends MY_Controller{
 		$this->load->model('salary_model');
 		$salary = $this->salary_model->get_list();
 		$this->data['salary'] = $salary;
+		$this->load->model('literacy_model');
+		$literacy = $this->literacy_model->get_list();
+		$this->data['literacy'] = $literacy;
+		$this->load->model('job_type_model');
+		$jobtype = $this->job_type_model->get_list();
+		$this->data['jobtype'] = $jobtype;
 
 		if($this->input->post()){
 			$this->form_validation->set_rules('full_name','Tên đầy đủ','required');
+			$this->form_validation->set_rules('career_id','Ngành nghề','required');
+			$this->form_validation->set_rules('title','Chức danh','required');
+			$this->form_validation->set_rules('phone','Số điện thoại','required|numeric');
 			if($this->form_validation->run()){
 				$full_name = $this->input->post('full_name');
 				$title = $this->input->post('title');
 				$level_id = $this->input->post('level_id');
+				$career_id = $this->input->post('career_id');
 				$experience_id = $this->input->post('experience_id');
+				$salary_id = $this->input->post('salary_id');
+				$literacy_id = $this->input->post('literacy_id');
+				$level_desired = $this->input->post('level_desired');
+				$job_type = $this->input->post('job_type');
 				$nationality = $this->input->post('nationality');
 				$birthday = $this->input->post('birthday');
 				$birthday = date_to_int($birthday);
@@ -469,14 +483,20 @@ Class Candidate extends MY_Controller{
 				$data = array(
 					'full_name' => $full_name,
 					'title' => $title,
+					'career_id' => $career_id,
+					'salary_id' => $salary_id,
+					'literacy_id' => $literacy_id,
+					'level_desired' => $level_desired,
 					'level_id' => $level_id,
+					'job_type' => $job_type,
 					'experience_id' => $experience_id,
 					'nationality' => $nationality,
 					'birthday' => $birthday,
 					'gender' => $gender,
 					'city_id' => $city_id,
 					'phone' =>$phone,
-					'address' =>$address
+					'address' =>$address,
+					'modified_date'=> now()
 					);
 				
 				if($image_link!=''){
@@ -485,8 +505,9 @@ Class Candidate extends MY_Controller{
 
 				$this->member_candidate_model->update($user_id,$data);
 				$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
+				redirect(base_url('candidate/view'));
 			}
-			redirect(base_url('candidate/view'));
+			
 			}
 
 		$this->data['temp'] = 'site/candidate/update_cv';
@@ -600,7 +621,7 @@ Class Candidate extends MY_Controller{
 	function logout(){
 		if($this->session->userdata('candidate_id_login')){
 				$this->session->unset_userdata('candidate_id_login');
-				redirect(base_url('candidate/login'));
+				redirect(base_url('ung-vien/dang-nhap'));
 			}
 	}
 

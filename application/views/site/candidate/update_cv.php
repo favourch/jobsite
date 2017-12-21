@@ -90,7 +90,41 @@
 
 
 									</div> <!-- end .form-group-wrapper -->
+										<div class="form-group-wrapper flex space-between items-center">
+										
+										<div class="form-group">
+											<p class="label">Bằng cấp<sup>*</sup></p>
+										<select name="literacy_id" style="width: 100%;">
+											<option value="">---Vui lòng chọn---</option>
+										<?php foreach($literacy as $row): ?>
+											<option value="<?php echo $row->id; ?>" <?php echo ($row->id==$info->literacy_id) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+								<span style="color: #c00; font-size: 12px;"><?php echo form_error('experience_id'); ?></span>
+										</div> <!-- end .form-group -->
+										<div class="form-group">
+											<p class="label">Cấp bậc mong muốn</p>
+											<select name="level_desired" style="width: 100%;">
+											<option value="">---Vui lòng chọn---</option>
+										<?php foreach($currentlv as $row): ?>
+											<option value="<?php echo $row->id; ?>" <?php echo ($row->id==$info->level_desired) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+										</div> <!-- end .form-group -->
+
+
+									</div> <!-- end .form-group-wrapper -->
+
 									<div class="form-group-wrapper flex space-between items-center">
+									<div class="form-group">
+											<p class="label">Loại công việc</p>
+											<select name="job_type" style="width: 100%;">
+											<option value="">---Vui lòng chọn---</option>
+										<?php foreach($jobtype as $row): ?>
+											<option value="<?php echo $row->id; ?>" <?php echo ($row->id==$info->job_type) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+										<?php endforeach; ?>
+										</select>
+										</div> <!-- end .form-group -->
 									<div class="form-group">
 											<p class="label">Quốc tịch</p>
 											<select name="nationality" style="width: 100%">

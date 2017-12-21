@@ -151,7 +151,7 @@ $(".FormSubmit").click(function (e) {
 											<li class="flex no-column no-wrap"><i class="ion-briefcase"></i>Ngành nghề : <b><?php echo $career->name; ?></b></li>
 											<li class="flex no-column no-wrap"><i class="ion-cash"></i>Mức lương mong muốn : <span style="font-weight: bold;"><?php echo $salary->name; ?></span></li>
 											<li class="flex no-column no-wrap"><i class="ion-social-buffer"></i>Cấp bậc mong muốn : <b><?php echo $level->name; ?></b></li>
-											<li class="flex no-column no-wrap"><i class="ion-android-alarm-clock"></i>Ngày cập nhật : <b><?php echo format_date($candidate->modified_date); ?></b></li>
+											<li class="flex no-column no-wrap"><i class="ion-android-alarm-clock"></i>Ngày cập nhật : <b><?php echo int_to_date($candidate->modified_date); ?></b></li>
 										</ul>
 									</div> <!-- end .job-post-company-info -->
 
@@ -191,7 +191,7 @@ $(".FormSubmit").click(function (e) {
 							        				<div class="bookmarked-job-meta flex items-center no-wrap no-column">
 								        			
 												<h6 class="bookmarked-job-category"><?php echo $cityname->name; ?></h6>
-							        					<h6 class="candidate-location">Cập nhật : <span><?php echo format_date($row->modified_date); ?></span></h6>
+							        					<h6 class="candidate-location">Cập nhật : <span><?php echo int_to_date($row->modified_date); ?></span></h6>
 							        				</div> <!-- end .bookmarked-job-meta -->
 							        				<div class="right-side-bookmarked-job-meta flex items-center no-column no-wrap">
 							    <a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" class="button">Xem thêm</a>

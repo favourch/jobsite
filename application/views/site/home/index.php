@@ -33,12 +33,14 @@
                             </div>
                             <button type="submit" class="button"><i class="ion-ios-search-strong"></i></button>
                         </form>
+                        <!-- end 
                         <div class="keywords flex">
                             <h4 class="self-center">Từ khóa phổ biến :</h4>
                             <a href="#0" class="button item-center">web design</a>
                             <a href="#0" class="button item-center">accountant</a>
                             <a href="#0" class="button item-center">car dealer</a>
-                        </div> <!-- end .keywords -->
+                        </div> .keywords -->
+                        
                     </div> <!-- end .job-search-form -->    
                 </div> <!-- end .container -->
                 <div class="features-bar">

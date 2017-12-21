@@ -34,6 +34,7 @@ Class Candidatelist extends MY_Controller{
 		$this->load->model('level_model');
 		$this->load->model('literacy_model');
 		$this->load->model('salary_model');
+		$this->load->model('job_type_model');
 		$listracy = $this->literacy_model->get_list();
 		$this->data['listracy'] = $listracy;
 		$levelist = $this->level_model->get_list();

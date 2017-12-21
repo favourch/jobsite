@@ -90,7 +90,7 @@ Class Companies extends MY_Controller{
 					);
 		
 			$this->member_company_model->create($data);
-
+			$this->session->set_flashdata('message', $email);
 			//gửi email xác nhận đăng ký
 			$config = array(
     		'protocol' => 'smtp',
@@ -109,11 +109,18 @@ Class Companies extends MY_Controller{
 			$this->email->message('Bạn đăng ký thành công tài khoản');
 			$this->email->send();
 
-			redirect(base_url());			
+			redirect(base_url('nha-tuyen-dung/dang-ky-thanh-cong'));			
 		}
 	}
 
 	$this->data['temp'] = 'site/companies/register';
+	$this->load->view('site/layout',$this->data);
+	}
+
+	function register_success(){
+	$message = $this->session->flashdata('message');
+	$this->data['message'] = $message;
+	$this->data['temp'] = 'site/companies/register_success';
 	$this->load->view('site/layout',$this->data);
 	}
 
@@ -179,7 +186,7 @@ Class Companies extends MY_Controller{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		$password = md5($password);
-		$where = array('email'=>$email, 'password'=>$password);
+		$where = array('email'=>$email, 'password'=>$password, 'status'=>1);
 		$user = $this->member_company_model->get_info_rule($where);
 		return $user;
 	}
@@ -537,7 +544,7 @@ Class Companies extends MY_Controller{
 	function logout(){
 		if($this->session->userdata('company_id_login')){
 				$this->session->unset_userdata('company_id_login');
-				redirect(base_url('companies/login'));
+				redirect(base_url('nha-tuyen-dung/dang-nhap'));
 			}
 	}
 

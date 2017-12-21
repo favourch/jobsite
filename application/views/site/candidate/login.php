@@ -7,11 +7,7 @@
 							<h1>Đăng nhập</h1>
 							<p class="ultra-light">Mời bạn đăng nhập vào hệ thống website để tạo và quản lý hồ sơ, thu hút các nhà tuyển dụng tìm kiếm đến bạn</p>
 							<div class="follow-us flex no-column items-center">
-								<h6>Chưa có tài khoản</h6>
-								<ul class="list-unstyled flex no-column">
-									<li><a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký</a></li>
-									<li><a href="#0"><i class="ion-ios-personadd"></i></a></li>
-								</ul> <!-- end .social-icons -->
+								<h6>Chưa có tài khoản <a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký <i class="ion-ios-personadd"></i></a></h6>
 							</div> <!-- end .follow-us -->
 						</div> <!-- end .left -->
 						
