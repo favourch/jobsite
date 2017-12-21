@@ -1877,7 +1877,7 @@ li.active{
 
 .footer .top {
 	position: relative;
-	padding: 40px 0;
+	padding: 20px 0;
 }
 .footer .top ul>li {
 	font-size: 12px;
@@ -2665,6 +2665,7 @@ li.active{
 .breadcrumb-bar .breadcrumb-title {
     margin: 0;
     margin-top: 5px;
+    color: #fff;
 }
 .breadcrumb-bar .breadcrumb-title>button {
 	margin-left: 10px;

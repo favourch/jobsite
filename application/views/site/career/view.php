@@ -58,7 +58,8 @@
 
 										<h4 class="dark">Lương và phúc lợi</h4>
 										<p><?php echo $info->benefit; ?></p><br>
-
+										<h4 class="dark">Yêu cầu hồ sơ</h4>
+										<p><?php echo $info->profile; ?></p><br>
 										
 										<div class="divider"></div>
 
@@ -130,25 +131,42 @@ $(".FormSubmit").click(function (e) {
 								<div class="right-side-inner">
 									<div class="job-post-company-info">
 										<ul class="list-unstyled">
-											<li class="flex no-column no-wrap"><i class="ion-clock"></i> Ngày đăng tuyển : <?php echo int_to_date($info->start_date); ?></li>
-											<li class="flex no-column no-wrap"><i class="ion-ribbon-a"></i> Cấp bậc : <?php echo $level->name; ?></li>
-											<li class="flex no-column no-wrap"><i class="ion-ios-briefcase"></i> Nghành nghề : <?php echo $career->name; ?></li>
-											<li class="flex no-column no-wrap"><i class="ion-thumbsup"></i>Ngôn ngữ hồ sơ : <?php if($info->language==1): ?>Tiếng Việt
+											<li class="flex no-column no-wrap"><i class="ion-clock"></i> <b>Ngày đăng tuyển</b> : <?php echo int_to_date($info->start_date); ?></li>
+											<li class="flex no-column no-wrap"><i class="ion-lock-combination"></i> <b>Hạn nộp hồ sơ</b> : <span style="color: #C00;"><?php echo int_to_date($info->end_date); ?></span></li>
+											<li class="flex no-column no-wrap"><i class="ion-person-add"></i> <b>Số lượng cần tuyển </b> : <?php echo $info->amount; ?></li>
+											<li class="flex no-column no-wrap"><i class="ion-podium"></i> <b>Kinh nghiệm</b>  : <?php echo $experience->name; ?></li>
+											<li class="flex no-column no-wrap"><i class="ion-ribbon-a"></i> <b>Cấp bậc</b> : <?php echo $level->name; ?></li>
+											<li class="flex no-column no-wrap"><i class="ion-ios-briefcase"></i><b> Nghành nghề</b> : <?php echo $career->name; ?></li>
+											<li class="flex no-column no-wrap"><i class="ion-thumbsup"></i><b>Ngôn ngữ hồ sơ</b> : <?php if($info->language==1): ?>Tiếng Việt
 											<?php elseif($info->language==2): ?>Tiếng Anh
 											<?php else: ?>Bất kỳ
 											<?php endif; ?>
 											</li>
+											<li class="flex no-column no-wrap"><i class="ion-university"></i><b> Yêu cầu bằng cấp</b> : <?php echo $literacy->name; ?></li>
 										</ul>
 									</div>
 									<div class="job-post-company-info">
 										<h5 class="dark"><?php echo $company->company_name; ?></h5>
+										<p><?php echo $company->description; ?></p><br>
 										<ul class="list-unstyled">
 											<li class="flex no-column no-wrap"><i class="ion-ios-location"></i><?php echo $company->company_address; ?></li>
 											<li class="flex no-column no-wrap"><i class="ion-ios-telephone"></i><a href="tel:<?php echo $company->company_phone; ?>"><?php echo $company->company_phone; ?></a></li>
-											<li class="flex no-column no-wrap"><i class="ion-email"></i><a href="mailto:hr@banana.inc"><?php echo $company->email; ?></a></li>
+											<li class="flex no-column no-wrap"><i class="ion-email"></i><a href="#"><?php echo $company->email; ?></a></li>
 											<li class="flex no-column no-wrap"><i class="ion-earth"></i><a href="<?php echo $company->website; ?>"><?php echo $company->website; ?></a></li>
 										</ul>
 									</div> <!-- end .job-post-company-info -->
+									<div class="job-post-company-info">
+										<h5 class="dark">Thông tin liên hệ</h5>
+										<ul class="list-unstyled">
+											<li class="flex no-column no-wrap">Người liên hệ : <?php echo $company->company_contact; ?></li>
+											<li class="flex no-column no-wrap">Chức vụ : <?php echo $company->contact_title; ?></li>
+											<li class="flex no-column no-wrap">Điện thoại : <span style="color: #FC205C;"><?php echo $company->contact_phone; ?></span></li>
+											<li class="flex no-column no-wrap">Email : <span style="color: #FC205C;"><?php echo $company->contact_email; ?></span></li>
+										</ul>
+								
+
+									</div> <!-- end .job-post-company-info -->
+
 
 									<div class="system-login text-center">
 										<p class="divider-text text-center"><span>Ứng tuyển việc làm</span></p>

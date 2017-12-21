@@ -55,6 +55,16 @@ Class Home extends MY_Controller{
 		$this->load->model('salary_model');
 		$this->load->library('pagination');
 		$this->load->model('career_model');
+		$this->load->model('require_experience_model');
+		$this->load->model('level_model');
+		$listlevel = $this->level_model->get_list();
+		$this->data['listlevel'] = $listlevel;
+		$listexperience = $this->require_experience_model->get_list();
+		$this->data['listexperience'] = $listexperience;
+		$listcity = $this->city_model->get_list();
+		$this->data['listcity'] = $listcity;
+		$listsalary = $this->salary_model->get_list();
+		$this->data['listsalary'] = $listsalary;
 		$listcareer = $this->career_model->get_list();
 		$this->data['listcareer'] = $listcareer;
 
@@ -64,9 +74,14 @@ Class Home extends MY_Controller{
 		$keyword = $this->input->get('keyword');
 		$careerid = $this->input->get('careerid');
 		$cityid = $this->input->get('cityid');
+		$salaryid = $this->input->get('salaryid');
+		$experienceid = $this->input->get('experienceid');
+		$levelid = $this->input->get('levelid');
 		$this->data['keyword'] = $keyword;
 		$this->data['careerid'] = $careerid;
 		$this->data['cityid'] = $cityid;
+
+
 
 		if($keyword){
 			$input['like'] = array('title', $keyword);
@@ -97,6 +112,16 @@ Class Home extends MY_Controller{
 				'career_id'=>$careerid,
 				'city_id' => $cityid
 				);
+		}
+
+		if($salaryid!=0){
+			$input['where'] = array('salary_id'=>$salaryid);
+		}
+		if($experienceid!=0){
+			$input['where'] = array('require_experience_id'=>$experienceid);
+		}
+		if($levelid!=0){
+			$input['where'] = array('level_id'=>$levelid);
 		}
 
 		$total_row = $this->recruitment_model->get_total($input);

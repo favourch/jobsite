@@ -16,12 +16,30 @@ Class Career extends MY_Controller{
 		$this->load->model('city_model');
 		$this->load->model('member_company_model');
 		$this->load->model('salary_model');
+		$this->load->model('require_experience_model');
+		$this->load->model('level_model');
+		//danh mục việc làm
+		$careerlist = $this->career_model->get_list();
+		$this->data['careerlist'] = $careerlist;
+		$listcity = $this->city_model->get_list();
+		$this->data['listcity'] = $listcity;
+		$listsalary = $this->salary_model->get_list();
+		$this->data['listsalary'] = $listsalary;
+		$listexperience = $this->require_experience_model->get_list();
+		$this->data['listexperience'] = $listexperience;
+		$listlevel = $this->level_model->get_list();
+		$this->data['listlevel'] = $listlevel;
+
+		$input = array();
+
 		$category = $this->career_model->get_info($id);
 		if(!$category){
 			redirect();
 		}
 		$this->data['category'] = $category;
-		$input = array();
+
+		
+		
 		$input["where"] = array('career_id'=>$id);
 		//lấy ra danh sách việc làm trong danh mục
 		$this->load->library('pagination');
@@ -50,36 +68,35 @@ Class Career extends MY_Controller{
 		$segment = $this->uri->segment(4);
 		$segment = intval($segment);
 
-		
 		if($this->input->post()){
-		$categoryid = $this->input->post('categoryid');
-		$input['where'] = array('career_id'=>$categoryid);
-		}
-		
+			$careerid = $this->input->post('careerid');
+			$cityid = $this->input->post('cityid');
+			$salaryid = $this->input->post('salaryid');
+			$experienceid = $this->input->post('experienceid');
+			$levelid = $this->input->post('levelid');
+			if($careerid!=0){
+				$input['where'] = array('career_id'=>$careerid);
+			}
+			if($cityid!=0){
+				$input['where'] = array('city_id'=>$cityid);
+			}
+			if($levelid!=0){
+				$input['where'] = array('level_id'=>$levelid);
+			}
+			if($salaryid!=0){
+				$input['where'] = array('salary_id'=>$salaryid);
+			}
+			if($experienceid!=0){
+				$input['where'] = array('require_experience_id'=>$experienceid);
+			}
 
-			$select = $this->input->post('orderlist');
-			if($select==1){
-				$input['order'] = array('salary_id','desc');
-			}
-			if($select==2){
-				$input['order'] = array('salary_id','asc');
-			}
-			if($select==3){
-				$input['order'] = array('id','asc');
-			}
+		}
 		
 
 		$input["limit"] = array($config['per_page'], $segment);
 		
 		$list = $this->recruitment_model->get_list($input);
 		$this->data['list'] = $list;
-
-		//danh mục việc làm
-		$careerlist = $this->career_model->get_list();
-		$this->data['careerlist'] = $careerlist;
-		$this->load->model('job_type_model');
-		$jobtype = $this->job_type_model->get_list();
-		$this->data['jobtype'] = $jobtype;
 
 		//hiển thị ra view
 		$this->data['temp'] = "site/career/index";
@@ -97,6 +114,13 @@ Class Career extends MY_Controller{
 		
 		$maprecruitment = $this->map_recruitment_model->get_info_rule($where);
 		$this->data['maprecruitment'] = $maprecruitment;
+
+		$this->load->model('require_experience_model');
+		$experience = $this->require_experience_model->get_info($info->require_experience_id);
+		$this->data['experience'] = $experience;
+		$this->load->model('literacy_model');
+		$literacy = $this->literacy_model->get_info($info->literacy_id);
+		$this->data['literacy'] = $literacy;
 
 		$image_list = @json_decode($info->image_list);
 		$this->data['image_list'] = $image_list;

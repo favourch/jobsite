@@ -110,6 +110,17 @@ Class MY_Controller extends CI_Controller{
 					$pagefooter = $this->page_model->get_list();
 					$this->data['pagefooter'] = $pagefooter;
 
+					//nhóm tin chân trang
+					$input['where'] = array('status'=>1);
+					$input['limit'] = array(2,0);
+					$categories_footer = $this->catnews_model->get_list($input);
+					foreach($categories_footer as $row){
+						$input['where'] = array('parent'=>$row->id);
+						$subs = $this->catnews_model->get_list($input);
+						$row->subs = $subs;
+					}
+					$this->data['categories_footer'] = $categories_footer;
+
 					//load thư viện giỏ hàng tất cả các trang
 					$this->load->library('cart');
 					$this->data['total_items'] = $this->cart->total_items();

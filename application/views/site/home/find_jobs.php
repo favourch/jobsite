@@ -151,95 +151,74 @@ $(".careerfiel").on("change", function () {
 });
 });
 </script> 
+						<form method="GET" action="#">
 						<div class="job-categories-widget jobs-widget">
 							<h6>Lọc theo danh mục</h6>
-					       <form method="GET">
-					        <ul class="job-categories list-unstyled">
-			                    <?php foreach($listcareer as $row): ?>
-			                    <?php $input['where'] = array('career_id'=>$row->id); ?>
-			                    <?php $total_recruit = $this->recruitment_model->get_total($input); ?>
-			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
-			                  <input id="checkbox<?php echo $row->id; ?>" type="checkbox" value="<?php echo $row->id; ?>" class="careerfiel">
-			                   <label for="checkbox<?php echo $row->id; ?>"><?php echo $row->name; ?><span>( <?php echo $total_recruit; ?> )</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-			                <?php endforeach; ?>
-		                    </ul> <!-- end .job-categories -->
-		                    </form>
-
+					       
+					            <div class="form-group">
+              <div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="careerid">
+             <option value="0">Tất cả nghành nghề</option>
+            <?php foreach($listcareer as $row): ?>
+            <option value="<?php echo $row->id; ?>" <?php echo (set_value('careerid') == $row->id) ? "selected" : ""; ?> ><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
+                     </div>
 						</div> <!-- end .job-categories-widget -->
 
 						<div class="job-status-widget jobs-widget">
-							<h6>Categories</h6>
-					        <ul class="job-status-wrapper list-unstyled">
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox1" type="checkbox">
-			                        <label for="job-status-checkbox1">Full Time<span>4,286 Jobs</span></label>
-			                    </li>
-
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox2" type="checkbox">
-			                        <label for="job-status-checkbox2">Part time<span>6,883 Jobs</span></label>
-			                    </li>
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox3" type="checkbox">
-			                        <label for="job-status-checkbox3">Freelancer<span>1,724 Jobs</span></label>
-			                    </li>
-
-			                    <li class="job-status checkbox">
-			                        <input id="job-status-checkbox4" type="checkbox">
-			                        <label for="job-status-checkbox4">Internship<span>876 Jobs</span></label>
-			                    </li>
+			<h6>Địa điểm làm việc</h6>
+			<div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="cityid">
+             <option value="0">Tất cả địa điểm</option>
+            <?php foreach($listcity as $row): ?>
+            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
 		                    </ul> <!-- end .job-status-wrapper -->
 						</div> <!-- end .job-status-widget -->
 
 						<div class="job-locations-widget jobs-widget">
-							<h6>Locations</h6>
-					        <ul class="job-locations list-unstyled">
-			                    <li class="job-category checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox1" type="checkbox">
-			                        <label for="job-locations-checkbox1">New York<span>7,286 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox2" type="checkbox" checked="">
-			                        <label for="job-locations-checkbox2">San Francisco<span>452 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox3" type="checkbox">
-			                        <label for="job-locations-checkbox3">San Diego<span>1,867 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox4" type="checkbox">
-			                        <label for="job-locations-checkbox4">Los Angeles<span>3,094 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox5" type="checkbox">
-			                        <label for="job-locations-checkbox5">Chicago<span>2,955 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox6" type="checkbox">
-			                        <label for="job-locations-checkbox6">Houston<span>470 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-
-			                    <li class="checkbox flex space-between items-center no-column no-wrap">
-			                        <input id="job-locations-checkbox7" type="checkbox">
-			                        <label for="job-locations-checkbox7">New Orleans<span>4,536 Jobs</span></label>
-			                        <span><i class="ion-android-add"></i></span>
-			                    </li>
-		                    </ul> <!-- end .job-locations -->
+							<h6>Mức lương</h6>
+					  <div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="salaryid">
+             <option value="0">Tất cả mức lương</option>
+            <?php foreach($listsalary as $row): ?>
+            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
+						</div> <!-- end .job-locations-widget -->
+						<div class="job-locations-widget jobs-widget">
+							<h6>Kinh nghiệm làm việc</h6>
+					  <div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="experienceid">
+             <option value="0">Tất cả kinh nghiệm</option>
+            <?php foreach($listexperience as $row): ?>
+            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
 						</div> <!-- end .job-locations-widget -->
 
+						<div class="job-locations-widget jobs-widget">
+							<h6>Cấp bậc</h6>
+					  <div class="form-group-inner">
+             <select class="selectpicker" data-live-search="true" name="levelid">
+             <option value="0">Tất cả cấp bậc</option>
+            <?php foreach($listlevel as $row): ?>
+            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+             <?php endforeach; ?>
+             </select>
+                    </div>
+						</div> <!-- end .job-locations-widget -->
+
+						<div class="form-group-inner">
+							<input type="submit" class="button" value="Lọc việc làm" style="width: 100%;">
+						</div>
+</form>
 						
 
 					</div> <!-- end .right-side -->

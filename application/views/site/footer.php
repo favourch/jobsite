@@ -2,13 +2,14 @@
         <div class="section footer transparent" style="background-image: url('<?php echo public_url(); ?>/site/images/background03.jpg');">
             <div class="container">
                 <div class="top flex space-between items-center">
-                    <img src="<?php echo public_url(); ?>/site/images/footer-logo.png" alt="footer-logo" class="img-responsive">
+                    <img src="<?php echo public_url(); ?>/site/images/logofooter.png" alt="footer-logo" class="img-responsive">
                     <ul class="list-unstyled footer-menu flex">
-                        <li><a href="#0">Home</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Browse Jobs</a></li>
-                        <li><a href="#0">Browse candidates</a></li>
-                        <li><a href="#0">Contact</a></li>
+                        <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
+                        <li><a href="#0">Tuyển dụng</a></li>
+                        <li><a href="#0">Việc làm</a></li>
+                        <li><a href="#0">Ứng viên</a></li>
+                        <li><a href="#0">Bảng giá</a></li>
+                        <li><a href="#0">Liên hệ</a></li>
                     </ul> <!-- end .footer-menu -->             
                 </div> <!-- end .top -->
                 <div class="footer-widgets flex no-column space-between">                   
@@ -21,26 +22,22 @@
                             <li><a href="#0">Liên hệ</a></li>
                         </ul>
                     </div> <!-- end .widget -->
+                    <?php foreach($categories_footer as $row): ?>
                     <div class="widget">
-                        <h6>Công cụ</h6>
+                        <h6><?php echo $row->name; ?></h6>
+                        <?php if(!empty($row->subs)) : ?>
                         <ul class="list-unstyled">
-                            <li><a href="#0">Browse Jobs</a></li>
-                            <li><a href="#0">Browse categories</a></li>
-                            <li><a href="#0">Submit Resume</a></li>
-                            <li><a href="#0">Candidate Dashboard</a></li>
-                            <li><a href="#0">Job Alerts</a></li>
-                            <li><a href="#0">My Bookmarks</a></li>
+                        <?php foreach($row->subs as $sub): ?>
+                            <li><a href="<?php echo base_url($sub->cat_name.'-c'.$sub->id); ?>"><?php echo $sub->name; ?></a></li>
+                        <?php endforeach; ?>
+                          
                         </ul>
+                    <?php endif; ?>
+
                     </div> <!-- end .widget -->
-                    <div class="widget">
-                        <h6>For companies</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#0">Browse Candidates</a></li>
-                            <li><a href="#0">Company Dashboard</a></li>
-                            <li><a href="#0">Add A Job</a></li>
-                            <li><a href="#0">Packages</a></li>
-                        </ul>
-                    </div> <!-- end .widget -->
+                <?php endforeach; ?>
+
+
                     <div class="widget">
                         <h6>Kết nối với English center work</h6>
                         <ul class="list-unstyled social-icons flex no-column">
