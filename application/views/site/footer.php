@@ -8,7 +8,7 @@
                         <li><a href="#0">Tuyển dụng</a></li>
                         <li><a href="#0">Việc làm</a></li>
                         <li><a href="#0">Ứng viên</a></li>
-                        <li><a href="#0">Bảng giá</a></li>
+                        <li><a href="<?php echo base_url('bang-gia.html'); ?>">Bảng giá</a></li>
                         <li><a href="#0">Liên hệ</a></li>
                     </ul> <!-- end .footer-menu -->             
                 </div> <!-- end .top -->

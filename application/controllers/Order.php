@@ -23,9 +23,9 @@ Class Order extends MY_Controller{
 		
 		
 		$user = '';
-		if($user_id = $this->session->userdata('user_id_login')) {
-			$user_id = $this->session->userdata('user_id_login');
-			$user = $this->user_model->get_info($user_id);
+		if($user_id = $this->session->userdata('company_id_login')) {
+			$user_id = $this->session->userdata('company_id_login');
+			$user = $this->member_company_model->get_info($user_id);
 		}else{
 			$user_id = 0;
 		}
@@ -33,25 +33,28 @@ Class Order extends MY_Controller{
 
 		
 		if($this->input->post()){
-			$this->form_validation->set_rules('name','Họ tên','required|min_length[6]');
-			$this->form_validation->set_rules('email','Địa chỉ email','required|valid_email');
-			$this->form_validation->set_rules('address','Địa chỉ nhận hàng','required');
-			$this->form_validation->set_rules('phone','Số điện thoại','required');
+			$this->form_validation->set_rules('company_name','Họ tên','required|min_length[2]');
+			$this->form_validation->set_rules('company_address','Địa chỉ công ty','required|min_length[6]');
+			$this->form_validation->set_rules('company_contact','Tên người liên hệ','required');
+			$this->form_validation->set_rules('contact_email','Email người liên hệ','required|valid_email');
+			$this->form_validation->set_rules('contact_phone','Số điện thoại','required|numeric');
 			$this->form_validation->set_rules('payment','Phương thức thanh toán','required');
 			if($this->form_validation->run()){
-				$name = $this->input->post('name');
-				$email = $this->input->post('email');
-				$phone = $this->input->post('phone');
-				$address = $this->input->post('address');
+				$company_name = $this->input->post('company_name');
+				$company_address = $this->input->post('company_address');
+				$company_contact = $this->input->post('company_contact');
+				$contact_email = $this->input->post('contact_email');
+				$contact_phone = $this->input->post('contact_phone');
 				$message = $this->input->post('message');
 				$payment = $this->input->post('payment');
 				$data = array(
 					'status'=>0, //trạng thái thanh toán
-					'user_id'=>$user_id, //id thành viên
-					'user_name'=>$name,
-					'user_email'=>$email,
-					'user_phone'=>$phone,
-					'address'=>$address,
+					'company_id'=>$user_id, //id thành viên
+					'company_name'=>$company_name,
+					'company_address'=>$company_address,
+					'company_contact'=>$company_contact,
+					'contact_email'=>$contact_email,
+					'contact_phone'=>$contact_phone,
 					'message'=>$message,
 					'amount'=>$total_amount,
 					'payment'=>$payment, //phương thức thanh toán
@@ -66,9 +69,11 @@ Class Order extends MY_Controller{
 			foreach($carts as $row){
 				$data = array(
 					'transaction_id' => $transaction_id,
+					'company_id' => $user_id,
 					'product_id' => $row['id'],
 					'qty' => $row['qty'],
 					'amount' => $row['subtotal'],
+					'scores' => $row['scores'],
 					'status' => 0
 					);
 				$this->order_model->create($data);
@@ -77,8 +82,8 @@ Class Order extends MY_Controller{
 			//xóa thông tin đơn hàng trong giỏ hàng
 			$this->cart->destroy();
 			//nếu thanh toán trực tiếp thì đặt hàng luôn
-			if($payment=='tructiep'){
-				redirect(base_url());
+			if($payment=='tructiep' || $payment=='chuyenkhoan'){
+				redirect(base_url('order/order_success'));
 			}
 			//nếu chọn cổng thanh toán
 			elseif(in_array($payment, array('nganluong','baokim'))){
@@ -95,6 +100,12 @@ Class Order extends MY_Controller{
 		$this->data['temp'] = 'site/order/checkout';
 		$this->load->view('site/layout',$this->data);
 
+	}
+
+	function order_success(){
+
+		$this->data['temp'] = 'site/order/order_success';
+		$this->load->view('site/layout',$this->data);
 	}
 
 	//nhận kết quả trả về từ cổng thanh toán

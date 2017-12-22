@@ -68,6 +68,7 @@ $route['nha-tuyen-dung/doi-mat-khau'] = 'companies/change_pass';
 $route['nha-tuyen-dung/ho-so-da-luu'] = 'companies/candidate_saved';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so'] = 'companies/candidate_applied';
 $route['nha-tuyen-dung/ung-vien-nop-ho-so/(:num)'] = 'companies/candidate_applied/$1';
+$route['nha-tuyen-dung/dich-vu-cua-toi'] = 'companies/myscores';
 
 
 $route['ung-vien/dang-nhap'] = 'candidate/login';
@@ -102,3 +103,8 @@ $route['(:any)-c(:num)/(:num)'] = 'news/catnews/$2/$3';
 $route['(:any)-(:num).html'] = 'news/detail/$2';
 //trang tin tức
 $route['(:any)-pv(:num)'] = 'page/view/$2';
+
+//bảng giá
+$route['bang-gia.html'] = 'pricing_plan';
+$route['thong-tin-dich-vu'] = 'cart';
+$route['checkout'] = 'order/checkout';

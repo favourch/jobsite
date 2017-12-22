@@ -5,6 +5,7 @@
 							    <li><a href="<?php echo base_url('nha-tuyen-dung'); ?>">Thông tin tài khoản</a></li>
 							    <li><a href="<?php echo base_url('nha-tuyen-dung/cap-nhat-thong-tin'); ?>">Cập nhật thông tin</a></li>
 							    <li class="notification-link flex space-between items-center no-column no-wrap"><a data-toggle="pill" href="#notifications-employer">Tin nhắn</a> <span class="notification-count">2</span></li>
+							    <li><a href="<?php echo base_url('nha-tuyen-dung/dich-vu-cua-toi'); ?>">Quản lý gói tuyển dụng</a></li>
 
 							    <li class="nav-divider"></li>
 							   	<li class="heading">QUẢN LÝ TUYỂN DỤNG</li>

@@ -26,12 +26,13 @@ Class Cart extends MY_Controller{
 		$data = array();
 		$data['id'] = $product->id;
 		$data['qty'] = $qty;
+		$data['scores'] = $product->scores;
 		$data['name'] = url_title($product->name);
 		$data['image'] = $product->image;
 		$data['price'] = $product->price;
 		$this->cart->insert($data);
 		//chuyển sang trang danh sách giỏ hàng
-		redirect(base_url('cart'));
+		redirect(base_url('thong-tin-dich-vu'));
 	}
 	//hien thi danh sach gio hang
 	function index(){
@@ -83,7 +84,7 @@ Class Cart extends MY_Controller{
 			$this->cart->destroy();
 		}
 		//chuyển sang trang danh sách giỏ hàng
-		redirect(base_url('cart'));
+		redirect(base_url('thong-tin-dich-vu'));
 	}
 
 

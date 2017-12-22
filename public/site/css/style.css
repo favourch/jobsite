@@ -246,6 +246,13 @@ ul {
 	color: #666;
 	font-size: 12px;
 }
+.table{
+	border: 1px solid #ccc;
+	background: #fff;
+}
+.table tr td{
+	padding: 20px;
+}
 .flex {
 	display: -webkit-box;
 	display: -ms-flexbox;

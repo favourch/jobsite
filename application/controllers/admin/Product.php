@@ -66,46 +66,30 @@ Class Product extends MY_Controller{
 	function add(){
 		
 		if($this->input->post()){
-			$this->form_validation->set_rules('name','Tên sản phẩm','required|min_length[6]');
-			$this->form_validation->set_rules('category_id','Danh mục sản phẩm','required');
+			$this->form_validation->set_rules('name','Tên dịch vụ','required|min_length[6]');
+			$this->form_validation->set_rules('price','Giá dịch vụ','required');
+			$this->form_validation->set_rules('scores','Điểm cộng','required|numeric');
 				if($this->form_validation->run()){
 				//tiến hành thêm vào csdl
 				$name = $this->input->post('name');
-				$category_id = $this->input->post('category_id');
 				$cat_name = $this->input->post('cat_name');
-				$cat_name = $this->product_model->slug($name);
+				$cat_name = slug($name);
 				$price = $this->input->post('price');
 				$price = str_replace(',', '', $price);
 				if($price==""){$price=0;}
 				$discount = $this->input->post('discount');
+				$scores = $this->input->post('scores');
 				$intro = $this->input->post('intro');
-				$content = $this->input->post('content');
-				$is_online = $this->input->post('is_online');	
-				$is_hot = $this->input->post('is_hot');		
-				//lấy tên file ảnh, upload ảnh đại diện
-				$this->load->library('upload_library');
-				$upload_path = './uploads/product';
-				$upload_data = $this->upload_library->upload($upload_path, 'image');
-				if(isset($upload_data['file_name'])){
-					$image_link = $upload_data['file_name'];
-				}
-				//uploads nhiều ảnh kèm theo
-				$image_list = array();
-				$image_list = $this->upload_library->upload_file($upload_path, 'image_list');
-				$image_list = json_encode($image_list);
+				$status = $this->input->post('status');	
 
 				$data = array(
 					'name'=> $name,
-					'category_id'=> $category_id,
 					'cat_name' => $cat_name,
 					'price' => intval($price),
 					'discount' => $discount,
+					'scores' => $scores,
 					'intro' => $intro,
-					'content' => $content,
-					'image' => $image_link,
-					'image_list' => $image_list,
-					'is_online' => $is_online,
-					'is_hot' => $is_hot,
+					'status' => $status,
 					'created' => now()
 					);
 				
@@ -154,33 +138,21 @@ Class Product extends MY_Controller{
 		$this->data['info'] = $info;
 
 		if($this->input->post()){
-			$this->form_validation->set_rules('name','Tên sản phẩm','required|min_length[6]');
+			$this->form_validation->set_rules('name','Tên dịch vụ','required|min_length[6]');
+			$this->form_validation->set_rules('price','Giá dịch vụ','required');
+			$this->form_validation->set_rules('scores','Điểm cộng','required|numeric');
 				if($this->form_validation->run()){
 				//tiến hành thêm vào csdl
 				$name = $this->input->post('name');
 				$cat_name = $this->input->post('cat_name');
-				$category_id = $this->input->post('category_id');
-				$cat_name = $this->product_model->slug($name);
+				$cat_name = slug($name);
 				$price = $this->input->post('price');
 				$price = str_replace(',', '', $price);
 				if($price==""){$price=0;}
 				$discount = $this->input->post('discount');
+				$scores = $this->input->post('scores');
 				$intro = $this->input->post('intro');
-				$content = $this->input->post('content');
-				$is_online = $this->input->post('is_online');
-				$is_hot = $this->input->post('is_hot');
-
-				//lấy tên file ảnh, upload ảnh đại diện
-				$this->load->library('upload_library');
-				$upload_path = './uploads/product';
-				$upload_data = $this->upload_library->upload($upload_path, 'image');
-				if(isset($upload_data['file_name'])){
-					$image_link = $upload_data['file_name'];
-				}
-				//uploads nhiều ảnh kèm theo
-				$image_list = array();
-				$image_list = $this->upload_library->upload_file($upload_path, 'image_list');
-				$image_list_json = json_encode($image_list);
+				$status = $this->input->post('status');
 
 				$data = array(
 					'name'=> $name,
@@ -188,17 +160,10 @@ Class Product extends MY_Controller{
 					'cat_name' => $cat_name,
 					'price' => intval($price),
 					'discount' => $discount,
+					'scores' => $scores,
 					'intro' => $intro,
-					'content' => $content,
-					'is_online' => $is_online,
-					'is_hot' => $is_hot
+					'status' => $status,
 					);
-				if($image_link!=''){
-					$data['image'] = $image_link;
-				}
-				if(!empty($image_list)){
-					$data['image_list'] = $image_list_json;
-				}
 
 				$this->product_model->update($id, $data);
 					// tạo nội dung thông báo
@@ -210,16 +175,6 @@ Class Product extends MY_Controller{
 			
 		}
 
-		//lấy ra danh mục cha
-			$input = array();
-			$input['where'] = array('parent' => 0);
-			$list = $this->category_model->get_list($input);
-			foreach($list as $row){
-			$input['where'] = array('parent'=> $row->id);
-			$subs = $this->category_model->get_list($input); // lấy ra danh mục con
-			$row->subs = $subs; 
-			}
-			$this->data['list'] = $list;
 
 		$this->data['temp'] = 'admin/product/edit';
 		$this->load->view('admin/main', $this->data);

@@ -1,8 +1,12 @@
+  <div class="section pricing-plans solid-light-grey-bg">
+            <div class="inner">
+                <div class="container">
+
    <!-- breadcrumb -->
             <div class="container breadcrumb-page">
                 <ol class="breadcrumb">
-                    <li><a href="#">Trang chu </a></li>
-                    <li class="active">Thong tin gio hang</li>
+                    <li><a href="#">Trang chủ </a></li>
+                    <li class="active">Thông tin gói dịch vụ</li>
                 </ol>
             </div> <!-- breadcrumb -->
      <div class="container">
@@ -14,11 +18,12 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="tb-product">Sản phẩm/Giá</th>
-                                    <th class="tb-available">Available</th>
+                                    <th class="tb-product">Gói dịch vụ / Giá</th>
+                                    <th class="tb-available">Đơn vị tính</th>
                                     <th class="tb-qty">Số lượng</th>
                                     <th class="tb-total">Tổng số</th>
-                                    <th class="tb-remove">Remove</th>
+                                    <th class="tb-qty">Điểm</th>
+                                    <th class="tb-remove">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,47 +33,44 @@
                                 <tr>
                                     <td class="tb-product">
                                         <div class="item">
-                        <a href="" class="item-photo"><img src="<?php echo base_url('uploads/product/'.$row['image']); ?>" alt="cart"></a>
                                             <div class="item-detail">
                                         <strong class="item-name"><a href=""><?php echo $row['name']; ?>  </a></strong>
                                                 <div class="item-price">
-                                                    <span class="price"><?php echo number_format($row['price']); ?></span>
+                                                    <span class="price"><?php echo number_format($row['price']); ?> vnđ</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="tb-available">
-                                        <span class="value">In stock!</span>
+                                        <span class="value">Gói</span>
                                     </td>
                                     <td class="tb-qty">
+                                        <!--
                                         <input type="text" name="qty_<?php echo $row['id']; ?>" title="Qty" class="input-qty " value="<?php echo $row['qty']; ?> ">
+                                        -->
+                                        <?php echo $row['qty']; ?> 
                                     </td>
                                     <td class="tb-total">
-                                        <span class="amount"><?php echo number_format($row['subtotal']); ?> </span>
+                                        <span class="amount"><?php echo number_format($row['subtotal']); ?> vnđ</span>
+                                    </td>
+                                     <td class="tb-total">
+                                        <span class="amount"><?php echo $row['scores'] ?></span>
                                     </td>
                                     <td class="tb-remove">
-                                        <a href="<?php echo base_url('cart/del/'.$row['id']) ?>" class="action-remove"><span>Xóa</span></a>
+                                        <a href="<?php echo base_url('cart/del/'.$row['id']) ?>" class="action-remove"><span>Hủy bỏ</span></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                                <tr>
-                        <td class="tb-subtotal" colspan="5"><span class="label">Thành tiền :</span>   
-                        <?php echo number_format($total_amount); ?>
-                        - <a href="<?php echo base_url('cart/del'); ?>">Xóa toàn bộ</a>
-                        </td>
+    
 
-                                </tr>
                             </tbody>
                         </table>
                     </div><!-- table cart -->
 
                     <!-- action cart -->
                     <div class="cart-actions">
-                        <button type="submit" title="Update Cart" class="action update">
-                            <span>Cập nhật giỏ hàng</span>
-                        </button>
-                        <a href="<?php echo base_url('order/checkout'); ?>" title="Proceed to CHECK OUT" class="action checkout">
-                            <span>Thanh toán đơn hàng</span>
+                        <a href="<?php echo base_url('checkout'); ?>" title="" class="button">
+                            <span>Xác nhận đăng ký</span>
                         </a>
                     </div><!-- action cart -->
                 </form><!-- form cart -->
@@ -76,4 +78,7 @@
                 <h4>Không có sản phẩm nào trong giỏ hàng !</h4>
             <?php endif; ?>
 
+            </div>
+            </div>
+            </div>
             </div>
