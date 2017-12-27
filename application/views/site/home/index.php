@@ -41,7 +41,10 @@
                             <a href="#0" class="button item-center">car dealer</a>
                         </div> .keywords -->
                         
-                    </div> <!-- end .job-search-form -->    
+                    </div> <!-- end .job-search-form -->
+                    <div>
+                    <a href="home/near_jobs">Việc làm gần nhà</a>
+                    </div>    
                 </div> <!-- end .container -->
                 <div class="features-bar">
                     <div class="container">

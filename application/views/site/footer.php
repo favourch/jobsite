@@ -77,6 +77,7 @@
         <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>        
         <script src="<?php echo public_url(); ?>/site/js/bootbox.min.js" ></script>
         <!-- google maps -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEi-pqCjdPIp1SL_h1L-ENH3FxQ4fLEf0&callback=initMap" async defer></script>
         <!-- Owl Carousel -->
         <script src="<?php echo public_url(); ?>/site/js/owl.carousel.min.js"></script>
         <!-- Wow.js -->
