@@ -3,7 +3,7 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
+					<a href="<?php echo admin_url('home'); ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">Dashboard</a></li>
@@ -29,18 +29,18 @@
 					<span class="badge">46</span>
 				</a>
 				
-				<a class="quick-button metro green span2">
+				<a class="quick-button metro green span2" href="<?php echo admin_url('adver'); ?>">
 					<i class="icon-barcode"></i>
-					<p>Products</p>
+					<p>Quản lý quảng cáo</p>
 				</a>
-				<a class="quick-button metro pink span2">
+				<a class="quick-button metro pink span2" href="<?php echo admin_url('contact'); ?>">
 					<i class="icon-envelope"></i>
-					<p>Messages</p>
-					<span class="badge">88</span>
+					<p>Tin nhắn</p>
+					<span class="badge"><?php echo $total_contact; ?></span>
 				</a>
-				<a class="quick-button metro black span2">
+				<a class="quick-button metro black span2" href="<?php echo admin_url('support'); ?>">
 					<i class="icon-calendar"></i>
-					<p>Calendar</p>
+					<p>Hỗ trợ trực tuyến</p>
 				</a>
 				
 				<div class="clearfix"></div>

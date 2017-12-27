@@ -124,6 +124,12 @@ Class MY_Controller extends CI_Controller{
 					//load thư viện giỏ hàng tất cả các trang
 					$this->load->library('cart');
 					$this->data['total_items'] = $this->cart->total_items();
+
+					//cài đặt website
+					$this->load->model('setting_model');
+					$settingid = 1;
+					$setting = $this->setting_model->get_info($settingid);
+					$this->data['setting'] = $setting;
 			}
 		}
 	}

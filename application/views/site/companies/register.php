@@ -17,7 +17,7 @@
 									<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
 											<p class="label">Email<sup>*</sup></p>
-											<input type="text" id="" name="email" placeholder="" value="<?php echo set_value('email'); ?>" >
+											<input type="text" id="" name="email" placeholder="Email information" value="<?php echo set_value('email'); ?>" >
 											<span style="color: #c00; font-size: 12px;"><?php echo form_error('email'); ?></span>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
@@ -25,19 +25,19 @@
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
 											<p class="label">Mật khẩu<sup>*</sup></p>
-										<input type="password" id="" name="password" placeholder="">
+										<input type="password" id="" name="password" placeholder="Your password">
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('password'); ?></span>
 										</div> <!-- end .form-group -->
 										<div class="form-group">
 											<p class="label">Xác nhận mật khẩu<sup>*</sup></p>
-										<input type="password" id="" name="repassword" placeholder="">
+									<input type="password" id="" name="repassword" placeholder="Password confirmation">
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('repassword'); ?></span>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
 										<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
 											<p class="label">Tên công ty<sup>*</sup></p>
-											<input type="text" id="" name="company_name" placeholder="" value="<?php echo set_value('company_name'); ?>" >
+											<input type="text" id="" name="company_name" placeholder="Company name" value="<?php echo set_value('company_name'); ?>" >
 											<span style="color: #c00; font-size: 12px;"><?php echo form_error('company_name'); ?></span>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
@@ -45,14 +45,14 @@
 									<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
 											<p class="label">Địa chỉ<sup>*</sup></p>
-											<input type="text" id="" name="company_address" placeholder="" value="<?php echo set_value('company_address'); ?>" >
+											<input type="text" id="" name="company_address" placeholder="Address" value="<?php echo set_value('company_address'); ?>" >
 											<span style="color: #c00; font-size: 12px;"><?php echo form_error('company_address'); ?></span>
 										</div> <!-- end .form-group -->
 									</div>
 
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
-											<p class="label">Tỉnh / Thành phố</p>
+											<p class="label">Tỉnh / Thành phố (Province/City)</p>
 											<select name="city_id" style="width: 100%;">
 												<option value="">---Chọn tỉnh/thành phố---</option>
 												<?php foreach($thanhpho as $row): ?>
@@ -62,7 +62,7 @@
 										</div> <!-- end .form-group -->
 
 										<div class="form-group">
-											<p class="label">Quy mô công ty</p>
+											<p class="label">Quy mô công ty (Company size)</p>
 											<select name="company_size_id" style="width: 100%;">
 												<option value="">---Chọn---</option>
 												<?php foreach($companysize as $row): ?>
@@ -75,13 +75,13 @@
 									<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
 											<p class="label">Mô tả sơ lược về công ty</p>
-											<textarea name="description" class="txtarea"></textarea>
+											<textarea name="description" class="txtarea" placeholder="Company description"></textarea>
 										</div> <!-- end .form-group -->
 
 									</div>
 										<div class="form-group-wrapper">
 										<div class="form-group upload-company-logo">
-											<p class="label">Logo công ty<span>(Kích thước tối đa: 1MB)</span></p>
+											<p class="label">Logo <span>(Kích thước tối đa: 1MB)</span></p>
 									    	<label for="company-logo-upload" class="flex space-between items-center no-column no-wrap">
 									    	<span>Tải lên logo</span>
 									    	<span><i class="ion-ios-folder-outline"></i>Chọn tệp</span>								    	
@@ -98,7 +98,7 @@
 									</div> <!-- end .form-group-wrapper -->
 									<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
-											<p class="label">Số điện thoại</p>
+											<p class="label">Số điện thoại (Phone number)</p>
 											<input type="text" id="" name="company_phone" placeholder="" value="<?php echo set_value('company_phone'); ?>" >
 											<span style="color: #c00; font-size: 12px;"><?php echo form_error('company_phone'); ?></span>
 										</div> <!-- end .form-group -->
@@ -119,12 +119,12 @@
 									<div class="form-group-wrapper flex space-between items-center">
 										<div class="form-group">
 											<p class="label">Tên người liên hệ <sup>*</sup></p>
-								<input type="text" id="" name="company_contact" placeholder="" value="<?php echo set_value('company_contact'); ?>" >	
+								<input type="text" id="" name="company_contact" placeholder="Contact name" value="<?php echo set_value('company_contact'); ?>" >	
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('company_contact'); ?></span>
 										</div> <!-- end .form-group -->
 										<div class="form-group">
 											<p class="label">Chức vụ người liên hệ<sup>*</sup></p>
-											<input type="text" id="" name="contact_title" value="<?php echo set_value('contact_title'); ?>">
+											<input type="text" id="" name="contact_title" placeholder="Position" value="<?php echo set_value('contact_title'); ?>">
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('contact_title'); ?></span>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
@@ -132,18 +132,15 @@
 									<div class="form-group-wrapper flex space-between items-center">
 									<div class="form-group">
 										<p class="label">Email người liên hệ <sup>*</sup></p>
-								<input type="text" id="" name="contact_email" placeholder="" value="<?php echo set_value('contact_email'); ?>" >	
+								<input type="text" id="" name="contact_email" placeholder="Email contact" value="<?php echo set_value('contact_email'); ?>" >	
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('contact_email'); ?></span>
 										</div> <!-- end .form-group -->
 										<div class="form-group">
 											<p class="label">Điện thoại người liên hệ<sup>*</sup></p>
-											<input type="text" id="" name="contact_phone" value="<?php echo set_value('contact_phone'); ?>">
+											<input type="text" id="" name="contact_phone" placeholder="Contact phone" value="<?php echo set_value('contact_phone'); ?>">
 								<span style="color: #c00; font-size: 12px;"><?php echo form_error('contact_phone'); ?></span>
 										</div> <!-- end .form-group -->
 									</div> <!-- end .form-group-wrapper -->
-
-									
-									
 
 								</div> <!-- end .form-fields-wrapper -->
 

@@ -108,3 +108,6 @@ $route['(:any)-pv(:num)'] = 'page/view/$2';
 $route['bang-gia.html'] = 'pricing_plan';
 $route['thong-tin-dich-vu'] = 'cart';
 $route['checkout'] = 'order/checkout';
+
+//xem full hồ sơ
+$route['xem-ho-so/(:num)/(:any)'] = 'candidatelist/view_full/$1';

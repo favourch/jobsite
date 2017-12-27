@@ -98,6 +98,8 @@ Class Career extends MY_Controller{
 		$list = $this->recruitment_model->get_list($input);
 		$this->data['list'] = $list;
 
+		$title = $category->name;
+		$this->data['title'] = $title;
 		//hiển thị ra view
 		$this->data['temp'] = "site/career/index";
 		$this->load->view('site/layout',$this->data);
@@ -154,6 +156,9 @@ Class Career extends MY_Controller{
 		$input['where'] = array('company_id'=>$info->company_id);
 		$similarjob = $this->recruitment_model->get_list($input);
 		$this->data['similarjob'] = $similarjob;
+
+		$title = $info->title;
+		$this->data['title'] = $title;
 
 		$this->data['temp'] = "site/career/view";
 		$this->load->view("site/layout", $this->data);

@@ -42,7 +42,19 @@ Class Home extends MY_Controller{
 		$partners = $this->partners_model->get_list($input);
 		$this->data['partners'] = $partners;
 
+		//quảng cáo home
+		$this->load->model('adver_model');
+		$input['where'] = array('status'=>1);
+		$input['limit'] = array(1,0);
+		$adverone = $this->adver_model->get_list($input);
+		$this->data['adverone'] = $adverone;
 
+		$input['where'] = array('status'=>2);
+		$input['limit'] = array(4,0);
+		$advertwo = $this->adver_model->get_list($input);
+		$this->data['advertwo'] = $advertwo;
+
+		
 		$this->data['temp'] = 'site/home/index';
 		$this->load->view('site/layout', $this->data);
 	}

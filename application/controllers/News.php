@@ -69,6 +69,9 @@ Class News extends MY_Controller{
 		$list = $this->news_model->get_list($input);
 		$this->data['list'] = $list;
 
+		$title = $category->name;
+		$this->data['title'] = $title;
+
 		$this->data['temp'] = 'site/news/catnews';
 		$this->load->view('site/layout',$this->data);
 
@@ -99,6 +102,9 @@ Class News extends MY_Controller{
 		 $input['where'] = array('status'=>3);
 		 $newsjobs = $this->recruitment_model->get_list($input);
 		 $this->data['newsjobs'] = $newsjobs;
+
+		 $title = $info->title;
+		 $this->data['title'] = $title;
 
 		 $this->data['temp'] = 'site/news/detail';
 		 $this->load->view('site/layout',$this->data);

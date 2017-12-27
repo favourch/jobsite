@@ -48,6 +48,18 @@
 									<div class="divider"></div>
 
 									<div class="job-post-bottom">
+										<h3 class="infocaca">Thông tin ứng viên</h3>
+										<div class="info-ca">
+									
+								<div class="col-lg-6">Họ và tên : <b><?php echo $candidate->full_name; ?></b></div>
+								<div class="col-lg-6">Giới tính : <?php if($candidate->gender==1): ?><b>Nam</b><?php else: ?>Nữ<?php endif; ?></div>
+									<div class="col-lg-6">Địa chỉ :  <b><?php echo $candidate->address; ?></b></div>
+									<div class="col-lg-6">Ngày sinh : <b><?php echo int_to_date($candidate->birthday); ?></b></div>
+									<div class="col-lg-6">Email : <b><?php echo $candidate->email; ?></b></div>
+									<div class="col-lg-6">Số điện thoại: <b><?php echo $candidate->phone; ?></b></div>
+
+										</div>
+										<br><br>
 										<h4 class="dark">Mục tiêu nghề nghiệp</h4>
 										<?php echo $candidate->description; ?>
 										<br><br>
@@ -159,19 +171,13 @@ $(".FormSubmit").click(function (e) {
 					
 
 									<div class="system-login text-center">
-				<?php if($company): ?>
-				<?php if($company->scores<=0): ?>
-				<p>Bạn đang xem hồ sơ ứng viên đã được phân loại trên English Center Work. Hồ sơ có giá trị <span class="titlepink">1 điểm.</span> Tài khoản của bạn hiện không đủ điểm. Xin vui lòng bấm <a href="<?php echo base_url('bang-gia.html'); ?>">vào đây</a> để đăng ký dịch vụ.</p><br>
-			<?php else: ?>
-				<p>Bạn đang xem hồ sơ ứng viên đã được phân loại trên English Center Work. Hồ sơ có giá trị <span class="titlepink">1 điểm.</span></p><br>
-			<?php endif; ?>
-			<?php else: ?>
-				<p>Hồ sơ của ứng viên là file PDF đính kèm. Tính năng xem hồ sơ được đính kèm chỉ dành cho nhà tuyển dụng gói dịch vụ <span class="titlepink">Gói điểm xem hồ sơ </span>.</p><br>
-			<?php endif; ?>
 
-						<form method="post" action="" name="frmpost" id="frmpost">
-						<a href="<?php echo base_url('xem-ho-so/'.$candidate->id.'/'.$candidate->cat_name); ?>" class="button">Xem hồ sơ đầy đủ<i class="ion-android-send"></i></a>
+						<?php if($company): ?>
+						<form method="POST" name="frmpost" id="frmpost">
+						<input type="hidden" name="methodpost" value="1">
+						<button type="submit" class="buttonpink">Tải file cv về máy <i class="ion-paperclip"></i></button>
 						</form>
+						<?php endif; ?>
 									</div> <!-- end .system-login -->
 
 								</div> <!-- end .right-side-inner -->
