@@ -56,6 +56,56 @@ function get_status($t=0,$v=0){
 
 }
 
+
+function get_adver_status($t=0,$v=0){
+   if($v==0){
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1'>Ads home (1120x120)</option>";
+      echo "<option value='2'>Ads home (260x260)</option>";
+      echo "<option value='3'>Ads jobpage</option>";
+      echo "<option value='4'>Ads candidate page</option>";
+   }
+   else if($v==1){
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1' selected=''>Ads home (1120x120)</option>";
+      echo "<option value='2'>Ads home (260x260)</option>";
+      echo "<option value='3'>Ads jobpage</option>";
+      echo "<option value='4'>Ads candidate page</option>";
+   }
+   else if($v==2){
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1'>Ads home (1120x120)</option>";
+      echo "<option value='2' selected=''>Ads home (260x260)</option>";
+      echo "<option value='3'>Ads jobpage</option>";
+      echo "<option value='4'>Ads candidate page</option>";
+   }
+   else if($v==3){
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1'>Ads home (1120x120)</option>";
+      echo "<option value='2'>Ads home (260x260)</option>";
+      echo "<option value='3' selected=''>Ads jobpage</option>";
+      echo "<option value='4'>Ads candidate page</option>";
+   }
+   else if($v==4){
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1'>Ads home (1120x120)</option>";
+      echo "<option value='2'>Ads home (260x260)</option>";
+      echo "<option value='3'>Ads jobpage</option>";
+      echo "<option value='4' selected=''>Ads candidate page</option>";
+   }
+   else{
+      echo "<option value='0'>---Chọn vị trí quảng cáo---</option>";
+      echo "<option value='1'>Ads home (1120x120)</option>";
+      echo "<option value='2'>Ads home (260x260)</option>";
+      echo "<option value='3'>Ads jobpage</option>";
+      echo "<option value='4'>Ads candidate page</option>";
+   
+   }
+
+}
+
+
+
   
 
 

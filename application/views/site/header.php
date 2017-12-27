@@ -49,17 +49,23 @@
                         <?php if(!isset($user_info) && !isset($company_info)): ?>
                         <div class="button-group-merged flex no-column">
                                 <div class="r-dropdown first">
-                                        <a href="#" class="button">Nhà tuyển dụng</a>
+                                        <a href="#" class="button">Nhà tuyển dụng<br>
+                                        <span>Employer</span>
+                                        </a>
                                         <div class="dropdown-content">
-                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-nhap'); ?>">Đăng nhập</a>
-                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-ky'); ?>">Đăng ký</a>
+                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-nhap'); ?>">Đăng nhập<span> (Login)</span></a>
+                                        <a href="<?php echo base_url('nha-tuyen-dung/dang-ky'); ?>">Đăng ký
+                                        <span>(Register)</span>
+                                        </a>
                                         </div>
                                       </div>
                                       <div class="r-dropdown last">
-                                            <a href="#" class="button">Ứng viên</a>
+                                            <a href="#" class="button">Ứng viên<br>
+                                            <span>Candidate</span>
+                                            </a>
                                             <div class="dropdown-content">
-                                            <a href="<?php echo base_url('ung-vien/dang-nhap'); ?>">Đăng nhập</a>
-                                             <a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký</a>
+                                            <a href="<?php echo base_url('ung-vien/dang-nhap'); ?>">Đăng nhập <span> (Login)</a>
+                                             <a href="<?php echo base_url('ung-vien/dang-ky'); ?>">Đăng ký <span>(Register)</span></a>
                                             </div>
                                           </div>    
                            

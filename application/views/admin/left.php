@@ -21,6 +21,13 @@
 							</ul>	
 						</li>
 						<li><a href="<?php echo admin_url('candidate'); ?>"><i class="icon-user"></i><span class="hidden-tablet"> Ứng viên</span></a></li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Nhà tuyển dụng</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo admin_url('company'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Danh sách công ty </span></a></li>
+								<li><a class="submenu" href="<?php echo admin_url('level'); ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Thống kê</span></a></li>
+							</ul>	
+						</li>
 						<li><a href="<?php echo admin_url('menu'); ?>"><i class="icon-tasks"></i><span class="hidden-tablet"> Menu</span></a></li>
 						<!--
 						
@@ -35,7 +42,6 @@
 						</li>
 
 						<li><a href="<?php echo admin_url('page'); ?>"><i class="icon-book"></i><span class="hidden-tablet"> Trang tin</span></a></li>
-						<li><a href="<?php echo admin_url('support'); ?>"><i class="icon-phone"></i><span class="hidden-tablet"> Hỗ trợ trực tuyến</span></a></li>
 						<!--
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Đơn hàng</span></a>
@@ -47,7 +53,6 @@
 						-->
 						<li><a href="<?php echo admin_url('slide'); ?>"><i class="icon-picture"></i><span class="hidden-tablet"> Slide</span></a></li>
 						<li><a href="<?php echo admin_url('partners'); ?>"><i class="icon-question-sign"></i><span class="hidden-tablet"> Đối tác & khách hàng</span></a></li>
-						<li><a href="<?php echo admin_url('contact'); ?>"><i class="icon-envelope"></i><span class="hidden-tablet"> Liên hệ</span> <span class="label label-important"> <?php echo $total_contact; ?> </span></a> </li>
 
 						<li><a href="<?php echo admin_url('setting'); ?>"><i class="icon-cog"></i><span class="hidden-tablet"> Cấu hình</span></a></li>
 						<li><a href="<?php echo admin_url('tags'); ?>"><i class="icon-tags"></i><span class="hidden-tablet"> Tags cloude</span></a></li>

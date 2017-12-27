@@ -33,15 +33,16 @@
 							<?php $level_info = $this->level_model->get_info($row->level_id); ?>
 							<?php $jobtype = $this->job_type_model->get_info($row->job_type); ?>
 								<div class="candidate flex no-wrap no-column">
+
 									<div class="candidate-image">
 			<?php if($row->image!=''): ?>
-			<img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="" class="img-responsive">
+			<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" target="_blank"><img src="<?php echo base_url('uploads/candidate/'.$row->image); ?>" alt="" class="img-responsive"></a>
 		<?php else: ?>
-			<img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="" class="img-responsive">
+			<a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" target="_blank"><img src="<?php echo public_url('site/images/userscandi.png'); ?>" alt="" class="img-responsive"></a>
 		<?php endif; ?>
 									</div> <!-- end .candidate-image -->
 									<div class="candidate-info">
-										<h4 class="candidate-name"><?php echo $row->title; ?> 
+										<h4 class="candidate-name"><a href="<?php echo base_url('ho-so/'.$row->id.'/'.$row->cat_name.'.html'); ?>" target="_blank"><?php echo $row->title; ?> </a>
 									<span style="float: right; color: #fc205b"><?php echo $experience->name; ?></span>
 										</h4>
 								<h5 class="candidate-designation"><?php echo $row->full_name; ?> <span style="float: right;"><?php echo int_to_date($row->modified_date); ?></span></h5>
@@ -52,6 +53,7 @@
 								<h5 class=""><span style="color: #4caf50"> <?php echo $jobtype->name; ?></span></h5>
 										</div> <!-- end .candidate-info-bottom -->
 									</div> <!-- end .candidate-info -->
+							
 								</div> <!-- end .candidate -->
 
 								<div class="spacer-xs"></div>

@@ -261,8 +261,12 @@ Class Companies extends MY_Controller{
 				$this->load->library('upload_library');
 				$upload_path = './uploads/company';
 				$upload_data = $this->upload_library->upload($upload_path, 'logo_url');
+				$upload_image = $this->upload_library->upload($upload_path,'image');
 				if(isset($upload_data['file_name'])){
 					$image_link = $upload_data['file_name'];
+				}
+				if(isset($upload_image['file_name'])){
+					$image = $upload_image['file_name'];
 				}
 
 				$data = array(
@@ -284,6 +288,10 @@ Class Companies extends MY_Controller{
 				if($image_link!=''){
 					$data['logo_url'] = $image_link;
 				}
+				if($image!=''){
+					$data['image'] = $image;
+				}
+
 			$this->member_company_model->update($company_id,$data);
 			$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
 			redirect(base_url('nha-tuyen-dung'));			

@@ -91,6 +91,16 @@
 										    <input type="file" name="logo_url" id="company-logo-upload">
 										</div> <!-- end .form-group -->
 									</div>
+									<div class="form-group-wrapper">
+										<div class="form-group upload-company-logo">
+											<p class="label">Hình ảnh công ty<span>(để thu hút ứng viên)</span></p>
+									    	<label for="company-image-upload" class="flex space-between items-center no-column no-wrap">
+									    	<span>Tải lên banner</span>
+									    	<span><i class="ion-ios-folder-outline"></i>Chọn tệp</span>								    	
+									    	</label>
+										    <input type="file" name="image" id="company-image-upload">
+										</div> <!-- end .form-group -->
+									</div>
 									<div class="form-group-wrapper space-between items-center">
 										<div class="form-group">
 											<p class="label">Website</p>

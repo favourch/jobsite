@@ -49,6 +49,7 @@
 									<div class="divider"></div>
 
 									<div class="job-post-bottom">
+										<img src="<?php echo base_url('uploads/company/'.$company->image); ?>" style="width:100%;"><br><br>
 										<h4 class="dark">Mô tả công việc</h4>
 										<p><?php echo $info->content; ?></p><br>	
 
@@ -150,8 +151,6 @@ $(".FormSubmit").click(function (e) {
 										<p><?php echo $company->description; ?></p><br>
 										<ul class="list-unstyled">
 											<li class="flex no-column no-wrap"><i class="ion-ios-location"></i><?php echo $company->company_address; ?></li>
-											<li class="flex no-column no-wrap"><i class="ion-ios-telephone"></i><a href="tel:<?php echo $company->company_phone; ?>"><?php echo $company->company_phone; ?></a></li>
-											<li class="flex no-column no-wrap"><i class="ion-email"></i><a href="#"><?php echo $company->email; ?></a></li>
 											<li class="flex no-column no-wrap"><i class="ion-earth"></i><a href="<?php echo $company->website; ?>"><?php echo $company->website; ?></a></li>
 										</ul>
 									</div> <!-- end .job-post-company-info -->
@@ -160,8 +159,6 @@ $(".FormSubmit").click(function (e) {
 										<ul class="list-unstyled">
 											<li class="flex no-column no-wrap">Người liên hệ : <?php echo $company->company_contact; ?></li>
 											<li class="flex no-column no-wrap">Chức vụ : <?php echo $company->contact_title; ?></li>
-											<li class="flex no-column no-wrap">Điện thoại : <span style="color: #FC205C;"><?php echo $company->contact_phone; ?></span></li>
-											<li class="flex no-column no-wrap">Email : <span style="color: #FC205C;"><?php echo $company->contact_email; ?></span></li>
 										</ul>
 								
 
@@ -171,7 +168,7 @@ $(".FormSubmit").click(function (e) {
 									<div class="system-login text-center">
 										<p class="divider-text text-center"><span>Ứng tuyển việc làm</span></p>
 										<?php if(isset($user_info)): ?>
-										<a href="<?php echo base_url('ung-vien/nop-ho-so-'.$info->id); ?>" class="button">Nộp đơn ứng tuyển</a>
+										<a href="<?php echo base_url('ung-vien/nop-ho-so-'.$info->id); ?>" class="button">Nộp đơn ứng tuyển (Apply)</a>
 									<?php else: ?>
 										<a href="<?php echo base_url('ung-vien/dang-nhap'); ?>" class="button">Đăng nhập để ứng tuyển</a>
 									<?php endif; ?>
