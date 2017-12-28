@@ -142,7 +142,7 @@ Class News extends MY_Controller{
 
 			//lấy tên file ảnh, upload ảnh đại diện
 				$this->load->library('upload_library');
-				$upload_path = './uploads/product';
+				$upload_path = './uploads/news';
 				$upload_data = $this->upload_library->upload($upload_path, 'image');
 				if(isset($upload_data['file_name'])){
 					$image_link = $upload_data['file_name'];

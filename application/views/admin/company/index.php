@@ -20,38 +20,19 @@
 			<?php if(isset($message)) { $this->load->view('admin/message', $this->data); } ?>
 
 <div class="thanhtimkiem">
-<form method="GET" action="<?php echo admin_url('candidate'); ?>">
+<form method="GET" action="<?php echo admin_url('company'); ?>">
 <div class="span12">
 <div style="float: left; padding-right: 15px;">
 <div class="control-group">
 <div class="controls">
-<input class="input-xlarge" id="" type="text" name="name" placeholder="Lọc theo tên...">
+<input class="input-xlarge" id="" type="text" name="company_name" placeholder="Lọc theo tên...">
 </div>
 </div>
 </div>
-<div style="float: left; padding-right: 15px;">
-<div class="control-group">
-<div class="controls">
-<select data-placeholder="Lọc theo danh mục" name="category_id" id="selectError2" data-rel="chosen">
-<option value="">---Chọn danh mục---</option>
-<?php foreach ($category as $row): ?>
-<?php if(count($row->subs) > 0 ): ?>
-<optgroup label="<?php echo $row->name; ?>">
-<?php foreach($row->subs as $sub): ?>
-<option value="<?php echo $sub->id; ?>" <?php echo ($this->input->get('category_id') == $sub->id) ? "selected" : "" ?> ><?php echo $sub->name; ?></option>
-<?php endforeach; ?>
-</optgroup>
-<?php else: ?>
-<option value="<?php echo $row->id; ?>" <?php echo ($this->input->get('category_id') == $row->id) ? "selected" : "" ?> ><?php echo $row->name; ?></option>
-<?php endif; ?>
-<?php endforeach; ?>
-</select>
-</div>
-</div>
-</div>
+
 <div style="float: left;">
 <input type="submit" class="btn btn-small btn-inverse" value="Lọc">
-<a class="btn btn-small btn-inverse" onclick="return location.reload();">Reset</a>
+<a class="btn btn-small btn-inverse" onclick="return goBack();">Reset</a>
 </div>
 </div>
 </form>
@@ -69,9 +50,7 @@
 
 					</div>
 					<div class="box-content">
-					<div class="thanh-xuly">
-				<a href="<?php echo admin_url('company/add'); ?>" class="btn btn-small btn-success"><i class="halflings-icon white plus"></i> Thêm mới</a>
-				
+					<div class="thanh-xuly">				
 				<span class="list_action" id="list_action">
 				<a class="btn btn-small btn-danger" onclick="return xacnhanDelete();" id="submit"><i class="halflings-icon white trash"></i> Xóa tùy chọn</a>
 				</span>
@@ -85,7 +64,6 @@
 								  <th>Thông tin công ty</th>
 								  <th>Người liên hệ</th>
 								  <th>Ngày tạo</th>
-								  <th>Email</th>
 								  <th>Tình trạng</th>
 								  <th>Tùy chọn</th>
 							  </tr>
@@ -113,20 +91,23 @@
 								<span style="font-size: 11px">Chức vụ : <?php echo $row->contact_title; ?></span><br>
 								</td>
 								<td class="center"><?php echo int_to_date($row->created); ?> </td>
-								<td class="center">Tin đăng</td>
 								<td class="center">
 									<?php if($row->status==1): ?>
 									<span class="label label-success">Đã kích hoạt</span>
-								<?php else: ?>
+								<?php endif; ?>
+								<?php if($row->status==0): ?>
 									<span class="label label-important">Chưa kích hoạt</span>
 								<?php endif; ?>
+								<?php if($row->status==2): ?>
+									<span class="label label-warning">Khóa tài khoản</span>
+								<?php endif; ?>
 								</td>
-								<td class="center">sfasfasf</td>
+								<td class="center"><a class="btn btn-small btn-info" href="<?php echo admin_url('company/view/'.$row->id); ?>">Xem tin đăng</a></td>
 								<td class="center">
-					<a class="btn btn-small btn-info" href="<?php echo admin_url('candidate/edit/'.$row->id); ?>">
+					<a class="btn btn-small btn-info" href="<?php echo admin_url('company/edit/'.$row->id); ?>">
 					<i class="halflings-icon white edit"></i>  
 					</a>
-					<a class="btn btn-small btn-danger" href="<?php echo admin_url('candidate/del/'.$row->id); ?>" onclick="return check_del();">
+					<a class="btn btn-small btn-danger" href="<?php echo admin_url('company/del/'.$row->id); ?>" onclick="return check_del();">
 					<i class="halflings-icon white trash"></i>  
 					</a>
 									

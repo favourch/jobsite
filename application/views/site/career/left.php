@@ -35,9 +35,9 @@
 								<div class="featured-job flex items-center no-column no-wrap">
 									<div class="left-side-inner">
 									 <?php if($company->logo_url==''): ?>
-                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive">
+                                    <img src="<?php echo public_url('site/images/building.png'); ?>" alt="" class="img-responsive" width="50">
                                     <?php else: ?>     
-										<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive">
+										<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" alt="" class="img-responsive" width="50">
 									<?php endif; ?>
 									</div> <!-- end .left-side -->
 									<div class="right-side-inner">

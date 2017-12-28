@@ -33,13 +33,11 @@
                             </div>
                             <button type="submit" class="button"><i class="ion-ios-search-strong"></i></button>
                         </form>
-                        <!-- end 
+
+                        
                         <div class="keywords flex">
-                            <h4 class="self-center">Từ khóa phổ biến :</h4>
-                            <a href="#0" class="button item-center">web design</a>
-                            <a href="#0" class="button item-center">accountant</a>
-                            <a href="#0" class="button item-center">car dealer</a>
-                        </div> .keywords -->
+        <h4 class="self-center"><a href="<?php echo base_url('ung-vien/dang-nhap'); ?>" class="button item-center"><i class="ion-ios-cloud-upload-outline"></i>  Tải lên hồ sơ của bạn</a></h4>
+                        </div> 
                         
                     </div> <!-- end .job-search-form -->    
                 </div> <!-- end .container -->

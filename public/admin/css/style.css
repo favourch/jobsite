@@ -2628,8 +2628,8 @@ ul.messagesList li {
 	-webkit-border-radius: 4px;
 	   -moz-border-radius: 4px;
 			border-radius: 4px;
-	padding: 5px 10px;
-	cursor: pointer;		
+	padding: 10px 10px;
+	border-bottom: 1px solid #ccc;		
 }
 
 ul.messagesList li .glyphicons{
@@ -2660,7 +2660,7 @@ ul.messagesList li span.from {
 
 ul.messagesList li span.title {
 	display: inline-block;
-	width: 55%;
+	width: 85%;
 	font-weight: 300;
 	white-space: nowrap;
 	overflow:hidden !important;

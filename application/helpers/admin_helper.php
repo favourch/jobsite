@@ -24,34 +24,34 @@ function yes_no($t=0, $v=2){
 
 function get_status($t=0,$v=0){
    if($v==0){
-      echo "<option value='1'>Active</option>";
-      echo "<option value='0'>Deactive</option>";
-      echo "<option value='2'>Hot</option>";
-      echo "<option value='3'>Recomment</option>";
+      echo "<option value='1'>Đã phê duyệt</option>";
+      echo "<option value='0'>Chưa phê duyệt</option>";
+      echo "<option value='2'>Việc làm hot</option>";
+      echo "<option value='3'>Việc làm gợi ý</option>";
    }
    else if($v==1){
-      echo "<option value='1' selected=''>Active</option>";
-      echo "<option value='0'>Deactive</option>";
-      echo "<option value='2'>Hot</option>";
-      echo "<option value='3'>Recomment</option>";
+      echo "<option value='1' selected=''>Đã phê duyệt</option>";
+      echo "<option value='0'>Chưa phê duyệt</option>";
+      echo "<option value='2'>Việc làm hot</option>";
+      echo "<option value='3'>Việc làm gợi ý</option>";
    }
    else if($v==2){
-      echo "<option value='1'>Active</option>";
-      echo "<option value='0'>Deactive</option>";
-      echo "<option value='2' selected=''>Hot</option>";
-      echo "<option value='3'>Recomment</option>";
+      echo "<option value='1'>Đã phê duyệt</option>";
+      echo "<option value='0'>Chưa phê duyệt</option>";
+      echo "<option value='2' selected=''>Việc làm hot</option>";
+      echo "<option value='3'>Việc làm gợi ý</option>";
    }
    else if($v==3){
-      echo "<option value='1'>Active</option>";
-      echo "<option value='0'>Deactive</option>";
-      echo "<option value='2'>Hot</option>";
-      echo "<option value='3' selected=''>Recomment</option>";
+      echo "<option value='1'>Đã phê duyệt</option>";
+      echo "<option value='0'>Chưa phê duyệt</option>";
+      echo "<option value='2'>Việc làm hot</option>";
+      echo "<option value='3' selected=''>Việc làm gợi ý</option>";
    }
    else{
-      echo "<option value='1'>Active</option>";
-      echo "<option value='0'>Deactive</option>";
-      echo "<option value='2'>Hot</option>";
-      echo "<option value='3'>Recomment</option>";
+      echo "<option value='1'>Đã phê duyệt</option>";
+      echo "<option value='0'>Chưa phê duyệt</option>";
+      echo "<option value='2'>Việc làm hot</option>";
+      echo "<option value='3'>Việc làm gợi ý</option>";
    }
 
 }
@@ -103,6 +103,31 @@ function get_adver_status($t=0,$v=0){
    }
 
 }
+
+function get_company_status($t=0,$v=0){
+   if($v==0){
+      echo "<option value='0' selected=''>Chưa kích hoạt</option>";
+      echo "<option value='1'>Đã kích hoạt</option>";
+      echo "<option value='2'>Khóa tài khoản</option>";
+   }
+   else if($v==1){
+      echo "<option value='0'>Chưa kích hoạt</option>";
+      echo "<option value='1' selected=''>Đã kích hoạt</option>";
+      echo "<option value='2'>Khóa tài khoản</option>";
+   }
+   else if($v==2){
+      echo "<option value='0'>Chưa kích hoạt</option>";
+      echo "<option value='1'>Đã kích hoạt</option>";
+      echo "<option value='2' selected=''>Khóa tài khoản</option>";
+   }
+   else{
+      echo "<option value='0' selected=''>Chưa kích hoạt</option>";
+      echo "<option value='1'>Đã kích hoạt</option>";
+      echo "<option value='2'>Khóa tài khoản</option>";
+   }
+   
+   }
+
 
 
 
