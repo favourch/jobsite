@@ -3,7 +3,7 @@
             <div class="inner">
                 <div class="container">
                     <div class="job-search-form">
-                        <h2></h2>
+                        <h3> <span>We care for your future</span></h3>
                         <form class="form-inline flex" method="GET" action="<?php echo base_url('home/find_jobs'); ?>">
                             <div class="form-group">
                                 <div class="form-group-inner">
@@ -31,7 +31,7 @@
                                 </select>
                             
                             </div>
-                            <button type="submit" class="button"><i class="ion-ios-search-strong"></i></button>
+                            <button type="submit" class="button"><i class="ion-ios-search-strong"></i> Tìm việc</button>
                         </form>
 
                         
