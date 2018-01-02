@@ -75,7 +75,7 @@
         <!-- Bootstrap -->
         <script src="<?php echo public_url(); ?>/site/js/bootstrap.min.js" ></script>
         <script src="<?php echo public_url(); ?>/site/js/bootstrap-datepicker.js" ></script>        
-        <script src="<?php echo public_url(); ?>/site/js/bootbox.min.js" ></script>
+       
         <!-- google maps -->
         <!-- Owl Carousel -->
         <script src="<?php echo public_url(); ?>/site/js/owl.carousel.min.js"></script>
@@ -100,7 +100,7 @@
         <!-- <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script> -->
         <script src="<?php echo public_url(); ?>/site/ckeditor/ckeditor.js"></script>
 
-
+        <?php if($this->uri->uri_string('nha-tuyen-dung/dang-tin')): ?>
         <script type="text/javascript">
             $(function() {				    				    
                 CKEDITOR.replace('profile');
@@ -109,6 +109,7 @@
                 CKEDITOR.replace('job_requirement');
             })
         </script>
+    <?php endif; ?>
 
 <script>
     $('.datepicker').datepicker({
