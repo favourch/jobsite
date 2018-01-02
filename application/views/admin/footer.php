@@ -17,7 +17,7 @@
 				// instance, using default configurations.
 				//CKEDITOR.config.height = 400;		
 	var editor = CKEDITOR.replace( 'editor1', {
-    height:400,
+    height:300,
 	filebrowserBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html',
     filebrowserImageBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Images',
     filebrowserFlashBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Flash',
@@ -39,7 +39,7 @@
 
 var editor = CKEDITOR.replace( 'editor3',
                 {
-                    height: 400,
+                    height: 300,
                     filebrowserBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html',
     filebrowserImageBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Images',
     filebrowserFlashBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Flash',
@@ -50,7 +50,7 @@ var editor = CKEDITOR.replace( 'editor3',
 
 var editor = CKEDITOR.replace( 'editor4',
                 {
-                    height: 400,
+                    height: 200,
                     filebrowserBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html',
     filebrowserImageBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Images',
     filebrowserFlashBrowseUrl : nvcms_url+ '/js/ckfinder/ckfinder.html?type=Flash',
@@ -82,9 +82,9 @@ var editor = CKEDITOR.replace( 'editor4',
 	<script src="<?php echo public_url(); ?>admin/js/jquery.flot.stack.js"></script>
 	<script src="<?php echo public_url(); ?>admin/js/jquery.flot.resize.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.chosen.min.js"></script>	
-		<!--
+	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.uniform.min.js"></script>	
-			-->
+			
 		<script src="<?php echo public_url(); ?>admin/js/jquery.cleditor.min.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.noty.js"></script>	
 		<script src="<?php echo public_url(); ?>admin/js/jquery.elfinder.min.js"></script>	

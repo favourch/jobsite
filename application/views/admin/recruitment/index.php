@@ -41,24 +41,45 @@
 						  <thead>
 							  <tr>
 							  	  <th><input type="checkbox" name="allbox" id="allbox" onclick="return check_all();" value=""></th>
-								  <th>Tiêu đề</th>
+								  <th>Thông tin việc làm</th>
 								  <th>Ngày cập nhật</th>
 								  <th>Số lượng tuyển</th>
-								  <th>Status</th>
+								  <th>Lượt xem</th>
+								  <th>Trạng thái</th>
 							  </tr>
 						  </thead>   
 						  <tbody>
 						 <?php foreach($list as $row) : ?>
+						 <?php $company = $this->member_company_model->get_info($row->company_id); ?>
 							<tr>
 								<td><input type="checkbox" name="id[]" value="<?php echo $row->id ?>"></td>
-								<td><?php echo $row->title; ?></td>
+								<td>
+								<div style="float:left; padding-right: 10px;">
+								<img src="<?php echo base_url('uploads/company/'.$company->logo_url); ?>" width="50">
+								</div>
+
+								<div style="float: left;">
+								<span style="color:#000;"><?php echo $row->title; ?></span><br>
+							<span style="color:#666; font-size: 11px;"><?php echo $company->company_name; ?></span><br>
+							<span style="color:#666; font-size: 11px;"><?php echo $company->company_address; ?></span><br>
+								</div>
+									
+								</td>
 								<td class="center"><?php echo int_to_date($row->start_date); ?></td>
 								<td class="center"><?php echo $row->amount; ?></td>
+								<td class="center"><?php echo $row->view; ?></td>
 								<td class="center">
 									<?php if($row->status==1): ?>
-									<span class="label label-success">Actived</span>
-								<?php else: ?>
-									<span class="label label-important">Offline</span>
+									<span class="label label-success">Đã phê duyệt</span>
+								<?php endif; ?>
+								<?php if($row->status==0): ?>
+									<span class="label">Chưa phê duyệt</span>
+								<?php endif; ?>
+								<?php if($row->status==2): ?>
+									<span class="label label-important">Việc làm hot</span>
+								<?php endif; ?>
+								<?php if($row->status==3): ?>
+									<span class="label label-warning">Việc làm gợi ý</span>
 								<?php endif; ?>
 								</td>
 								<td class="center">

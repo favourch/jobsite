@@ -5,6 +5,7 @@ Class Recruitment extends MY_Controller{
 		$this->load->model('recruitment_model');
 	}
 	function index(){
+		$this->load->model('member_company_model');
 		$this->load->library('pagination');
 		$total_row = $this->recruitment_model->get_total();
 		$this->data['total_row'] = $total_row;
@@ -49,6 +50,16 @@ Class Recruitment extends MY_Controller{
 			redirect(admin_url('recruitment'));
 		}
 		$this->data['info'] = $info;
+
+		//lấy ra danh mục việc làm
+		$this->load->model('career_model');
+		$listcareer = $this->career_model->get_list();
+		$this->data['listcareer'] = $listcareer;
+		//lấy ra danh mục việc làm
+		$this->load->model('city_model');
+		$listcity = $this->city_model->get_list();
+		$this->data['listcity'] = $listcity;
+
 		if($this->input->post()){
 			$this->form_validation->set_rules('title','Tiêu đề','required|min_length[6]');
 				if($this->form_validation->run()){
@@ -57,9 +68,21 @@ Class Recruitment extends MY_Controller{
 				$status = $this->input->post('status');
 				$cat_name = $this->input->post('cat_name');
 				$cat_name = slug($title);
+				$content = $this->input->post('content');
+				$job_requirement = $this->input->post('job_requirement');
+				$benefit = $this->input->post('benefit');
+				$profile = $this->input->post('profile');
+				$career_id = $this->input->post('career_id');
+				$city_id = $this->input->post('city_id');
 				$data = array(
 					'title'=> $title,
 					'cat_name' => $cat_name,
+					'content' =>$content,
+					'job_requirement' =>$job_requirement,
+					'benefit' => $benefit,
+					'profile' => $profile,
+					'career_id' => $career_id,
+					'city_id' => $city_id,
 					'status' => intval($status)
 					);
 				if($this->recruitment_model->update($id, $data)){
