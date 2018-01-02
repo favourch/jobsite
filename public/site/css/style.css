@@ -41,13 +41,10 @@
 * 39. Steps Progress Bar
 * 
 **/
-
 /* ==========================================================================
    01. General Styles
    ========================================================================== */
-
 /* ============== Typography ============== */
-
 /* @import url("../../../fonts.googleapis.com/css-family=Montserrat-300,400,500,700.css");
 @import url("../../../fonts.googleapis.com/css-family=Lato-100,300,400,500.css"); */
 body {
@@ -81,12 +78,10 @@ body {
 .titlepink{
 	color: #fc205b;
 	font-weight: bold;
-
 }
 .form-inner-update{
 	padding: 20px;
 }
-
 a {
 	
 	-webkit-transition: .3s;
@@ -116,7 +111,6 @@ h1,h2,h3,h4,h5,h6,p {
 	hyphens: auto;
 }
 p {
-
 }
 p.light {
 	color: #86a7fa;
@@ -365,7 +359,6 @@ h3.infocaca{
 		max-width: 20%;
 	}
 	.job-company-icon img{
-
 	}
 	.bookmarked-job-info{
 		width: 80%;
@@ -391,11 +384,9 @@ h3.infocaca{
 		margin-bottom: 24px;
 	}
 }
-
 /* ==========================================================================
    02. Alerts
    ========================================================================== */
-
 .alert {
 	/* font-size: 11px;
 	line-height: 24px;
@@ -403,7 +394,6 @@ h3.infocaca{
 	border-radius: 3;
 	margin-bottom: 32px;
 	font-weight: 700; */
-
 	position: fixed;
     z-index: 9999;
     top: 25.5%;
@@ -442,11 +432,9 @@ h3.infocaca{
 .alert-hide{
 	display: none;
 }
-
 /* ==========================================================================
    03. Buttons
    ========================================================================== */
-
 .button {
 	font-size: 13px;
 	font-weight: 700;
@@ -469,7 +457,6 @@ h3.infocaca{
 	box-shadow: 0px 0.9px 0.4px 0.4px rgba(116, 135, 183, 0.8);
 	z-index: 1;
 }
-
 .buttonpink {
 	font-size: 13px;
 	font-weight: 700;
@@ -492,7 +479,6 @@ h3.infocaca{
 	box-shadow: 0px 0.9px 0.4px 0.4px rgba(116, 135, 183, 0.8);
 	z-index: 1;
 }
-
 .button.white {
 	background: #fff;
 	color: #1650e3;
@@ -566,11 +552,9 @@ h3.infocaca{
 		margin-top: 20px;
 	}
 }
-
 /* ==========================================================================
    04. Forms
    ========================================================================== */
-
 input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]), select, textarea {
 	display: block;
 	width: 100%;
@@ -596,7 +580,6 @@ input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio])
 	color: #627199;
 }
 textarea {
-
 }
 .checkbox {
   padding-left: 20px;
@@ -682,11 +665,9 @@ select::-ms-expand {
 ::-webkit-search-results-decoration { 
 	display: none; 
 }
-
 /* ==========================================================================
    05. Header
    ========================================================================== */
-
 .header {
 	position: relative;
 	background: #fff;
@@ -713,9 +694,7 @@ select::-ms-expand {
 		flex-direction: row;
 	}
 }
-
 /* ============== Navigation ============== */
-
 .navigation {
 	position: relative;
 	font-size: 0;
@@ -759,9 +738,7 @@ select::-ms-expand {
     position: relative;
     right: -4px;
 }
-
 /* ============== Sub-Menu ============== */ 
-
 .main-nav ul>li ul {
 	opacity: 0;
 	filter: alpha(opacity=0);
@@ -833,15 +810,11 @@ select::-ms-expand {
 	-ms-transform: translateY(0);
 	transform: translateY(0);
 }
-
 /* ============== Login Button ============== */
-
 .header .right .button-group {
 	line-height: 0;
 }
-
 /* ============== Account Info ============== */
-
 .header .account-info-top .notification-icon {
     background: #dd4003;
     -webkit-align-self: center;
@@ -880,9 +853,7 @@ select::-ms-expand {
     width: 26px;
     height: 26px;
 }
-
 /* ============== Responsive Menu ============== */
-
 .responsive-menu-open {
 	font-size: 33px;
 	line-height: 70px;
@@ -1018,7 +989,6 @@ select::-ms-expand {
 		display: inline-block;
 	}
 }
-
 @media all and (max-width: 768px) {
 	.navigation .search-open, .responsive-menu-open, .navigation .cart-open {
 		line-height: 70px;
@@ -1032,7 +1002,6 @@ select::-ms-expand {
 		top: 21px;
 	}
 }
-
 /* ==========================================================================
    06. Sections
    ========================================================================== */
@@ -1125,26 +1094,26 @@ li.active{
     	text-align: center;
     }
 }
-
 /* ==========================================================================
    08. Hero Section
    ========================================================================== */
-
 /* ============== Job Search Form ============== */
-
 .hero-section .job-search-form {
 	padding: 187px 0;
 }
-.job-search-form h2 {
-	margin-bottom: 28px;
+.job-search-form h3 {
+	position:absolute;
+	padding-left:10px;
+	color:#FFF;
+	font-weight:bold;
 }
 .job-search-form h2>span {
 	font-size: 34px;
 	padding: 0 7px;
 }
 .job-search-form form {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px;
+    background: rgba(0,0,0,.65);
+    padding: 40px 10px 35px 10px;
     margin-bottom: 20px;
     border-radius: 3px;
 }
@@ -1167,11 +1136,12 @@ li.active{
 	line-height: 50px;
 }
 .job-search-form form .button {
-	font-size: 24px;
+	font-size: 18px;
 	border-radius: 4px;
-	padding: 11px 16px;
+	padding: 10px 16px;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	border:1px solid;
 }
 .job-search-form .keywords.flex {
 	-ms-flex-flow: row wrap;
@@ -1220,10 +1190,7 @@ li.active{
 		display: none;
 	}
 }
-
-
 /* ============== Features Bar ============== */
-
 .features-bar {
 	position: relative;
 	
@@ -1305,13 +1272,10 @@ li.active{
 		margin-top: 15px;
 	}
 }
-
 /* ==========================================================================
    09. Featured Jobs Section
    ========================================================================== */
-
 /* ============== Section Top Content ============== */
-
 .section-top-content {
 	margin-bottom: 30px;
 }
@@ -1339,9 +1303,7 @@ li.active{
 		margin-bottom: 15px;
 	}
 }
-
 /* ============== Featured Jobs Table ============== */
-
 .jobs-table {
 	background: #f0f3fa;
 	padding: 30px 20px;
@@ -1493,9 +1455,7 @@ li.active{
 		width: 50px;
 	}
 }
-
 /* ============== Job Type Buttons ============== */
-
 .button.full-time {
 	background: #9db723;
 }
@@ -1517,9 +1477,7 @@ li.active{
 .button.internship {
 	background: #03a2dd;
 }
-
 /* ============== Jobs Table Footer ============== */
-
 .jobs-table .table-footer {
 	margin-top: 20px;
 }
@@ -1527,9 +1485,7 @@ li.active{
     padding: 0 3px;
     color: #1650e3;	
 }
-
 /* ============== Jobs Custom Pager ============== */
-
 .jobpress-custom-pager {
 	line-height: 0;
 	margin: 0;
@@ -1556,7 +1512,6 @@ li.active{
 .jobpress-custom-pager .button:last-of-type {
 	margin-left: 15px;
 }
-
 @media all and (max-width: 768px) {
 	.jobpress-custom-pager {
 		margin-top: 25px;
@@ -1578,12 +1533,9 @@ li.active{
 		margin-left: 40px;
 	}
 }
-
-
 /* ==========================================================================
    10. Category Section
    ========================================================================== */
-
 .category-section {
 	position: relative;
 	overflow: hidden;
@@ -1634,7 +1586,6 @@ li.active{
 	top: -200px;
 	left: -2px;
 	bottom: 0;
-
 }
 .category-grid .category-row .item:last-of-type:after {
 	right: 0;
@@ -1671,11 +1622,9 @@ li.active{
 		margin: 0;
 	}
 }
-
 /* ==========================================================================
    11. Call To Action Section
    ========================================================================== */
-
 .cta-section h2 {
 	text-transform: uppercase;
 	margin-bottom: 4px;
@@ -1692,13 +1641,10 @@ li.active{
     -webkit-box-shadow: 0px 0.4px 0.5px 0.5px rgb(26, 26, 26);
     box-shadow: 0px 0.4px 0.5px 0.5px rgb(26, 26, 26);	
 }
-
 /* ==========================================================================
    12. Related/Latest/Recent News Grid
    ========================================================================== */
-
 /* ============== Blog Grid ============== */
-
 .news-grid .news-grid-row {
 	margin-bottom: 30px;
 }
@@ -1776,9 +1722,7 @@ li.active{
 		margin: 0;
 	}
 }
-
 /* ============== Blog Masonry Grid ============== */
-
 .news-masonry-grid-sizer {
 	width: 33.33%;
 }
@@ -1878,14 +1822,10 @@ li.active{
 		padding: 0;
 	}
 }
-
-
 /* ==========================================================================
    13. Clients Section
    ========================================================================== */
-
 /* ============== Version-1 ============== */
-
 .logo-grid-row .logo-item {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 14.53%;
@@ -1904,19 +1844,14 @@ li.active{
 		flex: 0;
 	}
 }
-
 /* ============== Version-2 ============== */
-
 .logo-grid-row .logo-item.solid-blue {
 	background: #0a42cd;
 	padding: 32px 10px;
 }
-
-
 /* ==========================================================================
    14. CTA App Section
    ========================================================================== */
-
 .cta-app-section-inner h2 {
     text-transform: uppercase;
     margin-bottom: 0;
@@ -1932,13 +1867,10 @@ li.active{
 	color: #fff;
 	border: none;
 }
-
 /* ==========================================================================
    15. Footer
    ========================================================================== */
-
 /* ============== Footer Top ============== */
-
 .footer .top {
 	position: relative;
 	padding: 20px 0;
@@ -1967,9 +1899,7 @@ li.active{
 		display: none;
 	}
 }
-
 /* ============== Footer Widgets ============== */
-
 .footer .footer-widgets {
 	padding: 42px 0;
 	font-weight: 400;
@@ -2041,9 +1971,7 @@ li.active{
 		flex-flow: column wrap;
 	}
 }
-
 /* ============== JobPress Social Icons ============== */
-
 .social-icons {	
 	font-size: 0;
 }
@@ -2064,9 +1992,7 @@ li.active{
 	margin: 0;
 	line-height: 31px;
 }
-
 /* ============== Subscribe Form ============== */
-
 .subscribe-form .form-group {
 	-webkit-box-flex: 1;
 	-ms-flex: 1 auto;
@@ -2094,9 +2020,7 @@ li.active{
 		margin-bottom: 0;
 	}
 }
-
 /* ============== Footer Bottom ============== */
-
 .footer .bottom {
 	padding: 30px 0;
 	position: relative;
@@ -2134,11 +2058,9 @@ li.active{
 		margin-bottom: 15px;
 	}
 }
-
 /* ==========================================================================
    16. Login/Signup Popup
    ========================================================================== */
-
 .login-signup-modal .modal-content {
     border-radius: 3px;
     border: none;	
@@ -2149,9 +2071,7 @@ li.active{
 .login-signup-modal .modal-body {
     padding: 20px 15px;	
 }
-
 /* ============== Tabs ============== */
-
 .login-signup-modal .popup-tabs {
     padding: 1px 1px 0;	
 }
@@ -2174,9 +2094,7 @@ li.active{
     border: none;
     border-bottom: 1px solid #1650e3;
 }
-
 /* ============== Form Labels and Fields ============== */
-
 .login-signup-modal .form-group {
 	margin-bottom: 13px;
 }
@@ -2252,9 +2170,7 @@ li.active{
 .login-signup-modal select.form-control:focus {
 	border: 1px solid #ededed;
 }
-
 /* ============== Divider Text ============== */
-
 .divider-text {
 	overflow: hidden;
 }
@@ -2277,9 +2193,7 @@ li.active{
 	left: 100%;
 	margin-left: 8px;
 }
-
 /* ============== Social Icons ============== */
-
 .social-buttons ul>li {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 32.6%;
@@ -2309,13 +2223,10 @@ li.active{
 		flex: 0;
 	}
 }
-
 /* ==========================================================================
    17. About Page
    ========================================================================== */
-
 /* ============== JobPress Dynamic Tabs  ============== */
-
 .jobpress-dynamic-tabs {
 	background: #f0f3fa;
 	border: none;
@@ -2370,11 +2281,9 @@ li.active{
 	    padding: 2px 6px 20px;
 	}
 }
-
 /* ==========================================================================
    18. Background Text
    ========================================================================== */
-
 .background-text {
     position: absolute;
     bottom: 0;
@@ -2387,7 +2296,6 @@ li.active{
 	margin: 0;
 	font-size: 144px;
 }
-
 /* ============== JobPress Dynamic Tabs Content ============== */
 .company-tab-content .core-values {
 	position: relative;
@@ -2488,11 +2396,9 @@ li.active{
 		margin-bottom: 15px;
 	}
 }
-
 /* ==========================================================================
    18. Team Members
    ========================================================================== */
-
 .team-members-inner-row .team-member {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 23%;
@@ -2560,11 +2466,9 @@ li.active{
 		flex: 100%;
 	}
 }
-
 /* ==========================================================================
    19. Spacer
    ========================================================================== */
-
 .spacer-xs {
 	padding-top: 10px;
 }
@@ -2585,11 +2489,9 @@ li.active{
 		padding-top: 35px;
 	}
 }
-
 /* ==========================================================================
    20. Map
    ========================================================================== */
-
 .map {
 	height: 600px;
 }
@@ -2597,13 +2499,10 @@ li.active{
 	height: 150px;
 	margin-bottom: 15px;
 }
-
 /* ==========================================================================
    21. Contact Us Page
    ========================================================================== */
-
 /* ============== Left / Right Sections ============== */
-
 .contact-us-section-inner>.left {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 30%;
@@ -2642,11 +2541,9 @@ li.active{
 		max-width: 100%;
 	}
 }
-
 /* ==========================================================================
   22. Contact Form
    ========================================================================== */
-
 .form-group-wrapper {
 	margin-bottom: 10px;
 }
@@ -2701,11 +2598,9 @@ li.active{
 		flex-basis: auto;
 	}
 }
-
 /* ==========================================================================
    23. Breadcrumb Bar
    ========================================================================== */
-
 .section.breadcrumb-bar>.inner {
 	padding: 10px 0;
 }
@@ -2760,9 +2655,7 @@ li.active{
 		margin: 0;
 	}
 }
-
 /* ============== Breadcumb Bar Dashboard ============== */
-
 .breadcrumb-info-dashboard h2 {
 	line-height: 28px;
 }
@@ -2775,11 +2668,9 @@ li.active{
 		text-align: center;
 	}	
 }
-
 /* ==========================================================================
   24. Pricing Plans 
    ========================================================================== */
-
 .pricing-plans-row .pricing-plan {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 32%;
@@ -2832,11 +2723,9 @@ li.active{
 .pricing-plan .button {
 	margin-bottom: 15px;
 }
-
 /* ==========================================================================
    25. Sort By Dropdown
    ========================================================================== */
-
 .sort-by .button {
 	background: #fff;
 	color: #627199;
@@ -2867,12 +2756,9 @@ li.active{
     right: 0;
     left: 57px;
 }
-
-
 /* ==========================================================================
    26. Candidates Listing Page 
    ========================================================================== */
-
 .page-content .left-content {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 73%;
@@ -2890,9 +2776,7 @@ li.active{
 	font-size: 14px;
 	color: #000;
 }
-
 /* ============== Candidate List ============== */
-
 .candidate {
 	background: #fff;
 	padding: 20px 20px 9px;
@@ -2988,9 +2872,7 @@ li.active{
 		padding: 0;
 	}
 }
-
 /* ============== Filter Sidebar ============== */
-
 .page-content .right-sidebar {
     -webkit-box-flex: 0;
     -ms-flex: 0 24%;
@@ -3007,11 +2889,9 @@ li.active{
 		margin: 0;
 	}
 }
-
 /* ==========================================================================
    27. Filter Widget 
    ========================================================================== */
-
 .right-sidebar .filter {
 	margin-bottom: 38px;
 }
@@ -3071,13 +2951,10 @@ li.active{
 	font-weight: 700;
 	color: #627199;
 }
-
 /* ==========================================================================
    28. Categories Page
    ========================================================================== */
-
 /* ============== Categories Icon Section ============== */
-
 .categories-icon-row .item {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 24%;
@@ -3124,7 +3001,6 @@ ul.list-unstyled li a{
 	font-weight: bold;
 }
 ul.list-unstyled li a span{
-
 }
 .item-text-content{
 	background: #fff;
@@ -3168,10 +3044,7 @@ ul.list-unstyled li a span{
 		padding: 0;
 	}
 }
-
-
 /* ============== Categories List Section ============== */
-
 .categories-list-wrapper .categories-list-heading {
     background: #f8f8f8;
     padding: 8px 20px;
@@ -3244,11 +3117,9 @@ ul.list-unstyled li a span{
 		padding-top: 20px;
 	}
 }
-
 /* ==========================================================================
    29. Progress Bars
    ========================================================================== */
-
 .progress-wrapper {
     margin: 0;
     background: #f0f3fa;
@@ -3316,14 +3187,10 @@ ul.list-unstyled li a span{
 		padding-top: 4px;
 	}
 }
-
 /* ==========================================================================
    30. Dashboard
    ========================================================================== */
-
-
 /* ============== Left Sidebar Menu ============== */
-
 .left-sidebar-menu {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 24%;
@@ -3398,9 +3265,7 @@ ul.list-unstyled li a span{
 		flex: 0;
 	}	
 }
-
 /* ============== Right Side Content ============== */
-
 .right-side-content {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 70%;
@@ -3426,9 +3291,7 @@ ul.list-unstyled li a span{
 		flex: 0;
 	}
 }
-
 /* ============== Profile Tab ============== */
-
 .profile-wrapper {
 	padding: 7px 30px 0;
 }
@@ -3582,9 +3445,7 @@ min-width: 19%;
 		padding: 30px 30px 0;
 	}
 }
-
 /* ============== Change Password Tab ============== */
-
 .password-form-wrapper {
 	padding: 0 30px;
 }
@@ -3633,11 +3494,9 @@ label>sup, .label>sup {
 		width: 100%;
 	}	
 }
-
 /* ==========================================================================
    31. Candidate Dashboard
    ========================================================================== */
-
 .right-side-content img {
 	border-radius: 5px;
 	width: 60px;
@@ -3653,9 +3512,7 @@ label>sup, .label>sup {
 .candidate-dashboard .jobpress-custom-pager {
 	margin-top: 40px;
 }
-
 /* ============== Candidates Avatar Images List ============== */
-
 .candidates-avatar>li {
     border-radius: 50%;
     position: relative;
@@ -3686,9 +3543,7 @@ label>sup, .label>sup {
     text-align: center;
     line-height: 30px;
 }
-
 /* ============== Bookmarked Jobs Tab ============== */
-
 .bookmarked-jobs-list-wrapper .bookmarked-job-wrapper {
     padding: 30px 30px 30px;
     border-bottom: 1px solid #ededed;
@@ -3866,9 +3721,7 @@ label>sup, .label>sup {
 		margin: 0;
 	}
 }
-
 /* ============== Job Alerts Tab ============== */
-
 .job-alert-table-headings {
     padding: 30px 30px 20px;
     border-bottom: 1px solid #ededed;
@@ -4031,9 +3884,7 @@ label>sup, .label>sup {
 		flex: 0;
 	}
 }
-
 /* ============== Manage applications Tab ============== */
-
 .job-applications-list-wrapper .job-application {
     padding: 30px;
     border-bottom: 1px solid #ededed;	
@@ -4097,9 +3948,7 @@ label>sup, .label>sup {
 		margin-bottom: 12px;
 	}	
 }
-
 /* ============== Notications Tab ============== */
-
 .notifications-list-wrapper .notification {
 	margin: 2px;
 	padding: 15px 30px;
@@ -4138,11 +3987,9 @@ label>sup, .label>sup {
 		margin-bottom: 7px;
 	}
 }
-
 /* ==========================================================================
    32. Employer Dashboard
    ========================================================================== */
-
 .right-side-content .employer-dashboard {
 	padding: 30px 0 0;
 }
@@ -4150,9 +3997,7 @@ label>sup, .label>sup {
 	background: #f8f8f8;
 	padding: 39px 0;
 }
-
 /* ============== Favorite Candidates Tab / Manage candidate application tab common css ============== */
-
 .candidate-name-cell {
     -webkit-box-flex: 0;
     -ms-flex: 0 35%;
@@ -4194,9 +4039,7 @@ label>sup, .label>sup {
 		align-items: flex-start;
 	}
 }
-
 /* ============== Favorite Candidates Tab ============== */
-
 .fav-candidates-table-headings {
     padding: 30px 30px 20px;
 }
@@ -4372,9 +4215,7 @@ label>sup, .label>sup {
 		flex: 0 100%;
 	}
 }
-
 /* ============== Manage Candidate Applications Tab ============== */
-
 .candidate-applications-table-headings {
     padding: 30px 30px 20px;
     border-bottom: 1px soild #ededed;
@@ -4499,9 +4340,7 @@ label>sup, .label>sup {
 		flex: 0 100%;
 	}
 }
-
 /* ============== Manage Posted Jobs Tab ============== */
-
 .posted-job-title-cell {
     -webkit-box-flex: 0;
     -ms-flex: 0 45%;
@@ -4712,13 +4551,10 @@ label>sup, .label>sup {
 		transform: none;
 	}
 }
-
 /* ==========================================================================
    33. Blog Archive Page
    ========================================================================== */
-
 /* ============== General ============== */
-
 .blog-left-side {
     -webkit-box-flex: 0;
     -ms-flex: 0 73%;
@@ -4737,9 +4573,7 @@ label>sup, .label>sup {
 		margin: 0;
 	}
 }
-
 /* ============== Blog Sidebar ============== */
-
 .blog-sidebar {
     -webkit-box-flex: 0;
     -ms-flex: 0 25%;
@@ -4762,11 +4596,8 @@ label>sup, .label>sup {
 		margin-top: 40px;
 	}
 }
-
 /* ============== Blog Widgets ============== */
-
 /* -- Search Form Widget -- */
-
 .input-group.search-form {
 	width: 100%;
 }
@@ -4778,7 +4609,6 @@ label>sup, .label>sup {
     font-size: 12px;
     line-height: 13px;
     -webkit-appearance: none;
-
 }
 .search-form button {
     position: absolute;
@@ -4795,9 +4625,7 @@ label>sup, .label>sup {
 		width: 50%;
 	}	
 }
-
 /* -- Recent Posts Widget -- */
-
 .recent-post {
 	margin-bottom: 20px;
 }
@@ -4823,9 +4651,7 @@ label>sup, .label>sup {
 .recent-post h4>a:hover {
 	color: #1650e3;
 }
-
 /* -- Categories Widget -- */
-
 .blog-categories>li>a {
     line-height: 19px;
     color: #627199;
@@ -4843,9 +4669,7 @@ label>sup, .label>sup {
 	padding-left: 3px;
 	color: #1650e3;
 }
-
 /* -- Tags Widget -- */
-
 .blog-tags>li {
 	line-height: 11px;
 }
@@ -4856,9 +4680,7 @@ label>sup, .label>sup {
 	padding: 5px 11px;
     font-size: 9px;	
 }
-
 /* -- Posts Archive Widget -- */
-
 .blog-archives>li>a {
     line-height: 19px;
     color: #627199;
@@ -4881,9 +4703,7 @@ label>sup, .label>sup {
 	font-size: 9px;
 	padding-left: 7px;
 }
-
 /* ============== Blog standard Layout ============== */
-
 .blog-standard {
 	margin-bottom: 40px;
 }
@@ -4928,9 +4748,7 @@ label>sup, .label>sup {
 		width: 70%;
 	}
 }
-
 /* ============== Blog standard Layout ============== */
-
 .blog-list .left-side {
     margin-right: 20px;
     width: 100%;
@@ -4972,24 +4790,18 @@ label>sup, .label>sup {
 		margin-bottom: 20px;
 	}
 }
-
 /* ==========================================================================
    34. Blog Single Page
    ========================================================================== */
-
 /* ============== Blog Featured Section ============== */
-
 /* -- Common CSS for all styles -- */
-
 .blog-featured-section {
 	position: relative;
 }
 .blog-featured-section>img {
 	width: 100%;
 }
-
 /* -- Featured Video Section -- */
-
 .blog-text-content-wrapper .container {
 	overflow: hidden;
 }
@@ -5075,9 +4887,7 @@ label>sup, .label>sup {
 		width: 70%
 	}
 }
-
 /* ============== Social Share Icons ============== */
-
 .social-share-wrapper {
 	margin-bottom: 30px;
 }
@@ -5109,9 +4919,7 @@ label>sup, .label>sup {
 		margin-bottom: 7px;
 	}
 }
-
 /* ============== Related Posts Blog Page ============== */
-
 .related-posts-wrapper {
 	margin: 60px 0;
 }
@@ -5136,9 +4944,7 @@ label>sup, .label>sup {
 		margin: 30px 0;
 	}
 }
-
 /* ============== Comment Section ============== */
-
 .comment-section-wrapper .left-side-wrapper {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 66%;
@@ -5197,9 +5003,7 @@ label>sup, .label>sup {
 	background: #f0f3fa;
 	width: 100%;
 }
-
 /* ============== Comment Form ============== */
-
 .comment-section-wrapper .right-side-wrapper {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 31%;
@@ -5247,9 +5051,7 @@ label>sup, .label>sup {
 		margin: 0;
 	}
 }
-
 /* ============== Blog Single With Sidebar ============== */
-
 .blog-single-section-sidebar-inner .comment-section-wrapper .left-side-wrapper, .blog-single-section-sidebar-inner .comment-section-wrapper .right-side-wrapper {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 100%;
@@ -5295,14 +5097,10 @@ label>sup, .label>sup {
 		flex: 0;
 	}
 }
-
-
 /* ==========================================================================
    35. Job Listings Page
    ========================================================================== */
-
 /* ============== Header - With Job Form Nested ============== */
-
 .header-inner.has-form .job-search-form {
 	margin-left: 35px;
 }
@@ -5355,9 +5153,7 @@ label>sup, .label>sup {
 		margin: 0;
 	}
 }
-
 /* ============== Header - Job Search Form ============== */
-
 .job-search-form.form-header {
 	width: 100%;
 }
@@ -5419,11 +5215,8 @@ label>sup, .label>sup {
     	margin: 0;	
 	}
 }
-
 /* ============== Job Listings Section ============== */
-
 /* -- Common CSS -- */
-
 .jobs-listing-section>.container-fluid {
 	padding: 0;
 }
@@ -5461,7 +5254,6 @@ label>sup, .label>sup {
 		display: none;
 	}	
 }
-
 @media all and (min-width: 768px) and (max-width: 1200px) {
 	.jobs-listing-wrapper .right-side {
 		-webkit-box-flex: 0;
@@ -5475,7 +5267,6 @@ label>sup, .label>sup {
 		flex: 0 70%;
 		max-width: 70%;
 	}
-
 }
 @media all and (max-width: 768px) {
 	.jobs-listing-wrapper .center-content-wrapper {
@@ -5488,9 +5279,7 @@ label>sup, .label>sup {
 		display: none;
 	}
 }
-
 /* ============== Left Side Job Widgets ============== */
-
 .jobs-listing-wrapper .left-side .jobs-widget {
 	padding: 35px 0;
 }
@@ -5500,9 +5289,7 @@ label>sup, .label>sup {
 .jobs-widget>h6 {
 	margin-bottom: 15px;
 }
-
 /* -- Statistics Widget -- */
-
 .statistics-widget {
 	margin-bottom: 12px;
 }
@@ -5529,9 +5316,7 @@ label>sup, .label>sup {
     text-transform: uppercase;
     margin: 0;	
 }
-
 /* -- Featured Jobs Widget -- */
-
 .featured-jobs-widget {
     border: 1px solid #ededed;
     border-radius: 3px;
@@ -5560,9 +5345,7 @@ label>sup, .label>sup {
     margin: 0;
     text-transform: uppercase;	
 }
-
 /* --Latest Updates Widget -- */
-
 .jobs-widget .latest-update {
 	margin-bottom: 25px;
 }
@@ -5601,9 +5384,7 @@ label>sup, .label>sup {
 .latest-update .right-side-inner h5:first-child {
 	padding-left: 0 !important;
 }
-
 /* ============== Center Content ============== */
-
 .sort-by-wrapper.on-listing-page {
 	padding: 0 40px;
 	margin-bottom: 30px;
@@ -5653,18 +5434,14 @@ label>sup, .label>sup {
 		margin-bottom: 15px;
 	}
 }
-
 /* ============== Right Side Content ============== */
-
 .jobs-listing-wrapper .right-side .jobs-widget {
 	margin-bottom: 30px;
 }
 .jobs-listing-wrapper .right-side .jobs-widget:last-of-type {
 	margin: 0;
 }
-
 /* --Job Categories Widget -- */
-
 .jobs-widget .checkbox label>span {
     font-size: 9px;
     color: #c4c9d6;
@@ -5680,9 +5457,7 @@ label>sup, .label>sup {
 	color: #627199;
 	cursor: pointer;
 }	
-
 /* -- CTA Job Widget -- */
-
 .cta-job-widget {
 	position: relative;
 	padding: 30px 0;
@@ -5714,11 +5489,9 @@ label>sup, .label>sup {
     margin-left: calc(-50vw + 50%);
     border: 1px solid #ededed;
 }
-
 /* ==========================================================================
    36. Job Details Page
    ========================================================================== */
-
 .jobs-details-section>.container-fluid {
 	padding: 0;
 }
@@ -5766,7 +5539,6 @@ label>sup, .label>sup {
     -ms-flex-item-align: start;
     align-self: flex-start;
 }
-
 .right-side-wrapper .right-side-bottom-wrapper {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 72%;
@@ -5841,9 +5613,7 @@ label>sup, .label>sup {
 		padding: 30px 15px;
 	}
 }
-
 /* ============== Similar Jobs ============== */
-
 .bookmarked-jobs-list-wrapper.on-job-detals-page>h3 {
 	padding: 0;
 	color: #a0a7ba;
@@ -5857,18 +5627,14 @@ label>sup, .label>sup {
 .bookmarked-jobs-list-wrapper.on-job-detals-page .bookmarked-job-wrapper {
 	padding: 0;
 }
-
 /* ============== Left Side Widgets ============== */
-
 .jobs-details-wrapper .jobs-widget {
 	padding: 30px 0;
 }
 .jobs-details-wrapper .jobs-widget:first-of-type {
 	padding-top: 0;
 }
-
 /* ============== Posted Job Details ============== */
-
 .right-side-wrapper .right-side-top>h6 {
     margin-bottom: 35px;
     color: #a0a7ba;
@@ -5976,9 +5742,7 @@ label>sup, .label>sup {
 		margin-bottom: 10px;
 	}
 }
-
 /* ============== Company Info Widget ============== */
-
 .job-post-company-info {
 	padding: 0 35px;
 	margin-bottom: 20px;
@@ -6078,11 +5842,9 @@ label>sup, .label>sup {
 		width: auto;
 	}
 }
-
 /* ==========================================================================
    37. Multisteps Form
    ========================================================================== */
-
 .multisteps-form fieldset:not(:first-of-type) {
 	display: none;
 }
@@ -6329,11 +6091,9 @@ h2.job-post-success {
 		margin-top: 5px;
 	}
 }
-
 /* ==========================================================================
    38. Help Page Tabs
    ========================================================================== */
-
 .help-tabs-section>.inner {
 	border-top: 1px solid #ededed;
 }
@@ -6372,9 +6132,7 @@ h2.job-post-success {
 		flex: 0;
 	} 
 }
-
 /* ============== Jobpress Accordion tabs ============== */
-
 .panel-group-wrapper {
 	margin-bottom: 45px;
 }
@@ -6417,11 +6175,9 @@ h2.job-post-success {
     border: none;
     padding: 20px 15px;
 }
-
 /* ==========================================================================
    38. Browse Companies page
    ========================================================================== */
-
 .companies-list-menu {
 	/*border-bottom: 1px solid #ededed;*/
 	margin-bottom: 40px;
@@ -6517,11 +6273,9 @@ h2.job-post-success {
 	    flex: 0 100%;
 	}	
 }
-
 /* ==========================================================================
    39. Steps Progress Bar
    ========================================================================== */
-
 .steps-progress-bar {
     max-width: 480px;
     margin: 0 auto;
@@ -6581,11 +6335,9 @@ h2.job-post-success {
 		display: none;
 	}
 }
-
 /* ==========================================================================
   	Fallback CSS For Safari browsers
    ========================================================================== */
-
 @media all and (max-width: 768px) {
 	.page-content .left-content, .page-content .right-sidebar, .jobs-listing-wrapper .center-content-wrapper, .jobs-details-wrapper .right-side-wrapper, .right-side-wrapper .job-post-wrapper, .right-side-wrapper .right-side-bottom-wrapper, .right-side-wrapper .right-side-inner, .form-group-wrapper.has-nested .form-group-wrapper, .table-cells .job-title-cell, .table-cells .job-type-cell, .table-cells .location-cell, .table-cells .expired-date-cell, .table-cells .salary-cell, .posted-job-title-cell, .posted-job-type-cell, .posted-job-candidates-cell, .posted-job-featured-cell, .posted-job-edit-cell, .candidate-name-cell, .candidate-job-cell, .candidate-resume-cell, .candidate-actions-cell, .candidate-skills-cell, .blog-left-side, .blog-sidebar, .news-grid-row .news-item, .blog-list .left-side, .blog-list .right-side, .blog-left-side, .blog-sidebar, .comment-section-wrapper .right-side-wrapper, .comment-section-wrapper .left-side-wrapper, .pricing-plans-row .pricing-plan {
 		-ms-flex-preferred-size: auto;
@@ -6606,18 +6358,15 @@ h2.job-post-success {
 	display: inline-block;
 	height: 35px;
 }
-
 .dropdown-content {
     display: none;
 	position: absolute;
 	background: #0c44d1;	
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
 	z-index: 1;
 	top: 35px;
 }
-
 .r-dropdown:hover .dropdown-content {
     display: block;
 }
@@ -6658,7 +6407,6 @@ h2.job-post-success {
 	background: #1b1b21;
 	color: #fff;
 }
-
 .candidate-register-wrapper{
 	background-color: #ffffff;
 	border-radius: 5px;
@@ -6683,7 +6431,6 @@ h2.job-post-success {
 .candidate-register-wrapper label{
 	color: #627199;
 }
-
 .Latest-jobs-section .nav.nav-tabs{
 	text-align: center;
 	border-bottom: none;
@@ -6724,4 +6471,12 @@ h2.job-post-success {
 	margin-bottom: 0;
 	font-size: 16px;
 	font-weight: bold;
+}
+.logohome{
+	width:80px;
+	height:80px;
+	float:left
+}
+.logohome img{
+	width:100%;
 }
