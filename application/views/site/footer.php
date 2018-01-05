@@ -100,6 +100,8 @@
         <!-- Scripts.js -->
         <!-- <script src="<?php echo public_url(); ?>/site/js/scripts.js"></script> -->
         <script src="<?php echo public_url(); ?>/site/ckeditor/ckeditor.js"></script>
+        <script src="<?php echo public_url(); ?>/site/js/slick.js" type="text/javascript" charset="utf-8"></script>
+        
 
         <?php if($this->uri->uri_string('nha-tuyen-dung/dang-tin')): ?>
         <script type="text/javascript">

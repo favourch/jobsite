@@ -23,6 +23,8 @@
         <link href="<?php echo public_url(); ?>/site/css/style.css" rel="stylesheet">
         <link href="<?php echo public_url(); ?>/site/css/datepicker.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/site/css/slick.css">
+         <link rel="stylesheet" type="text/css" href="<?php echo public_url(); ?>/site/css/slick-theme.css">
         
 
         

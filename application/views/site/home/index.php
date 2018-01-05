@@ -7,37 +7,34 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="http://lorempixel.com/1500/800/abstract/3/">
+			<img src="<?php echo public_url('site/images/background.jpg'); ?>">
 				<div class="container">
 					<div class="carousel-caption">
 					</div>
 				</div>
 			</div>
+
+			<?php foreach($slide_list as $row): ?>
 			<div class="item">
-				<img src="http://lorempixel.com/1500/800/abstract/1">
+				<img src="<?php echo base_url('uploads/slide/'.$row->image); ?>">
 					<div class="container">
 						<div class="carousel-caption">
 
 						</div>
 					</div>
 				</div>
-				<div class="item">
-					<img src="http://lorempixel.com/1500/800/abstract/2">
-						<div class="container">
-							<div class="carousel-caption">
+			<?php endforeach; ?>
 
-							</div>
-						</div>
-					</div>
 				</div>
+
 				<div class="container">
 					<div class="inline-search-form">
 
-						<form class="col-sm-12" id="searchForm"> 
+						<form class="col-sm-12" id="searchForm" method="GET" action="<?php echo base_url('home/find_jobs'); ?>"> 
 
 							<h3> <span>We care for your future</span></h3>
 
-							<div class="form-inline flex" method="GET" action="<?php echo base_url('home/find_jobs'); ?>">			
+							<div class="form-inline flex">			
 								<div class="form-group">
 									<div class="form-group-inner">
 										<input type="text" class="form-control" name="keyword" id="input-field-1" placeholder="Chức danh / Từ khóa / Tên công ty">
@@ -240,31 +237,27 @@
 														</div> <!-- end .inner --> 
 													</div> <!-- end .section -->
 
-													<!-- Clients Section -->
-													<div class="section clients-section solid-grey-bg">
-														<div class="inner">
-															<div class="container">
-																<h1 class="section-title">Nhà tuyển dụng nổi bật</h1>
+											
 
-																<div class="logo-grid">
-																	<div class="logo-grid-row flex space-between">
-																		<?php foreach($partners as $row): ?>
-																		<div class="logo-item">
-																			<a href="<?php echo $row->link; ?>" target="_blank"> <img src="<?php echo base_url('uploads/partner/'.$row->image); ?>"  alt="" title="<?php echo $row->name; ?>" class="img-responsive self-center"></a>
-																			</div> <!-- end .logo-item -->
-																			<?php endforeach; ?>
+<h1 class="section-title">Nhà tuyển dụng nổi bật</h1>
+<section class="regular slider">
+    <?php foreach($partners as $row): ?>
+    <div>
+      <img src="<?php echo base_url('uploads/partner/'.$row->image); ?>">
+    </div>
+    <?php endforeach; ?>
+  </section>	
 
-																		</div> <!-- end .logo-grid-row -->
-																	</div> <!-- end .logo-grid -->
-
-
-
-																</div> <!-- end .container -->
-															</div> <!-- end .inner -->
-
-
-
-														</div> <!-- end .section -->
-
-
-														
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 5,
+        autoplay: true,
+        slidesToScroll: 3
+      });
+      
+    });
+  </script>

@@ -56,11 +56,11 @@ Class Upload_library{
          //Định dạng file được phép tải
          $config['allowed_types'] = 'jpg|JPEG|png|gif|pdf';
          //Dung lượng tối đa
-         $config['max_size']      = '1000';
+         $config['max_size']      = '2000';
          //Chiều rộng tối đa
-         $config['max_width']     = '1300';
+         $config['max_width']     = '1600';
          //Chiều cao tối đa
-         $config['max_height']    = '600';
+         $config['max_height']    = '1000';
          return $config;
 	}
 }
