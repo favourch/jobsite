@@ -6546,7 +6546,7 @@ h2.job-post-success {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
 	flex-flow: row wrap;
-	top: 67%;
+	top: 60%;
 	position: absolute;
 }
 .inline-search-form .keywords h4 {
