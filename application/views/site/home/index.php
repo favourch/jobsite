@@ -237,8 +237,9 @@
 														</div> <!-- end .inner --> 
 													</div> <!-- end .section -->
 
-											
-
+<div class="section clients-section solid-grey-bg">
+<div class="inner">
+<div class="container">
 <h1 class="section-title">Nhà tuyển dụng nổi bật</h1>
 <section class="regular slider">
     <?php foreach($partners as $row): ?>
@@ -247,13 +248,18 @@
     </div>
     <?php endforeach; ?>
   </section>	
+</div>
+</div>
+</div>											
+
+
 
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
       $(".regular").slick({
-        dots: true,
-        infinite: true,
+        //dots: true,
+        // infinite: true,
         slidesToShow: 5,
         autoplay: true,
         slidesToScroll: 3
