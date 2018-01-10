@@ -59,6 +59,8 @@ Class Companies extends MY_Controller{
 				$contact_title = $this->input->post('contact_title');
 				$contact_email = $this->input->post('contact_email');
 				$contact_phone = $this->input->post('contact_phone');
+				$latitude = $this->input->post('latitude');
+				$longitude = $this->input->post('longitude');
 				//mã kích hoạt tài khoản
 				$activation=md5($email.time());
 				//lấy tên file ảnh, upload ảnh đại diện
@@ -85,6 +87,8 @@ Class Companies extends MY_Controller{
 					'contact_title' => $contact_title,
 					'contact_email' => $contact_email,
 					'contact_phone' => $contact_phone,
+					'latitude'=> $latitude,
+					'longitude'=>$longitude,
 					'token_key' => $activation,
 					'created' =>now()
 					);
