@@ -1,8 +1,11 @@
 <?php 
 Class Candidate extends MY_Controller{
+	public $userface = "";
+
 	function __construct(){
 		parent::__construct();
 		$this->load->model('member_candidate_model');
+		$this->load->library('facebook');
 	}
 
 	//kích hoạt tài khoản
@@ -57,6 +60,46 @@ Class Candidate extends MY_Controller{
 			}
 		}
 
+
+		//login bằng facebook
+		$userData = array();
+
+        // Check if user is logged in
+        if($this->facebook->is_authenticated()){
+            // Get user facebook profile details
+            $userProfile = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,gender,locale,picture');
+            pre($userProfile);
+            // Preparing data for database insertion
+            $userData['oauth_provider'] = 'facebook';
+            $userData['oauth_uid'] = $userProfile['id'];
+            $userData['first_name'] = $userProfile['first_name'];
+            $userData['last_name'] = $userProfile['last_name'];
+            $userData['email'] = $userProfile['email'];
+            $userData['gender'] = $userProfile['gender'];
+            $userData['locale'] = $userProfile['locale'];
+            $userData['profile_url'] = 'https://www.facebook.com/'.$userProfile['id'];
+            $userData['picture_url'] = $userProfile['picture']['data']['url'];
+
+            // Insert or update user data
+            $userID = $this->_get_emailinfo($userData['email']);
+
+            // Check user data insert or update status
+            if(!empty($userID)){
+                $data['userData'] = $userData;
+                $this->session->set_userdata('userData',$userData);
+            }else{
+               $data['userData'] = array();
+            }
+
+            // Get logout URL
+            $this->data['logoutUrl'] = $this->facebook->logout_url();
+        }else{
+            $fbuser = '';
+
+            // Get login URL
+            $this->data['authUrl'] =  $this->facebook->login_url();
+        }
+
 		$this->data['temp'] = 'site/candidate/login';
 		$this->load->view('site/layout',$this->data);
 	}
@@ -67,6 +110,12 @@ Class Candidate extends MY_Controller{
 		$password = $this->input->post('password');
 		$password = md5($password);
 		$where = array('email'=>$email, 'password'=>$password, 'status'>=1);
+		$user = $this->member_candidate_model->get_info_rule($where);
+		return $user;
+	}
+	private function _get_emailinfo(){
+		$email = $this->input->get('email');
+		$where = array('email'=>$email);
 		$user = $this->member_candidate_model->get_info_rule($where);
 		return $user;
 	}

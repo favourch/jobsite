@@ -40,6 +40,10 @@
 						<div class="form-group-wrapper flex space-between items-center">
 						<div class="form-group">
 						<input type="submit" class="button" value="Đăng nhập" style="width: 100%;">
+
+<?php echo "<a href='$authUrl' class='button'>Login bằng facebook</a>"; ?>
+
+
 						</div>	
 						</div>						
 						
