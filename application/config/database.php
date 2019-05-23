@@ -72,13 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'megajob',
+	'hostname' => 'us-cdbr-iron-east-02.cleardb.net',
+	'username' => 'be95f93d13ea7b',
+	'password' => 'eeee92a7',
+	'database' => 'heroku_db3a3522d7fc5a9',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
